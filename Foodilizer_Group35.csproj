@@ -10,4 +10,9 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\store_front\" />
+    <Folder Include="Views\store_front\" />
+  </ItemGroup>
+
 </Project>
