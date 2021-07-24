@@ -163,8 +163,8 @@ p {
 }
 
 .wrapper {
-  padding-top: 8.25rem;
-  padding-bottom: 8.25rem;
+  padding-top: 5.25rem;
+  padding-bottom: 5.25rem;
 }
 
 .text-content {
@@ -240,7 +240,7 @@ footer section Design
 
     .footer .footer-link {
         font-size: 1rem;
-        color: var(--white-color);
+        color: black;
         padding: 0 1.875rem;
     }
 
@@ -361,6 +361,36 @@ footer section Design
             margin-left: 0.5rem;
         }
 
+
+
+
+
+/* Form Control */
+.newsletter {
+    width: 65%;
+    margin: 0 auto;
+}
+
+    .newsletter .form-control {
+        height: 3.225rem;
+        padding: 0 1.25rem;
+        font-size: 0.875rem;
+        width: 100%;
+        border: none;
+        border-radius: 0;
+        background: transparent;
+        border: 0.1875rem solid var(--text-gray);
+        color: var(--black-color);
+        font-weight: 700;
+        margin-bottom:10px;
+    }
+
+        .newsletter .form-control:hover,
+        .newsletter .form-control:focus {
+            outline: none;
+            box-shadow: none;
+            border-color: var(--primary-color);
+        }
 
 
 
