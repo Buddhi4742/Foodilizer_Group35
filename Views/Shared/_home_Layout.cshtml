@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-       <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+       <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                    <img class="title-logo img-fluid d-inline" src="~/resources/images/logo.png" width="160" />
@@ -19,7 +19,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1 ml-auto">
+                    <ul class="navbar-nav ml-auto nav-btn-list">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
@@ -30,9 +30,10 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Have a Business to register?</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy"><div class="btn btn-primary lo">Login</div></a> 
+                            <a class="nav-link login-btn text-dark" asp-area="" asp-controller="Home" asp-action="Privacy"><div class="btn btn-primary login-btn ">Login</div></a>
                         </li>
                     </ul>
+                    
                 </div>
             </div>
         </nav>

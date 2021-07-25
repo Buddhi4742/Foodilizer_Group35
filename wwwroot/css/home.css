@@ -7,15 +7,22 @@ for details on configuring this project to bundle and minify static web assets. 
     
     top: 0;
 }
+.navbar-nav .nav-btn-list {
+    justify-content: flex-end;
+}
+.login-btn {
+    padding: 4px 20px;
+}
+
 
 
 a .navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-  padding:0px;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+    padding: 0px;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
 }
 
 /* Provide sufficient contrast against white background */
