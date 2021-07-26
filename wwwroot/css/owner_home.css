@@ -24,6 +24,17 @@ a:hover {
     a:hover {
         color: black !important;
     }
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+
+
+
 
 ul,
 ol {
@@ -43,14 +54,27 @@ ol {
     --secondry-font: 'Quicksand', sans-serif;
 }
 
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+
+
+
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  font-family: var(--primary-font);
-  font-size: 100%;
-  font-weight: 400;
+    font-family: var(--primary-font);
+    font-size: 100%;
+    font-weight: 400;
+    margin-bottom: 60px;
 }
 
 /*
@@ -184,40 +208,42 @@ p {
    Header Design
 ==========================================
 */
-.navigation-wrap {
+.navbar.navbar-expand-sm {
     position: fixed;
     width: 100%;
     left: 0;
+    margin-bottom:25px;
     z-index: 1000;
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
     background-color: #3AAFA9;
-} 
-.navigation-wrap .nav-item{
-  padding:0 0.625rem;
-  transition:all 200ms linear;
 }
-.navbar-toggler:focus{
-  outline:unset;
-  border:unset;
-  box-shadow: none;
+
+    .navigation-wrap .nav-item {
+        padding: 0 0.625rem;
+        transition: all 200ms linear;
+    }
+
+.navbar-toggler:focus {
+    outline: unset;
+    border: unset;
+    box-shadow: none;
 }
-.nav-link{
-  font-size:0.9375rem;
-  font-weight: 600;
-  text-transform: capitalize;
-  color:white;
-  letter-spacing: 1px;
+
+.nav-link {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: white;
+    letter-spacing: 1px;
 }
-.navigation-wrap .main-btn{
-  padding:0.3125rem 1.4375rem;
-  box-shadow: none;
-  margin-left:0.625rem;
-} 
+
+
 
 /* Change navbar styling on scroll */
 
-.navigation-wrap.scroll-on {
+/*
+nav.scroll-on {
     position: fixed;
     top: 0;
     left: 0;
@@ -226,7 +252,7 @@ p {
     box-shadow: 0 0.125rem 1.75rem 0 rgb(0,0,0,0.09);
     transition: all .15s ease-in-out 0s;
 }
-
+*/
 
 
 
@@ -237,6 +263,7 @@ footer section Design
 */
 .footer {
     background: #3AAFA9;
+    position:absolute;
 }
 
     .footer .footer-link {
@@ -442,7 +469,8 @@ Responsive Design================= -->
 
 
     /* navbar brand */
-    .navigation-wrap .navbar-brand img {
+   
+    .navbar-brand img {
         height: 3.8125rem;
     }
 
