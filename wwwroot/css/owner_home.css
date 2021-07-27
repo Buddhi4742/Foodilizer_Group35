@@ -68,6 +68,7 @@ html {
     scroll-behavior: smooth;
     position: relative;
     min-height: 100%;
+
 }
 
 body {
@@ -215,7 +216,9 @@ p {
     background-color: #1b6ec2;
     border-color: #1861ac;
 }
-
+.nav-item{
+    align-items:flex-end;
+}
 
 /* Change navbar styling on scroll */
 
@@ -229,27 +232,24 @@ p {
 footer section Design
 ==========================================
 */
+
+
+  
+
+
 .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
     background: #3AAFA9;
-    position:absolute;
 }
-
-    .footer .footer-link {
-        font-size: 1rem;
-        color: black;
-        padding: 0 1.875rem;
-    }
-
-        .footer .footer-link:hover {
-            color: var(--white-color) !important;
-        }
-
     .footer a i {
         font-size: 1.5rem;
         color: black;
         padding: 0 1rem;
     }
-
 
 
 
@@ -390,6 +390,7 @@ footer section Design
 .newsletter {
     width: 65%;
     margin: 0 auto;
+    margin-bottom: 80px;
 }
 
     .newsletter .form-control {
@@ -437,20 +438,20 @@ Responsive Design================= -->
 
 
     /* navbar brand */
-   
+
     .navbar-brand img {
         height: 3.8125rem;
     }
 
 
-        .navigation-wrap .nav-link {
-            line-height: 1.875rem;
-        }
+    .navigation-wrap .nav-link {
+        line-height: 1.875rem;
+    }
     /* Banner Design */
     .top-banner {
         padding: 9.375rem 0 9.375rem;
     }
-
+}
     
 @media (max-width: 767px) {
 
@@ -496,3 +497,12 @@ Responsive Design================= -->
         padding: 0 0.7rem;
     }
 }
+
+@media (max-width:330px) {
+
+    /* carousel design */
+    .testimonial-section .carousel-item {
+        padding: 13rem 3.125rem;
+    }
+}
+      

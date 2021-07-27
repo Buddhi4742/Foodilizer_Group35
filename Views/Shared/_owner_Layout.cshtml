@@ -18,27 +18,30 @@
 
     <!-- header design -->
 
-        <header>
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-                <div class="container">
-                    <a class="navbar-brand"><img src="~/lib/owner_img/logo.png" width="100" height="30"></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Owner" asp-action="owner_home">Restaurant</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Owner" asp-action="#"><button class="main-btn">Login</button></a>
-                            </li>
-                        </ul>
-                    </div>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand"><img src="~/lib/owner_img/logo.png" width="100" height="30"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex  justify-content-between">
+                    <ul class="navbar-nav navbar-right flex-grow-1 ">
+                      
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Owner" asp-action="owner_home">Restaurant</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Owner" asp-action="#">
+                                <button class="main-btn">Login</button>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-            </nav>
-        </header>
+            </div>
+        </nav>
+    </header>
 
 
 
@@ -48,8 +51,8 @@
 
 
 
-       
-    
+
+
 
     <div class="container">
         <main role="main" class="pb-3">
@@ -60,37 +63,47 @@
 
 
 
-    <!-- section-9 footer-->
-    <footer id="footer">
-        <div class="footer py-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <img src="~/lib/owner_img/logo.png"  width="100" height="50"/>
-                        <a class="footer-link" href="#">Register</a>
-                        <a class="footer-link" href="#">About Us</a>
-                        <a class="footer-link" href="#">Packages</a>
-                        <a class="footer-link" href="#"></a>
-                        <div class="footer-social pt-4 text-center">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="footer-copy">
-                            <div class="copy-right text-center pt-5">
-                                <p class="text-gray">© 2021. Foodilizer. All rights reserved.</p>
-                            </div>
-                        </div>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            <div class="col-md-12 text-center">
+                <img src="~/lib/owner_img/logo.png" width="100" height="50" />
+                <a class="footer-link" href="#">Register</a>
+                <a class="footer-link" href="#">About Us</a>
+                <a class="footer-link" href="#">Packages</a>
+                <a class="footer-link" href="#"></a>
+                <div class="footer-social pt-4 text-center">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-dribbble"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="footer-copy">
+                    <div class="copy-right text-center pt-5">
+                        <p class="text-gray">© 2021. Foodilizer. All rights reserved.</p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
