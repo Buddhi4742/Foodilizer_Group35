@@ -208,7 +208,7 @@ p {
     background-color: #3AAFA9;
 }
 
-.navigation-wrap .nav-item {
+..navbar.navbar-expand-sm .nav-item {
     padding: 0 0.625rem;
     transition: all 200ms linear;
 }
@@ -227,7 +227,7 @@ p {
     letter-spacing: 1px;
 }
 
-.navigation-wrap .main-btn {
+.navbar.navbar-expand-sm .main-btn {
     padding: 0.3125rem 1.4375rem;
     box-shadow: none;
     margin-left: 0.625rem;
@@ -236,7 +236,7 @@ p {
 /* Change navbar styling on scroll */
 
 
-nav.scroll-on {
+.navbar.navbar-expand-sm.scroll-on {
     position: fixed;
     top: 0;
     left: 0;
@@ -307,9 +307,7 @@ footer section Design
 /* ===============
 Responsive Design================= -->
 */
-@media (max-width:1024px) {
-    /* about section */
-}
+
 
 @media (max-width: 991px) {
 
@@ -333,15 +331,7 @@ Responsive Design================= -->
         .navigation-wrap .nav-link {
             line-height: 1.875rem;
         }
-    /* Banner Design */
-    .top-banner {
-        padding: 9.375rem 0 9.375rem;
-    }
-
-    /* carousel design */
-    .testimonial-section .carousel-item .carousel-caption p {
-        padding: 0;
-    }
+   
 }
 
 @media (max-width: 767px) {
@@ -357,45 +347,11 @@ Responsive Design================= -->
     }
 
 
-    /* top banner */
-    .top-banner {
-        padding: 10.875rem 0 9.375rem;
-    }
-
-
-    /* story section */
-    .story-section {
-        height: auto;
-        padding: 3rem 0;
-    }
-
-
-    /* carousel design */
-    .testimonial-section .carousel-item {
-        padding: 11rem 3.125rem;
-    }
-
-    /* newslettar */
-    .newsletter {
-        width: 75%;
-    }
-
-        .newsletter .main-btn {
-            width: 100%;
-            margin-top: 1rem;
-        }
+   
 
     /* footer link */
     .footer .footer-link,
     .footer a i {
         padding: 0 0.7rem;
-    }
-}
-
-@media (max-width:330px) {
-
-    /* carousel design */
-    .testimonial-section .carousel-item {
-        padding: 13rem 3.125rem;
     }
 }

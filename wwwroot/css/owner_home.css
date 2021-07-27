@@ -205,54 +205,22 @@ p {
 
 /*
 ==========================================
+
    Header Design
 ==========================================
 */
-.navbar.navbar-expand-sm {
-    position: fixed;
-    width: 100%;
-    left: 0;
-    margin-bottom:25px;
-    z-index: 1000;
-    -webkit-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-    background-color: #3AAFA9;
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
-
-    .navigation-wrap .nav-item {
-        padding: 0 0.625rem;
-        transition: all 200ms linear;
-    }
-
-.navbar-toggler:focus {
-    outline: unset;
-    border: unset;
-    box-shadow: none;
-}
-
-.nav-link {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    text-transform: capitalize;
-    color: white;
-    letter-spacing: 1px;
-}
-
 
 
 /* Change navbar styling on scroll */
 
-/*
-nav.scroll-on {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #3AAFA9;
-    box-shadow: 0 0.125rem 1.75rem 0 rgb(0,0,0,0.09);
-    transition: all .15s ease-in-out 0s;
-}
-*/
+
+
 
 
 
@@ -474,10 +442,6 @@ Responsive Design================= -->
         height: 3.8125rem;
     }
 
-    .navigation-wrap {
-        text-align: center;
-        background-color: var(--white-color);
-    }
 
         .navigation-wrap .nav-link {
             line-height: 1.875rem;
@@ -487,12 +451,7 @@ Responsive Design================= -->
         padding: 9.375rem 0 9.375rem;
     }
 
-    /* carousel design */
-    .testimonial-section .carousel-item .carousel-caption p {
-        padding: 0;
-    }
-}
-
+    
 @media (max-width: 767px) {
 
     /* custom css */
@@ -519,10 +478,7 @@ Responsive Design================= -->
     }
 
 
-    /* carousel design */
-    .testimonial-section .carousel-item {
-        padding: 11rem 3.125rem;
-    }
+    
 
     /* newslettar */
     .newsletter {
@@ -538,13 +494,5 @@ Responsive Design================= -->
     .footer .footer-link,
     .footer a i {
         padding: 0 0.7rem;
-    }
-}
-
-@media (max-width:330px) {
-
-    /* carousel design */
-    .testimonial-section .carousel-item {
-        padding: 13rem 3.125rem;
     }
 }
