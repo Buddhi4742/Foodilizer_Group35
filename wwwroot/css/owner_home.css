@@ -119,7 +119,7 @@ h2 {
 }
 
 h4 {
-  color: var(--secondry-color);
+  color: Black;
   font-family: var(--secondry-font);
   text-transform: capitalize;
   font-size: 18px;
@@ -213,7 +213,7 @@ p {
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #fff;
-    background-color: #1b6ec2;
+    background-color: #3AAFA9;
     border-color: #1861ac;
 }
 .nav-item{
@@ -242,7 +242,7 @@ footer section Design
     bottom: 0;
     width: 100%;
     white-space: nowrap;
-    line-height: 60px; /* Vertically center the text there */
+    line-height: 50px; /* Vertically center the text there */
     background: #3AAFA9;
 }
     .footer a i {
@@ -415,6 +415,20 @@ footer section Design
         }
 
 
+/*Register form*/
+
+.register {
+    margin-bottom: 200px;
+    background-color:#DEF2F1;
+   border-radius:10px;
+
+  
+}
+
+    .register .form-control {
+    
+       margin-left:2px;
+    }
 
 
 
@@ -422,12 +436,21 @@ footer section Design
 
 
 
-/* ===============
+
+
+
+
+
+
+
+
+
+    /* ===============
 Responsive Design================= -->
 */
-@media (max-width:1024px) {
-    /* about section */
-}
+    @media (max-width:1024px) {
+        /* about section */
+    }
 
 @media (max-width: 991px) {
 
