@@ -23,5 +23,14 @@ namespace Foodilizer_Group35.Controllers
             return View();
         }
 
+        public IActionResult silver_home()
+        {
+            return View();
+        }
+        public IActionResult gold_home()
+        {
+            return View();
+        }
+
     }
 }

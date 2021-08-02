@@ -1,10 +1,10 @@
 ﻿@{
-    ViewData["Title"] = "Bronze Home Page";
+    ViewData["Title"] = "Gold Home Page";
     Layout = "~/Views/Shared/_home_Layout.cshtml";
 }
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="~/css/store_front/bronze_home.css">
+<link rel="stylesheet" href="~/css/store_front/gold_home.css">
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
 @section scripts
@@ -23,13 +23,13 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="https://speisekarte.menu/storage/media/company_images/1291999/75imageslim-1531908543.jpg" alt="First slide">
+                        <img class="d-block w-100" src="~/lib/images/store_front_images/rpc1.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="https://www.pinetreebarn.com/sites/default/files/styles/inside_slide/public/_MG_9793.jpg" alt="Second slide">
+                        <img class="d-block w-100" src="~/lib/images/store_front_images/rpc2.jpg" alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="http://www.airportinn-ned.com/images/skybar.jpg" alt="Third slide">
+                        <img class="d-block w-100" src="~/lib/images/store_front_images/rpc3.jpg" alt="Third slide">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -45,152 +45,234 @@
         <div class="col-4">
             <div class="shadow-lg rounded">
                 <div class="card bg-light mb-3" style="max-width: 38rem;">
-                    <div class="card-header">
 
-
-                        <div class="rating-topic ">Ratings and Reviews</div>
-                        <div class="circles"> <b> 5.0 <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;49 reviews</b></div>
-                        <div class="rank"><b>#2</b> of 14 indian in Galle<br /><b>#33</b> of 114 Restaurants in Galle</div>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">RATINGS</h5>
-                        <p class="card-text">
-                            <ul style="list-style: none; padding-left:0;">
-                                <li><i class="fa fa-utensils-alt"></i>&nbsp; Food <i class="ratecircles"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></i></li>
-                                <li><i class="fa fa-concierge-bell"></i>&nbsp; Service <i class="ratecircles"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></i></li>
-                                <li><i class="fa fa-money-check-alt"></i>&nbsp; Value <i class="ratecircles"><i class="fa fa-star-half-alt"> </i><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></i> </li>
-                            </ul>
-                        </p>
-                    </div>
+                    <img src="~/lib/images/store_front_images/proban.jpg" />
 
                 </div>
             </div>
-        </div>
+            
+            </div>
 
-        <div class="best col-8 ">
-            <div class="best_selection col-12">
-                Our Best Selections
-                <div id="carouselcards" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="cards-wrapper">
-                                <div class="card d-none d-md-block">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC9WH_veLVByUMPhEyNUhoFZuuw5J5KXGm4tcOV3x_2w_qyFGH4FYC2C7NbF6OXCJS5PywfrQMfeYR3g&usqp=CAU" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Burgers</h5>
+            <div class="best col-8 ">
+                <div class="best_selection col-12">
+                    Recommended for you
+                    <div id="rcarouselcards" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="cards-wrapper">
+                                    <div class="card d-none d-md-block">
+                                        <img src="~/lib/images/store_front_images/fc1.jfif" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Burgers</h5>
 
+                                        </div>
+                                    </div>
+                                    <div class="card d-none d-md-block">
+                                        <img src="~/lib/images/store_front_images/fc2.jfif" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Milk Shake</h5>
+
+                                        </div>
+                                    </div>
+                                    <div class="card d-none d-md-block">
+                                        <img src="~/lib/images/store_front_images/fc3.jfif" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Pizza</h5>
+
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="card d-none d-md-block">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLfuGRrI5iyYqRSgmyYRVJHjkUV-sLbvsi8tVLwQE538DdPJzO4jr_iS5Pl8M9jH20lrw&usqp=CAU" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Milk Shake</h5>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="cards-wrapper">
+                                    <div class="card">
+                                        <img src="~/lib/images/store_front_images/fc4.webp" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">French Fries</h5>
 
+                                        </div>
+                                    </div>
+                                    <div class="card d-none d-md-block">
+                                        <img src="~/lib/images/store_front_images/fc5.webp" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Fried Rice</h5>
+
+                                        </div>
+                                    </div>
+                                    <div class="card d-none d-md-block">
+                                        <img src="~/lib/images/store_front_images/fc6.jfif" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Kottu</h5>
+
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="card d-none d-md-block">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4xHHHufOwl6MtC0eAl61XO3mi5Dtd97FbAJ7g3GnSifEwwARw6lKyyZWENLmzZ_jcN6Q&usqp=CAU" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Pizza</h5>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="cards-wrapper">
+                                    <div class="card">
+                                        <img src="~/lib/images/store_front_images/fc7.jfif" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Cake</h5>
 
+                                        </div>
+                                    </div>
+                                    <div class="card d-none d-md-block">
+                                        <img src="~/lib/images/store_front_images/fc8.jfif" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Ice Cream</h5>
+
+                                        </div>
+                                    </div>
+                                    <div class="card d-none d-md-block">
+                                        <img src="~/lib/images/store_front_images/fc9.webp" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Pasta</h5>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <div class="cards-wrapper">
-                                <div class="card">
-                                    <img src="https://c.ndtvimg.com/french-fries_625x300_1528454061766.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">French Fries</h5>
+                        <a class="carousel-control-prev" href="#rcarouselcards" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
 
-                                    </div>
-                                </div>
-                                <div class="card d-none d-md-block">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxkuI_dZ_eAHMrkFAD0wkJO0OT4_K9FcNdSxTMcguXQ4-krE5npt8tz47NpDHMsuh1oGT8ZFB5sVWWPA&usqp=CAU" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Fried Rice</h5>
-
-                                    </div>
-                                </div>
-                                <div class="card d-none d-md-block">
-                                    <img src="data:image/jpeg;base64,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" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Kottu</h5>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="cards-wrapper">
-                                <div class="card">
-                                    <img src="data:image/jpeg;base64,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" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Cake</h5>
-
-                                    </div>
-                                </div>
-                                <div class="card d-none d-md-block">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkHWYWUCdcTNhn8Lms4FuNPFaiA0_S0qPukuBA9AaRrHHIN7EeIyXQ5yulYXX3d65uvS8&usqp=CAU" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ice Cream</h5>
-
-                                    </div>
-                                </div>
-                                <div class="card d-none d-md-block">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2W0DQ5ta2bMBP7nK49F0U3xQnIa-UK4RvZn-9Ps9WgFu25sCblEAXibDmi-W5WoEQVs-BAFhUNe6cQQ&usqp=CAU" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Pasta</h5>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <a class="carousel-control-next" href="#rcarouselcards" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselcards" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
 
-                    <a class="carousel-control-next" href="#carouselcards" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+                    <div class="recommendation">Our Best Selections</div>
+                    <div id="carouselcards" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="cards-wrapper">
+                                    <div class="card d-none d-md-block">
+                                        <img src="~/lib/images/store_front_images/fc1.jfif" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Burgers</h5>
+
+                                        </div>
+                                    </div>
+                                    <div class="card d-none d-md-block">
+                                        <img src="~/lib/images/store_front_images/fc2.jfif" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Milk Shake</h5>
+
+                                        </div>
+                                    </div>
+                                    <div class="card d-none d-md-block">
+                                        <img src="~/lib/images/store_front_images/fc3.jfif" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Pizza</h5>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="cards-wrapper">
+                                    <div class="card">
+                                        <img src="~/lib/images/store_front_images/fc4.webp" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">French Fries</h5>
+
+                                        </div>
+                                    </div>
+                                    <div class="card d-none d-md-block">
+                                        <img src="~/lib/images/store_front_images/fc5.webp" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Fried Rice</h5>
+
+                                        </div>
+                                    </div>
+                                    <div class="card d-none d-md-block">
+                                        <img src="~/lib/images/store_front_images/fc6.jfif" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Kottu</h5>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="cards-wrapper">
+                                    <div class="card">
+                                        <img src="~/lib/images/store_front_images/fc7.jfif" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Cake</h5>
+
+                                        </div>
+                                    </div>
+                                    <div class="card d-none d-md-block">
+                                        <img src="~/lib/images/store_front_images/fc8.jfif" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Ice Cream</h5>
+
+                                        </div>
+                                    </div>
+                                    <div class="card d-none d-md-block">
+                                        <img src="~/lib/images/store_front_images/fc9.webp" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Pasta</h5>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselcards" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+
+                        <a class="carousel-control-next" href="#carouselcards" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+
                 </div>
 
 
 
             </div>
-        </div>
-        <div class="col-4">
-            <div class="shadow-lg rounded">
-                <div class="bcard bg-light mb-3" style="max-width: 38rem;">
+            <div class="col-4">
 
-                    <div class="card-body">
-                        <div class="rating-topic ">Details</div>
-                        <p class="card-text">
-                            <ul style="list-style: none; padding-left:0;">
-                                <li class="list_topic"><i class="fa fa-usd-square"></i>&nbsp; Price Range</li>
-                                <li class="list_det">LKR 500 - LKR 3000</li>
-                                <li class="list_topic"><i class="fa fa-hat-chef"></i>&nbsp; Cuisines</li>
-                                <li class="list_det">International, Asian, Indian, Sri Lankan, Pub</li>
-                                <li class="list_topic"><i class="fa fa-burger-soda"></i>&nbsp; Special Diets</li>
-                                <li class="list_det">Vegetarian Friendly, Vegan options</li>
-                                <li class="list_topic"><i class="fa fa-info-square"></i>&nbsp; View all details</li>
-                                <li class="list_det"><a href="#">Meals</a>&nbsp;<a href="#">Features</a>&nbsp;<a href="#">About</a></li>
-                            </ul>
-                        </p>
+                <div class="shadow-lg rounded">
+                    <div class="card bg-light mb-3" style="max-width: 38rem;">
+                        <div class="card-header">
+
+
+                            <div class="rating-topic ">Ratings and Reviews</div>
+                            <div class="circles"> <b> 5.0 <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;49 reviews</b></div>
+                            <div class="rank"><b>#2</b> of 14 indian in Galle<br /><b>#33</b> of 114 Restaurants in Galle</div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">RATINGS</h5>
+                            <p class="card-text">
+                                <ul style="list-style: none; padding-left:0;">
+                                    <li><i class="fa fa-utensils-alt"></i>&nbsp; Food <i class="ratecircles"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></i></li>
+                                    <li><i class="fa fa-concierge-bell"></i>&nbsp; Service <i class="ratecircles"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></i></li>
+                                    <li><i class="fa fa-money-check-alt"></i>&nbsp; Value <i class="ratecircles"><i class="fa fa-star-half-alt"> </i><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></i> </li>
+                                </ul>
+                            </p>
+                        </div>
+
                     </div>
-
                 </div>
+
+                <br />
+
             </div>
-            <br />
+
 
         </div>
 
 
-    </div>
     <div class="menu row">
         <div class="col-8">
             <h1 style="margin-left:250px;">Our Menu</h1>
@@ -1047,6 +1129,28 @@
         </div>
         <div class="col-4">
             <div class="shadow-lg rounded">
+                <div class="bcard bg-light mb-3" style="max-width: 38rem;">
+
+                    <div class="card-body">
+                        <div class="rating-topic ">Details</div>
+                        <p class="card-text">
+                            <ul style="list-style: none; padding-left:0;">
+                                <li class="list_topic"><i class="fa fa-usd-square"></i>&nbsp; Price Range</li>
+                                <li class="list_det">LKR 500 - LKR 3000</li>
+                                <li class="list_topic"><i class="fa fa-hat-chef"></i>&nbsp; Cuisines</li>
+                                <li class="list_det">International, Asian, Indian, Sri Lankan, Pub</li>
+                                <li class="list_topic"><i class="fa fa-burger-soda"></i>&nbsp; Special Diets</li>
+                                <li class="list_det">Vegetarian Friendly, Vegan options</li>
+                                <li class="list_topic"><i class="fa fa-info-square"></i>&nbsp; View all details</li>
+                                <li class="list_det"><a href="#">Meals</a>&nbsp;<a href="#">Features</a>&nbsp;<a href="#">About</a></li>
+                            </ul>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="shadow-lg rounded" style="margin-top:100px;">
                 <div class="lcard bg-light mb-3" style="max-width: 38rem;">
                     <div class="card-body">
                         <div class="rating-topic ">Location and Contact</div>
@@ -1067,6 +1171,7 @@
                 </div>
             </div>
         </div>
+
     </div>
         <div class="rev row">
             
@@ -1081,7 +1186,7 @@
                                 <div class="card rcard mt-2">
                                     <div class="card-body">
                                         <div class="menu-image">
-                                            <img src="https://cdn.pixabay.com/photo/2016/03/03/09/21/travel-1233762_960_720.jpg">
+                                            <img src="~/lib/images/store_front_images/rvp2.jfif">
                                             <div class="rev-name">Kw96</div>
                                         </div>
                                         <div class="menu-det">
@@ -1091,8 +1196,8 @@
                                                 It’s a great experience. The ambiance is very welcoming and charming. Amazing wines, food and service.
                                             </p>
                                             <div class="rev-img">
-                                                <img src="https://media-cdn.tripadvisor.com/media/photo-s/1b/67/cc/f8/chestnut-restaurant.jpg" />
-                                                <img src="https://www.thebalancesmb.com/thmb/kectf9d4azgI8yVnBuoB0h2Z8zA=/3865x2174/smart/filters:no_upscale()/overhead-view-of-smiling-female-friends-sharing-lunch-in-restaurant-928010348-5b4abe8f46e0fb003712c478.jpg" />
+                                                <img src="~/lib/images/store_front_images/rvr1.jpg" />
+                                                <img src="~/lib/images/store_front_images/rvr2.jpg" />
                                             </div>
                                             <p class="rcard-text">Date of Visit: December,2019</p>
                                             <div class="rev-help">Helpful? <button class="help-btn"><i class="far fa-thumbs-up"></i></button></div>
@@ -1104,7 +1209,7 @@
                                 <div class="card rcard mt-2">
                                     <div class="card-body">
                                         <div class="menu-image">
-                                            <img src="https://cdn.pixabay.com/photo/2016/03/03/09/21/travel-1233762_960_720.jpg">
+                                            <img src="~/lib/images/store_front_images/rvp1.webp">
                                             <div class="rev-name">Kw96</div>
                                         </div>
                                         <div class="menu-det">
@@ -1114,8 +1219,8 @@
                                                 It’s a great experience. The ambiance is very welcoming and charming. Amazing wines, food and service.
                                             </p>
                                             <div class="rev-img">
-                                                <img src="https://media-cdn.tripadvisor.com/media/photo-s/1b/67/cc/f8/chestnut-restaurant.jpg" />
-                                                <img src="https://www.thebalancesmb.com/thmb/kectf9d4azgI8yVnBuoB0h2Z8zA=/3865x2174/smart/filters:no_upscale()/overhead-view-of-smiling-female-friends-sharing-lunch-in-restaurant-928010348-5b4abe8f46e0fb003712c478.jpg" />
+                                                <img src="~/lib/images/store_front_images/rvr1.jpg" />
+                                                <img src="~/lib/images/store_front_images/rvr2.jpg" />
                                             </div>
                                             <p class="rcard-text">Date of Visit: December,2019</p>
                                             <div class="rev-help">Helpful? <button class="help-btn"><i class="far fa-thumbs-up"></i></button></div>
@@ -1130,7 +1235,7 @@
                                 <div class="card rcard mt-2">
                                     <div class="card-body">
                                         <div class="menu-image">
-                                            <img src="https://cdn.pixabay.com/photo/2016/03/03/09/21/travel-1233762_960_720.jpg">
+                                            <img src="~/lib/images/store_front_images/rvp1.webp">
                                             <div class="rev-name">Kw96</div>
                                         </div>
                                         <div class="menu-det">
@@ -1140,8 +1245,8 @@
                                                 It’s a great experience. The ambiance is very welcoming and charming. Amazing wines, food and service.
                                             </p>
                                             <div class="rev-img">
-                                                <img src="https://media-cdn.tripadvisor.com/media/photo-s/1b/67/cc/f8/chestnut-restaurant.jpg" />
-                                                <img src="https://www.thebalancesmb.com/thmb/kectf9d4azgI8yVnBuoB0h2Z8zA=/3865x2174/smart/filters:no_upscale()/overhead-view-of-smiling-female-friends-sharing-lunch-in-restaurant-928010348-5b4abe8f46e0fb003712c478.jpg" />
+                                                <img src="~/lib/images/store_front_images/rvr1.jpg" />
+                                                <img src="~/lib/images/store_front_images/rvr2.jpg" />
                                             </div>
                                             <p class="rcard-text">Date of Visit: December,2019</p>
                                             <div class="rev-help">Helpful? <button class="help-btn"><i class="far fa-thumbs-up"></i></button></div>
@@ -1153,7 +1258,7 @@
                                 <div class="card rcard mt-2">
                                     <div class="card-body">
                                         <div class="menu-image">
-                                            <img src="https://cdn.pixabay.com/photo/2016/03/03/09/21/travel-1233762_960_720.jpg">
+                                            <img src="~/lib/images/store_front_images/rvp2.jfif">
                                             <div class="rev-name">Kw96</div>
                                         </div>
                                         <div class="menu-det">
@@ -1163,8 +1268,8 @@
                                                 It’s a great experience. The ambiance is very welcoming and charming. Amazing wines, food and service.
                                             </p>
                                             <div class="rev-img">
-                                                <img src="https://media-cdn.tripadvisor.com/media/photo-s/1b/67/cc/f8/chestnut-restaurant.jpg" />
-                                                <img src="https://www.thebalancesmb.com/thmb/kectf9d4azgI8yVnBuoB0h2Z8zA=/3865x2174/smart/filters:no_upscale()/overhead-view-of-smiling-female-friends-sharing-lunch-in-restaurant-928010348-5b4abe8f46e0fb003712c478.jpg" />
+                                                <img src="~/lib/images/store_front_images/rvr1.jpg" />
+                                                <img src="~/lib/images/store_front_images/rvr2.jpg" />
                                             </div>
                                             <p class="rcard-text">Date of Visit: December,2019</p>
                                             <div class="rev-help">Helpful? <button class="help-btn"><i class="far fa-thumbs-up"></i></button></div>
@@ -1188,12 +1293,13 @@
                     </div>
                 </div>
             </div>
+
         <div class="likerow row ">
 
             <h3 class="like">People also like</h3>
             <main class="grid">
                 <article>
-                    <img src="https://www.lankayp.com/img/cats/restaurants.jpg" alt="Sample photo">
+                    <img src="~/lib/images/store_front_images/lr1.jpg" alt="Sample photo">
                     <div class="text">
                         <h4>The Beach Coach</h4>
                         <p ><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
@@ -1201,7 +1307,7 @@
                     </div>
                 </article>
                 <article>
-                    <img src="https://www.manchesterrestaurants.com/photos/indian/zouk-balcony.jpg" alt="Sample photo">
+                    <img src="~/lib/images/store_front_images/lr2.jpg" alt="Sample photo">
                     <div class="text">
                         <h4>The Fine Restaurant</h4>
                         <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
@@ -1209,15 +1315,15 @@
                     </div>
                 </article>
                 <article>
-                    <img src="https://media.timeout.com/images/105757491/image.jpg" alt="Sample photo">
+                    <img src="~/lib/images/store_front_images/lr3.jpg" alt="Sample photo">
                     <div class="text">
-                        <h4>The Royal</h4>
+                        <h4>The Royal House</h4>
                         <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
                         <p>Sea Food, International, Sri Lankan</p>
                     </div>
                 </article>
                 <article>
-                    <img src="https://img.traveltriangle.com/blog/wp-content/uploads/2018/04/the-rice-boat.jpg" alt="Sample photo">
+                    <img src="~/lib/images/store_front_images/lr4.jpg" alt="Sample photo">
                     <div class="text">
                         <h4>The Sea Eagle</h4>
                         <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
@@ -1230,7 +1336,7 @@
         </div>
      
 
-</div>
-        </div>
 
+        </div>
+    </div>
 
