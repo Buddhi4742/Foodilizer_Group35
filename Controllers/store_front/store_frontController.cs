@@ -31,6 +31,10 @@ namespace Foodilizer_Group35.Controllers
         {
             return View();
         }
+        public IActionResult silver_cart()
+        {
+            return View();
+        }
 
     }
 }

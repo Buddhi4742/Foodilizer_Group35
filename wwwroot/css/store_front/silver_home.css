@@ -367,11 +367,14 @@ h1 {
     display: flex;
 }
 .menu-det h3 {
-    margin-top:0px;
+    font-size: 20px;
+    color: #13dad2;
+    margin-top: 0px;
     flex: 3;
 }
+
 .menu-det h4 {
-    flex: 2;
+    flex: 3;
     margin-top: 2px;
 }
 .menu-det .mcard-text {
@@ -527,4 +530,112 @@ h1 {
 .recommendation{
     margin-top:50px;
     
+}
+
+.pbutton {
+    height: 10px;
+    width: 10px;
+    font-size: 1em;
+    padding: 8px;
+    color: black;
+    font-weight: 600;
+    margin-left: 0px;
+    background-color: #06D85F;
+    margin-right: 40px;
+    border: 2px solid #06D85F;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+    .pbutton:hover {
+        background: #06D85F;
+    }
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+    .overlay:target {
+        visibility: visible;
+        opacity: 2;
+    }
+
+.popup {
+    margin: 230px 400px;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    white-space: normal;
+    width: 30%;
+    position: fixed;
+}
+
+    .popup h2 {
+        margin-top: 0;
+        color: #333;
+        font-family: Tahoma, Arial, sans-serif;
+    }
+
+    .popup .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        transition: all 200ms;
+        font-size: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+    }
+
+        .popup .close:hover {
+            color: #06D85F;
+        }
+
+    .popup .content {
+        max-height: 30%;
+        overflow: hidden;
+        margin-left: 30px;
+        margin-right: 20px;
+    }
+
+
+@media screen and (max-width: 700px) {
+    .box {
+        width: 70%;
+    }
+
+    .popup {
+        width: 70%;
+    }
+}
+
+.addcartbutton {
+    width: 100px;
+    height: 30px;
+    color: black;
+    border-radius: 5px;
+    font-weight: 600;
+    background-color: aqua;
+    margin-left: 100px;
+    margin-top: 10px;
+}
+
+.popup img {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    margin-left: 120px;
 }

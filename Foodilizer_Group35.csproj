@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <Folder Include="Controllers\store_front\" />
-    <Folder Include="Views\store_front\" />
   </ItemGroup>
 
 </Project>
