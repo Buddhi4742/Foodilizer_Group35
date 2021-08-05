@@ -26,6 +26,10 @@ namespace Foodilizer_Group35.Controllers
         {
             return View();
         }
+        public IActionResult Owner_price()
+        {
+            return View();
+        }
 
 
 
