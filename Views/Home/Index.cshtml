@@ -35,3 +35,93 @@
 
     </div>
 </div>
+
+<section id="specials" class="specials">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Specials</h2>
+            <p>Served from 11:00am - 4:00pm, Monday thru Friday</p>
+        </div>
+        <div class="swiper-container mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="specials-food-block">
+                        <div class="specials-image"><img src="~/resources/images/specials-1.jpg" class="img-fluid w-75" alt=""></div>
+                        <div class="specials-data">
+                            <h4 class="specials-name">Rice</h4>
+                            <span class="specials-food-info">Main</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="specials-food-block">
+                        <div class="specials-image"><img src="~/resources/images/specials-2.jpg" class="img-fluid w-75 border" alt=""></div>
+                        <div class="specials-data">
+                            <h4 class="specials-name">Soup</h4>
+                            <span class="specials-food-info">Starters</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="specials-food-block">
+                        <div class="specials-image"><img src="~/resources/images/specials-3.jpg" class="img-fluid w-75" alt=""></div>
+                        <div class="specials-data">
+                            <h4 class="specials-name">Noodles</h4>
+                            <span class="specials-food-info">Main</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="specials-food-block">
+                        <div class="specials-image"><img src="~/resources/images/specials-4.jpg" class="img-fluid w-75" alt=""></div>
+                        <div class="specials-data">
+                            <h4 class="specials-name">Moon cake</h4>
+                            <span class="specials-food-info">Dessert</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="specials-food-block">
+                        <div class="specials-image"><img src="~/resources/images/specials-5.jpg" class="img-fluid w-75" alt=""></div>
+                        <div class="specials-data">
+                            <h4 class="specials-name">Meat</h4>
+                            <span class="specials-food-info">Main</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="specials-food-block">
+                        <div class="specials-image"><img src="~/resources/images/specials-6.jpg" class="img-fluid w-75" alt=""></div>
+                        <div class="specials-data">
+                            <h4 class="specials-name">Honey chicken</h4>
+                            <span class="specials-food-info">Side</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br /><br />
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        freeMode: true,
+        loop: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        }, navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
