@@ -1,4 +1,7 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 
 body {
 	font-family: 'PT Sans', sans-serif;
@@ -57,3 +60,252 @@ a {
 		background-color: #3aafa9;
 		color: black;
 	}
+
+
+
+
+
+
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+	font-size: 14px;
+}
+
+@media (min-width: 768px) {
+	html {
+		font-size: 16px;
+	}
+}
+
+.border-top {
+	border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+	box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+	font-size: 1rem;
+	line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+.footer {
+	background: #3AAFA9;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	padding: 30px 0;
+}
+
+	.footer h3 {
+		font-size: 36px;
+		font-weight: 700;
+		color: Black;
+		position: relative;
+		padding: 0;
+		margin: 0 0 15px 0;
+	}
+
+	.footer p {
+		font-size: 15px;
+		font-style: italic;
+		padding: 0;
+		margin: 0 0 40px 0;
+	}
+
+	.footer .social-links {
+		margin: 0 0 10px 0;
+	}
+
+		.footer .social-links a {
+			font-size: 18px;
+			display: inline-block;
+			background: #46423b;
+			color: #fff;
+			line-height: 1;
+			padding: 8px 0;
+			margin-right: 4px;
+			border-radius: 50%;
+			text-align: center;
+			width: 36px;
+			height: 36px;
+			transition: 0.3s;
+		}
+
+			.footer .social-links a:hover {
+				background: #3AAFA9;
+			}
+
+	.footer .copyright {
+		margin: 0 0 5px 0;
+	}
+
+	.footer .credits {
+		font-size: 13px;
+	}
+
+	.footer .link-list a {
+		color: black;
+	}
+
+/*hero section*/
+.hero-image {
+	background-image: url("../resources/images/cover.jpg");
+	height: 500px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+
+.hero-text {
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: Black;
+}
+
+
+.hero .search {
+	vertical-align: middle;
+	z-index: 2;
+	margin-top: 5rem;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+	.hero .search input {
+		width: 100%;
+		height: 76px;
+		line-height: 76px;
+		border: 1px solid #111;
+		background: rgba(0, 0, 0, 0.8);
+		font-size: 27px;
+		padding: 5px 5px 5px 47px;
+		color: #fff;
+		position: relative;
+		border-radius: 0;
+	}
+
+	.hero .search button {
+		position: absolute;
+		top: 6px;
+		right: 6px;
+		color: #fff;
+		background: #88687b;
+		font-size: 27px;
+		height: 65px;
+		line-height: 65px;
+		width: 68px;
+		padding: 0;
+		border: 0;
+	}
+
+
+
+/*@media (max-width: 575.98px) {
+  nav.h-navbar {
+	max-height: 70px;
+  }
+
+  nav .navbar-header img {
+	max-width: 70px;
+  }
+
+  .menu-hamburger {
+	bottom: calc(50% - 12px);
+  }
+}
+
+@media (max-width: 767.98px) {
+  nav.h-navbar {
+	max-height: 90px;
+  }
+
+  .hero .search input {
+	background: rgba(0, 0, 0, 0.92);
+	font-size: 20px;
+	padding: 5px 5px 5px 10px;
+	height: 60px;
+  }
+
+  .hero .search button {
+	height: 48px;
+	width: 48px;
+	line-height: 48px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  nav .navbar-nav li.navbar-item a {
+	padding: 0 10px;
+  }
+
+  .row {
+	width: 100%;
+  }
+}
+*/
+
+.sec-swiper {
+	padding-bottom: 30px;
+	padding-top: 30px;
+	text-align: center;
+}
+
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.swiper-image {
+	border-radius: 10px;
+}
+
+
+
+/*.section-title {
+		padding-top: 20px;
+	}*/
+
+/* .swiper {
+		position: unset !important;
+}
+*/
+
+.rate-circles {
+	color: #3AAFA9;
+}
+
+.fa-circle {
+	padding-right: 1px;
+}
