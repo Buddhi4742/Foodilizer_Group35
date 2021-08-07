@@ -1,71 +1,59 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+body {
+	font-family: 'PT Sans', sans-serif;
+}
+
+.nav-home .navbar .nav-bar-home {
+	background-color: #3AAFA9;
+	top: 0;
+}
+
+.nav-home .navbar-nav .nav-btn-list .nav-bar-home {
+	justify-content: flex-end;
+}
+/*.nav-home .login-btn {
+	padding: 4px 20px;
+}*/
+
+
+
+.nav-home a .navbar-brand .nav-bar-home {
+	white-space: normal;
+	text-align: center;
+	word-break: break-all;
+	padding: 0px;
+	padding-top: 0rem;
+	padding-bottom: 0rem;
 }
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+	color: #0366d6;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+
+
+.nav-bar-home .nav-home .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+	color: #fff;
+	background-color: #1b6ec2;
+	border-color: #1861ac;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+
+.nav-bar-home .login-btn {
+	background-color: #17252a;
+	border-radius: 4px;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 16px;
+	padding: 4px 24px;
+	text-decoration: none;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
-}
+	.nav-bar-home .login-btn:hover {
+		background-color: #3aafa9;
+		color: black;
+	}
