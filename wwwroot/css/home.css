@@ -3,9 +3,9 @@ for details on configuring this project to bundle and minify static web assets. 
 
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 
-body {
+/*body {
 	font-family: 'PT Sans', sans-serif;
-}
+}*/
 
 .nav-home .navbar .nav-bar-home {
 	background-color: #3AAFA9;
@@ -70,9 +70,9 @@ a {
 
 /* Sticky footer styles
 -------------------------------------------------- */
-html {
+/*html {
 	font-size: 14px;
-}
+}*/
 
 @media (min-width: 768px) {
 	html {
