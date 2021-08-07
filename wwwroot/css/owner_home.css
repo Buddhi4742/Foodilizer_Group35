@@ -19,6 +19,7 @@
 a,
 a:hover {
     text-decoration: none;
+    color:black;
 }
 
     a:hover {
@@ -223,6 +224,59 @@ p {
 /* Change navbar styling on scroll */
 
 
+.nav-home .navbar .nav-bar-home {
+	background-color: #3AAFA9;
+	top: 0;
+}
+.nav-home .navbar-nav .nav-btn-list .nav-bar-home {
+	justify-content: flex-end;
+}
+/*.nav-home .login-btn {
+	padding: 4px 20px;
+}*/
+
+
+
+.nav-home a .navbar-brand .nav-bar-home {
+	white-space: normal;
+	text-align: center;
+	word-break: break-all;
+	padding: 0px;
+	padding-top: 0rem;
+	padding-bottom: 0rem;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: black;
+}
+
+
+
+.nav-bar-home .nav-home .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+	color: #fff;
+	background-color: #1b6ec2;
+	border-color: #1861ac;
+}
+
+
+.nav-bar-home .login-btn {
+	background-color: #17252a;
+	border-radius: 4px;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 16px;
+	padding: 4px 24px;
+	text-decoration: none;
+}
+.nav-bar-home .login-btn:hover {
+	background-color:#3aafa9;
+	color:black;
+}
+
+
 
 
 
@@ -251,6 +305,57 @@ footer section Design
         padding: 0 1rem;
     }
 
+    .footer h6 {
+        font-size: 18px;
+        font-weight: 700;
+        color: Black;
+        position: relative;
+        padding: 0;
+        margin: 0 0 15px 0;
+    }
+
+    .footer p {
+        font-size: 15px;
+        font-style: italic;
+        padding: 0;
+        margin: 0 0 40px 0;
+    }
+
+    .footer .social-links {
+        margin: 0 0 10px 0;
+    }
+
+        .footer .social-links a {
+            font-size: 18px;
+            display: inline-block;
+            background: #46423b;
+            color: #fff;
+            line-height: 1;
+            padding: 8px 0;
+            margin-right: 4px;
+            border-radius: 50%;
+            text-align: center;
+            width: 36px;
+            height: 36px;
+            transition: 0.3s;
+        }
+
+            .footer .social-links a:hover {
+                background: #3AAFA9;
+            }
+
+    .footer .copyright {
+        margin: 0 0 5px 0;
+    }
+
+    .footer .credits {
+        font-size: 13px;
+    }
+
+    .footer .link-list a {
+        color: black;
+        margin-bottom:5px;
+    }
 
 
 /*
@@ -390,7 +495,7 @@ footer section Design
 .newsletter {
     width: 65%;
     margin: 0 auto;
-    margin-bottom: 80px;
+    margin-bottom: 300px;
 }
 
     .newsletter .form-control {
@@ -418,7 +523,8 @@ footer section Design
 /*Register form*/
 
 .register {
-    margin-bottom: 200px;
+    margin-top:100px;
+    margin-bottom: 500px;
     background-color:#DEF2F1;
    border-radius:10px;
 
@@ -431,7 +537,10 @@ footer section Design
     }
 
 
-
+    .price-list{
+        margin-top:200px;
+        margin-bottom:400px;
+    }
 
 
 
