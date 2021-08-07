@@ -41,7 +41,7 @@ a {
 }
 
 
-.nav-bar-home .login-btn {
+.login-btn {
 	background-color: #17252a;
 	border-radius: 4px;
 	display: inline-block;
@@ -52,7 +52,7 @@ a {
 	padding: 4px 24px;
 	text-decoration: none;
 }
-.nav-bar-home .login-btn:hover {
+.login-btn:hover {
 	background-color:#3aafa9;
 	color:black;
 }
@@ -305,3 +305,12 @@ button.accept-policy {
 .fa-circle{
 	padding-right:1px;
 }
+
+.modal-body {
+	padding: 0rem 3rem 2rem 3rem;
+}
+.modal {
+	overflow-y: auto;
+}
+
+
