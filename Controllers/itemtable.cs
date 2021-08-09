@@ -24,6 +24,7 @@ namespace Foodilizer_Group35.Controllers
             using (foodilizerContext dbmodel = new foodilizerContext())
             {
                 return View(dbmodel.Items.Where(x=> x.ItemId==id).FirstOrDefault());
+               
             }
         }
 
