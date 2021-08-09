@@ -29,6 +29,10 @@
                         <li class="nav-item">
                             <a class="nav-link profile text-light" style="padding-top:5px;padding-bottom:25px;" asp-area="" asp-controller="store_front" asp-action="gold_home">Profile</a>
                         </li>
+                       
+                        <li class="nav-item">
+                            <a class="nav-link logout text-light" style="padding-top:5px;padding-bottom:25px;" asp-area="" asp-controller="store_front" asp-action="gold_home"> <i class="fa fa-shopping-cart"></i> Cart</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link logout text-light" style="padding-top:5px;padding-bottom:25px;" asp-area="" asp-controller="store_front" asp-action="gold_home">Logout</a>
                         </li>
@@ -45,9 +49,28 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer id="footer" class="footer">
         <div class="container">
-            &copy; 2021 - Foodilizer_Group35 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <h3>Foodilizer</h3>
+            <img class="title-logo img-fluid d-inline pb-3" src="~/resources/images/logo.png" width="160" />
+            <div class="">
+                <div class="link-list"><a href="#">Contact Us</a></div>
+                <div class="link-list"><a href="#">About Us</a></div>
+                <div class="link-list"><a href="#">Terms of use</a></div>
+                <div class="link-list"><a href="#">Privacy Policy</a></div>
+            </div>
+            <div class="social-links pt-3">
+                <span class="">Follow Us on</span>
+                <a href="#" class="twitter "><i class="bi bi-twitter"></i></a>
+                <a href="#" class="facebook "><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram  "><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin "><i class="bi bi-linkedin"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; Copyright <strong><span>Foodilizer</span></strong>. All Rights Reserved<br />
+                <span>Designed by UCSC Group 35</span>
+
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
