@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Foodilizer_Group35.Models.Item>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_bronze_store_layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RestId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuantityLimit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Alert)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RestId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantityLimit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alert)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ItemId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ItemId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ItemId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
