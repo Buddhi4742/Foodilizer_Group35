@@ -2,16 +2,13 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
-
-/*body {
+body {
 	font-family: 'PT Sans', sans-serif;
-}*/
-
+}
 .nav-home .navbar .nav-bar-home {
 	background-color: #3AAFA9;
 	top: 0;
 }
-
 .nav-home .navbar-nav .nav-btn-list .nav-bar-home {
 	justify-content: flex-end;
 }
@@ -44,7 +41,7 @@ a {
 }
 
 
-.nav-bar-home .login-btn {
+.login-btn {
 	background-color: #17252a;
 	border-radius: 4px;
 	display: inline-block;
@@ -55,6 +52,17 @@ a {
 	padding: 4px 24px;
 	text-decoration: none;
 }
+.login-btn:hover {
+	background-color:#3aafa9;
+	color:black;
+}
+
+
+
+
+
+
+
 
 	.nav-bar-home .login-btn:hover {
 		background-color: #3aafa9;
@@ -75,9 +83,9 @@ a {
 }*/
 
 @media (min-width: 768px) {
-	html {
-		font-size: 16px;
-	}
+  html {
+	font-size: 16px;
+  }
 }
 
 .border-top {
@@ -106,58 +114,60 @@ button.accept-policy {
 	font-size: 14px;
 	text-align: center;
 	padding: 30px 0;
+	
+	
 }
 
-	.footer h3 {
-		font-size: 36px;
-		font-weight: 700;
-		color: Black;
-		position: relative;
-		padding: 0;
-		margin: 0 0 15px 0;
-	}
+.footer h3 {
+	font-size: 36px;
+	font-weight: 700;
+	color: Black;
+	position: relative;
+	padding: 0;
+	margin: 0 0 15px 0;
+}
 
-	.footer p {
-		font-size: 15px;
-		font-style: italic;
-		padding: 0;
-		margin: 0 0 40px 0;
-	}
+.footer p {
+	font-size: 15px;
+	font-style: italic;
+	padding: 0;
+	margin: 0 0 40px 0;
+}
 
-	.footer .social-links {
-		margin: 0 0 10px 0;
-	}
+.footer .social-links {
+	margin: 0 0 10px 0;
+}
 
-		.footer .social-links a {
-			font-size: 18px;
-			display: inline-block;
-			background: #46423b;
-			color: #fff;
-			line-height: 1;
-			padding: 8px 0;
-			margin-right: 4px;
-			border-radius: 50%;
-			text-align: center;
-			width: 36px;
-			height: 36px;
-			transition: 0.3s;
-		}
+.footer .social-links a {
+	font-size: 18px;
+	display: inline-block;
+	background: #46423b;
+	color: #fff;
+	line-height: 1;
+	padding: 8px 0;
+	margin-right: 4px;
+	border-radius: 50%;
+	text-align: center;
+	width: 36px;
+	height: 36px;
+	transition: 0.3s;
+}
 
-			.footer .social-links a:hover {
-				background: #3AAFA9;
-			}
+.footer .social-links a:hover {
+		background: #3AAFA9;
 
-	.footer .copyright {
-		margin: 0 0 5px 0;
-	}
+}
 
-	.footer .credits {
-		font-size: 13px;
-	}
+.footer .copyright {
+	margin: 0 0 5px 0;
+}
 
-	.footer .link-list a {
-		color: black;
-	}
+.footer .credits {
+	font-size: 13px;
+}
+.footer .link-list a{
+	color:black;
+}
 
 /*hero section*/
 .hero-image {
@@ -180,6 +190,7 @@ button.accept-policy {
 
 
 .hero .search {
+	
 	vertical-align: middle;
 	z-index: 2;
 	margin-top: 5rem;
@@ -189,32 +200,32 @@ button.accept-policy {
 	transform: translate(-50%, -50%);
 }
 
-	.hero .search input {
-		width: 100%;
-		height: 76px;
-		line-height: 76px;
-		border: 1px solid #111;
-		background: rgba(0, 0, 0, 0.8);
-		font-size: 27px;
-		padding: 5px 5px 5px 47px;
-		color: #fff;
-		position: relative;
-		border-radius: 0;
-	}
+.hero .search input {
+  width: 100%;
+  height: 76px;
+  line-height: 76px;
+  border: 1px solid #111;
+  background: rgba(0, 0, 0, 0.8);
+  font-size: 27px;
+  padding: 5px 5px 5px 47px;
+  color: #fff;
+  position: relative;
+  border-radius: 0;
+}
 
-	.hero .search button {
-		position: absolute;
-		top: 6px;
-		right: 6px;
-		color: #fff;
-		background: #88687b;
-		font-size: 27px;
-		height: 65px;
-		line-height: 65px;
-		width: 68px;
-		padding: 0;
-		border: 0;
-	}
+.hero .search button {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  color: #fff;
+  background: #88687b;
+  font-size: 27px;
+  height: 65px;
+  line-height: 65px;
+  width: 68px;
+  padding: 0;
+  border: 0;
+}
 
 
 
@@ -305,7 +316,15 @@ button.accept-policy {
 .rate-circles {
 	color: #3AAFA9;
 }
-
-.fa-circle {
-	padding-right: 1px;
+.fa-circle{
+	padding-right:1px;
 }
+
+.modal-body {
+	padding: 0rem 3rem 2rem 3rem;
+}
+.modal {
+	overflow-y: auto;
+}
+
+
