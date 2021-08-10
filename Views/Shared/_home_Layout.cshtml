@@ -4,16 +4,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Foodilizer_Group35</title>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    @*<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>*@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/home.css" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    
 
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/home.js" asp-append-version="true"></script>
+
 </head>
 <body>
     <header>
@@ -80,7 +83,9 @@
             </div>
         </div>
     </footer>
-    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/home.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -123,7 +128,7 @@
                 <div class="modal-footer d-flex justify-content-center">
                     <div class="signup-section">
                         Not a member yet?
-                        <button type="button" class="login-btn" id="login-modal-btn" data-toggle="modal" data-target="#regModal" data-dismiss="#loginModal">
+                        <button type="button" class="login-btn " id="login-modal-btn" data-toggle="modal" data-target="#regModal" data-dismiss="#loginModal">
                             SignUp
                         </button>
                     </div>
@@ -185,6 +190,8 @@
                             <div class="d-flex justify-content-center">
                                 <button type="submit" value="submit" class="login-btn">SignUp</button>
                             </div>
+
+
                         </form>
                     </div>
                 </div>

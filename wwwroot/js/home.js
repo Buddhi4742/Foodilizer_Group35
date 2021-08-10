@@ -37,4 +37,45 @@ $(document).ready(function () {
 });
 
 
+$(document).ready(function () {
+
+	$("#reg-form").validate({
+		rules: {
+			firstName: "required",
+			lastName: "required",
+			email: {
+				required: true,
+				email: true,
+			},
+			//location: "required",
+			//mobile: "required",
+			password: {
+				required: true,
+				minLength: 5,
+			},
+			password2: {
+				required: true,
+				minLength: 5,
+				equalTo: "#password2",
+			},
+		},
+		messages: {
+			firstName: "Please enter your First name",
+			lastName: "Please enter your Last name",
+			//location: "required",
+			//mobile: "required",
+			password: {
+				required: "Please enter your First name",
+				minLength: "<h1>Your Password must be atleat 5 charactors long</h1>",
+			},
+			password2: {
+				required: "Please enter your First name",
+				minLength: "<h1>Your Password must be atleat 5 charactors long</h1>",
+				equalTo: "Passwords does not match",
+			},
+		}
+	})
+	
+});
+
 
