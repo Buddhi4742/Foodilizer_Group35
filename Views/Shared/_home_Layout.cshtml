@@ -88,7 +88,7 @@
     <script src="~/js/home.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal " id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header border-bottom-0">
@@ -128,7 +128,7 @@
                 <div class="modal-footer d-flex justify-content-center">
                     <div class="signup-section">
                         Not a member yet?
-                        <button type="button" class="login-btn " id="login-modal-btn" data-toggle="modal" data-target="#regModal" data-dismiss="#loginModal">
+                        <button type="button" class="login-btn " id="login-modal-btn" data-toggle="modal" data-target="#regModal" data-dismiss="#loginModal" data-backdrop="false">
                             SignUp
                         </button>
                     </div>
@@ -138,7 +138,7 @@
     </div>
 
 
-    <div class="modal fade" id="regModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal " id="regModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header border-bottom-0">
@@ -198,7 +198,7 @@
                 <div class="modal-footer d-flex justify-content-center">
                     <div class="login-section">
                         Alredy a member?
-                        <button type="button" class="login-btn " id="reg-modal-btn" data-toggle="modal" data-target="#loginModal " data-dismiss="#regModal">
+                        <button type="button" class="login-btn " id="reg-modal-btn" data-toggle="modal" data-target="#loginModal " data-dismiss="#regModal" data-backdrop="false">
                             Login
                         </button>
                     </div>
