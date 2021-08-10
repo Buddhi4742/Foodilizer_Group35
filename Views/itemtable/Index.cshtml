@@ -14,19 +14,22 @@
     <thead>
         <tr>
             <th>
-               Name
+                @Html.DisplayNameFor(model => model.RestId)
             </th>
             <th>
-                QTY
+                @Html.DisplayNameFor(model => model.ItemName)
             </th>
             <th>
-                Measure
+                @Html.DisplayNameFor(model => model.ItemQuantity)
             </th>
             <th>
-                QTY limit
+                @Html.DisplayNameFor(model => model.Measurement)
             </th>
             <th>
-                Alert
+                @Html.DisplayNameFor(model => model.QuantityLimit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Alert)
             </th>
             <th></th>
         </tr>
@@ -34,6 +37,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RestId)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ItemName)
             </td>
