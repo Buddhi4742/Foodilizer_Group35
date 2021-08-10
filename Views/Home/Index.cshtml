@@ -3,13 +3,13 @@
     Layout = "~/Views/Shared/_home_Layout.cshtml";
 }
 <style>
-      .bd-placeholder-img {
+    .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
         -webkit-user-select: none;
         -moz-user-select: none;
         user-select: none;
-      }
+    }
 </style>
 <section class="hero-section">
     <div class="container">
@@ -19,7 +19,7 @@
                     <div class="col-12">
                         <div class="search">
                             <form>
-                                <input class="input" type="text" name="s" placeholder="How may we help you?">
+                                <input class="input" type="text" name="s" placeholder="Search!!">
                                 <button type="submit"><i class="fa fa-search"></i></button>
                             </form>
                         </div>
@@ -27,8 +27,8 @@
                 </div>
             </div>
             <div class="hero-text">
-                <h1 style="font-size:50px">I am Jane Doe</h1>
-                <h3>And I'm a Photographer</h3>
+                <h1 style="font-size:50px">Welcome to Foodilizer</h1>
+                <h3>Find best places to visit</h3>
             </div>
 
         </div>
@@ -120,11 +120,9 @@
                         </div>
                     </div>
                 </div>
-
-
                 <br /><br />
-                <div class="swiper-pagination"></div>
             </div>
+            <div class="swiper-pagination position-relative pt-2"></div>
         </div>
     </div>
 </section>
@@ -217,8 +215,8 @@
 
 
                 <br /><br />
-                <div class="swiper-pagination"></div>
             </div>
+            <div class="swiper-pagination position-relative pt-2"></div>
         </div>
     </div>
 </section>
@@ -312,34 +310,18 @@
 
 
                 <br /><br />
-                <div class="swiper-pagination"></div>
             </div>
+            <div class="swiper-pagination position-relative pt-2"></div>
         </div>
     </div>
 </section>
 
 
+<section>
 
 
+  
+
+</section>
 
 
-<script>
-    var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 4,
-        spaceBetween: 10,
-        freeMode: true,
-        loop: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        }, navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-    });
-</script>
