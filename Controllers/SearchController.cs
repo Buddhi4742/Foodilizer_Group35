@@ -11,81 +11,32 @@ namespace Foodilizer_Group35.Controllers
     public class SearchController : Controller
     {
         // GET: SearchController
-        public ActionResult Index()
+        public IActionResult RestaurantSearchResults()
         {
             using (foodilizerContext dbmodel = new foodilizerContext())
-                return View();
+                return View(dbmodel.Restaurants.ToList());
         }
 
         // GET: SearchController/Details/5
-        public ActionResult Details(int id)
+        public IActionResult RestaurantDetails(int id)
         {
             using (foodilizerContext dbmodel = new foodilizerContext())
-                return View();
+                return View(dbmodel.Restaurants.Where(x => x.RestId == id).FirstOrDefault());
         }
-
-        // GET: SearchController/Create
-        public ActionResult Create()
+        // GET: SearchController
+        public IActionResult FoodSearchResults()
         {
-            return View();
+            using (foodilizerContext dbmodel = new foodilizerContext())
+                return View(dbmodel.Foods.ToList());
         }
 
-        // POST: SearchController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        // GET: SearchController/Details/5
+        public IActionResult FoodDetails(int id)
         {
-            try
-            {
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            using (foodilizerContext dbmodel = new foodilizerContext())
+                return View(dbmodel.Foods.Where(x => x.FoodId == id).FirstOrDefault());
         }
 
-        // GET: SearchController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
 
-        // POST: SearchController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: SearchController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: SearchController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }
