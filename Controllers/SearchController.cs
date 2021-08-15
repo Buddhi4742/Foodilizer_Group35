@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Foodilizer_Group35.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,13 +13,15 @@ namespace Foodilizer_Group35.Controllers
         // GET: SearchController
         public ActionResult Index()
         {
-            return View();
+            using (foodilizerContext dbmodel = new foodilizerContext())
+                return View();
         }
 
         // GET: SearchController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            using (foodilizerContext dbmodel = new foodilizerContext())
+                return View();
         }
 
         // GET: SearchController/Create
@@ -34,6 +37,7 @@ namespace Foodilizer_Group35.Controllers
         {
             try
             {
+
                 return RedirectToAction(nameof(Index));
             }
             catch

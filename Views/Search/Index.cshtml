@@ -1,0 +1,156 @@
+﻿@model IEnumerable<Foodilizer_Group35.Models.Restaurant>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_home_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Rname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OwnerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OwnerContact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OwnerEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rabout)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RestType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Raddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rdistrict)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PriceRange)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rusername)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rpassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rprovince)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OpenHour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OpenStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WebsiteLink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MapLink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MealType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cuisine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Feature)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpecialDiet)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerContact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rabout)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RestType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Raddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rdistrict)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriceRange)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rusername)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rpassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rprovince)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpenHour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpenStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WebsiteLink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MapLink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MealType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cuisine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Feature)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpecialDiet)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.RestId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.RestId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.RestId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
