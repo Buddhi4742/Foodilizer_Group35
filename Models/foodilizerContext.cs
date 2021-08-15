@@ -142,8 +142,13 @@ namespace Foodilizer_Group35.Models
 
             modelBuilder.Entity<Restaurant>(entity =>
             {
+                entity.HasKey(e => e.RestId)
+                    .HasName("PRIMARY");
+
                 entity.HasCharSet("utf8")
                     .UseCollation("utf8_general_ci");
+
+                entity.Property(e => e.RestId).ValueGeneratedNever();
 
                 entity.Property(e => e.OpenHour).IsFixedLength(true);
 

@@ -8,10 +8,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Foodilizer_Group35.Models
 {
-    [Keyless]
     [Table("restaurant")]
     public partial class Restaurant
     {
+        [Key]
         [Column("rest_id")]
         public int RestId { get; set; }
         [Column("rname")]

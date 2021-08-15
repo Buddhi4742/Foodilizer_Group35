@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Search\" />
     <Folder Include="wwwroot\resources\images\" />
   </ItemGroup>
 
