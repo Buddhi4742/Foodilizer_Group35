@@ -14,7 +14,7 @@ namespace Foodilizer_Group35.Controllers
         public ActionResult Index()
         {
             using (foodilizerContext dbmodel = new foodilizerContext())
-                return View();
+                return View(dbmodel.Restaurants.ToList());
         }
 
         // GET: SearchController/Details/5
