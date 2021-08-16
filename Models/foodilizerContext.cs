@@ -32,6 +32,7 @@ namespace Foodilizer_Group35.Models
         public virtual DbSet<RestaurantOrder> RestaurantOrders { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
         public virtual DbSet<SalesReport> SalesReports { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -56,6 +57,11 @@ namespace Foodilizer_Group35.Models
                     .UseCollation("utf8_general_ci");
 
                 entity.Property(e => e.AccountId).ValueGeneratedNever();
+
+                entity.HasOne(d => d.Rest)
+                    .WithMany(p => p.CustomAccounts)
+                    .HasForeignKey(d => d.RestId)
+                    .HasConstraintName("fk_custom");
             });
 
             modelBuilder.Entity<Customer>(entity =>
@@ -76,6 +82,12 @@ namespace Foodilizer_Group35.Models
                 entity.Property(e => e.Featured).HasComment("If featured = YES and if not NO");
 
                 entity.Property(e => e.Price).HasPrecision(18);
+
+                entity.HasOne(d => d.Menu)
+                    .WithMany(p => p.Foods)
+                    .HasForeignKey(d => d.MenuId)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("fk_menu");
             });
 
             modelBuilder.Entity<FoodRecommendation>(entity =>
@@ -87,6 +99,37 @@ namespace Foodilizer_Group35.Models
                     .UseCollation("utf8_general_ci");
 
                 entity.Property(e => e.RecommendationId).ValueGeneratedNever();
+
+                entity.HasOne(d => d.Food1)
+                    .WithMany(p => p.FoodRecommendationFood1s)
+                    .HasForeignKey(d => d.Food1Id)
+                    .HasConstraintName("fk_f1");
+
+                entity.HasOne(d => d.Food2)
+                    .WithMany(p => p.FoodRecommendationFood2s)
+                    .HasForeignKey(d => d.Food2Id)
+                    .HasConstraintName("fk_f2");
+
+                entity.HasOne(d => d.Food3)
+                    .WithMany(p => p.FoodRecommendationFood3s)
+                    .HasForeignKey(d => d.Food3Id)
+                    .HasConstraintName("fk_f3");
+
+                entity.HasOne(d => d.Food4)
+                    .WithMany(p => p.FoodRecommendationFood4s)
+                    .HasForeignKey(d => d.Food4Id)
+                    .HasConstraintName("fk_f4");
+
+                entity.HasOne(d => d.Food5)
+                    .WithMany(p => p.FoodRecommendationFood5s)
+                    .HasForeignKey(d => d.Food5Id)
+                    .HasConstraintName("fk_f5");
+
+                entity.HasOne(d => d.Rest)
+                    .WithMany(p => p.FoodRecommendations)
+                    .HasForeignKey(d => d.RestId)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("fk_foodrecom");
             });
 
             modelBuilder.Entity<Item>(entity =>
@@ -99,6 +142,12 @@ namespace Foodilizer_Group35.Models
                 entity.Property(e => e.ItemQuantity).HasPrecision(18);
 
                 entity.Property(e => e.QuantityLimit).HasPrecision(18);
+
+                entity.HasOne(d => d.Rest)
+                    .WithMany(p => p.Items)
+                    .HasForeignKey(d => d.RestId)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("fk_restit");
             });
 
             modelBuilder.Entity<Menu>(entity =>
@@ -107,6 +156,12 @@ namespace Foodilizer_Group35.Models
                     .UseCollation("utf8_general_ci");
 
                 entity.Property(e => e.MenuId).ValueGeneratedNever();
+
+                entity.HasOne(d => d.Rest)
+                    .WithMany(p => p.Menus)
+                    .HasForeignKey(d => d.RestId)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("fk_mr");
             });
 
             modelBuilder.Entity<OrderIncludesFood>(entity =>
@@ -130,6 +185,12 @@ namespace Foodilizer_Group35.Models
                 entity.Property(e => e.OrderId).ValueGeneratedNever();
 
                 entity.Property(e => e.PaymentGatewayDetails).HasComment("payment gateway and any ther details");
+
+                entity.HasOne(d => d.Order)
+                    .WithOne(p => p.OrderWithPayment)
+                    .HasForeignKey<OrderWithPayment>(d => d.OrderId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_order");
             });
 
             modelBuilder.Entity<Package>(entity =>
@@ -138,6 +199,12 @@ namespace Foodilizer_Group35.Models
                     .UseCollation("utf8_general_ci");
 
                 entity.Property(e => e.PackageId).ValueGeneratedNever();
+
+                entity.HasOne(d => d.Rest)
+                    .WithMany(p => p.Packages)
+                    .HasForeignKey(d => d.RestId)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("fk_pckg");
             });
 
             modelBuilder.Entity<Restaurant>(entity =>
@@ -147,8 +214,6 @@ namespace Foodilizer_Group35.Models
 
                 entity.HasCharSet("utf8")
                     .UseCollation("utf8_general_ci");
-
-                entity.Property(e => e.RestId).ValueGeneratedNever();
 
                 entity.Property(e => e.OpenHour).IsFixedLength(true);
 
@@ -161,24 +226,60 @@ namespace Foodilizer_Group35.Models
 
             modelBuilder.Entity<RestaurantContact>(entity =>
             {
+                entity.HasKey(e => e.RestId)
+                    .HasName("PRIMARY");
+
                 entity.HasCharSet("utf8")
                     .UseCollation("utf8_general_ci");
 
+                entity.Property(e => e.RestId).ValueGeneratedNever();
+
                 entity.Property(e => e.ContactNumber).IsFixedLength(true);
+
+                entity.HasOne(d => d.Rest)
+                    .WithOne(p => p.RestaurantContact)
+                    .HasForeignKey<RestaurantContact>(d => d.RestId)
+                    .HasConstraintName("fk_rest");
             });
 
             modelBuilder.Entity<RestaurantImage>(entity =>
             {
+                entity.HasKey(e => e.RestId)
+                    .HasName("PRIMARY");
+
                 entity.HasCharSet("utf8")
                     .UseCollation("utf8_general_ci");
+
+                entity.Property(e => e.RestId).ValueGeneratedNever();
+
+                entity.HasOne(d => d.Rest)
+                    .WithOne(p => p.RestaurantImage)
+                    .HasForeignKey<RestaurantImage>(d => d.RestId)
+                    .HasConstraintName("fk_resti");
             });
 
             modelBuilder.Entity<RestaurantOrder>(entity =>
             {
+                entity.HasKey(e => e.OrderId)
+                    .HasName("PRIMARY");
+
                 entity.HasCharSet("utf8")
                     .UseCollation("utf8_general_ci");
 
+                entity.Property(e => e.OrderId).ValueGeneratedNever();
+
                 entity.Property(e => e.TotalAmount).HasPrecision(18);
+
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.RestaurantOrders)
+                    .HasForeignKey(d => d.CustomerId)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("fk_cust");
+
+                entity.HasOne(d => d.Rest)
+                    .WithMany(p => p.RestaurantOrders)
+                    .HasForeignKey(d => d.RestId)
+                    .HasConstraintName("fk_restau");
             });
 
             modelBuilder.Entity<Review>(entity =>
@@ -186,15 +287,63 @@ namespace Foodilizer_Group35.Models
                 entity.HasCharSet("utf8")
                     .UseCollation("utf8_general_ci");
 
+                entity.Property(e => e.ReviewId).ValueGeneratedNever();
+
                 entity.Property(e => e.Rating).HasComment("rating is saved as  one number");
+
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.Reviews)
+                    .HasForeignKey(d => d.CustomerId)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("fk_cust1");
+
+                entity.HasOne(d => d.Rest)
+                    .WithMany(p => p.Reviews)
+                    .HasForeignKey(d => d.RestId)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("fk_rest1");
             });
 
             modelBuilder.Entity<SalesReport>(entity =>
             {
+                entity.HasKey(e => e.ReportId)
+                    .HasName("PRIMARY");
+
                 entity.HasCharSet("utf8")
                     .UseCollation("utf8_general_ci");
 
+                entity.Property(e => e.ReportId).ValueGeneratedNever();
+
                 entity.Property(e => e.Content).HasComment("Insert sales report content and any additional content");
+
+                entity.HasOne(d => d.Rest)
+                    .WithMany(p => p.SalesReports)
+                    .HasForeignKey(d => d.RestId)
+                    .HasConstraintName("fk_rests");
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasCharSet("utf8")
+                    .UseCollation("utf8_general_ci");
+
+                entity.HasOne(d => d.EmailNavigation)
+                    .WithOne(p => p.User)
+                    .HasPrincipalKey<Customer>(p => p.Cemail)
+                    .HasForeignKey<User>(d => d.Email)
+                    .HasConstraintName("fk_custemail");
+
+                entity.HasOne(d => d.Email1)
+                    .WithOne(p => p.User)
+                    .HasPrincipalKey<CustomAccount>(p => p.Email)
+                    .HasForeignKey<User>(d => d.Email)
+                    .HasConstraintName("fk_customemail");
+
+                entity.HasOne(d => d.Email2)
+                    .WithOne(p => p.User)
+                    .HasPrincipalKey<Restaurant>(p => p.Remail)
+                    .HasForeignKey<User>(d => d.Email)
+                    .HasConstraintName("fk_restemail");
             });
 
             OnModelCreatingPartial(modelBuilder);

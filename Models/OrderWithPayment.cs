@@ -16,5 +16,9 @@ namespace Foodilizer_Group35.Models
         public int OrderId { get; set; }
         [Column("payment_gateway_details")]
         public string PaymentGatewayDetails { get; set; }
+
+        [ForeignKey(nameof(OrderId))]
+        [InverseProperty(nameof(RestaurantOrder.OrderWithPayment))]
+        public virtual RestaurantOrder Order { get; set; }
     }
 }

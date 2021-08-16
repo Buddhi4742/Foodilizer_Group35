@@ -23,5 +23,9 @@ namespace Foodilizer_Group35.Models
         public string RegisteredDate { get; set; }
         [Column("rest_id")]
         public int? RestId { get; set; }
+
+        [ForeignKey(nameof(RestId))]
+        [InverseProperty(nameof(Restaurant.Packages))]
+        public virtual Restaurant Rest { get; set; }
     }
 }

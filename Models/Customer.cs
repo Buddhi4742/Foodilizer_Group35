@@ -9,13 +9,19 @@ using Microsoft.EntityFrameworkCore;
 namespace Foodilizer_Group35.Models
 {
     [Table("customer")]
-    [Index(nameof(Email), Name = "email", IsUnique = true)]
+    [Index(nameof(Cemail), Name = "idx_customer_email", IsUnique = true)]
     [Index(nameof(LocationLink), Name = "location_link", IsUnique = true)]
     [Index(nameof(Nic), Name = "nic", IsUnique = true)]
     [Index(nameof(ProfileImage), Name = "profile_image", IsUnique = true)]
     [Index(nameof(Username), Name = "username", IsUnique = true)]
     public partial class Customer
     {
+        public Customer()
+        {
+            RestaurantOrders = new HashSet<RestaurantOrder>();
+            Reviews = new HashSet<Review>();
+        }
+
         [Key]
         [Column("customer_id")]
         public int CustomerId { get; set; }
@@ -46,14 +52,21 @@ namespace Foodilizer_Group35.Models
         [Column("dietry_restriction")]
         [StringLength(50)]
         public string DietryRestriction { get; set; }
-        [Column("email")]
+        [Required]
+        [Column("cemail")]
         [StringLength(50)]
-        public string Email { get; set; }
+        public string Cemail { get; set; }
         [Column("location_link")]
         [StringLength(200)]
         public string LocationLink { get; set; }
         [Column("profile_image")]
         [StringLength(200)]
         public string ProfileImage { get; set; }
+
+        public virtual User User { get; set; }
+        [InverseProperty(nameof(RestaurantOrder.Customer))]
+        public virtual ICollection<RestaurantOrder> RestaurantOrders { get; set; }
+        [InverseProperty(nameof(Review.Customer))]
+        public virtual ICollection<Review> Reviews { get; set; }
     }
 }

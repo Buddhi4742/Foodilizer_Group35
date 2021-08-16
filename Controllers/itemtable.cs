@@ -38,19 +38,24 @@ namespace Foodilizer_Group35.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Item item)
         {
-            try
-            {
+            //I have added foreign keys. so this no longer works. thats because
+            //we cant add an item without creating a restaurant forst. there is foreign key 
+            //preventing the operation.
+
+            //comment try catch to view the error
+            //try 
+            //{
                 using (foodilizerContext dbmodel = new foodilizerContext())
                 {
                     dbmodel.Items.Add(item);
                     dbmodel.SaveChanges();
                 }
                     return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            //}
+            //catch
+            //{
+            //    return BadRequest();
+            //}
         }
 
         // GET: itemtable/Edit/5

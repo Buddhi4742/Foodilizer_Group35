@@ -13,7 +13,7 @@ namespace Foodilizer_Group35.Models
     public partial class Item
     {
         [Column("rest_id")]
-        public int RestId { get; set; }
+        public int? RestId { get; set; }
         [Key]
         [Column("item_id")]
         public int ItemId { get; set; }
@@ -31,5 +31,9 @@ namespace Foodilizer_Group35.Models
         [Column("alert")]
         [StringLength(50)]
         public string Alert { get; set; }
+
+        [ForeignKey(nameof(RestId))]
+        [InverseProperty(nameof(Restaurant.Items))]
+        public virtual Restaurant Rest { get; set; }
     }
 }

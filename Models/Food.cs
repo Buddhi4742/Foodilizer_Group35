@@ -13,6 +13,15 @@ namespace Foodilizer_Group35.Models
     [Index(nameof(ImagePath), Name = "image_path", IsUnique = true)]
     public partial class Food
     {
+        public Food()
+        {
+            FoodRecommendationFood1s = new HashSet<FoodRecommendation>();
+            FoodRecommendationFood2s = new HashSet<FoodRecommendation>();
+            FoodRecommendationFood3s = new HashSet<FoodRecommendation>();
+            FoodRecommendationFood4s = new HashSet<FoodRecommendation>();
+            FoodRecommendationFood5s = new HashSet<FoodRecommendation>();
+        }
+
         [Key]
         [Column("food_id")]
         public int FoodId { get; set; }
@@ -37,5 +46,19 @@ namespace Foodilizer_Group35.Models
         [Column("featured")]
         [StringLength(5)]
         public string Featured { get; set; }
+
+        [ForeignKey(nameof(MenuId))]
+        [InverseProperty("Foods")]
+        public virtual Menu Menu { get; set; }
+        [InverseProperty(nameof(FoodRecommendation.Food1))]
+        public virtual ICollection<FoodRecommendation> FoodRecommendationFood1s { get; set; }
+        [InverseProperty(nameof(FoodRecommendation.Food2))]
+        public virtual ICollection<FoodRecommendation> FoodRecommendationFood2s { get; set; }
+        [InverseProperty(nameof(FoodRecommendation.Food3))]
+        public virtual ICollection<FoodRecommendation> FoodRecommendationFood3s { get; set; }
+        [InverseProperty(nameof(FoodRecommendation.Food4))]
+        public virtual ICollection<FoodRecommendation> FoodRecommendationFood4s { get; set; }
+        [InverseProperty(nameof(FoodRecommendation.Food5))]
+        public virtual ICollection<FoodRecommendation> FoodRecommendationFood5s { get; set; }
     }
 }

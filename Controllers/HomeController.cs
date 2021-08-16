@@ -30,7 +30,7 @@ namespace Foodilizer_Group35.Controllers
         public IActionResult Signup(Customer customer)
         {
             using (foodilizerContext dbmodel = new foodilizerContext())
-            if (dbmodel.Customers.Any(x => x.Email == customer.Email))
+            if (dbmodel.Customers.Any(x => x.Cemail == customer.Cemail))
             {
                     ViewBag.Notifcation = "This email already has an account";
                     return View();

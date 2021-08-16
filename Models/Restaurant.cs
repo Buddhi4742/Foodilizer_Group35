@@ -9,8 +9,21 @@ using Microsoft.EntityFrameworkCore;
 namespace Foodilizer_Group35.Models
 {
     [Table("restaurant")]
+    [Index(nameof(Remail), Name = "idx_restaurant_remail", IsUnique = true)]
     public partial class Restaurant
     {
+        public Restaurant()
+        {
+            CustomAccounts = new HashSet<CustomAccount>();
+            FoodRecommendations = new HashSet<FoodRecommendation>();
+            Items = new HashSet<Item>();
+            Menus = new HashSet<Menu>();
+            Packages = new HashSet<Package>();
+            RestaurantOrders = new HashSet<RestaurantOrder>();
+            Reviews = new HashSet<Review>();
+            SalesReports = new HashSet<SalesReport>();
+        }
+
         [Key]
         [Column("rest_id")]
         public int RestId { get; set; }
@@ -32,6 +45,7 @@ namespace Foodilizer_Group35.Models
         [Column("rest_type")]
         [StringLength(50)]
         public string RestType { get; set; }
+        [Required]
         [Column("remail")]
         [StringLength(50)]
         public string Remail { get; set; }
@@ -70,5 +84,27 @@ namespace Foodilizer_Group35.Models
         public string Feature { get; set; }
         [Column("special_diet")]
         public string SpecialDiet { get; set; }
+
+        [InverseProperty("Rest")]
+        public virtual RestaurantContact RestaurantContact { get; set; }
+        [InverseProperty("Rest")]
+        public virtual RestaurantImage RestaurantImage { get; set; }
+        public virtual User User { get; set; }
+        [InverseProperty(nameof(CustomAccount.Rest))]
+        public virtual ICollection<CustomAccount> CustomAccounts { get; set; }
+        [InverseProperty(nameof(FoodRecommendation.Rest))]
+        public virtual ICollection<FoodRecommendation> FoodRecommendations { get; set; }
+        [InverseProperty(nameof(Item.Rest))]
+        public virtual ICollection<Item> Items { get; set; }
+        [InverseProperty(nameof(Menu.Rest))]
+        public virtual ICollection<Menu> Menus { get; set; }
+        [InverseProperty(nameof(Package.Rest))]
+        public virtual ICollection<Package> Packages { get; set; }
+        [InverseProperty(nameof(RestaurantOrder.Rest))]
+        public virtual ICollection<RestaurantOrder> RestaurantOrders { get; set; }
+        [InverseProperty(nameof(Review.Rest))]
+        public virtual ICollection<Review> Reviews { get; set; }
+        [InverseProperty(nameof(SalesReport.Rest))]
+        public virtual ICollection<SalesReport> SalesReports { get; set; }
     }
 }

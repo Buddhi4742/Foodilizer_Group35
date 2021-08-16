@@ -32,5 +32,24 @@ namespace Foodilizer_Group35.Models
         public int Food4Id { get; set; }
         [Column("food5_id")]
         public int Food5Id { get; set; }
+
+        [ForeignKey(nameof(Food1Id))]
+        [InverseProperty(nameof(Food.FoodRecommendationFood1s))]
+        public virtual Food Food1 { get; set; }
+        [ForeignKey(nameof(Food2Id))]
+        [InverseProperty(nameof(Food.FoodRecommendationFood2s))]
+        public virtual Food Food2 { get; set; }
+        [ForeignKey(nameof(Food3Id))]
+        [InverseProperty(nameof(Food.FoodRecommendationFood3s))]
+        public virtual Food Food3 { get; set; }
+        [ForeignKey(nameof(Food4Id))]
+        [InverseProperty(nameof(Food.FoodRecommendationFood4s))]
+        public virtual Food Food4 { get; set; }
+        [ForeignKey(nameof(Food5Id))]
+        [InverseProperty(nameof(Food.FoodRecommendationFood5s))]
+        public virtual Food Food5 { get; set; }
+        [ForeignKey(nameof(RestId))]
+        [InverseProperty(nameof(Restaurant.FoodRecommendations))]
+        public virtual Restaurant Rest { get; set; }
     }
 }

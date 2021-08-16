@@ -8,10 +8,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Foodilizer_Group35.Models
 {
-    [Keyless]
     [Table("restaurant_image")]
     public partial class RestaurantImage
     {
+        [Key]
         [Column("rest_id")]
         public int RestId { get; set; }
         [Column("main_image_path")]
@@ -35,5 +35,9 @@ namespace Foodilizer_Group35.Models
         [Column("gallery_image_5_path")]
         [StringLength(200)]
         public string GalleryImage5Path { get; set; }
+
+        [ForeignKey(nameof(RestId))]
+        [InverseProperty(nameof(Restaurant.RestaurantImage))]
+        public virtual Restaurant Rest { get; set; }
     }
 }

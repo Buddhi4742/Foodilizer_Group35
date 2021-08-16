@@ -10,6 +10,7 @@ namespace Foodilizer_Group35.Models
 {
     [Table("custom_account")]
     [Index(nameof(RestId), Name = "fk_custom")]
+    [Index(nameof(Email), Name = "idx_custom_account_email", IsUnique = true)]
     [Index(nameof(Username), Name = "username", IsUnique = true)]
     public partial class CustomAccount
     {
@@ -22,6 +23,7 @@ namespace Foodilizer_Group35.Models
         [Column("account_status")]
         [StringLength(50)]
         public string AccountStatus { get; set; }
+        [Required]
         [Column("email")]
         [StringLength(50)]
         public string Email { get; set; }
@@ -33,5 +35,10 @@ namespace Foodilizer_Group35.Models
         public string Password { get; set; }
         [Column("rest_id")]
         public int RestId { get; set; }
+
+        [ForeignKey(nameof(RestId))]
+        [InverseProperty(nameof(Restaurant.CustomAccounts))]
+        public virtual Restaurant Rest { get; set; }
+        public virtual User User { get; set; }
     }
 }

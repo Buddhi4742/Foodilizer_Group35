@@ -8,10 +8,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Foodilizer_Group35.Models
 {
-    [Keyless]
     [Table("sales_report")]
+    [Index(nameof(RestId), Name = "fk_rests")]
     public partial class SalesReport
     {
+        [Key]
         [Column("report_id")]
         public int ReportId { get; set; }
         [Column("rest_id")]
@@ -21,5 +22,9 @@ namespace Foodilizer_Group35.Models
         public string Date { get; set; }
         [Column("content")]
         public string Content { get; set; }
+
+        [ForeignKey(nameof(RestId))]
+        [InverseProperty(nameof(Restaurant.SalesReports))]
+        public virtual Restaurant Rest { get; set; }
     }
 }
