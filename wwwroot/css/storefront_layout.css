@@ -1,0 +1,157 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+	white-space: normal;
+	text-align: center;
+	word-break: break-all;
+}
+.navbar .navbar-nav {
+	float: right;
+
+	
+}
+/* Provide sufficient contrast against white background */
+a {
+	color: #0366d6;
+
+}
+
+.btn-primary {
+	color: #fff;
+	background-color: #1b6ec2;
+	border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+	color: #fff;
+	background-color: #1b6ec2;
+	border-color: #1861ac;
+	
+}
+.nav-item{
+	margin-right:10px;
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+	font-size: 14px;
+}
+
+@media (min-width: 768px) {
+	html {
+		font-size: 16px;
+	}
+}
+
+.border-top {
+	border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+	box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+	font-size: 1rem;
+	line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	/* Margin bottom by footer height */
+	margin-bottom: 60px;
+	
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+.footer {
+	background: #3AAFA9;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	padding: 30px 0;
+}
+
+	.footer h3 {
+		font-size: 36px;
+		font-weight: 700;
+		color: Black;
+		position: relative;
+		padding: 0;
+		margin: 0 0 15px 0;
+	}
+
+	.footer p {
+		font-size: 15px;
+		font-style: italic;
+		padding: 0;
+		margin: 0 0 40px 0;
+	}
+
+	.footer .social-links {
+		margin: 0 0 10px 0;
+	}
+
+		.footer .social-links a {
+			font-size: 18px;
+			display: inline-block;
+			background: #46423b;
+			color:aliceblue;
+			line-height: 1;
+			padding: 8px 0;
+			margin-right: 4px;
+			border-radius: 50%;
+			text-align: center;
+			width: 36px;
+			height: 36px;
+			transition: 0.3s;
+		}
+
+			.footer .social-links a:hover {
+				background: #3AAFA9;
+			}
+
+	.footer .copyright {
+		margin: 0 0 5px 0;
+		color: black;
+	}
+
+	.footer .credits {
+		font-size: 13px;
+	}
+
+	.footer .link-list a {
+		color: black;
+	}
+
+.profile {
+	width: 100px;
+	height: 20px;
+	margin-top: 10px;
+	text-align: center;
+	background-color: black;
+	margin-right: 10px;
+	border-radius: 3px;
+}
+
+.logout {
+	width: 100px;
+	height: 20px;
+	border-radius:3px;
+	margin-top: 10px;
+	text-align: center;
+	background-color: black;
+}

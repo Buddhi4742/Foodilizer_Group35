@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Foodilizer_Group35</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/storefront_layout.css" />
+
+</head>
+<body>
+    <header style="background-color: #3AAFA9;">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand"  style="padding-top:0px;" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img class="title-logo" src="~/resources/images/logo.png" width="160" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="store_front" asp-action="gold_home">Restaurants</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link profile text-light" style="padding-top:5px;padding-bottom:25px;" asp-area="" asp-controller="store_front" asp-action="gold_home">Profile</a>
+                        </li>
+                       
+                        <li class="nav-item">
+                            <a class="nav-link logout text-light" style="padding-top:5px;padding-bottom:25px;" asp-area="" asp-controller="store_front" asp-action="gold_home"> <i class="fa fa-shopping-cart"></i> Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link logout text-light" style="padding-top:5px;padding-bottom:25px;" asp-area="" asp-controller="store_front" asp-action="gold_home">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer id="footer" class="footer">
+        <div class="container">
+            <h3>Foodilizer</h3>
+            <img class="title-logo img-fluid d-inline pb-3" src="~/resources/images/logo.png" width="160" />
+            <div class="">
+                <div class="link-list"><a href="#">Contact Us</a></div>
+                <div class="link-list"><a href="#">About Us</a></div>
+                <div class="link-list"><a href="#">Terms of use</a></div>
+                <div class="link-list"><a href="#">Privacy Policy</a></div>
+            </div>
+            <div class="social-links pt-3">
+                <span style="color: black;">Follow Us on</span>
+                <a href="#" class="twitter "><i class="fa fa-twitter"></i></a>
+                <a href="#" class="facebook "><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                <a href="#" class="instagram  "><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="#" class="linkedin "><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; Copyright <strong><span>Foodilizer</span></strong>. All Rights Reserved<br />
+                <span>Designed by UCSC Group 35</span>
+
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/home.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

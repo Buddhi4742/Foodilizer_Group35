@@ -1,37 +1,50 @@
-﻿using Foodilizer_Group35.Models;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Foodilizer_Group35.Models;
+using Microsoft.EntityFrameworkCore;
 namespace Foodilizer_Group35.Controllers
+
 {
+
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
 
         public IActionResult Index()
         {
-            return View();
+            using (foodilizerContext dbmodel = new foodilizerContext())
+                return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Signup()
         {
-            return View();
+            using (foodilizerContext dbmodel = new foodilizerContext())
+                return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult Signup(Customer customer)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            using (foodilizerContext dbmodel = new foodilizerContext())
+            if (dbmodel.Customers.Any(x => x.Cemail == customer.Cemail))
+            {
+                    ViewBag.Notifcation = "This email already has an account";
+                    return View();
+            }
+            else
+            {
+                    dbmodel.Customers.Add(customer);
+                    dbmodel.SaveChanges();
+
+                    //Session["CustsomerIdSS"] = customer.CustomerId.ToString();
+                    //Session["CustsomerEmailSS"] = customer.Email.ToString();
+                    return RedirectToAction("index", "Home");
+
+            }
         }
     }
 }

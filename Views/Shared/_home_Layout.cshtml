@@ -4,47 +4,217 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Foodilizer_Group35</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    @*<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>*@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/home.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+
+
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar nav-home nav-bar-home navbar-expand-sm navbar-toggleable-sm navbar-dark fixed-top border-bottom box-shadow bg-light ">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Foodilizer_Group35</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img class="title-logo img-fluid d-inline" src="~/resources/images/logo.png" width="160" />
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav ml-auto nav-btn-list">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Restaurants</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Have a Business to register?</a>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="login-btn" data-toggle="modal" data-target="#loginModal">
+                                Login
+                            </button>
+                        </li>
+
                     </ul>
+
                 </div>
+
             </div>
         </nav>
     </header>
-
-
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="">
+        <main role="main" class="">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer id="footer" class="footer">
         <div class="container">
-            &copy; 2021 - Foodilizer_Group35 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <h3>Foodilizer</h3>
+            <img class="title-logo img-fluid d-inline pb-3" src="~/resources/images/logo.png" width="160" />
+            <div class="">
+                <div class="link-list"><a href="#">Contact Us</a></div>
+                <div class="link-list"><a href="#">About Us</a></div>
+                <div class="link-list"><a href="#">Terms of use</a></div>
+                <div class="link-list"><a href="#">Privacy Policy</a></div>
+            </div>
+            <div class="social-links pt-3">
+                <span class="">Follow Us on</span>
+                <a href="#" class="twitter "><i class="bi bi-twitter"></i></a>
+                <a href="#" class="facebook "><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram  "><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin "><i class="bi bi-linkedin"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; Copyright <strong><span>Foodilizer</span></strong>. All Rights Reserved<br />
+                <span>Designed by UCSC Group 35</span>
+
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/home.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
-</body>
-</html>
+
+    <div class="modal " id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-title text-center">
+                        <h4>Login</h4>
+                    </div>
+                    <div class="d-flex flex-column ">
+                        <form name="loginForm" class="needs-validation" novalidate id="forms">
+                            <div class="form-group">
+                                <h6 class="form-check-txt">Email</h6>
+                                <input type="email" name="email" class="form-control" id="email1" placeholder="something@something.com" autocomplete="off" required>
+                                <div class="invalid-feedback">
+                                    please enter valid email!
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h6 class="form-check-txt">Password</h6>
+                                <input type="password" name="password" class="form-control" id="password1" placeholder="Password ..." autocomplete="off" required>
+                                <div class="invalid-feedback">
+                                    please enter a password!
+                                </div>
+                            </div>
+                            <input type="hidden"id="layoutAuthentication" value="" />
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" name="submit" class="login-btn">Login</button>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <div class="signup-section">
+                        Not a member yet?
+                        <button type="button" class="login-btn " id="login-modal-btn" data-toggle="modal" data-target="#regModal" data-dismiss="#loginModal" data-backdrop="false">
+                            SignUp
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal " id="regModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-title text-center">
+                        <h4>SignUp</h4>
+                    </div>
+                    <div class="d-flex flex-column ">
+                        <form name="regForm" class="reg-form"  id="reg-form">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input type="text" name="firstName" class="form-control" id="firstName" placeholder="First Name" autocomplete="off">
+                                
+                            </div>
+                            <div class="form-group ">
+                                <label>Last Name</label>
+                                <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Last Name" autocomplete="off">
+                                
+                            </div>
+                            <div class="form-group ">
+                                <label>Email</label>
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Email" autocomplete="off">
+                                
+                            </div>
+                            <div class="form-group ">
+                                <label>Location (Eg:colombo)</label>
+                                <input type="text" name="location" class="form-control"  id="location" placeholder="Location" autocomplete="off">
+                                
+                            </div>
+                            <div class="form-group ">
+                                <label>Mobile Number</label>
+                                <input type="text" name="mobile" class="form-control" id="mobile" placeholder="Mobile Number" autocomplete="off">
+                                
+                            </div>
+                            <div class="form-group ">
+                                <label>Password</label>
+                                <input type="password" name="password" class="form-control" id="password" placeholder="Password" autocomplete="off" >
+                                
+                            </div>
+                            <div class="form-group ">
+                                <label>Confirm Password</label>
+                                <input type="password" name="password2" class="form-control" id="password2" placeholder="Confirm Password" autocomplete="off">
+                                
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" value="submit" class="login-btn">SignUp</button>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <div class="login-section">
+                        Alredy a member?
+                        <button type="button" class="login-btn " id="reg-modal-btn" data-toggle="modal" data-target="#loginModal " data-dismiss="#regModal" data-backdrop="false">
+                            Login
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    </body>
+
+
+
+
+
+</html >
+
+
