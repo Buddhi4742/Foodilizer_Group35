@@ -1,0 +1,144 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Foodilizer_Group35</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="~/css/owner_home.css">
+  
+
+</head>
+<body>
+
+
+    <!-- header design -->
+
+    <header>
+        <!--
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <a class="navbar-brand"><img src="~/lib/owner_img/logo.png" width="100" height="30"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex  justify-content-between">
+                <ul class="navbar-nav navbar-right flex-grow-1 ">
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Owner" asp-action="owner_home">Restaurant</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Owner" asp-action="#">
+                            <button class="main-btn">Login</button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+        -->
+        <nav class="navbar nav-home nav-bar-home navbar-expand-sm navbar-toggleable-sm navbar-dark fixed-top border-bottom box-shadow bg-light ">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img class="title-logo img-fluid d-inline" src="~/lib/owner_img/logo.png" width="160" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav ml-auto nav-btn-list">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Owner" asp-action="owner_home">Restaurant</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Owner" asp-action="#">
+                                <button class="main-btn">Login</button>
+                            </a>
+                        </li>
+                        
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+
+
+    <footer class="border-top footer text-muted">
+        <div class="col-md-12 text-center">
+            <div class="container">
+               
+                <img class="title-logo img-fluid d-inline pb-3" src="~/lib/owner_img/logo.png" width="160" />
+                <h6> Foodilizer</h6>
+                <div class="">
+                    <div class="link-list"><a href="#">Contact Us</a></div>
+                    <div class="link-list"><a href="#">About Us</a></div>
+                    <div class="link-list"><a href="#">Terms of use</a></div>
+                    <div class="link-list"><a href="#">Privacy Policy</a></div>
+                </div>
+                <div class="social-links pt-3">
+                    <span class="">Follow Us on</span>
+                    <a href="#" class="twitter "><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="facebook "><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="instagram  "><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="linkedin "><i class="bi bi-linkedin"></i></a>
+                </div>
+                <div class="copyright">
+                    &copy; Copyright <strong> <span> 2021 Foodilizer</span></strong>
+                  
+
+                </div>
+            </div>
+            </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/owner_home.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

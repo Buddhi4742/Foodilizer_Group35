@@ -1,0 +1,311 @@
+﻿@{
+    ViewData["Title"] = "Owner Home Page";
+    Layout = "~/Views/Shared/_owner_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <title>Foodies</title>
+    <!-- bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <!-- OWN CSS -->
+    <link rel="stylesheet" href="~/css/owner_home.css">
+
+</head>
+
+<body>
+
+
+
+
+    <!-- section-1 top-banner -->
+    <section id="home">
+        <div class="container-fluid px-0 top-banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-6">
+                        <h3> Give your restaurant a face </h3>
+                        <p>
+                            Click here to make a face for your restaurant here!
+                        </p>
+                        <div class="mt-4">
+
+                            <button class="main-btn ms-lg-4 mt-lg-0 mt-4">
+                                <a  asp-area="" asp-controller="Owner" asp-action="owner_register">
+                            Get Started <i class="fas fa-angle-right ps-3"> </i> </a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- section-2 about-->
+    <section id="about">
+        <div class="about-section wrapper">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 col-md-12 mb-lg-0 mb-5">
+                        <div class="card border-0">
+                            <img src="~/lib/owner_img/omenu.png" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-12 text-sec">
+                        <h2>Standard Food menu & Featured food items.</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et purus a odio finibus bibendum in sit
+                            amet leo. Mauris feugiat erat tellus.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="container food-type">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 col-md-12 text-sec mb-lg-0 mb-5">
+                        <h2>Online ordering & rating </h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et purus a odio finibus bibendum in sit
+                            amet leo. Mauris feugiat erat tellus.Far far away, behind the word mountains, far from the countries
+                            Vokalia and Consonantia, there live the blind texts.
+                        </p>
+
+
+                    </div>
+                    <div class="col-lg-7 col-md-12">
+                        <div class="card border-0">
+                            <img src="~/lib/owner_img/oorder.png" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 col-md-12 mb-lg-0 mb-5">
+                        <div class="card border-0">
+                            <img src="~/lib/owner_img/oinven.png" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-12 text-sec">
+                        <h2>Inventory and recommodation </h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et purus a odio finibus bibendum in sit
+                            amet leo. Mauris feugiat erat tellus.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </section>
+
+
+    <!-- section-3 packages-->
+
+    <div class="section-cards">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-image" style="background-color:springgreen">
+                            <h1> Bronze </h1>
+                        </div>
+                        <div class="content">
+                            <h1 class="text-info">$Free</h1>
+                            <h4 class="card-caption">
+                               
+                            </h4>
+                            <p class="card-description">
+                                <ul>
+                                    <li>  Food Menu (standard)  </li>
+                                    <li>  Featured food items(standard)</li>
+                                    <li>  Food rating system </li>
+                                 
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-image" style="background-color:dodgerblue">
+                            <h1> Silver </h1>
+                        </div>
+                        <div class="content">
+                            <h1 class="text-danger">$1.99</h1>
+                            <h4 class="card-caption">
+                                
+                            </h4>
+                            <p class="card-description">
+                                <ul>
+                                    <li>  Food Menu (standard)  </li>
+                                    <li>  Featured food items(standard)</li>
+                                    <li>  Food rating system </li>
+                                    <li>  Inventory Module  </li>
+                                    <li> Food recommadation  </li>
+                                    <li>  Online ordering- without payment  </li>
+                                    <li>  Report generation modules (sales)  </li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-image" style="background-color:darkorange">
+                            <h1> Gold  </h1>
+                        </div>
+                        <div class="content">
+                            <h1 class="text-success">$3.99</h1>
+                            <h4 class="card-caption">
+                               
+                            </h4>
+                            <p class="card-description">
+                                <ul>
+                                    <li>  Food Menu (standard)  </li>
+
+                                    <li>  Featured food items(standard)</li>
+                                    <li>  Food rating system </li>
+                                    <li>  Promotional Menu  </li>
+                                    <li>  Inventory Module  </li>
+                                    <li> Food recommadation  </li>
+                                    <li>  Online ordering- without payment  </li>
+                                    <li>  Report generation modules (sales)  </li>
+                                    <li> Custom accounts for restaurant  </li>
+
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- section-4 explore food-->
+    <section id="explore-food">
+        <div class="explore-food wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="text-content text-center">
+                            <h2>Why Foodilizer?</h2>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row pt-5">
+                    <div class="col-lg-4 col-md-6 mb-lg-0 mb-5">
+                        <div class="card">
+                            <img src="~/lib/owner_img/ocust.jpg" class="img-fluid">
+                            <div class="pt-3">
+                                <h4>Platform for Food lovers </h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et purus a odio finibus bibendum in sit
+                                    amet leo. Mauris feugiat erat tellus..
+                                </p>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-lg-0 mb-5">
+                        <div class="card">
+                            <img src="~/lib/owner_img/orest.jpg" class="img-fluid">
+                            <div class="pt-3">
+                                <h4>Platform for restaurants</h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et purus a odio finibus bibendum in sit
+                                    amet leo. Mauris feugiat erat tellus..
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-lg-0 mb-5">
+                        <div class="card">
+                            <img src="~/lib/owner_img/oneed.jpg" class="img-fluid">
+                            <div class="pt-3">
+                                <h4>Choose the needs</h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et purus a odio finibus bibendum in sit
+                                    amet leo. Mauris feugiat erat tellus..
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- section-8 newslettar-->
+    <section id="newslettar">
+        <div class="newslettar wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="sol-sm-12">
+                        <div class="text-content text-center pb-4">
+                            <h2>
+                                For any inquiry send us a message!
+                            </h2>
+                         
+                        </div>
+                        <form class="newsletter">
+                            <div class="row">
+                                <div class="col-md-8 col-12">
+                                    <input class="form-control" placeholder="Name" name="name" type="text">
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <input class="form-control" placeholder="Phone No" name="phone" type="tel">
+                                </div>
+                                <div class="col-md-8 col-lg-12">
+                                    <input class="form-control" placeholder="Description" name="description" type="text">
+                                </div>
+                                <div class="col-md-8 col-12 input-lg-12">
+                                    <input class="form-control" placeholder="Email" name="Email" type="email">
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <button class="main-btn" type="submit">Send  the Inquiry</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
