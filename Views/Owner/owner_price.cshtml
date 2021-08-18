@@ -16,7 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <!-- OWN CSS -->
     <link rel="stylesheet" href="~/css/owner_home.css">
 
@@ -24,90 +24,113 @@
 
 <body>
 
-
+  
     <!-- section-packages-->
-    <div class="price-list">
-        <div class="section-cards">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card">
-                            <div class="card-image" style="background-color:springgreen">
-                                <h1> Basic</h1>
-                            </div>
-                            <div class="content">
-                                <h1 class="text-info">$Free</h1>
-                                <h4 class="card-caption">
-                                </h4>
-                                <p class="card-description">
-                                    <ul>
-                                        <li>  Food Menu (standard)  </li>
+    <form class="package">
+        <div class="price-list">
+            <div class="section-cards">
+                <div class="container">
+                    <div class="row">
+                        <h4> Select your prefered package</h4>
+                        <div class="col-md-6 col-lg-4">
+                            <input type="radio" id="bronze" name="package" value="bronze" />
+                            <label for="bronze">
+                                <div class="card">
 
-                                        <li>  Featured food items(standard)</li>
-                                        <li>  Food rating system </li>
+                                    <div class="card-image" style="background-color:springgreen">
+                                        <h1> Bronze</h1>
+                                    </div>
+                                    <div class="content">
+                                        <h1 class="text-info">$Free</h1>
+                                        <h4 class="card-caption">
+                                        </h4>
+                                        <p class="card-description">
+                                            <ul>
+                                                <li>  Food Menu (standard)  </li>
+                                                <li>  Featured food items(standard)</li>
+                                                <li>  Food rating system </li>
 
-                                    </ul>
-                                </p>
-                                <button type="submit" class="main-btn"> Select</button>
-                            </div>
+                                            </ul>
+                                        </p>
+
+                                    </div>
+
+                                </div>
+                            </label>
+                        </div>
+
+
+                        <div class="col-md-6 col-lg-4">
+                            <input type="radio" id="silver" name="package" value="silver" />
+                            <label for="silver">
+                                <div class="card">
+
+                                    <div class="card-image" style="background-color:dodgerblue">
+                                        <h1> Silver </h1>
+                                    </div>
+                                    <div class="content">
+                                        <h1 class="text-danger">$1.99</h1>
+                                        <h4 class="card-caption">
+                                        </h4>
+                                        <p class="card-description">
+                                            <ul>
+                                                <li>  Food Menu (standard)  </li>
+
+                                                <li>  Featured food items(standard)</li>
+                                                <li>  Food rating system </li>
+                                                <li>  Inventory Module  </li>
+                                                <li>  Food recommadation  </li>
+                                                <li>  Online ordering- without payment  </li>
+                                                <li>  Report generation modules (sales)  </li>
+                                            </ul>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+
+
+
+
+                        <div class="col-md-6 col-lg-4">
+                            <input type="radio" id="gold" name="package" value="gold" />
+                            <label for="gold">
+                                <div class="card">
+                                    <div class="card-image" style="background-color:darkorange">
+                                        <h1> Gold </h1>
+                                    </div>
+                                    <div class="content">
+                                        <h1 class="text-success">$3.99</h1>
+                                        <h4 class="card-caption">
+                                        </h4>
+                                        <p class="card-description">
+                                            <ul>
+                                                <li>  Food Menu (standard)  </li>
+                                                <li>  Featured food items(standard) </li>
+                                                <li>  Food rating system </li>
+                                                <li>  Promotional Menu  </li>
+                                                <li>  Inventory Module  </li>
+                                                <li>  Food recommadation  </li>
+                                                <li>  Online ordering- without payment  </li>
+                                                <li>  Report generation modules (sales)  </li>
+                                                <li>  Custom accounts for restaurant  </li>
+
+                                            </ul>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </label>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card">
-                            <div class="card-image" style="background-color:dodgerblue">
-                                <h1> Standard  </h1>
-                            </div>
-                            <div class="content">
-                                <h1 class="text-danger">$1.99</h1>
-                                <h4 class="card-caption">
-                                </h4>
-                                <p class="card-description">
-                                    <ul>
-                                        <li>  Food Menu (standard)  </li>
-
-                                        <li>  Featured food items(standard)</li>
-                                        <li>  Food rating system </li>
-                                        <li>  Inventory Module  </li>
-                                        <li> Food recommadation  </li>
-                                        <li>  Online ordering- without payment  </li>
-                                        <li>  Report generation modules (sales)  </li>
-                                    </ul>
-                                </p>
-                                <button type="submit" class="main-btn"> Select</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card">
-                            <div class="card-image" style="background-color:darkorange">
-                                <h1> Premium  </h1>
-                            </div>
-                            <div class="content">
-                                <h1 class="text-success">$3.99</h1>
-                                <h4 class="card-caption">
-                                </h4>
-                                <p class="card-description">
-                                    <ul>
-                                        <li>  Food Menu (standard)  </li>
-
-                                        <li>  Featured food items(standard)</li>
-                                        <li>  Food rating system </li>
-                                        <li>  Promotional Menu  </li>
-                                        <li>  Inventory Module  </li>
-                                        <li> Food recommadation  </li>
-                                        <li>  Online ordering- without payment  </li>
-                                        <li>  Report generation modules (sales)  </li>
-                                        <li> Custom accounts for restaurant  </li>
-
-                                    </ul>
-                                </p>
-                                <button type="submit" class="main-btn"> Select</button>
-                            </div>
-                        </div>
-                    </div>
+                    <button class="main-btn" type="submit"> Submit  </button>
                 </div>
             </div>
         </div>
-    </div>
-    </body>
+       
+    </form>
+  
+</body>
+
 </html>
