@@ -564,6 +564,15 @@ input[type="radio"]:checked + label {
 }
 
 
+/*redirect*/
+.continue{
+    margin-bottom:200px;
+    margin-top:200px;
+}
+
+
+
+
 
 
 
