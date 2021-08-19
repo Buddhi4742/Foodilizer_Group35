@@ -4,11 +4,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Foodilizer_Group35.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Foodilizer_Group35.Controllers
 {
     public class loginController : Controller
     {
+        private readonly foodilizerContext _context;
+        public loginController(foodilizerContext context)
+        {
+            _context = context;
+        }
         // GET: loginController
         public ActionResult Index()
         {
