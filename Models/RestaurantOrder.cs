@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Foodilizer_Group35.Models
 {
     [Table("restaurant_order")]
-    [Index(nameof(CustomerId), Name = "fk_cust")]
+    [Index(nameof(CustomerId), Name = "fk_custorder_idx")]
     [Index(nameof(RestId), Name = "fk_restau")]
     public partial class RestaurantOrder
     {

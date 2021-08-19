@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography;
+using System.Text;
 
 #nullable disable
 
@@ -35,7 +37,7 @@ namespace Foodilizer_Group35.Models
         [StringLength(50)]
         public string Username { get; set; }
         [Column("password")]
-        [StringLength(50)]
+        [StringLength(100)]
         public string Password { get; set; }
         [Column("district")]
         [StringLength(50)]
@@ -63,10 +65,23 @@ namespace Foodilizer_Group35.Models
         [StringLength(200)]
         public string ProfileImage { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual User CemailNavigation { get; set; }
         [InverseProperty(nameof(RestaurantOrder.Customer))]
         public virtual ICollection<RestaurantOrder> RestaurantOrders { get; set; }
         [InverseProperty(nameof(Review.Customer))]
         public virtual ICollection<Review> Reviews { get; set; }
+        public void ShaEnc()
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(Password));
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                Password = builder.ToString();
+            }
+        }
     }
 }

@@ -58,6 +58,13 @@ namespace Foodilizer_Group35.Models
 
                 entity.Property(e => e.AccountId).ValueGeneratedNever();
 
+                entity.HasOne(d => d.EmailNavigation)
+                    .WithOne(p => p.CustomAccount)
+                    .HasPrincipalKey<User>(p => p.Email)
+                    .HasForeignKey<CustomAccount>(d => d.Email)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_customemail");
+
                 entity.HasOne(d => d.Rest)
                     .WithMany(p => p.CustomAccounts)
                     .HasForeignKey(d => d.RestId)
@@ -69,7 +76,12 @@ namespace Foodilizer_Group35.Models
                 entity.HasCharSet("utf8")
                     .UseCollation("utf8_general_ci");
 
-                entity.Property(e => e.CustomerId).ValueGeneratedNever();
+                entity.HasOne(d => d.CemailNavigation)
+                    .WithOne(p => p.Customer)
+                    .HasPrincipalKey<User>(p => p.Email)
+                    .HasForeignKey<Customer>(d => d.Cemail)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_custemail");
             });
 
             modelBuilder.Entity<Food>(entity =>
@@ -222,6 +234,13 @@ namespace Foodilizer_Group35.Models
                 entity.Property(e => e.OwnerEmail).IsFixedLength(true);
 
                 entity.Property(e => e.PriceRange).IsFixedLength(true);
+
+                entity.HasOne(d => d.RemailNavigation)
+                    .WithOne(p => p.Restaurant)
+                    .HasPrincipalKey<User>(p => p.Email)
+                    .HasForeignKey<Restaurant>(d => d.Remail)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_restemail");
             });
 
             modelBuilder.Entity<RestaurantContact>(entity =>
@@ -273,8 +292,7 @@ namespace Foodilizer_Group35.Models
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.RestaurantOrders)
                     .HasForeignKey(d => d.CustomerId)
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("fk_cust");
+                    .HasConstraintName("fk_custorder");
 
                 entity.HasOne(d => d.Rest)
                     .WithMany(p => p.RestaurantOrders)
@@ -294,7 +312,6 @@ namespace Foodilizer_Group35.Models
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.Reviews)
                     .HasForeignKey(d => d.CustomerId)
-                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("fk_cust1");
 
                 entity.HasOne(d => d.Rest)
@@ -326,24 +343,6 @@ namespace Foodilizer_Group35.Models
             {
                 entity.HasCharSet("utf8")
                     .UseCollation("utf8_general_ci");
-
-                entity.HasOne(d => d.EmailNavigation)
-                    .WithOne(p => p.User)
-                    .HasPrincipalKey<Customer>(p => p.Cemail)
-                    .HasForeignKey<User>(d => d.Email)
-                    .HasConstraintName("fk_custemail");
-
-                entity.HasOne(d => d.Email1)
-                    .WithOne(p => p.User)
-                    .HasPrincipalKey<CustomAccount>(p => p.Email)
-                    .HasForeignKey<User>(d => d.Email)
-                    .HasConstraintName("fk_customemail");
-
-                entity.HasOne(d => d.Email2)
-                    .WithOne(p => p.User)
-                    .HasPrincipalKey<Restaurant>(p => p.Remail)
-                    .HasForeignKey<User>(d => d.Email)
-                    .HasConstraintName("fk_restemail");
             });
 
             OnModelCreatingPartial(modelBuilder);

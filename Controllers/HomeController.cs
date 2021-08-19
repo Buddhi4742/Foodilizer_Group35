@@ -16,13 +16,17 @@ namespace Foodilizer_Group35.Controllers
 
         public IActionResult Index()
         {
-            using (foodilizerContext dbmodel = new foodilizerContext())
+           
                 return View();
         }
+        public IActionResult Login()
+        {
 
+            return RedirectToAction("Index", "Login");
+        }
         public IActionResult Signup()
         {
-            using (foodilizerContext dbmodel = new foodilizerContext())
+          
                 return View();
         }
 

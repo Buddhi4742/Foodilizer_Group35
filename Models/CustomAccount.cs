@@ -31,14 +31,14 @@ namespace Foodilizer_Group35.Models
         [StringLength(50)]
         public string Username { get; set; }
         [Column("password")]
-        [StringLength(50)]
+        [StringLength(100)]
         public string Password { get; set; }
         [Column("rest_id")]
         public int RestId { get; set; }
 
+        public virtual User EmailNavigation { get; set; }
         [ForeignKey(nameof(RestId))]
         [InverseProperty(nameof(Restaurant.CustomAccounts))]
         public virtual Restaurant Rest { get; set; }
-        public virtual User User { get; set; }
     }
 }

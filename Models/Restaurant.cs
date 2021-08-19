@@ -62,7 +62,7 @@ namespace Foodilizer_Group35.Models
         [StringLength(50)]
         public string Rusername { get; set; }
         [Column("rpassword")]
-        [StringLength(50)]
+        [StringLength(100)]
         public string Rpassword { get; set; }
         [Column("rprovince")]
         [StringLength(50)]
@@ -85,11 +85,11 @@ namespace Foodilizer_Group35.Models
         [Column("special_diet")]
         public string SpecialDiet { get; set; }
 
+        public virtual User RemailNavigation { get; set; }
         [InverseProperty("Rest")]
         public virtual RestaurantContact RestaurantContact { get; set; }
         [InverseProperty("Rest")]
         public virtual RestaurantImage RestaurantImage { get; set; }
-        public virtual User User { get; set; }
         [InverseProperty(nameof(CustomAccount.Rest))]
         public virtual ICollection<CustomAccount> CustomAccounts { get; set; }
         [InverseProperty(nameof(FoodRecommendation.Rest))]

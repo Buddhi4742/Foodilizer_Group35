@@ -6,6 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Foodilizer_Group35.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Filters;
+
 
 namespace Foodilizer_Group35.Controllers
 {
@@ -16,7 +18,6 @@ namespace Foodilizer_Group35.Controllers
         {
             _context = context;
         }
-
         //View login page
         // GET: Login
         public IActionResult Index()
@@ -30,7 +31,7 @@ namespace Foodilizer_Group35.Controllers
         //Login process
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> LoginMember([Bind("email,password")] User user)
+        public async Task<IActionResult> LoginMember([Bind("Email,Password")] User user)
         {
             try
             {
@@ -42,22 +43,34 @@ namespace Foodilizer_Group35.Controllers
                     TempData["Error"] = "Invalid login credentials";
                     return RedirectToAction("Index");
                 }
-
-                if (userDetails != null)
+                else
                 {
-                    var customerDetails = await _context.Customers.FirstOrDefaultAsync(x => x.Name);
-                    HttpContext.Session.SetString("UName", userDetails.UserName);
-                    HttpContext.Session.SetString("UEmail", userDetails.UserEmail);
-                    HttpContext.Session.SetInt32("UID", userDetails.UserId);
-                    HttpContext.Session.SetString("UType", (bool)userDetails.UserType ? "C" : "A");
+                    var customerDetails = _context.Customers.Where(x => x.Cemail == userDetails.Email).FirstOrDefault();
+                    HttpContext.Session.SetString("user_name", customerDetails.Name);
+                    HttpContext.Session.SetString("user_email", customerDetails.Cemail);
+                    HttpContext.Session.SetInt32("user_id", userDetails.UserId);
+                    HttpContext.Session.SetString("user_type", userDetails.UserType);
 
-                    if ((bool)userDetails.UserType)
+                    if (userDetails.UserType == "CUST")
                     {
                         return RedirectToAction("Index", "Home");
                     }
-                    else return RedirectToAction("Index", "Admin");
+                    else if (userDetails.UserType == "ADMIN")
+                    {
+                        //buddhi
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else if (userDetails.UserType == "REST")
+                    {
+                        //viganis
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        //buddhi
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
-                
             }
             catch (Exception)
             {
@@ -66,6 +79,58 @@ namespace Foodilizer_Group35.Controllers
             }
         }
 
-        
+        // GET: Login/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Login/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Name,Password,Cemail,Address")] Customer customer)
+        {
+            if (ModelState.IsValid)
+            {
+                //try
+                //{
+                    //user.UserStatus = 1;
+                    customer.ShaEnc();
+                    
+                //await _context.SaveChangesAsync();
+
+                var updateuser = new User();
+                updateuser.UserId = customer.CustomerId;
+                updateuser.Email = customer.Cemail;
+                updateuser.Password = customer.Password;
+                updateuser.UserType = "CUST";
+                _context.Add(updateuser);
+                _context.Add(customer);
+
+                await _context.SaveChangesAsync();
+
+                TempData["Message"] = "User registered.";
+                    return RedirectToAction(nameof(Index));
+                //}
+                //catch (Exception ex)
+                //{
+                //    if (ex.InnerException.ToString().Contains("Violation of UNIQUE KEY constraint")) ViewBag.Error = "This email is already used. Please use another email address";
+                //    else ViewBag.Error = "Unable to register this user. Please try agian";
+                //    return View(customer);
+
+                //}
+
+            }
+            ViewBag.Error = "Unable to register this user. Please try agian";
+            return View(customer);
+        }
+
+        private bool UserExists(int id)
+        {
+            return _context.Users.Any(e => e.UserId == id);
+        }
     }
 }
+
