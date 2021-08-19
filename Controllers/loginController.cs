@@ -35,24 +35,28 @@ namespace Foodilizer_Group35.Controllers
             try
             {
                 user.ShaEnc();
-                var uuser = await _context.Users.FirstOrDefaultAsync(e => e.email == user.email && e.Password == user.password /*&& e.User_status == 1*/);
+                var userDetails = await _context.Users.FirstOrDefaultAsync(e => e.Email == user.Email && e.Password == user.Password /*&& e.User_status == 1*/);
 
-                if (uuser == null)
+                if (userDetails == null)
                 {
                     TempData["Error"] = "Invalid login credentials";
                     return RedirectToAction("Index");
                 }
 
-                HttpContext.Session.SetString("UName", uuser.UserName);
-                HttpContext.Session.SetString("UEmail", uuser.UserEmail);
-                HttpContext.Session.SetInt32("UID", uuser.UserId);
-                HttpContext.Session.SetString("UType", (bool)uuser.UserType ? "C" : "A");
-
-                if ((bool)uuser.UserType)
+                if (userDetails != null)
                 {
-                    return RedirectToAction("Index", "Home");
+                    HttpContext.Session.SetString("UName", userDetails.UserName);
+                    HttpContext.Session.SetString("UEmail", userDetails.UserEmail);
+                    HttpContext.Session.SetInt32("UID", userDetails.UserId);
+                    HttpContext.Session.SetString("UType", (bool)userDetails.UserType ? "C" : "A");
+
+                    if ((bool)userDetails.UserType)
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else return RedirectToAction("Index", "Admin");
                 }
-                else return RedirectToAction("Index", "Admin");
+                
             }
             catch (Exception)
             {
