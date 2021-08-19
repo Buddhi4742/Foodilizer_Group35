@@ -45,6 +45,7 @@ namespace Foodilizer_Group35.Controllers
 
                 if (userDetails != null)
                 {
+                    var customerDetails = await _context.Customers.FirstOrDefaultAsync(x => x.Name);
                     HttpContext.Session.SetString("UName", userDetails.UserName);
                     HttpContext.Session.SetString("UEmail", userDetails.UserEmail);
                     HttpContext.Session.SetInt32("UID", userDetails.UserId);
