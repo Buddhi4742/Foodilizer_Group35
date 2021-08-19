@@ -9,86 +9,58 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Foodilizer_Group35.Controllers
 {
-    public class loginController : Controller
+    public class LoginController : Controller
     {
         private readonly foodilizerContext _context;
-        public loginController(foodilizerContext context)
+        public LoginController(foodilizerContext context)
         {
             _context = context;
         }
-        // GET: loginController
-        public ActionResult Index()
+
+        //View login page
+        // GET: Login
+        public IActionResult Index()
         {
+            HttpContext.Session.SetInt32("user_id", -1);
+            HttpContext.Session.SetString("user_type", "");
+            //HttpContext.Session.SetString("email", "");
             return View();
         }
 
-        // GET: loginController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: loginController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: loginController/Create
+        //Login process
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> LoginMember([Bind("email,password")] User user)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                user.ShaEnc();
+                var uuser = await _context.Users.FirstOrDefaultAsync(e => e.email == user.email && e.Password == user.password /*&& e.User_status == 1*/);
+
+                if (uuser == null)
+                {
+                    TempData["Error"] = "Invalid login credentials";
+                    return RedirectToAction("Index");
+                }
+
+                HttpContext.Session.SetString("UName", uuser.UserName);
+                HttpContext.Session.SetString("UEmail", uuser.UserEmail);
+                HttpContext.Session.SetInt32("UID", uuser.UserId);
+                HttpContext.Session.SetString("UType", (bool)uuser.UserType ? "C" : "A");
+
+                if ((bool)uuser.UserType)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else return RedirectToAction("Index", "Admin");
             }
-            catch
+            catch (Exception)
             {
-                return View();
+                TempData["Error"] = "Error occured during login process. Please try again.";
+                return RedirectToAction("Index");
             }
         }
 
-        // GET: loginController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: loginController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: loginController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: loginController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        
     }
 }
