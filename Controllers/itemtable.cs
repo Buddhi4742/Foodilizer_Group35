@@ -14,7 +14,7 @@ namespace Foodilizer_Group35.Controllers
         // GET: itemtable
         public ActionResult Index()
         {
-            using (foodilizerContext dbmodel= new foodilizerContext())
+            using (foodilizerContext dbmodel= new foodilizerContext()) //dont use this check logincontroller 
             return View(dbmodel.Items.ToList());
         }
 

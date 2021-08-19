@@ -1,70 +1,21 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.EntityFrameworkCore;
-using Foodilizer_Group35.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Foodilizer_Group35.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Foodilizer_Group35.Controllers
 {
-    public class LoginController : Controller
-
-
-
+    public class loginController : Controller
     {
         private readonly foodilizerContext _context;
-
-        public LoginController(foodilizerContext context)
+        public loginController(foodilizerContext context)
         {
             _context = context;
         }
-
-
-        //Login process
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> LoginMember([Bind("UserEmail,UserPass")] TUser tUser)
-        {
-            try
-            {
-                tUser.ShaEnc();
-                var user = await _context.TUsers
-                    .FirstOrDefaultAsync(e => e.UserEmail == tUser.UserEmail && e.UserPass == tUser.UserPass && e.UserStatus == 1);
-
-                if (user == null)
-                {
-                    TempData["Error"] = "Invalid login credentials";
-                    return RedirectToAction("Index");
-                }
-
-                HttpContext.Session.SetString("UName", user.UserName);
-                HttpContext.Session.SetString("UEmail", user.UserEmail);
-                HttpContext.Session.SetInt32("UID", user.UserId);
-                HttpContext.Session.SetString("UType", (bool)user.UserType ? "C" : "A");
-
-                if ((bool)user.UserType)
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-                else return RedirectToAction("Index", "Admin");
-            }
-            catch (Exception)
-            {
-                TempData["Error"] = "Error occured during login process. Please try again.";
-                return RedirectToAction("Index");
-            }
-        }
-
-
-
-
-
-
-
-
         // GET: loginController
         public ActionResult Index()
         {
