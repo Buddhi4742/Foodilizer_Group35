@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Foodilizer_Group35.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Filters;
-
+using Microsoft.Graph;
 
 namespace Foodilizer_Group35.Controllers
 {
@@ -54,6 +54,7 @@ namespace Foodilizer_Group35.Controllers
                     if (userDetails.UserType == "CUST")
                     {
                         return RedirectToAction("Index", "Home");
+                        //return Print;
                     }
                     else if (userDetails.UserType == "ADMIN")
                     {
