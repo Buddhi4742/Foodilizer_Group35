@@ -8,7 +8,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="owner_register1">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -80,75 +80,75 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var restaurant in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Rname)
+                @Html.DisplayFor(modelrestaurant => restaurant.Rname)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.OwnerName)
+                @Html.DisplayFor(modelrestaurant => restaurant.OwnerName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.OwnerContact)
+                @Html.DisplayFor(modelrestaurant => restaurant.OwnerContact)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.OwnerEmail)
+                @Html.DisplayFor(modelrestaurant => restaurant.OwnerEmail)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Rabout)
+                @Html.DisplayFor(modelrestaurant => restaurant.Rabout)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.RestType)
+                @Html.DisplayFor(modelrestaurant => restaurant.RestType)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Remail)
+                @Html.DisplayFor(modelrestaurant => restaurant.Remail)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Raddress)
+                @Html.DisplayFor(modelrestaurant => restaurant.Raddress)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Rdistrict)
+                @Html.DisplayFor(modelrestaurant => restaurant.Rdistrict)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PriceRange)
+                @Html.DisplayFor(modelrestaurant => restaurant.PriceRange)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Rusername)
+                @Html.DisplayFor(modelrestaurant => restaurant.Rusername)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Rpassword)
+                @Html.DisplayFor(modelrestaurant => restaurant.Rpassword)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Rprovince)
+                @Html.DisplayFor(modelrestaurant => restaurant.Rprovince)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.OpenHour)
+                @Html.DisplayFor(modelrestaurant => restaurant.OpenHour)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.OpenStatus)
+                @Html.DisplayFor(modelrestaurant => restaurant.OpenStatus)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.WebsiteLink)
+                @Html.DisplayFor(modelrestaurant => restaurant.WebsiteLink)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MapLink)
+                @Html.DisplayFor(modelrestaurant => restaurant.MapLink)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MealType)
+                @Html.DisplayFor(modelrestaurant => restaurant.MealType)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Cuisine)
+                @Html.DisplayFor(modelrestaurant => restaurant.Cuisine)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Feature)
+                @Html.DisplayFor(modelrestaurant => restaurant.Feature)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SpecialDiet)
+                @Html.DisplayFor(modelrestaurant => restaurant.SpecialDiet)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.RestId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.RestId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.RestId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@restaurant.RestId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@restaurant.RestId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@restaurant.RestId">Delete</a>
             </td>
         </tr>
 }

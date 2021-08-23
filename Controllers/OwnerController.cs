@@ -24,10 +24,10 @@ namespace Foodilizer_Group35.Controllers
                 return View(dbmodel.Restaurants.ToList());
         }
 
-
+      
 
         // GET: OwnerController/Create
-        public ActionResult owner_register()
+        public ActionResult owner_register1()
         {
             return View();
         }
@@ -37,19 +37,19 @@ namespace Foodilizer_Group35.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Restaurant restaurant)
         {
-            // try
-            //{
+            try
+            {
             using (foodilizerContext dbmodel = new foodilizerContext())
             {
                 dbmodel.Restaurants.Add(restaurant);
                 dbmodel.SaveChanges();
             }
             return RedirectToAction(nameof(Index));
-          //  }
-          //  catch
-            //{
-              //  return View();
-            //}
+           }
+           catch
+            {
+                return View();
+            }
         }
 
         
