@@ -38,6 +38,7 @@
 
     <form class="register" asp-action="owner_register">
         <h2> Your journey towards a thriving restaurant business starts here </h2>
+        <p style="color:red">@ViewBag.Error</p>
         <h4>Enter Owner Details</h4>
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-row">
@@ -163,7 +164,7 @@
 
             </div>
         </div>
-         
+
 
 
 
@@ -208,7 +209,7 @@
         </div>
 
 
-        <input type="submit" class="main-btn" value="owner_register"> 
+        <input type="submit" class="main-btn" value="owner_register" onclick="formSubmit()">
         <button type="reset" class="main-btn">
             Reset
         </button>
