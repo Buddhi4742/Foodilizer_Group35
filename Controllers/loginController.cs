@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
+//using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Foodilizer_Group35.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.Graph;
+//using Microsoft.AspNetCore.Mvc.Filters;
+//using Microsoft.Graph;
 
 namespace Foodilizer_Group35.Controllers
 {
