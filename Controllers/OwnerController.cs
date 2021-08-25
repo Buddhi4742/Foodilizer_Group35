@@ -56,15 +56,15 @@ namespace Foodilizer_Group35.Controllers
                         TempData["Error"] = "A User with the email already exists. Did you meant to Sign in?";
                         return RedirectToAction("Owner_register");
                     }
-                    var updateuser = new User();
+                    //   var updateuser = new User();
+                 
                     restaurant.ShaEnc();
-
-                
-                updateuser.UserId = restaurant.RestId;
-                updateuser.Email = restaurant.Remail;
-                updateuser.Password =restaurant.Rpassword;
-                updateuser.UserType = "REST";
-                _context.Add(updateuser);
+                    
+             //   updateuser.UserId = restaurant.RestId;
+             //   updateuser.Email = restaurant.Remail;
+              //  updateuser.Password =restaurant.Rpassword;
+              //  updateuser.UserType = "REST";
+              //  _context.Add(updateuser);
                 _context.Add(restaurant);
 
                 await _context.SaveChangesAsync();

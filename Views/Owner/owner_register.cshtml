@@ -39,13 +39,14 @@
     <form class="register" asp-action="Owner_register" id="form2">
         <h2> Your journey towards a thriving restaurant business starts here </h2>
         <p style="color:red">@ViewBag.Error</p>
+        <p style="color:red">@TempData["Error"]</p>
         <h4>Enter Owner Details</h4>
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-row">
             <div class="form-group col-md-8">
                 <label asp-for="OwnerName" class="control-label"> Full  Name</label>
                 <input asp-for="OwnerName" class="form-control" placeholder="fullname" />
-                <span asp-validation-for="OwnerName"></span>
+
 
             </div>
 
@@ -60,8 +61,7 @@
         <div class="form-row">
             <div class="form-group col-md-8">
                 <label asp-for="OwnerEmail" class="control-label">Owner Email </label>
-                <input asp-for="OwnerEmail" class="form-control" placeholder="Email" />
-                <span asp-validation-for="OwnerEmail"></span>
+                <input asp-for="OwnerEmail" class="form-control" placeholder="Email"   required />
 
             </div>
             <div class="form-group col-md-4">
@@ -69,8 +69,8 @@
             </div>
             <div class="form-group col-md-8">
                 <label asp-for="OwnerContact" class="control-label"> Mobile No </label>
-                <input asp-for="OwnerContact" class="form-control" placeholder="Contact" />
-                <span asp-validation-for="OwnerContact"> </span>
+                <input asp-for="OwnerContact" class="form-control" placeholder="Contact"  required />
+
             </div>
 
         </div>
@@ -79,14 +79,14 @@
         <div class="form-row">
             <div class="form-group col-md-8">
                 <label asp-for="Rname" class="control-label"> Restaurant Name </label>
-                <input asp-for="Rname" class="form-control" placeholder="Restaurant Name" />
-                <span asp-validation-for="Rname"></span>
+                <input asp-for="Rname" class="form-control" placeholder="Restaurant Name"   required/>
+
             </div>
             <div class="form-group col-md-4">
                 <label asp-for="Rabout" class="control-label">Restaurant Description</label>
                 <textarea asp-for="Rabout" class="form-control" rows="5" placeholder="Restaurant Description"> </textarea>
 
-                <span asp-validation-for="Rabout"></span>
+
             </div>
         </div>
 
@@ -94,17 +94,17 @@
         <div class="row">
             <div class="form-group col-md-8">
                 <label asp-for="Remail" class="control-label"> Restaurant Email</label>
-                <input asp-for="Remail" class="form-control" placeholder="Email" />
-                <span asp-validation-for="Remail"></span>
+                <input asp-for="Remail" class="form-control" placeholder="Email"   required/>
+
             </div>
             <div class="form-group col-md-4">
                 <label for="inputRestPhone">Restaurant Phone No</label>
-                <input type="tel" class="form-control" id="inputRestPhone" placeholder="Phone No">
+                <input type="tel" class="form-control" id="inputRestPhone" placeholder="Phone No"  required/>
             </div>
             <div class="form-group col-md-12">
                 <label asp-for="WebsiteLink" class="control-label"> Restaurant Website URL</label>
                 <input asp-for="WebsiteLink" class="form-control" placeholder="Website URL" />
-                <span asp-validation-for="WebsiteLink"></span>
+
             </div>
 
         </div>
@@ -114,8 +114,8 @@
         <div class="row">
             <div class="form-group col-md-12">
                 <label asp-for="Raddress" class="control-label"> Restaurant Address</label>
-                <input asp-for="Raddress" class="form-control" placeholder="Address" />
-                <span asp-validation-for="Raddress"></span>
+                <input asp-for="Raddress" class="form-control" placeholder="Address"  required />
+
             </div>
 
             <div class="form-group col-md-8">
@@ -133,7 +133,7 @@
                     <option value="2">Medium</option>
                     <option value="3">High</option>
                 </select>
-                <span asp-validation-for="PriceRange"></span>
+
             </div>
 
 
@@ -141,26 +141,23 @@
             <div class="form-group col-md-8">
                 <label asp-for="Rdistrict" class="control-label"> Restaurant District</label>
                 <input asp-for="Rdistrict" class="form-control" placeholder="District" />
-                <span asp-validation-for="Rdistrict" class="text-danger"></span>
 
             </div>
             <div class="form-group col-md-4">
                 <label asp-for="RestType" class="control-label">Restaurant Type/types</label>
                 <input asp-for="RestType" class="form-control" placeholder="Family style,Casual Dining,Fast Food,cafe etc" />
-                <span asp-validation-for="RestType" class="text-danger"></span>
 
             </div>
 
             <div class="form-group col-md-8">
                 <label asp-for="MapLink" class="control-label"> Restaurant Google map URL</label>
                 <input asp-for="MapLink" class="form-control" placeholder="Google map URL" />
-                <span asp-validation-for="MapLink" class="text-danger"></span>
+
             </div>
 
             <div class="form-group col-md-4">
                 <label asp-for="Feature" class="control-label"> Restaurant Features</label>
                 <input asp-for="Feature" class="form-control" placeholder="Dine in,outdoor seating,Food Truck etc" />
-                <span asp-validation-for="Feature" class="text-danger"></span>
 
             </div>
         </div>
@@ -172,7 +169,7 @@
             <div class="form-group col-md-4">
                 <label asp-for="OpenHour" class="control-label"> Open Time From</label>
                 <input asp-for="OpenHour" class="form-control" />
-                <span asp-validation-for="OpenHour" class="text-danger"></span>
+
             </div>
             <div class="form-group col-md-4">
                 <label for="inputOpenTo">To</label>
@@ -180,8 +177,7 @@
             </div>
             <div class="form-group col-md-4">
                 <label asp-for="SpecialDiet" class="control-label"> Dietry Restriction</label>
-                <input asp-for="SpecialDiet" class="form-control" />
-                <span asp-validation-for="SpecialDiet" placeholder="Vegetarianism,Veganism etc"></span>
+                <input asp-for="SpecialDiet" class="form-control" placeholder="Vegetarianism,Veganism etc" />
 
             </div>
         </div>
@@ -189,22 +185,23 @@
         <div class="row">
             <div class="form-group col-md-8">
                 <label asp-for="Rpassword" class="control-label"> Create Password</label>
-                <input asp-for="Rpassword" class="form-control" />
-                <span asp-validation-for="Rpassword" class="text-danger"></span>
+                <input asp-for="Rpassword" class="form-control"  id="password" required onkeyup="validatePass()"  />
+
             </div>
             <div class="form-group col-md-4">
                 <label asp-for="MealType" class="control-label"> Meals</label>
                 <input asp-for="MealType" class="form-control" placeholder="breakfast, lunch & Dinner" />
-                <span asp-validation-for="MealType" class="text-danger"></span>
+                
             </div>
             <div class="form-group col-md-8">
                 <label for="inputCnfPassword">Confirm Password</label>
-                <input type="password" class="form-control" id="inputCnfPassword">
+                <input type="password" class="form-control" id="Password2" required onkeyup="validatePass()" />
+
             </div>
             <div class="form-group col-md-4">
                 <label asp-for="Cuisine" class="control-label"> Cuisines</label>
                 <input asp-for="Cuisine" class="form-control" placeholder="Chinese,North Indian,South Indian etc" />
-                <span asp-validation-for="Cuisine" class="text-danger"></span>
+
             </div>
         </div>
 
@@ -221,23 +218,43 @@
 
 
     </form>
-    /* form.addEventListener('submit', formSubmit);*/
+    <!--- form.addEventListener('submit', formSubmit);-->
     <script>
-    function formSubmit() {
-    validatePass();
-    if (confirmPass == true) {
-    document.getElementById("form2").submit();
-    /*alert("hi");*/
-    }
-    else {
-    alert("Invalid Details Entered, Please Check and try again.");
-    }
+        var confirmPass = false;
+        /*alert("v");*/
+        function validatePass() {
+            if (document.getElementById("password").value == document.getElementById("password2").value) {
+                document.getElementById("password").style.backgroundColor = "";
+                document.getElementById("password2").style.backgroundColor = "";
+                confirmPass = true;
+                /* alert("validation passes");*/
+            }
+            else {
+                document.getElementById("password").style.backgroundColor = "LightPink";
+                document.getElementById("password2").style.backgroundColor = "LightPink";
+                /*alert("validation failed false");*/
+                confirmPass = false;
+                  }
+            /*alert(confirmPass);*/
+            }
+
+
+
+           function formSubmit() {
+                     validatePass();
+                     if (confirmPass == true) {
+                  document.getElementById("form2").submit();
+                   /*alert("hi");*/
+                           } 
+                  else {
+                   alert("Invalid Details Entered, Please Check and try again.");
+                   }
     }
     </script>
     <script src="~/js/jquery.min.js"></script>
-    <script src="~/js/popper.js"></script>
+  
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/main.js"></script>
+    <script src="~/js/main1.js"></script>
 
 
 
