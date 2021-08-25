@@ -1186,11 +1186,11 @@
                         <p class="card-text">
                             <ul style="list-style: none; padding-left:0;">
                                 <li class="list_topic"><i class="fa fa-usd-square"></i>&nbsp; Price Range</li>
-                                <li class="list_det">LKR 500 - LKR 3000</li>
+                                <li class="list_det">@Html.DisplayFor(model => model.PriceRange)</li>
                                 <li class="list_topic"><i class="fa fa-hat-chef"></i>&nbsp; Cuisines</li>
-                                <li class="list_det">International, Asian, Indian, Sri Lankan, Pub</li>
+                                <li class="list_det">@Html.DisplayFor(model => model.Cuisine)</li>
                                 <li class="list_topic"><i class="fa fa-burger-soda"></i>&nbsp; Special Diets</li>
-                                <li class="list_det">Vegetarian Friendly, Vegan options</li>
+                                <li class="list_det">@Html.DisplayFor(model => model.SpecialDiet)</li>
                                 <li class="list_topic"><i class="fa fa-info-square"></i>&nbsp; View all details</li>
                                 <li class="list_det"><a href="#">Meals</a>&nbsp;<a href="#">Features</a>&nbsp;<a href="#">About</a></li>
                             </ul>
