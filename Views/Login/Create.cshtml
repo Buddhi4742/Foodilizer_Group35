@@ -7,7 +7,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>LEISURE HEAVEN REGISTRATION</title>
+    <title>Foodilizer Registration</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -19,11 +19,11 @@
 
 </head>
 <body>
-    <section class="ftco-section">
+    <section class="section pt-5">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center mb-5">
-                    <h2 class="heading-section">LEISURE <strong>HEAVEN</strong></h2>
+                    <h2 class="heading-section">Foodilizer</h2>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -33,6 +33,7 @@
                             <div class="w-100">
                                 <h3 class="mb-4"><b>Registration</b></h3>
                                 <p style="color:red">@ViewBag.Error</p>
+                                <p style="color:red">@TempData["Error"]</p>
                             </div>
                         </div>
                         <form asp-action="Create" class="login-form" id="form1">
@@ -43,11 +44,11 @@
                             </div>
                             <div class="form-group">
                                 <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
-                                <input asp-for="Password" class="form-control rounded-left" placeholder="Password" type="password" required onkeyup="validatePass()" />
+                                <input id="password" asp-for="Password" class="form-control rounded-left" placeholder="Password" type="password" required onkeyup="validatePass()" />
                             </div>
                             <div class="form-group">
                                 <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
-                                <input id="UserPass2" class="form-control rounded-left" placeholder="Confirm Password" type="password" required onkeyup="validatePass()" />
+                                <input id="password2" class="form-control rounded-left" placeholder="Confirm Password" type="password" required onkeyup="validatePass()" />
                             </div>
                             <div class="form-group">
                                 <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-at"></span></div>
@@ -59,7 +60,7 @@
                             </div>
                             <div class="form-group d-flex align-items-center">
                                 <div class="w-100 d-flex justify-content-end">
-                                    <button onclick="formSubmit()" class="btn btn-primary rounded submit">Register</button>
+                                    <button onclick="event.preventDefault();formSubmit();" type="submit" class="btn btn-primary rounded submit">Register</button>
                                 </div>
                             </div>
                         </form>
@@ -70,21 +71,31 @@
     </section>
     <script type="text/javascript">
         var confirmPass = false;
-
+        /*alert("v");*/
         function validatePass() {
-            if (document.getElementById("UserPass").value == document.getElementById("UserPass2").value) {
-                document.getElementById("UserPass").style.backgroundColor = "";
-                document.getElementById("UserPass2").style.backgroundColor = "";
+            if (document.getElementById("password").value == document.getElementById("password2").value) {
+                document.getElementById("password").style.backgroundColor = "";
+                document.getElementById("password2").style.backgroundColor = "";
                 confirmPass = true;
+               /* alert("validation passes");*/
             } else {
-                document.getElementById("UserPass").style.backgroundColor = "LightPink";
-                document.getElementById("UserPass2").style.backgroundColor = "LightPink";
+                document.getElementById("password").style.backgroundColor = "LightPink";
+                document.getElementById("password2").style.backgroundColor = "LightPink";
+                /*alert("validation failed false");*/
+                confirmPass = false;
             }
+            /*alert(confirmPass);*/
         }
-
+        
+       /* form.addEventListener('submit', formSubmit);*/
         function formSubmit() {
-            if (confirmPass) {
+            validatePass();
+            if (confirmPass == true) {
                 document.getElementById("form1").submit();
+                /*alert("hi");*/
+            }
+            else {
+                alert("Invalid Details Entered, Please Check and try again.");
             }
         }
     </script>

@@ -14,16 +14,16 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/login.css">
 
 </head>
 <body>
-    <section class="ftco-section">
+    <section class="section pt-5">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center mb-5">
-                    <a href="@Url.Action("Index","Home")"><h2 class="heading-section">LEISURE <strong>HEAVEN</strong></h2></a>
+                    <a href="@Url.Action("Index","Home")"><h2 class="heading-section">Foodilizer</h2></a>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -33,12 +33,7 @@
                             <div class="w-100">
                                 <h3 class="mb-4"><b>Sign In</b></h3>
                             </div>
-                            <div class="w-100">
-                                <p class="social-media d-flex justify-content-end">
-                                    <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
-                                    <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
-                                </p>
-                            </div>
+                            
                         </div>
                         <p style="color:darkgreen">@TempData["Message"]</p>
                         <p style="color:red">@TempData["Error"]</p>

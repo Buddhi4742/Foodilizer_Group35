@@ -24,7 +24,7 @@ namespace Foodilizer_Group35.Controllers
         {
             HttpContext.Session.SetInt32("user_id", -1);
             HttpContext.Session.SetString("user_type", "");
-            //HttpContext.Session.SetString("email", "");
+            HttpContext.Session.SetString("user_email", "");
             return View();
         }
 
@@ -45,9 +45,9 @@ namespace Foodilizer_Group35.Controllers
                 }
                 else
                 {
-                    var customerDetails = _context.Customers.Where(x => x.Cemail == userDetails.Email).FirstOrDefault();
-                    HttpContext.Session.SetString("user_name", customerDetails.Name);
-                    HttpContext.Session.SetString("user_email", customerDetails.Cemail);
+                    //var customerDetails = _context.Customers.Where(x => x.Cemail == userDetails.Email).FirstOrDefault();
+                    //HttpContext.Session.SetString("user_name", userDetails.);
+                    HttpContext.Session.SetString("user_email", userDetails.Email);
                     HttpContext.Session.SetInt32("user_id", userDetails.UserId);
                     HttpContext.Session.SetString("user_type", userDetails.UserType);
 
@@ -95,14 +95,22 @@ namespace Foodilizer_Group35.Controllers
         {
             if (ModelState.IsValid)
             {
-                //try
-                //{
-                    //user.UserStatus = 1;
-                    customer.ShaEnc();
-                    
-                //await _context.SaveChangesAsync();
+                try
+                {
+                    var custDetails = await _context.Customers.FirstOrDefaultAsync(e => e.Cemail == customer.Cemail /*&& e.User_status == 1*/);
 
-                var updateuser = new User();
+                    if (custDetails != null)
+                    {
+                        TempData["Error"] = "A User with the email already exists. Did you meant to Sign in?";
+                        return RedirectToAction("Index");
+                    }
+                    var updateuser = new User();
+                    //updateuser.UserStatus = 1;
+                    customer.ShaEnc();
+
+                    //await _context.SaveChangesAsync();
+
+                   
                 updateuser.UserId = customer.CustomerId;
                 updateuser.Email = customer.Cemail;
                 updateuser.Password = customer.Password;
@@ -114,14 +122,14 @@ namespace Foodilizer_Group35.Controllers
 
                 TempData["Message"] = "User registered.";
                     return RedirectToAction(nameof(Index));
-                //}
-                //catch (Exception ex)
-                //{
-                //    if (ex.InnerException.ToString().Contains("Violation of UNIQUE KEY constraint")) ViewBag.Error = "This email is already used. Please use another email address";
-                //    else ViewBag.Error = "Unable to register this user. Please try agian";
-                //    return View(customer);
+                }
+                catch (Exception ex)
+                {
+                    if (ex.InnerException.ToString().Contains("Violation of UNIQUE KEY constraint")) ViewBag.Error = "This email is already used. Please use another email address";
+                    else ViewBag.Error = "Unable to register this user. Please try agian";
+                    return View(customer);
 
-                //}
+                }
 
             }
             ViewBag.Error = "Unable to register this user. Please try agian";
