@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography;
+using System.Text;
 
 #nullable disable
 
@@ -106,5 +108,19 @@ namespace Foodilizer_Group35.Models
         public virtual ICollection<Review> Reviews { get; set; }
         [InverseProperty(nameof(SalesReport.Rest))]
         public virtual ICollection<SalesReport> SalesReports { get; set; }
+
+        public void ShaEnc()
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(Rpassword));
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                Rpassword = builder.ToString();
+            }
+        }
     }
 }

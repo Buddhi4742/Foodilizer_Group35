@@ -13,25 +13,30 @@ namespace Foodilizer_Group35.Controllers
 {
     public class OwnerController : Controller
     {
-        private readonly foodilizerContext _context;
-        public OwnerController(foodilizerContext context)
-        {
-            _context = context;
-        }
+       
 
         // GET: OwnerController
-        public IActionResult owner_home()
+        public IActionResult Owner_home()
         {
             return View();
         }
+        public IActionResult Owner_price()
+        {
+            return View();
+        }
+
 
         public IActionResult Index()
         {
             return View();
         }
-
+        private readonly foodilizerContext _context;
+        public OwnerController(foodilizerContext context)
+        {
+            _context = context;
+        }
         // GET: OwnerController/Create
-        public IActionResult owner_register()
+        public IActionResult Owner_register()
         {
             return View();
         }
@@ -43,10 +48,18 @@ namespace Foodilizer_Group35.Controllers
         {
             if (ModelState.IsValid)
             {
+                try {
+                    var restDetails = await _context.Restaurants.FirstOrDefaultAsync(e => e.Remail == restaurant.Remail);
+
+                    if (restDetails != null)
+                    {
+                        TempData["Error"] = "A User with the email already exists. Did you meant to Sign in?";
+                        return RedirectToAction("Owner_register");
+                    }
+                    var updateuser = new User();
+                    restaurant.ShaEnc();
+
                 
-
-
-                var updateuser = new User();
                 updateuser.UserId = restaurant.RestId;
                 updateuser.Email = restaurant.Remail;
                 updateuser.Password =restaurant.Rpassword;
@@ -56,8 +69,17 @@ namespace Foodilizer_Group35.Controllers
 
                 await _context.SaveChangesAsync();
 
-                TempData["Message"] = "User registered.";
-                return RedirectToAction(nameof(Index));
+                TempData["Message"] = "User registered";
+                return RedirectToAction(nameof(Owner_price));
+
+                 }
+                catch (Exception ex)
+                {
+                    if (ex.InnerException.ToString().Contains("Violation of UNIQUE KEY constraint")) ViewBag.Error = "This email is already used. Please use another email address";
+                    else ViewBag.Error = "Unable to register this user. Please try agian";
+                    return View(restaurant);
+
+                }
 
             }
             ViewBag.Error = "Unable to register this user. Please try agian";

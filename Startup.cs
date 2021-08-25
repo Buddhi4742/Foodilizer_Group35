@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Foodilizer_Group35.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Foodilizer_Group35
 {
@@ -24,6 +26,17 @@ namespace Foodilizer_Group35
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDistributedMemoryCache();
+            services.AddDbContext<foodilizerContext>(options =>
+            options.UseMySql("port=3307;server=localhost;user id=root;database=foodilizer;persistsecurityinfo=True;pwd=password", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.26-mysql")));
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(5);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +58,7 @@ namespace Foodilizer_Group35
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

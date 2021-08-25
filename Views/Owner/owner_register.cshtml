@@ -36,7 +36,7 @@
 
 
 
-    <form class="register" asp-action="owner_register">
+    <form class="register" asp-action="Owner_register" id="form2">
         <h2> Your journey towards a thriving restaurant business starts here </h2>
         <p style="color:red">@ViewBag.Error</p>
         <h4>Enter Owner Details</h4>
@@ -209,16 +209,36 @@
         </div>
 
 
-        <input type="submit" class="main-btn" value="owner_register" onclick="formSubmit()">
+        <button type="submit" class="main-btn" onclick="formSubmit()">
+            Register
+        </button>
         <button type="reset" class="main-btn">
             Reset
         </button>
         <div>
-            <a asp-action="Index">Back to List</a>
+            <a asp-action="Owner_price">Back to List</a>
         </div>
-    </form>
 
-   
+
+    </form>
+    /* form.addEventListener('submit', formSubmit);*/
+    <script>
+    function formSubmit() {
+    validatePass();
+    if (confirmPass == true) {
+    document.getElementById("form2").submit();
+    /*alert("hi");*/
+    }
+    else {
+    alert("Invalid Details Entered, Please Check and try again.");
+    }
+    }
+    </script>
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/popper.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/main.js"></script>
+
 
 
 
