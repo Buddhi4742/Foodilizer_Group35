@@ -183,6 +183,7 @@ input:focus {
     margin-left: 50px;
     margin-top:20px;
     flex: 1;
+    padding-top:15px;
     text-align: center;
     margin-right: 100px;
     border-radius: 10px;
@@ -196,18 +197,21 @@ input:focus {
     height: 50px;
     margin-left: 50px;
     flex: 1;
+    padding-top: 15px;
     text-align: center;
     margin-right: 50px;
     margin-bottom: 30px;
     border-radius: 10px;
     margin-top: 20px;
 }
-
-.total{
-    display:flex;
-    color:red;
-    font-weight:700;
-}
+    .prbutton:hover, .shbutton:hover {
+        color: #3AAFA9;
+    }
+    .total {
+        display: flex;
+        color: red;
+        font-weight: 700;
+    }
 .totali{
     margin-left:100px;
     margin-right:20px;
