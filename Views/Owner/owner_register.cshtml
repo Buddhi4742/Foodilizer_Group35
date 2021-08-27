@@ -1,4 +1,4 @@
-﻿@model Foodilizer_Group35.Models.Restaurant
+﻿@model Foodilizer_Group35.Models.RestRegis
 
 
 @{
@@ -52,7 +52,7 @@
 
             <div class="form-group col-md-4">
                 <label for="inputrestLogo">Restaurant Logo</label>
-                <input type="file" class="form-control" id="inputrestLogo" onchange="getImagePreview(event)">
+                <input asp-for="MainImagePath" type="file" class="form-control" id="inputrestLogo" onchange="getImagePreview(event)">
             </div>
 
 
@@ -99,7 +99,7 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="inputRestPhone">Restaurant Phone No</label>
-                <input type="tel" class="form-control" id="inputRestPhone" placeholder="Phone No"  required/>
+                <input asp-for="ContactNumber" type="tel" class="form-control" id="inputRestPhone" placeholder="Phone No"  required/>
             </div>
             <div class="form-group col-md-12">
                 <label asp-for="WebsiteLink" class="control-label"> Restaurant Website URL</label>
@@ -171,10 +171,10 @@
                 <input asp-for="OpenHour" class="form-control" />
 
             </div>
-            <div class="form-group col-md-4">
+           <!-- <div class="form-group col-md-4">
                 <label for="inputOpenTo">To</label>
                 <input type="time" class="form-control" id="inputOpenTo">
-            </div>
+            </div> -->
             <div class="form-group col-md-4">
                 <label asp-for="SpecialDiet" class="control-label"> Dietry Restriction</label>
                 <input asp-for="SpecialDiet" class="form-control" placeholder="Vegetarianism,Veganism etc" />
@@ -213,7 +213,7 @@
             Reset
         </button>
         <div>
-            <a asp-action="Owner_price">Back to List</a>
+            <a asp-action="Owner_home">Back to List</a>
         </div>
 
 
