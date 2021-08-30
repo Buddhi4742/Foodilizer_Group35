@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Shopping Cart";
+    Layout = "~/Views/Shared/_bronze_store_layout.cshtml";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="~/css/store_front/silver_checkout.css">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+@section scripts
+{
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="~/js/store_front/silver_cart.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+}
+
+<div class="shopping-cart">
+    <!-- Title -->
+    <div class="title">
+        Checkout
+    </div>
+
+    <div class="item">
+        <ul>
+            <li class="input-title">Customer Name </li>
+            <li class="input"><input type="text" name="cname" /></li>
+            <li class="input-title">Delivery Address </li>
+            <li class="input"><input type="text" name="daddress" /></li>
+
+            <li class="input-title">Contact Number </li>
+            <li class="input"><input type="text" name="cnumber" /></li>
+            
+            
+        </ul>
+
+    </div>
+
+
+    <div class="total">
+        <h4 class="totali">Sub Total : </h4>
+        <h4 class="totalam">Price : </h4><h4 class="totamnum">1200 LKR</h4>
+    </div>
+    <div class="total">
+        <h4 class="totali">Shipping&nbsp;&nbsp;:</h4>
+        <h4 class="totalam">Price : </h4><h4 class="totamnum">100 LKR</h4>
+    </div>
+    <div class="total">
+        <h4 class="totali">Total Tax&nbsp;&nbsp;: </h4>
+        <h4 class="totalam">Price : </h4><h4 class="totamnum">0 LKR</h4>
+    </div>
+    <div class="total">
+        <h4 class="totali">Total Bill&nbsp;&nbsp;&nbsp;: </h4>
+        <h4 class="totalam">Price : </h4><h4 class="totamnum">1300 LKR</h4>
+    </div>
+    <div class="cartbuttons">
+        <a class="shbutton" asp-area="" asp-controller="store_front" asp-action="gold_cart">Back to Cart</a>
+        <a class="prbutton" asp-area="" asp-controller="store_front" asp-action="gold_home">Confirm & Pay</a>
+    </div>
+</div>

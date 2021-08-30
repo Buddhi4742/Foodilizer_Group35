@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Foodilizer_Group35.Models.Restaurant
+@{
     ViewData["Title"] = "Bronze Home Page";
     Layout = "~/Views/Shared/_bronze_store_layout.cshtml";
 }
@@ -18,8 +19,8 @@
 <div class="br_home">
     <div class="row">
         <div class="col-8">
-            <div class="rest_name col-12">Coco Palm Beach Hotel, Sunset Bar and Grill</div>
-            <div class="rest_details col-12"><i class="fa fa-location"></i>&nbsp;113,Galle Road Boossa, Galle, Sri Lanka &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-phone-square-alt"></i>&nbsp;+94 72 488 1234&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-external-link-alt"></i>&nbsp;<a href="#">website</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-hourglass-half"></i>&nbsp;<a href="#">Add hours</a></div>
+            <div class="rest_name col-12">@Html.DisplayFor(model => model.Rname)</div>
+            <div class="rest_details col-12"><i class="fa fa-location"></i>&nbsp;@Html.DisplayFor(model => model.Raddress) &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-phone-square-alt"></i>&nbsp;@Html.DisplayFor(model => model.OwnerContact)&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-external-link-alt"></i>&nbsp;<a href="@Html.DisplayFor(model => model.WebsiteLink)">website</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-hourglass-half"></i>&nbsp;@Html.DisplayFor(model => model.OpenHour)</div>
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -172,11 +173,11 @@
                         <p class="card-text">
                             <ul style="list-style: none; padding-left:0;">
                                 <li class="list_topic"><i class="fa fa-usd-square"></i>&nbsp; Price Range</li>
-                                <li class="list_det">LKR 500 - LKR 3000</li>
+                                <li class="list_det">@Html.DisplayFor(model => model.PriceRange)</li>
                                 <li class="list_topic"><i class="fa fa-hat-chef"></i>&nbsp; Cuisines</li>
-                                <li class="list_det">International, Asian, Indian, Sri Lankan, Pub</li>
+                                <li class="list_det">@Html.DisplayFor(model => model.Cuisine)</li>
                                 <li class="list_topic"><i class="fa fa-burger-soda"></i>&nbsp; Special Diets</li>
-                                <li class="list_det">Vegetarian Friendly, Vegan options</li>
+                                <li class="list_det">@Html.DisplayFor(model => model.SpecialDiet)</li>
                                 <li class="list_topic"><i class="fa fa-info-square"></i>&nbsp; View all details</li>
                                 <li class="list_det"><a href="#">Meals</a>&nbsp;<a href="#">Features</a>&nbsp;<a href="#">About</a></li>
                             </ul>
@@ -1051,14 +1052,14 @@
                     <div class="card-body">
                         <div class="rating-topic ">Location and Contact</div>
                         <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 200px">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63480.752699834266!2d80.17754539919146!3d6.056697080624833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae173bb6932fce3%3A0x4a35b903f9c64c03!2sGalle!5e0!3m2!1sen!2slk!4v1626950638039!5m2!1sen!2slk" frameborder="0"
+                            <iframe src="@Html.DisplayFor(model => model.MapLink)" frameborder="0"
                                     style="border:0" allowfullscreen></iframe>
                         </div>
 
                         <p class="card-text">
                             <ul style="list-style: none; padding-left:0;">
-                                <li><i class="fa fa-location"></i>&nbsp;113,Galle Road Boossa, Galle, Sri Lanka </li>
-                                <li><i class="fa fa-phone-square-alt"></i>&nbsp;+94 72 488 1234&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-external-link-alt"></i><a href="#">website</a></li>
+                                <li><i class="fa fa-location"></i>&nbsp;@Html.DisplayFor(model => model.Raddress) </li>
+                                <li><i class="fa fa-phone-square-alt"></i>&nbsp;@Html.DisplayFor(model => model.OwnerContact)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-external-link-alt"></i><a href="@Html.DisplayFor(model => model.WebsiteLink)"> website</a></li>
 
                             </ul>
                         </p>

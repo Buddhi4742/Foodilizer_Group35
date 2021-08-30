@@ -7,6 +7,7 @@ body {
     width: 100%;
     margin-bottom: 50px;
     margin: 0;
+    height:100%;
     background-color: #DEF2F1;
     font-family: 'Roboto', sans-serif;
 }
@@ -36,7 +37,7 @@ body {
 
 .item {
     padding: 20px 30px;
-    height: 130px;
+    height: 230px;
     display: flex;
     margin-bottom:2px;
     
@@ -54,28 +55,6 @@ body {
     margin-right: 60px;
 }
 
-.delete-btn,
-.like-btn {
-    display: inline-block;
-    Cursor: pointer;
-}
-
-.delete-btn {
-    width: 18px;
-    height: 17px;
-    
-}
-
-.like-btn {
-    position: absolute;
-    top: 9px;
-    left: 15px;
-    background: url('twitter-heart.png');
-    width: 60px;
-    height: 60px;
-    background-size: 2900%;
-    background-repeat: no-repeat;
-}
 .is-active {
     animation-name: animate;
     animation-duration: .8s;
@@ -103,44 +82,9 @@ body {
 
     
 }
-.image img{
-    border-radius:100%;
-    height: 90px;
-    width: 90px;
-    
-}
 
 
-.description {
-    padding-top: 10px;
-    margin-right: 60px;
-    width: 115px;
-    color: black;
-}
 
-    .description span {
-        display: block;
-        font-size: 16px;
-        color:black;
-        font-weight: 700;
-    }
-
-    
-
-.quantity {
-    padding-top: 20px;
-    margin-right: 60px;
-}
-
-    .quantity input {
-        -webkit-appearance: none;
-        border: none;
-        text-align: center;
-        width: 32px;
-        font-size: 16px;
-        color: #43484D;
-        font-weight: 300;
-    }
 
 button[class*=btn] {
     width: 30px;
@@ -151,27 +95,9 @@ button[class*=btn] {
     cursor: pointer;
 }
 
-.minus-btn img {
-    margin-bottom: 3px;
-}
 
-.plus-btn img {
-    margin-top: 2px;
-}
 
-button:focus,
-input:focus {
-    outline: 0;
-}
 
-.total-price {
-    width: 83px;
-    padding-top: 27px;
-    text-align: center;
-    font-size: 16px;
-    color: #43484D;
-    font-weight: 300;
-}
 .cartbuttons{
     display:flex;
 }
@@ -214,15 +140,37 @@ input:focus {
     }
 .totali{
     margin-left:100px;
-    margin-right:20px;
+    
 }
 .totnum {
-    margin-right: 150px;
+    margin-right: 10px;
 }
 .totalam {
+    margin-left:300px;
     margin-right: 10px;
-    margin-left: 80px;
+   
 }
 .totamnum{
     margin-right:10px;
+}
+
+
+.input{
+    margin-top:3px;
+
+    margin-bottom:10px;
+}
+.input-title {
+    font-weight: 600;
+}
+    .pay-title {
+    font-weight: 700;
+    font-size: 18px;
+}
+input {
+    width: 550px;
+}
+ul{
+    margin-left:30px;
+    list-style:none;
 }
