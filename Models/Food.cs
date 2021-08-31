@@ -26,6 +26,8 @@ namespace Foodilizer_Group35.Models
         [Column("food_id")]
         public int FoodId { get; set; }
         [Column("menu_id")]
+        public int FoodName { get; set; }
+        [Column("name")]
         public int? MenuId { get; set; }
         [Column("price")]
         public decimal? Price { get; set; }
