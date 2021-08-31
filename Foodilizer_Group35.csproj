@@ -21,6 +21,8 @@
 
   <ItemGroup>
     <Folder Include="Controllers\store_front\" />
+    <Folder Include="wwwroot\resources\Customers\" />
+    <Folder Include="wwwroot\resources\Restaurants\" />
   </ItemGroup>
 
   <ItemGroup>
