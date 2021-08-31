@@ -22,25 +22,13 @@ namespace Foodilizer_Group35.Controllers
 
         public IActionResult bronze_home()
         {
-            int id = 1;
-            var det = (from m in _context.Menus
-                       where (m.MenuId == id)
-                       join f in _context.Foods on m.MenuId equals f.MenuId
-                       select new
-                      {
-        
-                      }).ToList();
-            //var reslist = _context.Restaurants.ToList();
-            //var foodlist = _context.Foods.Where(x => x.MenuId == id).ToList();
+            int id = 2;
 
-            //Response.WriteAsync("This is debug text");
-            //Response.WriteAsync(reslist);
-
-            ViewBag.fooddet = det;
-
+             //var query = _context.Menus.Where(e => e.RestId == id).Include(e => e.Foods).ToList();
+            //ViewBag.fooddet = query;
             using (foodilizerContext context = new foodilizerContext())
             {
-                return View(_context.Restaurants.Where(x => x.RestId == id).FirstOrDefault());
+                return View(_context.Restaurants.Where(x => x.RestId == id).Include(e => e.Menus).ThenInclude(e => e.Foods).FirstOrDefault());
             }
 
 
