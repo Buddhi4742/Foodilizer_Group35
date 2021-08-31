@@ -28,17 +28,15 @@ namespace Foodilizer_Group35.Controllers
                        join f in _context.Foods on m.MenuId equals f.MenuId
                        select new
                       {
-                          fname = f.FoodName
-                        
-                          
+        
                       }).ToList();
-            var reslist = _context.Restaurants.ToList();
-            var foodlist = _context.Foods.Where(x => x.MenuId == id).ToList();
+            //var reslist = _context.Restaurants.ToList();
+            //var foodlist = _context.Foods.Where(x => x.MenuId == id).ToList();
 
             //Response.WriteAsync("This is debug text");
             //Response.WriteAsync(reslist);
 
-            ViewBag.fooddet = foodlist;
+            ViewBag.fooddet = det;
 
             using (foodilizerContext context = new foodilizerContext())
             {
