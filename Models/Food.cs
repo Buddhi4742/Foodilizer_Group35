@@ -26,9 +26,9 @@ namespace Foodilizer_Group35.Models
         [Column("food_id")]
         public int FoodId { get; set; }
         [Column("menu_id")]
-        public int FoodName { get; set; }
-        [Column("name")]
         public int? MenuId { get; set; }
+        [Column("name")]
+        public string FoodName { get; set; }
         [Column("price")]
         public decimal? Price { get; set; }
         [Column("type")]
@@ -40,9 +40,9 @@ namespace Foodilizer_Group35.Models
         [Column("image_path")]
         [StringLength(200)]
         public string ImagePath { get; set; }
-        [Column("dietry_type")]
-        [StringLength(50)]
-        public string DietryType { get; set; }
+        //[Column("dietry_type")]
+        //[StringLength(50)]
+        //public string DietryType { get; set; }
         [Column("pref_score")]
         public int? PrefScore { get; set; }
         [Column("featured")]

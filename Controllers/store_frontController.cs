@@ -11,11 +11,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Foodilizer_Group35.Controllers
 {
-    public class store_frontController : Controller
+    public class Store_frontController : Controller
     {
         private readonly foodilizerContext _context;
 
-        public store_frontController(foodilizerContext context)
+        public Store_frontController(foodilizerContext context)
         {
             _context = context;
         }
@@ -24,16 +24,21 @@ namespace Foodilizer_Group35.Controllers
         {
             int id = 1;
             var det = (from m in _context.Menus
+                       where (m.MenuId == id)
                        join f in _context.Foods on m.MenuId equals f.MenuId
-                       where (m.MenuId==id)
-                      select new
+                       select new
                       {
                           fname = f.FoodName
+                        
                           
                       }).ToList();
-            Console.WriteLine(det);
-            
-            ViewBag.fooddet = det;
+            var reslist = _context.Restaurants.ToList();
+            var foodlist = _context.Foods.Where(x => x.MenuId == id).ToList();
+
+            //Response.WriteAsync("This is debug text");
+            //Response.WriteAsync(reslist);
+
+            ViewBag.fooddet = foodlist;
 
             using (foodilizerContext context = new foodilizerContext())
             {
