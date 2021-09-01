@@ -24,10 +24,10 @@ namespace Foodilizer_Group35.Controllers
         {
             int id = 2;
 
-             var query = _context.Menus.Where(e => e.RestId == id).Include(e => e.Foods).ToList();
+
+            var query = _context.Menus.Where(e => e.RestId == id).Include(e => e.Foods).ToList();
             ViewBag.fooddet = query;
-            ViewBag.count = 0;
-           
+
             using (foodilizerContext context = new foodilizerContext())
             {
                 return View(_context.Restaurants.Where(x => x.RestId == id).Include(e => e.Menus).ThenInclude(e => e.Foods).FirstOrDefault());
