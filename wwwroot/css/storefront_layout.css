@@ -155,3 +155,34 @@ body {
 	text-align: center;
 	background-color: black;
 }
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.swiper-image {
+	border-radius: 10px;
+}
+
+
+.rate-circles {
+	color: #3AAFA9;
+}
+
+.fa-circle {
+	padding-right: 1px;
+}
