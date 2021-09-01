@@ -81,27 +81,26 @@
 
                                     @foreach (var item in temp.First().Foods)
                                     {
-                                        <div class="swiper-slide">
-                                            <div class="swiper-block">
-                                                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                                                <div class="swiper-card-data">
-                                                    <h4 class="card-name">@item.FoodName</h4>
-                                                    <span class="card-info">Resturant</span>
-                                                    <div class="rating-card">
-                                                        <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                                                        <div> <span>&nbsp;49 reviews</span> </div>
+                                        @if (item.Featured=="1")
+                                        {
+                                            <div class="swiper-slide">
+                                                <div class="swiper-block">
+                                                    <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                                                    <div class="swiper-card-data">
+                                                        <h4 class="card-name">@item.FoodName</h4>
+
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-
+                                            }
+                                        }
                                     }
-                                }
 
-                            </div>
+                                </div>
                         </div>
                     </div>
+                    
                 </div>
 
 

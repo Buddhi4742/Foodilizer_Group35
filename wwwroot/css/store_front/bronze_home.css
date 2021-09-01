@@ -186,8 +186,9 @@
     text-align:center;
 }
 .best_selection .carousel-inner {
-    padding: 1em;
+    padding: 0em;
     height: 300px;
+   
 }
 
 .best_selection .carousel-control-prev,
@@ -552,7 +553,7 @@ h1 {
 
 .swiper-slide {
     text-align: center;
-    font-size: 18px;
+    max-width:500px;
     background: #fff;
     /* Center slide text vertically */
     display: -webkit-box;
@@ -568,12 +569,34 @@ h1 {
     -webkit-align-items: center;
     align-items: center;
 }
-
+    .swiper-slide .card-name {
+        font-size: 19px;
+        font-weight: 700;
+    }
 .swiper-image {
-    border-radius: 10px;
+    border-radius: 0px;
+    min-width: 190px;
+    width: 400px;
+    min-height: 150px;
+    max-height: 150px;
 }
-
-
+.swiper-block {
+    margin: 0 1em;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    border: none;
+    border-radius: 0;
+    height: 220px;
+    width: 300px;
+    margin-left:40px;
+    margin-right:20px;
+    
+}
+.swiper-card-data {
+    margin-top: 20px;
+    font-weight: 600;
+    margin-left: 0px;
+    text-align: center;
+}
 .rate-circles {
     color: #3AAFA9;
 }
