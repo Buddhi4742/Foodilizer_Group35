@@ -149,6 +149,8 @@
 .best_selection .cards-wrapper {
     display: flex;
     justify-content: center;
+
+    
 }
 
 .best_selection .card img {
@@ -157,14 +159,17 @@
     max-height: 150px;
 }
 
-.best_selection .card {
-    margin: 0 0.5em;
-    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
-    border: none;
-    border-radius: 0;
-    height: 220px;
-    width:300px;
-}
+    .best_selection .card {
+        margin: 0 0.5em;
+        box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+        border: none;
+        border-radius: 0;
+        height: 220px;
+        width: 300px;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(3,1fr);
+    }
 
 .best_selection .carousel slide{
     margin-top:0px;
@@ -383,10 +388,11 @@ h1 {
    
     flex: 4;
 }
-.menu-det h3 {
-    margin-top:0px;
-    flex: 3;
-}
+    .menu-det h3 {
+        margin-top: 0px;
+        color: #13dad2;
+        flex: 3;
+    }
 .menu-det h4 {
     flex: 2;
     margin-top: 2px;

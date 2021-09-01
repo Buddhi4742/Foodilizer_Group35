@@ -27,6 +27,7 @@ namespace Foodilizer_Group35.Controllers
 
             var query = _context.Menus.Where(e => e.RestId == id).Include(e => e.Foods).ToList();
             ViewBag.fooddet = query;
+            
 
             using (foodilizerContext context = new foodilizerContext())
             {
