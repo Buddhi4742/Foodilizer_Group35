@@ -352,19 +352,39 @@ h1 {
        
     }
 .menu-det {
-    float: right;
+
     margin-bottom: -6px;
 }
-
-.tab-pane .card-body {
-    display: flex;
-    margin-left: -8px;
-    margin-right: 10px;
-    margin-bottom: -3px;
+.tab-pane {
+    height: 480px;
+    overflow-y: auto;
 }
+
+    .tab-pane::-webkit-scrollbar {
+        width: 0.5em;
+    }
+
+    .tab-pane::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .tab-pane::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
+    }
+    .tab-pane .card-body {
+        display: flex;
+        flex: initial;
+        margin-left: -8px;
+        margin-right: 10px;
+        margin-bottom: -3px;
+    }
 
 .menu-det .card-title {
     display: flex;
+}
+.menu-det {
+    flex: 4;
 }
 .menu-det h3 {
     font-size: 20px;
