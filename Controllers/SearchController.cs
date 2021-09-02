@@ -21,7 +21,7 @@ namespace Foodilizer_Group35.Controllers
         {
             //searchString = "Palm";
             var location = _context.Restaurants.Select(x => x.Rdistrict).Distinct().ToList();
-            
+
             var rest = from r in _context.Restaurants
                              select r;
             //DONT DELETE THIS
@@ -51,25 +51,52 @@ namespace Foodilizer_Group35.Controllers
                 return View(rest.ToList());
             
         }
-        // GET: SearchController/Details/5
-        public IActionResult RestaurantDetails(int id)
+        //// GET: SearchController/Details/5
+        //public IActionResult RestaurantDetails(int id)
+        //{
+        //    using (foodilizerContext dbmodel = new foodilizerContext())
+        //        return View(dbmodel.Restaurants.Where(x => x.RestId == id).FirstOrDefault());
+        //}
+        //// GET: SearchController
+        public IActionResult FoodSearchResults(string searchString, string district, string searchtype)
         {
-            using (foodilizerContext dbmodel = new foodilizerContext())
-                return View(dbmodel.Restaurants.Where(x => x.RestId == id).FirstOrDefault());
-        }
-        // GET: SearchController
-        public IActionResult FoodSearchResults()
-        {
-            using (foodilizerContext dbmodel = new foodilizerContext())
-                return View(dbmodel.Foods.ToList());
+            var location = _context.Restaurants.Select(x => x.Rdistrict).Distinct().ToList();
+
+            var rest = from r in _context.Restaurants
+                       select r;
+            //DONT DELETE THIS
+            //var location = _context.Restaurants.ToList();
+            //use this to check queries
+            //Response.WriteAsync("This is debug text");
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    Response.WriteAsync(location.ElementAt(i));
+            //}
+
+
+            ViewBag.restlocation = location;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                if (district == "All Locations")
+                {
+                    rest = rest.Where(s => s.Rname.Contains(searchString));
+                }
+                else
+                {
+                    rest = rest.Where(s => s.Rname.Contains(searchString) && s.Rdistrict == district);
+                }
+
+            }
+
+            return View(rest.ToList());
         }
 
-        // GET: SearchController/Details/5
-        public IActionResult FoodDetails(int id)
-        {
-            using (foodilizerContext dbmodel = new foodilizerContext())
-                return View(dbmodel.Foods.Where(x => x.FoodId == id).FirstOrDefault());
-        }
+        //// GET: SearchController/Details/5
+        //public IActionResult FoodDetails(int id)
+        //{
+        //    using (foodilizerContext dbmodel = new foodilizerContext())
+        //        return View(dbmodel.Foods.Where(x => x.FoodId == id).FirstOrDefault());
+        //}
 
 
     }
