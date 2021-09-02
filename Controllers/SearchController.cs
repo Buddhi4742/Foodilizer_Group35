@@ -19,12 +19,21 @@ namespace Foodilizer_Group35.Controllers
         // GET: SearchController
         public IActionResult RestaurantSearchResults(string searchString)
         {
-
-            searchString = "C";
-            var locations=_context.Restaurants.Distinct().
-                var rest = from r in _context.Restaurants
+            var location = _context.Restaurants.Select(x => x.Rdistrict).Distinct().ToList();
+            
+            var rest = from r in _context.Restaurants
                              select r;
+            //DONT DELETE THIS
+            //var location = _context.Restaurants.ToList();
+            //use this to check queries
+            //Response.WriteAsync("This is debug text");
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    Response.WriteAsync(location.ElementAt(i));
+            //}
 
+
+            ViewBag.restlocation = location;
                 if (!String.IsNullOrEmpty(searchString))
                 {
                     rest = rest.Where(s => s.Rname.Contains(searchString));

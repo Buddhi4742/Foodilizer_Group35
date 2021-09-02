@@ -23,7 +23,10 @@
                                 <div class="col-lg-2  p-0 ml-2">
                                     <select class="form-control" id="e">
                                         <option>All Locations</option>
-                                        <option>Colombo</option>
+                                        @foreach (var item in ViewBag.restlocation)
+                                        {
+                                            <option>@item</option>
+                                        }
                                     </select>
                                 </div>
                                 <div class="col-lg-2 p-0 ml-2">

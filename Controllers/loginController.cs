@@ -22,7 +22,7 @@ namespace Foodilizer_Group35.Controllers
         // GET: Login
         public IActionResult Index()
         {
-            var location = _context.Restaurants.Distinct().Select(x=>x.Rdistrict);
+            
 
             HttpContext.Session.SetInt32("user_id", -1);
             HttpContext.Session.SetString("user_type", "");
