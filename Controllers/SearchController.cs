@@ -35,7 +35,6 @@ namespace Foodilizer_Group35.Controllers
                 //    Response.WriteAsync(location.ElementAt(i));
                 //}
 
-
                 ViewBag.restlocation = location;
                 if (!String.IsNullOrEmpty(searchString))
                 {
