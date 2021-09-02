@@ -1,9 +1,13 @@
-﻿.br_home .carousel-inner {
-    width: 730px;
-    height:290px;
-    top:30px;
+﻿body {
+    background-color: #F2F2F2;
 }
 
+.br_home .carousel-inner {
+    width: 730px;
+    height: 290px;
+    top: 30px;
+    background-color: #FFFFFF;
+}
 
 .br_home {
     margin-top: 30px;
@@ -18,16 +22,27 @@
 
  
 }
-    
-    
+
+
     .br_home .card {
-        margin-top: 50px; 
+        margin-top: 50px;
+        border-style: solid;
+        border-width: 0.1ex 0.1ex 0.1ex;
+        border-color: #c7c7c7;
     }
+
     .br_home .bcard {
         margin-top: 110px;
+        border-style: solid;
+        border-width: 0.1ex 0.1ex 0.1ex;
+        border-color: #c7c7c7;
     }
+
     .br_home .lcard {
         margin-top: 20px;
+        border-style: solid;
+        border-width: 0.1ex 0.1ex 0.1ex;
+        border-color: #c7c7c7;
     }
     .br_home .rank {
         margin-top: 20px;

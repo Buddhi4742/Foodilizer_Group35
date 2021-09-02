@@ -1,14 +1,19 @@
-﻿.br_home .carousel-inner {
+﻿body{
+background-color:#F2F2F2;
+}
+.br_home .carousel-inner {
     width: 730px;
-    height:290px;
-    top:30px;
+    height: 290px;
+    top: 30px;
+    background-color: #FFFFFF;
+    
 }
 
 
 .br_home {
     margin-top: 30px;
-    border-color:blue;
-
+    border-color: blue;
+    
 }
 .br_home .col-4{
     padding-left: 30px;
@@ -18,16 +23,25 @@
 
  
 }
-    
-    
+
+
     .br_home .card {
-        margin-top: 50px; 
+        margin-top: 50px;
+        border-style: solid;
+        border-width: 0.1ex 0.1ex 0.1ex;
+        border-color: #c7c7c7;
     }
     .br_home .bcard {
         margin-top: 110px;
+        border-style: solid;
+        border-width: 0.1ex 0.1ex 0.1ex;
+        border-color: #c7c7c7;
     }
     .br_home .lcard {
         margin-top: 20px;
+        border-style: solid;
+        border-width: 0.1ex 0.1ex 0.1ex;
+        border-color:#c7c7c7;
     }
     .br_home .rank {
         margin-top: 20px;
@@ -147,6 +161,7 @@
 
 }
 .best_selection .cards-wrapper {
+
     display: flex;
     justify-content: center;
 
@@ -154,6 +169,7 @@
 }
 
 .best_selection .card img {
+ 
     max-width: 200px;
     min-height: 150px;
     max-height: 150px;
@@ -416,8 +432,13 @@ h1 {
 .rev .carousel{
     margin-top: 0px;
     margin-left: 0px;
+
 }
+    .rev .carousel-inner {
+        background-color: #F2F2F2;
+    }
 .rcard {
+   
     border-right: ridge;
     border-left: ridge;
     border-top: ridge;
@@ -448,12 +469,13 @@ h1 {
     margin-left:70px;
 }
 .rev .carousel-inner {
-    padding:0.3em;
+    padding:0em;
     width: 1020px;
     height: 350px;
 }
 
 .rev .card-body{
+
     display:flex;
 }
 .rev .card-title .circles{
@@ -594,7 +616,8 @@ h1 {
     max-height: 150px;
 }
 .swiper-block {
-    margin: 0 1em;
+    margin: 2em 1em;
+ 
     box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
     border: none;
     border-radius: 0;
