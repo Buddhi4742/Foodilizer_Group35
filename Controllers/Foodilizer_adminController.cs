@@ -24,6 +24,7 @@ namespace Foodilizer_Group35.Controllers
         // GET: Foodilizer_adminController/Create
         public ActionResult Create()
         {
+            
             return View();
         }
 
