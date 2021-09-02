@@ -355,7 +355,7 @@ h1 {
        
     }
 .menu-det {
-  
+
     margin-bottom: -6px;
 }
 .tab-pane{
@@ -408,22 +408,49 @@ h1 {
     
 }
 .rev {
+    margin-left:0px;
     margin-top: 0px;
-}
-
-.rcard {
-    border-right:none;
-    border-left:none;
-    border-top:none;
-    padding-bottom:20px;
+    justify-content:flex-start
     
-    color: black;
 }
+.rev .carousel{
+    margin-top: 0px;
+    margin-left: 0px;
+}
+.rcard {
+    border-right: ridge;
+    border-left: ridge;
+    border-top: ridge;
+    border-bottom: ridge;
+    padding-bottom: 20px;
+    width: 500px;
+    color: black;
+    display:flex;
+    text-align:left;
+    height:308px;
+    justify-content:right;
+    overflow-y:auto;
+   
+}
+    .rcard::-webkit-scrollbar {
+        width: 0.3em;
+    }
 
+    .rcard::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .rcard::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
+    }
+.revnum{
+    margin-left:70px;
+}
 .rev .carousel-inner {
-    margin-left: 40px;
-    width: 700px;
-    height: 590px;
+    padding:0.3em;
+    width: 1020px;
+    height: 350px;
 }
 
 .rev .card-body{
@@ -435,32 +462,16 @@ h1 {
     font-size:12px;
     margin-bottom:0px;
 }
-.rev .carousel-control-next-icon, .rev .carousel-control-prev-icon {
-    
-    margin-left: 0px;
-    text-align: right;
-}
-.rev .carousel-control {
-    width: 820px;
 
-}
-.rev .carousel-control-next-icon {
-   
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 
-}
-
-.rev .carousel-control-prev-icon {
-    margin-right: 80px;
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
-}
 
 .rev h2{
     margin-left:50px;
 }
 
 .rev .menu-image{
-    margin-right:10px;
+    margin-right:20px;
+    
 }
 
 .rev .card-title {
@@ -481,6 +492,7 @@ h1 {
 .rev-topic {
     display: flex;
     width:800px;
+    margin-left:150px;
 }
 
 
@@ -502,6 +514,7 @@ h1 {
     height:70px;
     margin-bottom:10px;
     margin-right:10px;
+    margin-left:0px;
 }
 
 .help-btn{

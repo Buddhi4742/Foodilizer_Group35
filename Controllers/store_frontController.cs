@@ -27,8 +27,9 @@ namespace Foodilizer_Group35.Controllers
 
             var query = _context.Menus.Where(e => e.RestId == id).Include(e => e.Foods).ToList();
             ViewBag.fooddet = query;
+            var query2 = _context.Restaurants.Where(e => e.RestId == id).Include(e => e.Reviews).ThenInclude(e=>e.Customer).ToList();
+            ViewBag.review = query2;
             
-
             using (foodilizerContext context = new foodilizerContext())
             {
                 return View(_context.Restaurants.Where(x => x.RestId == id).Include(e => e.Menus).ThenInclude(e => e.Foods).FirstOrDefault());
@@ -44,7 +45,8 @@ namespace Foodilizer_Group35.Controllers
             var query = _context.Menus.Where(e => e.RestId == id).Include(e => e.Foods).ToList();
             ViewBag.fooddet = query;
             ViewBag.count = 0;
-
+            var query2 = _context.Restaurants.Where(e => e.RestId == id).Include(e => e.Reviews).ThenInclude(e => e.Customer).ToList();
+            ViewBag.review = query2;
             using (foodilizerContext context = new foodilizerContext())
             {
                 return View(_context.Restaurants.Where(x => x.RestId == id).Include(e => e.Menus).ThenInclude(e => e.Foods).FirstOrDefault());
@@ -56,6 +58,8 @@ namespace Foodilizer_Group35.Controllers
 
             var query = _context.Menus.Where(e => e.RestId == id).Include(e => e.Foods).ToList();
             ViewBag.fooddet = query;
+            var query2 = _context.Restaurants.Where(e => e.RestId == id).Include(e => e.Reviews).ThenInclude(e => e.Customer).ToList();
+            ViewBag.review = query2;
             ViewBag.count = 0;
 
             using (foodilizerContext context = new foodilizerContext())

@@ -403,60 +403,74 @@ h1 {
     justify-content:normal;
 }
 
-.rev{
-    margin-top:0px;
+.rev {
+    margin-left: 0px;
+    margin-top: 0px;
+    justify-content: flex-start
 }
 
+    .rev .carousel {
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+
 .rcard {
-    border-right:none;
-    border-left:none;
-    border-top:none;
-    padding-bottom:20px;
-    
+    border-right: ridge;
+    border-left: ridge;
+    border-top: ridge;
+    border-bottom: ridge;
+    padding-bottom: 20px;
+    width: 500px;
     color: black;
+    display: flex;
+    text-align: left;
+    height: 308px;
+    justify-content: right;
+    overflow-y: auto;
+}
+
+    .rcard::-webkit-scrollbar {
+        width: 0.3em;
+    }
+
+    .rcard::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .rcard::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
+    }
+
+.revnum {
+    margin-left: 70px;
 }
 
 .rev .carousel-inner {
-    margin-left: 40px;
-    width: 700px;
-    height: 590px;
+    padding: 0.3em;
+    width: 1020px;
+    height: 350px;
 }
 
-.rev .card-body{
-    display:flex;
-}
-.rev .card-title .circles{
-    margin-top:0px;
-    font-weight:100;
-    font-size:12px;
-    margin-bottom:0px;
-}
-.rev .carousel-control-next-icon, .rev .carousel-control-prev-icon {
-    
-    margin-left: 0px;
-    text-align: right;
-}
-.rev .carousel-control {
-    width: 820px;
-
-}
-.rev .carousel-control-next-icon {
-   
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
-
+.rev .card-body {
+    display: flex;
 }
 
-.rev .carousel-control-prev-icon {
-    margin-right: 80px;
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+.rev .card-title .circles {
+    margin-top: 0px;
+    font-weight: 100;
+    font-size: 12px;
+    margin-bottom: 0px;
 }
 
-.rev h2{
-    margin-left:50px;
+
+
+.rev h2 {
+    margin-left: 50px;
 }
 
-.rev .menu-image{
-    margin-right:10px;
+.rev .menu-image {
+    margin-right: 20px;
 }
 
 .rev .card-title {
@@ -466,40 +480,42 @@ h1 {
     margin-left: 0px;
     text-align: center;
 }
+
 .rev h5 {
-    font-weight:700;
+    font-weight: 700;
 }
 
-.rev-name{
-    margin-left:30px;
-    margin-top:10px;
+.rev-name {
+    margin-left: 30px;
+    margin-top: 10px;
 }
+
 .rev-topic {
     display: flex;
-    width:800px;
+    width: 800px;
+    margin-left: 150px;
 }
 
 
-.revb{
-
-    margin-top:12px;
-    background-color:black;
-    color:white;
-    margin-left:500px;
-    height:40px;
+.revb {
+    margin-top: 12px;
+    background-color: black;
+    color: white;
+    margin-left: 500px;
+    height: 40px;
 }
 
-.rev-img{
-    display:flex;
+.rev-img {
+    display: flex;
 }
 
-.rev-img img{
-    width:100px;
-    height:70px;
-    margin-bottom:10px;
-    margin-right:10px;
-}
-
+    .rev-img img {
+        width: 100px;
+        height: 70px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        margin-left: 0px;
+    }
 .help-btn{
     border-color:white;
     width:40px;

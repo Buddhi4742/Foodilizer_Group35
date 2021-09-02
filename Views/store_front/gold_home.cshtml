@@ -17,7 +17,8 @@
 }
 
 <div class="br_home">
-@{ List<Menu> temp = ViewBag.fooddet;}
+    @{ List<Menu> temp = ViewBag.fooddet;}
+    @{ List<Restaurant> temp2 = ViewBag.review;}
     <div class="row">
         <div class="col-8">
             <div class="rest_name col-12">@Html.DisplayFor(model => model.Rname)</div>
@@ -552,120 +553,70 @@
 
         <div class="col-8">
             <div class="rev-topic">
-                <h3>Reviews (49)</h3><button class="revb">Write a Review</button>
-            </div>
+                @if (temp2 != null)
+                {
+                    var i = 0;
+
+                    foreach (var item in temp2.First().Reviews)
+                    {
+                        i++;
+                    }
+
+                        <h3>Reviews (@i)</h3><button class="revb">Write a Review</button>
+                }
+                    </div>
             <div id="carouselcardrev" class="carousel slide " data-interval="false">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="cards-wrapper">
-                            <div class="card rcard mt-2">
-                                <div class="card-body">
-                                    <div class="menu-image">
-                                        <img src="~/lib/images/store_front_images/rvp1.webp">
-                                        <div class="rev-name">Kw966</div>
-                                    </div>
-                                    <div class="menu-det">
-                                        <div class="card-title"><div class="circles"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;Reviewed in December 17,2019 &nbsp;<i class="fa fa-mobile-alt" style="color:black;"></i>&nbsp;&nbsp;via mobile</div></div>
-                                        <h5>"Never forget the place!"</h5>
-                                        <p class="rcard-text">
-                                            It’s a great experience. The ambiance is very welcoming and charming. Amazing wines, food and service.
-                                        </p>
-                                        <div class="rev-img">
-                                            <img src="~/lib/images/store_front_images/rvr1.jpg" />
-                                            <img src="~/lib/images/store_front_images/rvr2.jpg" />
+
+                    <div class="swiper-container favSwiper2">
+                        <div class="swiper-wrapper">
+                            @if (temp2 != null)
+                            {
+                                 var i = 0;
+
+                                    foreach (var item in temp2.First().Reviews)
+                                    {
+                                        i++;
+
+                                    <div class="swiper-slide">
+                                        @*<div class="swiper-block">*@
+                                        <div class="cards-wrapper">
+                                            <div class="card rcard mt-2">
+                                                <div class="card-body">
+                                                    <div class="menu-image">
+                                                        <img src="https://cdn.pixabay.com/photo/2016/03/03/09/21/travel-1233762_960_720.jpg">
+                                                        <div class="rev-name">@item.Customer.Name</div>
+                                                    </div>
+                                                    <div class="menu-det">
+                                                        <div class="card-title"><div class="circles"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;Reviewed in @item.Date.ToString("dd/MM/yyyy") </div><p class="revnum">@i</p></div>
+                                                        <h5>"Never forget the place!"</h5>
+                                                        <p class="rcard-text">
+                                                            @item.Feedback
+                                                        </p>
+                                                        <div class="rev-img">
+                                                            <img src="https://media-cdn.tripadvisor.com/media/photo-s/1b/67/cc/f8/chestnut-restaurant.jpg" />
+                                                            <img src="https://media-cdn.tripadvisor.com/media/photo-s/1b/67/cc/f8/chestnut-restaurant.jpg" />
+                                                            <img src="https://media-cdn.tripadvisor.com/media/photo-s/1b/67/cc/f8/chestnut-restaurant.jpg" />
+                                                            
+                                                        </div>
+
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
                                         </div>
-                                        <p class="rcard-text">Date of Visit: December,2019</p>
-                                        <div class="rev-help">Helpful? <button class="help-btn"><i class="far fa-thumbs-up"></i></button></div>
                                     </div>
 
-                                </div>
-                            </div>
+                                }
+                            }
 
-                            <div class="card rcard mt-2">
-                                <div class="card-body">
-                                    <div class="menu-image">
-                                        <img src="~/lib/images/store_front_images/rvp1.webp">
-                                        <div class="rev-name">Kw96</div>
-                                    </div>
-                                    <div class="menu-det">
-                                        <div class="card-title"><div class="circles"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;Reviewed in December 17,2019 &nbsp;<i class="fa fa-mobile-alt" style="color:black;"></i>&nbsp;&nbsp;via mobile</div></div>
-                                        <h5>"Never forget the place!"</h5>
-                                        <p class="rcard-text">
-                                            It’s a great experience. The ambiance is very welcoming and charming. Amazing wines, food and service.
-                                        </p>
-                                        <div class="rev-img">
-                                            <img src="~/lib/images/store_front_images/rvr1.jpg" />
-                                            <img src="~/lib/images/store_front_images/rvr2.jpg" />
-                                        </div>
-                                        <p class="rcard-text">Date of Visit: December,2019</p>
-                                        <div class="rev-help">Helpful? <button class="help-btn"><i class="far fa-thumbs-up"></i></button></div>
-                                    </div>
-
-                                </div>
-                            </div>
                         </div>
                     </div>
-                    <div class="carousel-item ">
-                        <div class="cards-wrapper">
-                            <div class="card rcard mt-2">
-                                <div class="card-body">
-                                    <div class="menu-image">
-                                        <img src="~/lib/images/store_front_images/rvp1.webp">
-                                        <div class="rev-name">Kw96</div>
-                                    </div>
-                                    <div class="menu-det">
-                                        <div class="card-title"><div class="circles"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;Reviewed in December 17,2019 &nbsp;<i class="fa fa-mobile-alt" style="color:black;"></i>&nbsp;&nbsp;via mobile</div></div>
-                                        <h5>"Never forget the place!"</h5>
-                                        <p class="rcard-text">
-                                            It’s a great experience. The ambiance is very welcoming and charming. Amazing wines, food and service.
-                                        </p>
-                                        <div class="rev-img">
-                                            <img src="~/lib/images/store_front_images/rvr1.jpg" />
-                                            <img src="~/lib/images/store_front_images/rvr2.jpg" />
-                                        </div>
-                                        <p class="rcard-text">Date of Visit: December,2019</p>
-                                        <div class="rev-help">Helpful? <button class="help-btn"><i class="far fa-thumbs-up"></i></button></div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="card rcard mt-2">
-                                <div class="card-body">
-                                    <div class="menu-image">
-                                        <img src="~/lib/images/store_front_images/rvp2.jfif">
-                                        <div class="rev-name">Kw96</div>
-                                    </div>
-                                    <div class="menu-det">
-                                        <div class="card-title"><div class="circles"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;Reviewed in December 17,2019 &nbsp;<i class="fa fa-mobile-alt" style="color:black;"></i>&nbsp;&nbsp;via mobile</div></div>
-                                        <h5>"Never forget the place!"</h5>
-                                        <p class="rcard-text">
-                                            It’s a great experience. The ambiance is very welcoming and charming. Amazing wines, food and service.
-                                        </p>
-                                        <div class="rev-img">
-                                            <img src="~/lib/images/store_front_images/rvr1.jpg" />
-                                            <img src="~/lib/images/store_front_images/rvr2.jpg" />
-                                        </div>
-                                        <p class="rcard-text">Date of Visit: December,2019</p>
-                                        <div class="rev-help">Helpful? <button class="help-btn"><i class="far fa-thumbs-up"></i></button></div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
-                <div class="carousel-control">
-                    <a class="carousel-control-prev" href="#carouselcardrev" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-
-                    <a class="carousel-control-next" href="#carouselcardrev" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
+                
             </div>
         </div>
 
@@ -751,6 +702,26 @@
         spaceBetween: 3,
         freeMode: true,
         loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        }, navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+
+
+    var swiper = new Swiper(".favSwiper2", {
+        slidesPerView: 2,
+        spaceBetween: 10,
+        freeMode: true,
+        loop: false,
         autoplay: {
             delay: 5000,
             disableOnInteraction: false,
