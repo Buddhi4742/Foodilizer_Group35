@@ -14,28 +14,30 @@
     <link rel="stylesheet" href="~/css/search.css" />
 </head>
 <body>
-
     <div class="container component">
         <div class="row">
             <div class="col-lg-12 search-form">
-                <form id="search-form">
+                <form id="search-form" asp-action=" FoodSearchResults">
                     <div class="row">
                         <div class="col-12">
                             <div class="row no-gutters">
 
                                 <div class="col-lg-6 p-0">
-                                    <input type="text" placeholder="Search..." class="form-control" id="search" name="search">
+                                    <input type="text" placeholder="Search..." class="form-control" id="search" name="searchString">
                                 </div>
                                 <div class="col-lg-2  p-0 ml-2">
-                                    <select class="form-control" id="e">
+                                    <select class="form-control" id="district" name="district">
                                         <option>All Locations</option>
-                                        <option>Colombo</option>
+                                        @foreach (var locations in ViewBag.restlocation)
+                                        {
+                                            <option>@locations</option>
+                                        }
                                     </select>
                                 </div>
                                 <div class="col-lg-2 p-0 ml-2">
-                                    <select class="form-control" id="e">
-                                        <option>Food</option>
+                                    <select class="form-control" id="searchtype" name="searchtype">
                                         <option>Restaurant</option>
+                                        <option>Food</option>
                                     </select>
                                 </div>
 
@@ -50,193 +52,49 @@
                 </form>
             </div>
         </div>
-        <div class="result-card-body">
-            <section class="search-result-item align-content-center">
-                <a class="image-link" href="#">
-                    <img class="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
-                </a>
-                <div class="search-result-item-body">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <h4 class="search-result-item-heading"><a href="#">Food Name</a></h4>
-                            <span class="info">Resturant name</span>
-                            <br />
-                            <span class="description">Meal-type</span>
-                            <br />
-                            <span class="description">DietryType</span>
-                        </div>
-                        <div class="col-sm-3 text-align-center">
-                            <h3 class="Price-tag">RS 15000</h3>
+        @foreach (var item in Model)
+        {
+            <div class="result-card-body">
+                <section class="search-result-item align-content-center">
+                    <a class="image-link" href="#">
+                        <img class="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                    </a>
+                    <div class="search-result-item-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h4 class="search-result-item-heading"><a href="#">@Html.DisplayFor(modelItem => item.FoodName)</a></h4>
+                                <span class="info">@Html.DisplayFor(modelItem => item.FoodName)</span>
+                                <br />
+                                <span class="description">@Html.DisplayFor(modelItem => item.Type)</span>
+                                <br />
+                                @*<span class="description">@Html.DisplayFor(modelItem => item.DietryType)</span>*@
+                            </div>
+                            <div class="col-sm-3 text-align-center">
+                                <h3 class="Price-tag">RS @Html.DisplayFor(modelItem => item.Price)</h3>
 
-                            <span class="value3 mt-sm">
-                                <i class="fa fa-circle"></i>
-                                <i class="fa fa-circle"></i>
-                                <i class="fa fa-circle"></i>
-                                <i class="fa fa-circle"></i>
-                                <i class="fa fa-circle"></i>
-                            </span>
-                            <p class="fs-mini text-muted">100 Reviews</p>
-                            <a class="btn btn-primary btn-info btn-sm" href="#">More</a>
-                        </div>
-                        <div class="col-sm-3 text-align-center">
-                            <a class="image-link" href="#">
-                                <img class="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
-                            </a>
+                                <span class="value3 mt-sm">
+                                    <i class="fa fa-circle"></i>
+                                    <i class="fa fa-circle"></i>
+                                    <i class="fa fa-circle"></i>
+                                    <i class="fa fa-circle"></i>
+                                    <i class="fa fa-circle"></i>
+                                </span>
+                                <p class="fs-mini text-muted">100 Reviews</p>
+                                <a class="btn btn-primary btn-info btn-sm" href="#">More</a>
+                            </div>
+                            <div class="col-sm-3 text-align-center">
+                                <a class="image-link" href="#">
+                                    <img class="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
-        <div class="result-card-body">
-            <section class="search-result-item align-content-center">
-                <a class="image-link" href="#">
-                    <img class="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
-                </a>
-                <div class="search-result-item-body">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <h4 class="search-result-item-heading"><a href="#">Food Name</a></h4>
-                            <span class="info">Resturant name</span>
-                            <br />
-                            <span class="description">Meal-type</span>
-                            <br />
-                            <span class="description">DietryType</span>
-                        </div>
-                        <div class="col-sm-3 text-align-center">
-                            <h3 class="Price-tag">RS 15000</h3>
+                </section>
+            </div>
+          }
 
-                            <span class="value3 mt-sm">
-                                <i class="fa fa-circle"></i>
-                                <i class="fa fa-circle"></i>
-                                <i class="fa fa-circle"></i>
-                                <i class="fa fa-circle"></i>
-                                <i class="fa fa-circle"></i>
-                            </span>
-                            <p class="fs-mini text-muted">100 Reviews</p>
-                            <a class="btn btn-primary btn-info btn-sm" href="#">More</a>
-                        </div>
-                        <div class="col-sm-3 text-align-center">
-                            <a class="image-link" href="#">
-                                <img class="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-        <div class="result-card-body">
-            <section class="search-result-item align-content-center">
-                <a class="image-link" href="#">
-                    <img class="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
-                </a>
-                <div class="search-result-item-body">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <h4 class="search-result-item-heading"><a href="#">Food Name</a></h4>
-                            <span class="info">Resturant name</span>
-                            <br />
-                            <span class="description">Meal-type</span>
-                            <br />
-                            <span class="description">DietryType</span>
-                        </div>
-                        <div class="col-sm-3 text-align-center">
-                            <h3 class="Price-tag">RS 15000</h3>
-
-                            <span class="value3 mt-sm">
-                                <i class="fa fa-circle"></i>
-                                <i class="fa fa-circle"></i>
-                                <i class="fa fa-circle"></i>
-                                <i class="fa fa-circle"></i>
-                                <i class="fa fa-circle"></i>
-                            </span>
-                            <p class="fs-mini text-muted">100 Reviews</p>
-                            <a class="btn btn-primary btn-info btn-sm" href="#">More</a>
-                        </div>
-                        <div class="col-sm-3 text-align-center">
-                            <a class="image-link" href="#">
-                                <img class="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
     </div>
+    
 
 
-
-
-
-
-    @*<h1>FoodIndex</h1>
-
-        <p>
-            <a asp-action="Create">Create New</a>
-        </p>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.MenuId)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Price)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Type)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Ingredient)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ImagePath)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.DietryType)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.PrefScore)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Featured)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-        @foreach (var item in Model) {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.MenuId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Price)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Type)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Ingredient)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ImagePath)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DietryType)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PrefScore)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Featured)
-                    </td>
-                    <td>
-
-                        <a asp-action="Details" asp-route-id="@item.FoodId">Visit Resturant</a> |
-
-                    </td>
-                </tr>
-        }
-            </tbody>
-        </table>*@
 </body>

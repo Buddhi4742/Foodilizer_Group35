@@ -19,8 +19,8 @@ namespace Foodilizer_Group35.Controllers
         // GET: SearchController
         public IActionResult RestaurantSearchResults(string searchString, string district, string searchtype)
         {
-            if (searchtype == "Restaurant")
-            {
+            //if (searchtype == "Restaurant")
+            //{
                 //searchString = "Palm";
                 var location = _context.Restaurants.Select(x => x.Rdistrict).Distinct().ToList();
 
@@ -52,11 +52,11 @@ namespace Foodilizer_Group35.Controllers
 
                 return View(rest.ToList());
 
-            }
-            else
-            {
-                return RedirectToAction(nameof(FoodSearchResults));
-            }
+            //}
+            //else
+            //{
+            //    return RedirectToAction(nameof(FoodSearchResults));
+            //}
 
         }
         //// GET: SearchController/Details/5
@@ -66,37 +66,50 @@ namespace Foodilizer_Group35.Controllers
         //        return View(dbmodel.Restaurants.Where(x => x.RestId == id).FirstOrDefault());
         //}
         //// GET: SearchController
+
+
         public IActionResult FoodSearchResults(string searchString, string district, string searchtype)
         {
-            var location = _context.Restaurants.Select(x => x.Rdistrict).Distinct().ToList();
-
-            var rest = from r in _context.Restaurants
-                       select r;
-            //DONT DELETE THIS
-            //var location = _context.Restaurants.ToList();
-            //use this to check queries
-            //Response.WriteAsync("This is debug text");
-            //for (int i = 0; i < 4; i++)
+            //if (searchtype == "Food")
             //{
-            //    Response.WriteAsync(location.ElementAt(i));
+                var location = _context.Restaurants.Select(x => x.Rdistrict).Distinct().ToList();
+
+                var food = from f in _context.Foods
+                           select f;
+
+                //var dist = from d in _context.Restaurants
+                //           select d;
+
+                //DONT DELETE THIS
+                //var location = _context.Restaurants.ToList();
+                //use this to check queries
+                //Response.WriteAsync("This is debug text");
+                //for (int i = 0; i < 4; i++)
+                //{
+                //    Response.WriteAsync(location.ElementAt(i));
+                //}
+
+
+                ViewBag.restlocation = location;
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    if (district == "All Locations")
+                    {
+                        food = food.Where(s => s.FoodName.Contains(searchString));
+                    }
+                    else
+                    {
+                        food = food.Where(s => s.FoodName.Contains(searchString) /*&& ( x.Rdistrict == district)*/);
+                    }
+
+                }
+
+                return View(food.ToList());
             //}
-
-
-            ViewBag.restlocation = location;
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                if (district == "All Locations")
-                {
-                    rest = rest.Where(s => s.Rname.Contains(searchString));
-                }
-                else
-                {
-                    rest = rest.Where(s => s.Rname.Contains(searchString) && s.Rdistrict == district);
-                }
-
-            }
-
-            return View(rest.ToList());
+            //else
+            //{
+            //    return RedirectToAction(nameof(RestaurantSearchResults));
+            //}
         }
 
         //// GET: SearchController/Details/5
