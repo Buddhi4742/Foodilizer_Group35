@@ -78,7 +78,6 @@
                             <div class="swiper-wrapper">
                                 @if (temp != null)
                                 {
-
                                     @foreach (var item in temp.First().Foods)
                                     {
                                         @if (item.Featured=="1")
@@ -609,7 +608,7 @@
          slidesPerView: 3,
          spaceBetween: 3,
          freeMode: true,
-         loop: false,
+         loop: true,
          autoplay: {
              delay: 5000,
              disableOnInteraction: false,
