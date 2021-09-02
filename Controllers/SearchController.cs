@@ -19,37 +19,45 @@ namespace Foodilizer_Group35.Controllers
         // GET: SearchController
         public IActionResult RestaurantSearchResults(string searchString, string district, string searchtype)
         {
-            //searchString = "Palm";
-            var location = _context.Restaurants.Select(x => x.Rdistrict).Distinct().ToList();
+            if (searchtype == "Restaurant")
+            {
+                //searchString = "Palm";
+                var location = _context.Restaurants.Select(x => x.Rdistrict).Distinct().ToList();
 
-            var rest = from r in _context.Restaurants
-                             select r;
-            //DONT DELETE THIS
-            //var location = _context.Restaurants.ToList();
-            //use this to check queries
-            //Response.WriteAsync("This is debug text");
-            //for (int i = 0; i < 4; i++)
-            //{
-            //    Response.WriteAsync(location.ElementAt(i));
-            //}
+                var rest = from r in _context.Restaurants
+                           select r;
+                //DONT DELETE THIS
+                //var location = _context.Restaurants.ToList();
+                //use this to check queries
+                //Response.WriteAsync("This is debug text");
+                //for (int i = 0; i < 4; i++)
+                //{
+                //    Response.WriteAsync(location.ElementAt(i));
+                //}
 
 
-            ViewBag.restlocation = location;
+                ViewBag.restlocation = location;
                 if (!String.IsNullOrEmpty(searchString))
                 {
-                    if(district== "All Locations")
-                {
-                    rest = rest.Where(s => s.Rname.Contains(searchString));
-                }
-                else
-                {
-                    rest = rest.Where(s => s.Rname.Contains(searchString) && s.Rdistrict == district);
-                }
-                   
+                    if (district == "All Locations")
+                    {
+                        rest = rest.Where(s => s.Rname.Contains(searchString));
+                    }
+                    else
+                    {
+                        rest = rest.Where(s => s.Rname.Contains(searchString) && s.Rdistrict == district);
+                    }
+
                 }
 
                 return View(rest.ToList());
-            
+
+            }
+            else
+            {
+                return RedirectToAction(nameof(FoodSearchResults));
+            }
+
         }
         //// GET: SearchController/Details/5
         //public IActionResult RestaurantDetails(int id)
