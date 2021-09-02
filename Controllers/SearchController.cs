@@ -8,13 +8,30 @@ using System.Threading.Tasks;
 
 namespace Foodilizer_Group35.Controllers
 {
+    
     public class SearchController : Controller
     {
-        // GET: SearchController
-        public IActionResult RestaurantSearchResults()
+        private readonly foodilizerContext _context;
+        public SearchController(foodilizerContext context)
         {
-            using (foodilizerContext dbmodel = new foodilizerContext())
-                return View(dbmodel.Restaurants.ToList());
+            _context = context;
+        }
+        // GET: SearchController
+        public IActionResult RestaurantSearchResults(string searchString)
+        {
+
+            searchString = "C";
+            var locations=_context.Restaurants.Distinct().
+                var rest = from r in _context.Restaurants
+                             select r;
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    rest = rest.Where(s => s.Rname.Contains(searchString));
+                }
+
+                return View(rest.ToList());
+            
         }
 
         // GET: SearchController/Details/5
