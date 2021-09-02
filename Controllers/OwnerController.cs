@@ -6,18 +6,21 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+//using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+//using Microsoft.AspNetCore.Mvc.Filters;
+//using Microsoft.Graph;
 
 namespace Foodilizer_Group35.Controllers
 {
     public class OwnerController : Controller
     {
-        private readonly ILogger<OwnerController> _logger;
-
-        public OwnerController(ILogger<OwnerController> logger)
+        private readonly foodilizerContext _context;
+        public OwnerController(foodilizerContext context)
         {
-            _logger = logger;
+            _context = context;
         }
-
         public IActionResult Owner_home()
         {
             return View();
@@ -30,9 +33,10 @@ namespace Foodilizer_Group35.Controllers
         {
             return View();
         }
-
-
-
+        public IActionResult Owner_redirect()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
