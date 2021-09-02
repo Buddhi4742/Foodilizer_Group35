@@ -19,8 +19,9 @@ namespace Foodilizer_Group35.Controllers
         // GET: SearchController
         public IActionResult RestaurantSearchResults(string searchString, string district, string searchtype)
         {
-            //if (searchtype == "Restaurant")
-            //{
+           
+            if (searchtype == "Restaurant")
+            {
                 //searchString = "Palm";
                 var location = _context.Restaurants.Select(x => x.Rdistrict).Distinct().ToList();
 
@@ -51,11 +52,20 @@ namespace Foodilizer_Group35.Controllers
 
                 return View(rest.ToList());
 
-            //}
-            //else
-            //{
-            //    return RedirectToAction(nameof(FoodSearchResults));
-            //}
+            }
+            else if (searchtype == null)
+            {
+                searchtype = "Restaurant";
+                //return View(RestaurantSearchResults(searchString, district, searchtype));
+                return RedirectToAction("RestaurantSearchResults", "Search",new {searchString,district,searchtype});
+
+            }
+            else
+            {
+                searchtype = "Food";
+                //return View(FoodSearchResults(searchString, district, searchtype));
+                return RedirectToAction("FoodSearchResults", "Search", new { searchString, district, searchtype });
+            }
 
         }
         //// GET: SearchController/Details/5
@@ -69,8 +79,8 @@ namespace Foodilizer_Group35.Controllers
 
         public IActionResult FoodSearchResults(string searchString, string district, string searchtype)
         {
-            //if (searchtype == "Food")
-            //{
+            if (searchtype == "Food")
+            {
                 var location = _context.Restaurants.Select(x => x.Rdistrict).Distinct().ToList();
 
                 var food = from f in _context.Foods
@@ -91,24 +101,23 @@ namespace Foodilizer_Group35.Controllers
 
                 ViewBag.restlocation = location;
                 if (!String.IsNullOrEmpty(searchString))
-                {
-                    if (district == "All Locations")
-                    {
+                { 
                         food = food.Where(s => s.FoodName.Contains(searchString));
-                    }
-                    else
-                    {
-                        food = food.Where(s => s.FoodName.Contains(searchString) /*&& ( x.Rdistrict == district)*/);
-                    }
-
                 }
 
                 return View(food.ToList());
-            //}
-            //else
-            //{
-            //    return RedirectToAction(nameof(RestaurantSearchResults));
-            //}
+            }
+            else if (searchtype == null)
+            {
+                searchtype = "Food";
+                return RedirectToAction("FoodSearchResults", "Search", new { searchString, district, searchtype });
+
+            }
+            else
+            {
+                searchtype = "Restaurant";
+                return RedirectToAction("RestaurantSearchResults", "Search", new { searchString, district, searchtype });
+            }
         }
 
         //// GET: SearchController/Details/5
