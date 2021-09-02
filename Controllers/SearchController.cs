@@ -17,8 +17,9 @@ namespace Foodilizer_Group35.Controllers
             _context = context;
         }
         // GET: SearchController
-        public IActionResult RestaurantSearchResults(string searchString)
+        public IActionResult RestaurantSearchResults(string searchString, string district, string searchtype)
         {
+            //searchString = "Palm";
             var location = _context.Restaurants.Select(x => x.Rdistrict).Distinct().ToList();
             
             var rest = from r in _context.Restaurants
@@ -36,13 +37,20 @@ namespace Foodilizer_Group35.Controllers
             ViewBag.restlocation = location;
                 if (!String.IsNullOrEmpty(searchString))
                 {
+                    if(district== "All Locations")
+                {
                     rest = rest.Where(s => s.Rname.Contains(searchString));
+                }
+                else
+                {
+                    rest = rest.Where(s => s.Rname.Contains(searchString) && s.Rdistrict == district);
+                }
+                   
                 }
 
                 return View(rest.ToList());
             
         }
-
         // GET: SearchController/Details/5
         public IActionResult RestaurantDetails(int id)
         {
