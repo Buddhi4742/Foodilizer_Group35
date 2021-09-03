@@ -48,24 +48,99 @@
         <div class="col-4">
             <div class=" rounded">
                 <div class="card bg-light mb-3" style="max-width: 38rem;">
-                    <div class="card-header">
+                    @{ double c = 0.0;
+                        <div class="card-header">
+
+                            <div class="rating-topic ">Ratings and Reviews</div>
+                            @if (temp2 != null)
+                            {
+                                double sum = 0.0;
+                                double avg = 0.0;
+                                int count = 0;
+                                @foreach (var item in temp2.First().Reviews)
+                                {
+
+                                    var rate = @item.Rating;
+                                    sum = sum + System.Convert.ToDouble(rate);
+                                    count++;
 
 
-                        <div class="rating-topic ">Ratings and Reviews</div>
-                        <div class="circles"> <b> 5.0 <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;49 reviews</b></div>
-                        <div class="rank"><b>#2</b> of 14 indian in Galle<br /><b>#33</b> of 114 Restaurants in Galle</div>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">RATINGS</h5>
-                        <p class="card-text">
-                            <ul style="list-style: none; padding-left:0;">
-                                <li><i class="fa fa-utensils-alt"></i>&nbsp; Food <i class="ratecircles"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></i></li>
-                                <li><i class="fa fa-concierge-bell"></i>&nbsp; Service <i class="ratecircles"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></i></li>
-                                <li><i class="fa fa-money-check-alt"></i>&nbsp; Value <i class="ratecircles"><i class="fa fa-star-half-alt"> </i><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></i> </li>
-                            </ul>
-                        </p>
-                    </div>
+                                }
+                                avg = (sum / count);
+                                float a = System.Convert.ToSingle(avg);
+                                String val = a.ToString("0.0");
+                                float minus = System.Convert.ToSingle(1);
+                                c = avg - 1.0;
+                                <div class="circles">
 
+                                    <ul style="list-style:none">
+
+                                        <li>
+                                            @val @for (int i = 0; i < System.Convert.ToInt32(a); i++)
+                                            {
+                                                <span class="glyphicon glyphicon-star"></span>
+
+                                            }
+                                            @for (int i = System.Convert.ToInt32(a); i < 5; i++)
+                                            {
+                                                <span class="glyphicon glyphicon-star-empty"></span>
+                                            }
+                                        </li>
+                                        <li>@count &nbsp;&nbsp;&nbsp;Reviews</li>
+
+                                    </ul>
+
+                                </div>
+
+                            }
+
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">RATINGS</h5>
+                            <p class="card-text">
+                                <ul style="list-style: none; padding-left:0;">
+                                    <li>
+                                        <i class="fa fa-utensils-alt"></i>&nbsp; Food
+                                        @for (int i = System.Convert.ToInt32(c); i < 5; i++)
+                                        {
+                                            <span class="ratecircles glyphicon glyphicon-star-empty"></span>
+                                        }
+                                        @for (int i = 0; i < System.Convert.ToInt32(c); i++)
+                                        {
+                                            <span class="ratecircles glyphicon glyphicon-star "></span>
+
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-concierge-bell"></i>&nbsp; Service
+                                        @for (int i = System.Convert.ToInt32(c); i < 5; i++)
+                                        {
+                                            <span class="ratecircles glyphicon glyphicon-star-empty"></span>
+                                        }
+                                        @for (int i = 0; i < System.Convert.ToInt32(c); i++)
+                                        {
+                                            <span class="ratecircles glyphicon glyphicon-star "></span>
+
+                                        }
+
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-money-check-alt"></i>&nbsp; Value
+                                        @for (int i = System.Convert.ToInt32(c); i < 5; i++)
+                                        {
+                                            <span class="ratecircles glyphicon glyphicon-star-empty"></span>
+                                        }
+                                        @for (int i = 0; i < System.Convert.ToInt32(c); i++)
+                                        {
+                                            <span class="ratecircles glyphicon glyphicon-star "></span>
+
+                                        }
+
+                                    </li>
+                                </ul>
+                            </p>
+                        </div>
+                    }
                 </div>
             </div>
         </div>

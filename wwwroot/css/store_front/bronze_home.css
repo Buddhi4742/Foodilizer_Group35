@@ -65,25 +65,35 @@ background-color:#F2F2F2;
     font-size: 22px;
     color: #000000;
 }
-    .br_home .circles i {
-        font-size: 15px;
-        color: #0cb021;
-        margin-top: 10px;
-        letter-spacing:-4px;
-        
-    }
+.br_home .circles ul{
+    font-weight:700;
+    line-height:30px;
+    margin-left:-40px;
+}
+.br_home .circles .glyphicon {
+    margin-left:3px;
+    font-size: 20px;
+    color: #0cb021;
+    margin-top: 10px;
+    letter-spacing: -4px;
+}
+.glyphicon {
+    margin-left:3px;
+    font-size: 20px;
+    color: #0cb021;
+    margin-top: 10px;
+    letter-spacing: -4px;
+}
 
 .br_home .circles  {
     font-size: 18px;
     
 }
-.br_home .ratecircles i {
-    font-size: 15px;
-    color: #0cb021;
+.br_home .ratecircles {
+
     letter-spacing: 1px;
-    float:right;
-    margin-top:7px;
-    
+    float: right;
+    margin-top: 7px;
 }
 
 .br_home ul{
