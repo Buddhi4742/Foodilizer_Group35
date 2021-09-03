@@ -18,20 +18,17 @@
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
-        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+        @*<form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group">
                 <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
                 <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
             </div>
-        </form>
+        </form>*@
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <li><hr class="dropdown-divider" /></li>
                     <li><a class="dropdown-item" href="#!">Logout</a></li>
                 </ul>
             </li>
@@ -42,44 +39,44 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu overflow-hidden">
                     <div class="nav">
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" asp-controller="StoreAdmin" asp-action="Index">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" asp-controller="StoreAdmin" asp-action="Profile">
                             <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                             Profile
                         </a>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" asp-controller="StoreAdmin" asp-action="Menu">
                             <div class="sb-nav-link-icon"><i class="fas fa-hamburger"></i></div>
                             Menu
                         </a>
-                        <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <a class="nav-link" asp-controller="StoreAdmin" asp-action="Inventory">
+                            <div class="sb-nav-link-icon"><i class="fas fa-dolly-flatbed"></i></div>
                             Inventory
                         </a>
-                        <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <a class="nav-link"asp-controller="StoreAdmin" asp-action="Recomendations">
+                            <div class="sb-nav-link-icon"><i class="fas fa-thumbs-up"></i></div>
                             Recomendations
                         </a>
-                        <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <a class="nav-link" asp-controller="StoreAdmin" asp-action="Banner">
+                            <div class="sb-nav-link-icon"><i class="fas fa-ad"></i></div>
                             Banner
                         </a>
-                        <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <a class="nav-link" asp-controller="StoreAdmin" asp-action="Orders">
+                            <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
                             Orders
                         </a>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" asp-controller="StoreAdmin" asp-action="OtherUsers">
                             <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                             Other users
                         </a>
-                        <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                        <a class="nav-link" asp-controller="StoreAdmin" asp-action="Reports">
+                            <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                             Reports
                         </a>
-                        <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                        <a class="nav-link" asp-controller="StoreAdmin" asp-action="Inspect">
+                            <div class="sb-nav-link-icon"><i class="fas fa-lightbulb"></i></div>
                             Inspect
                         </a>
                         @*<div class="sb-sidenav-menu-heading">Interface</div>
