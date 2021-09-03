@@ -1,0 +1,13 @@
+﻿
+
+/*Profile*/
+.register {
+    margin-top:20px;
+    margin-bottom: 20px;
+    
+    border-radius: 10px;
+}
+
+.register .form-control {
+    margin-left: 2px;
+}

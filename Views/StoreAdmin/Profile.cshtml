@@ -1,3 +1,169 @@
 ﻿@{
     Layout = "~/Views/Shared/_store_admin_layout.cshtml";
 }
+
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Profile</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Store Admin/Profile</li>
+        </ol>
+        <form class="register">
+            <h4>Edit / Update Store Details</h4>
+            <div class="form-row row">
+                <div class="form-group col-4">
+                    <label for="inputownFirstname">First Name</label>
+                    <input type="text" class="form-control" id="inputownFirstName" placeholder="Firstname">
+                </div>
+                <div class="form-group col-4">
+                    <label for="inputownLastname">Last Name</label>
+                    <input type="text" class="form-control" id="inputownLastname" placeholder="Lastname">
+                </div>
+                <div class="form-group col-4">
+                    <label for="inputrestLogo">Restaurant Logo</label>
+                    <input type="file" class="form-control" id="inputrestLogo" onchange="getImagePreview(event)">
+                </div>
+            </div>
+
+            <div class="form-row row">
+                <div class="form-group col-8">
+                    <label for="inputownemail">Email</label>
+                    <input type="email" class="form-control" id="inputownEmail" placeholder="Email">
+                </div>
+                <div class="form-group col-4">
+                    <label for="inputownmobile">Mobile No</label>
+                    <input type="tel" class="form-control" id="inputownmobile" placeholder="Mobile No">
+                </div>
+
+            </div>
+            <h4>Enter your Restaurant Details </h4>
+
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <label for="inputRestName">Restaurant Name</label>
+                    <input type="text" class="form-control" id="inputRestname" placeholder="Restaurant Name">
+                </div>
+                <div class="form-group col-4">
+                    <label for="inputRestDesc">Restaurant Description</label>
+
+                    <textarea class="form-control" id="inputRestDesc" rows="4" placeholder="Restaurant Description"> </textarea>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="form-group col-8">
+                    <label for="inputRestEmail">Restaurant Email</label>
+                    <input type="email" class="form-control" id="inputRestEmail" placeholder="Email">
+                </div>
+                <div class="form-group col-4">
+                    <label for="inputRestPhone">Restaurant Phone No</label>
+                    <input type="tel" class="form-control" id="inputRestPhone" placeholder="Phone No">
+                </div>
+                <div class="form-group col-12">
+                    <label for="inputRestweb">Restaurant Website URL</label>
+                    <input type="url" class="form-control" id="inputRestWeb" placeholder="Website URL">
+                </div>
+
+            </div>
+
+
+            <h4>Restaurant Location  </h4>
+            <div class="row">
+                <div class="form-group col-8">
+                    <label for="inputRestAddr">Restaurant Address</label>
+                    <input type="text" class="form-control" id="inputRestAddr" placeholder="Address">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputRestDesc">Price Range</label>
+                    <select class="custom-select my-1 mr-sm-2" id="inputRestPrice">
+                        <option selected>Choose...</option>
+                        <option value="1">Low</option>
+                        <option value="2">Medium</option>
+                        <option value="3">High</option>
+                    </select>
+
+                </div>
+
+
+                <div class="form-group col-md-8">
+                    <label for="inputRestProv">Restaurant Province</label>
+                    <input type="text" class="form-control" id="inputRestProv" placeholder="Province">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputRestType">Restaurant Type/types(use ,)</label>
+
+                    <input type="text" class="form-control" id="inputRestType" rows="3" placeholder="Family style,Casual Dining,Fast Food,cafe etc">
+                </div>
+
+
+                <div class="form-group col-md-8">
+                    <label for="inputRestDist">Restaurant District </label>
+                    <input type="text" class="form-control" id="inputRestDist" placeholder="District">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputRestFeat">Restaurant Features(use ,)</label>
+
+                    <input type="text" class="form-control" id="inputRestFeat" rows="3" placeholder="Dine in,outdoor seating,Food Truck etc">
+                </div>
+
+
+                <div class="form-group col-md-8">
+                    <label for="inputRestMap">Restaurant Google map URL</label>
+                    <input type="url" class="form-control" id="inputRestMap" placeholder="Google map URL">
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="inputRestFeat">Restaurant Features(use ,)</label>
+
+                    <input type="text" class="form-control" id="inputRestFeat" rows="3" placeholder="Dine in,outdoor seating,Food Truck etc">
+                </div>
+            </div>
+
+
+
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="inputOpenFrom">Open Time From</label>
+                    <input type="time" class="form-control" id="inputOpenFrom">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputOpenTo">To</label>
+                    <input type="time" class="form-control" id="inputOpenTo">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputtDietRest">Dietry Restriction</label>
+                    <input type="text" class="form-control" id="inputDietRest" placeholder="Vegetarianism,Veganism etc">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <label for="inputCrePassword">Create Password</label>
+                    <input type="password" class="form-control" id="inputCrePassword">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputMeals">Meals</label>
+                    <input type="text" class="form-control" id="inputMeals" placeholder="breakfast, lunch & Dinner">
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="inputCnfPassword">Confirm Password</label>
+                    <input type="password" class="form-control" id="inputCnfPassword">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputCuisine">Cuisines</label>
+                    <input type="text" class="form-control" id="inputCuisines" placeholder="Chinese,North Indian,South Indian etc">
+                </div>
+            </div>
+
+
+            <button type="submit" class="main-btn"> <a asp-area="" asp-controller="Owner" asp-action="owner_price"> Next</a> </button>
+            <button type="reset" class="main-btn">
+                Reset
+            </button>
+        </form>
+        
+    </div>
+</main>
+
