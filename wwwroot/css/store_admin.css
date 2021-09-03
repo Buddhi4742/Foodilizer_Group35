@@ -11,3 +11,17 @@
 .register .form-control {
     margin-left: 2px;
 }
+.recomm-box {
+    background-color: #3AAFA9;
+}
+.card-body {
+    padding: 0.1rem 0.1rem;
+}
+.card-img-top {
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    border-radius:10px;
+}
+.card-title {
+    padding-left: 0.3rem;
+}
