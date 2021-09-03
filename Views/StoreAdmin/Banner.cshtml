@@ -1,3 +1,26 @@
 ﻿@{
     Layout = "~/Views/Shared/_store_admin_layout.cshtml";
 }
+
+<main>
+    <div class="container-fluid px-4">
+        <div class="row">
+            <div class="col-8">
+                <h1 class="mt-4">Banner</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item active">Store Admin/Banner</li>
+                </ol>
+                <h4>Update Banner</h4>
+            </div>
+        </div>
+        <div class="card-body row">
+            <div class="col-9">
+                <img src="https://i.postimg.cc/28PqLLQC/dotonburi-canal-osaka-japan-700.jpg" class="banner-img img-fluid" alt="Card Image">
+            </div>
+            <div class="col-3">
+                <label for="inputrestLogo">Restaurant Banner</label>
+                <input type="file" class="form-control" id="inputrestLogo" onchange="getImagePreview(event)">
+            </div>
+        </div>
+    </div>
+</main>

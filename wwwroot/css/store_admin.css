@@ -11,17 +11,30 @@
 .register .form-control {
     margin-left: 2px;
 }
+/*Recomendations*/
 .recomm-box {
     background-color: #3AAFA9;
 }
-.card-body {
+.card-body-recomm {
     padding: 0.1rem 0.1rem;
 }
-.card-img-top {
+.card-img-top-recomm {
     padding-left: 0.3rem;
     padding-right: 0.3rem;
-    border-radius:10px;
+    border-radius: 10px;
 }
-.card-title {
+.card-title-recomm {
     padding-left: 0.3rem;
+}
+
+
+
+.card-oth-usr {
+    width: 400px;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff
+}
+.img-oth-usr{
+    padding-left:0.2rem;
 }
