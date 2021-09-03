@@ -26,3 +26,15 @@
 .card-title {
     padding-left: 0.3rem;
 }
+
+
+
+.card-oth-usr {
+    width: 400px;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff
+}
+img-oth-usr{
+    padding-left:0.2rem;
+}
