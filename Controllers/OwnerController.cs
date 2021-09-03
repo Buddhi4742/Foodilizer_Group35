@@ -41,6 +41,11 @@ namespace Foodilizer_Group35.Controllers
         {
             return View();
         }
+        public IActionResult RegisterDetails()
+        {
+            return View();
+        }
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
