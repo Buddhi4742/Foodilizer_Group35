@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Foodilizer_Group35.Controllers
 {
-    public class Store_adminController : Controller
+    public class StoreAdminController : Controller
     {
         // GET: Store_adminController
         public ActionResult Index()
