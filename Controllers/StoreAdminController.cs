@@ -1,14 +1,24 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
+//using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Foodilizer_Group35.Models;
+using Microsoft.EntityFrameworkCore;
+//using Microsoft.AspNetCore.Mvc.Filters;
+//using Microsoft.Graph;
 namespace Foodilizer_Group35.Controllers
 {
     public class StoreAdminController : Controller
     {
+
+        private readonly foodilizerContext _context;
+
+        public StoreAdminController(foodilizerContext context)
+        {
+            _context = context;
+        }
         // GET: Store_adminController
         public ActionResult Index()
         {
@@ -20,7 +30,11 @@ namespace Foodilizer_Group35.Controllers
         }
         public ActionResult Menu()
         {
-            return View();
+            int id = 2;
+            var query = _context.Menus.Where(e => e.RestId == id).Include(e => e.Foods).ToList();
+            ViewBag.fooddet = query;
+            return View(_context.Restaurants.Where(x => x.RestId == id).Include(e => e.Menus).ThenInclude(e => e.Foods).FirstOrDefault());
+
         }
         public ActionResult Inventory()
         {
