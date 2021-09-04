@@ -43,9 +43,9 @@
             </div>
 
             @*<div class="form-group col-md-4">
-                    <label for="inputrestLogo">Restaurant Logo</label>
-                    <input type="file" class="form-control" id="inputrestLogo" onchange="getImagePreview(event)">
-                </div>*@
+                <label for="inputrestLogo">Restaurant Logo</label>
+                <input type="file" class="form-control" id="inputrestLogo" onchange="getImagePreview(event)">
+            </div>*@
         </div>
 
         <div class="form-row">
@@ -65,7 +65,8 @@
 
         </div>
         <h4>Enter your Restaurant Details </h4>
-
+        <p style="color:red">@ViewBag.Error</p>
+        <p style="color:red">@TempData["Error"]</p>
         <div class="form-row">
             <div class="form-group col-md-8">
                 <label for="inputRestName">Restaurant Name</label>
@@ -87,9 +88,9 @@
                 <span asp-validation-for="Remail" class="text-danger"></span>
             </div>
             @*<div class="form-group col-md-4">
-                    <label for="inputRestPhone">Restaurant Phone No</label>
-                    <input type="tel" class="form-control" id="inputRestPhone" placeholder="Phone No" required>
-                </div>*@
+                <label for="inputRestPhone">Restaurant Phone No</label>
+                <input type="tel" class="form-control" id="inputRestPhone" placeholder="Phone No" required>
+            </div>*@
             <div class="form-group col-md-12">
                 <label for="inputRestweb">Restaurant Website URL</label>
                 <input asp-for="WebsiteLink" type="url" class="form-control" id="inputRestWeb" placeholder="Website URL" required>
@@ -110,11 +111,6 @@
                     <option value="2">Medium</option>
                     <option value="3">High</option>
                 </select>
-            </div>
-            <div class="form-group col-md-4">
-                <label for="inputRestType">Restaurant Type/types(use ,)</label>
-                <input asp-for="RestType" class="form-control" id="inputRestType" rows="3" placeholder="Family style,Casual Dining,Fast Food,cafe etc" required>
-                <span asp-validation-for="RestType" class="text-danger"></span>
             </div>
             <div class="form-group col-md-8">
                 <label for="inputRestDist">Restaurant District </label>
@@ -169,13 +165,14 @@
             </div>
         </div>
 
-        <button type="submit" class="main-btn"> <a asp-area="" asp-controller="Owner" asp-action="owner_price"> Next</a> </button>
+        <button onclick="event.preventDefault();formSubmit();" type="submit" class="main-btn"> Next</button>
         <button type="reset" class="main-btn">
             Reset
         </button>
     </form>
 </body>
 </html>
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
