@@ -113,7 +113,7 @@ namespace Foodilizer_Group35.Controllers
                     //await _context.SaveChangesAsync();
 
                    
-                updateuser.UserId = customer.CustomerId;
+                //updateuser.UserId = customer.CustomerId;
                 updateuser.Email = customer.Cemail;
                 updateuser.Password = customer.Password;
                 updateuser.UserType = "CUST";
