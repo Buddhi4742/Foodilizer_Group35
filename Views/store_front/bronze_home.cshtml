@@ -19,6 +19,7 @@
 <div class="br_home">
     @{ List<Menu> temp = ViewBag.fooddet;}
     @{ List<Restaurant> temp2 = ViewBag.review;}
+    @{ List<Restaurant> temp3 = ViewBag.maxlike.Take(4);}
     <div class="row">
         <div class="col-8">
             <div class="rest_name col-12">@Html.DisplayFor(model => model.Rname)</div>
@@ -48,33 +49,33 @@
         <div class="col-4">
             <div class="rounded">
                 <div class="card bg-light mb-3" style="max-width: 38rem;">
-                    @{ double c=0.0;
-                    <div class="card-header">
+                    @{ double c = 0.0;
+                        <div class="card-header">
 
-                        <div class="rating-topic ">Ratings and Reviews</div>
-                        @if (temp2 != null)
-                        {
-                            double sum = 0.0;
-                            double avg = 0.0;
-                            int count = 0;
-                            @foreach (var item in temp2.First().Reviews)
+                            <div class="rating-topic ">Ratings and Reviews</div>
+                            @if (temp2 != null)
                             {
+                                double sum = 0.0;
+                                double avg = 0.0;
+                                int count = 0;
+                                @foreach (var item in temp2.First().Reviews)
+                                {
 
-                                var rate = @item.Rating;
-                                sum = sum + System.Convert.ToDouble(rate);
-                                count++;
+                                    var rate = @item.Rating;
+                                    sum = sum + System.Convert.ToDouble(rate);
+                                    count++;
 
 
-                            }
-                            avg = (sum / count);
-                            float a = System.Convert.ToSingle(avg);
-                            String val = a.ToString("0.0");
-                            float minus = System.Convert.ToSingle(1);
-                            c = avg - 1.0;
+                                }
+                                avg = (sum / count);
+                                float a = System.Convert.ToSingle(avg);
+                                String val = a.ToString("0.0");
+                                float minus = System.Convert.ToSingle(1);
+                                c = avg - 1.0;
                                 <div class="circles">
-                                    
+
                                     <ul style="list-style:none">
-                                       
+
                                         <li>
                                             @val @for (int i = 0; i < System.Convert.ToInt32(a); i++)
                                             {
@@ -87,60 +88,60 @@
                                             }
                                         </li>
                                         <li>@count &nbsp;&nbsp;&nbsp;Reviews</li>
-                                      
+
                                     </ul>
-                                    
+
                                 </div>
 
-                        }
-                        
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">RATINGS</h5>
-                        <p class="card-text">
-                            <ul style="list-style: none; padding-left:0;">
-                                <li>
-                                    <i class="fa fa-utensils-alt"></i>&nbsp; Food
-                                    @for (int i = System.Convert.ToInt32(c); i < 5; i++)
-                                    {
-                                        <span class="ratecircles glyphicon glyphicon-star-empty"></span>
-                                    }
-                                    @for (int i = 0; i < System.Convert.ToInt32(c); i++)
-                                    {
-                                        <span class="ratecircles glyphicon glyphicon-star "></span>
+                            }
 
-                                    }
-                                </li>
-                                <li>
-                                    <i class="fa fa-concierge-bell"></i>&nbsp; Service
-                                    @for (int i = System.Convert.ToInt32(c); i < 5; i++)
-                                    {
-                                        <span class="ratecircles glyphicon glyphicon-star-empty"></span>
-                                    }
-                                    @for (int i = 0; i < System.Convert.ToInt32(c); i++)
-                                    {
-                                        <span class="ratecircles glyphicon glyphicon-star "></span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">RATINGS</h5>
+                            <p class="card-text">
+                                <ul style="list-style: none; padding-left:0;">
+                                    <li>
+                                        <i class="fa fa-utensils-alt"></i>&nbsp; Food
+                                        @for (int i = System.Convert.ToInt32(c); i < 5; i++)
+                                        {
+                                            <span class="ratecircles glyphicon glyphicon-star-empty"></span>
+                                        }
+                                        @for (int i = 0; i < System.Convert.ToInt32(c); i++)
+                                        {
+                                            <span class="ratecircles glyphicon glyphicon-star "></span>
 
-                                    }
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-concierge-bell"></i>&nbsp; Service
+                                        @for (int i = System.Convert.ToInt32(c); i < 5; i++)
+                                        {
+                                            <span class="ratecircles glyphicon glyphicon-star-empty"></span>
+                                        }
+                                        @for (int i = 0; i < System.Convert.ToInt32(c); i++)
+                                        {
+                                            <span class="ratecircles glyphicon glyphicon-star "></span>
 
-                                </li>
-                                <li>
-                                    <i class="fa fa-money-check-alt"></i>&nbsp; Value
-                                    @for (int i = System.Convert.ToInt32(c); i < 5; i++)
-                                    {
-                                        <span class="ratecircles glyphicon glyphicon-star-empty"></span>
-                                    }
-                                    @for (int i = 0; i < System.Convert.ToInt32(c); i++)
-                                    {
-                                        <span class="ratecircles glyphicon glyphicon-star "></span>
+                                        }
 
-                                    }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-money-check-alt"></i>&nbsp; Value
+                                        @for (int i = System.Convert.ToInt32(c); i < 5; i++)
+                                        {
+                                            <span class="ratecircles glyphicon glyphicon-star-empty"></span>
+                                        }
+                                        @for (int i = 0; i < System.Convert.ToInt32(c); i++)
+                                        {
+                                            <span class="ratecircles glyphicon glyphicon-star "></span>
 
-                                </li>
-                            </ul>
-                        </p>
-                    </div>
-                        }
+                                        }
+
+                                    </li>
+                                </ul>
+                            </p>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
@@ -156,7 +157,7 @@
                                 {
                                     @foreach (var item in temp.First().Foods)
                                     {
-                                        @if (item.Featured=="1")
+                                        @if (item.Featured == "1")
                                         {
                                             <div class="swiper-slide">
                                                 <div class="swiper-block">
@@ -168,14 +169,14 @@
                                                 </div>
                                             </div>
 
-                                            }
                                         }
                                     }
+                                }
 
-                                </div>
+                            </div>
                         </div>
                     </div>
-                    
+
                 </div>
 
 
@@ -187,7 +188,7 @@
                 <div class="bcard bg-light mb-3" style="max-width: 38rem;">
 
                     <div class="card-body">
-                        <div class="rating-topic ">Details</div>
+                        <div class="rating-topic-det">Details</div>
                         <p class="card-text">
                             <ul style="list-style: none; padding-left:0;">
                                 <li class="list_topic"><i class="fa fa-usd-square"></i>&nbsp; Price Range</li>
@@ -196,8 +197,8 @@
                                 <li class="list_det">@Html.DisplayFor(model => model.Cuisine)</li>
                                 <li class="list_topic"><i class="fa fa-burger-soda"></i>&nbsp; Special Diets</li>
                                 <li class="list_det">@Html.DisplayFor(model => model.SpecialDiet)</li>
-                                <li class="list_topic"><i class="fa fa-info-square"></i>&nbsp; View all details</li>
-                                <li class="list_det"><a href="#">Meals</a>&nbsp;<a href="#">Features</a>&nbsp;<a href="#">About</a></li>
+                                <li class="list_topic"><i class="fa fa-info-square"></i>&nbsp; Our Mission</li>
+                                <li class="list_det">@Html.DisplayFor(model => model.Rabout)</li>
                             </ul>
                         </p>
                     </div>
@@ -527,9 +528,9 @@
                         i++;
                     }
 
-                        <h3>Reviews (@i)</h3><button class="revb">Write a Review</button>
+                    <h3>Reviews (@i)</h3><button class="revb">Write a Review</button>
                 }
-                    </div>
+            </div>
             <div id="carouselcardrev" class="carousel slide " data-interval="false">
                 <div class="carousel-inner">
 
@@ -537,11 +538,11 @@
                         <div class="swiper-wrapper">
                             @if (temp2 != null)
                             {
-                                 var i = 0;
+                                var i = 0;
 
-                                    foreach (var item in temp2.First().Reviews)
-                                    {
-                                        i++;
+                                foreach (var item in temp2.First().Reviews)
+                                {
+                                    i++;
 
                                     <div class="swiper-slide">
                                         @*<div class="swiper-block">*@
@@ -562,7 +563,7 @@
                                                             <img src="https://media-cdn.tripadvisor.com/media/photo-s/1b/67/cc/f8/chestnut-restaurant.jpg" />
                                                             <img src="https://media-cdn.tripadvisor.com/media/photo-s/1b/67/cc/f8/chestnut-restaurant.jpg" />
                                                             <img src="https://media-cdn.tripadvisor.com/media/photo-s/1b/67/cc/f8/chestnut-restaurant.jpg" />
-                                                            
+
                                                         </div>
 
 
@@ -579,24 +580,32 @@
 
                         </div>
                     </div>
-                    
+
                 </div>
-                
+
             </div>
         </div>
         <div class="likerow row ">
 
             <h3 class="like">People also like</h3>
             <main class="grid">
-                <article>
-                    <img src="https://www.lankayp.com/img/cats/restaurants.jpg" alt="Sample photo">
-                    <div class="text">
-                        <h4>The Beach Coach</h4>
-                        <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
-                        <p>Sea Food, International, Sri Lankan</p>
-                    </div>
-                </article>
-                <article>
+                @if (temp3 != null)
+                {
+                    
+
+                    foreach (var item in temp3)
+                    {
+                        <article>
+                            <img src="https://www.lankayp.com/img/cats/restaurants.jpg" alt="Sample photo">
+                            <div class="text">
+                                <h4>@item.RestId</h4>
+                                <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
+                                <p>Sea Food, International, Sri Lankan</p>
+                            </div>
+                        </article>
+                    }
+                }
+                        @*<article>
                     <img src="https://www.manchesterrestaurants.com/photos/indian/zouk-balcony.jpg" alt="Sample photo">
                     <div class="text">
                         <h4>The Fine Restaurant</h4>
@@ -619,10 +628,10 @@
                         <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
                         <p>Sea Food, International, Sri Lankan</p>
                     </div>
-                </article>
+                </article>*@
 
 
-            </main>
+                    </main>
         </div>
 
 
