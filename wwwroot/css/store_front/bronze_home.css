@@ -58,6 +58,7 @@ background-color:#F2F2F2;
 }
 .br_home .rating-topic {
     margin-top: 10px;
+    
     margin-left: 0px;
     font-family: 'tripfont';
     font-style: normal;
@@ -65,7 +66,17 @@ background-color:#F2F2F2;
     font-size: 22px;
     color: #000000;
 }
-.br_home .circles ul{
+.br_home .rating-topic-det {
+    margin-bottom: -10px;
+    margin-top: 10px;
+    margin-left: 0px;
+    font-family: 'tripfont';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    color: #000000;
+}
+    .br_home .circles ul{
     font-weight:700;
     line-height:30px;
     margin-left:-40px;
@@ -160,11 +171,13 @@ background-color:#F2F2F2;
     .br_home .list_topic{
         font-size:15px;
         font-weight:600;
+        line-height:50px;
     }
     .br_home .list_det {
         margin-left: 23px;
         font-size: 13px;
         margin-top:-2px;
+        line-height:20px;
     }
 .best_selection{
     font-weight:800;
