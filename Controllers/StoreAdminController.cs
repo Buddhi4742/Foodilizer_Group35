@@ -38,8 +38,77 @@ namespace Foodilizer_Group35.Controllers
         }
         public ActionResult Inventory()
         {
+            int id = 2;
+            var q = _context.Items.Where(x => x.RestId == id).ToList();
+            return View(q);
+
+        }
+        public ActionResult InventoryDetails(int id)
+        {
+            
+            return View(_context.Items.Where(x => x.ItemId == id).FirstOrDefault());
+            
+        }
+        public ActionResult Create()
+        {
             return View();
         }
+        public ActionResult InventoryCreate(Item item)
+        {
+
+            _context.Items.Add(item);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Inventory));
+        }
+        public ActionResult InventoryEdit(int id)
+        {
+            
+            return View(_context.Items.Where(x => x.ItemId == id).FirstOrDefault());
+            
+    
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult InventoryEdit(int id, Item item)
+        {
+            try
+            {
+
+                _context.Entry(item).State = EntityState.Modified;
+                _context.SaveChanges();
+                
+
+                return RedirectToAction(nameof(Inventory));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        // GET: itemtable/Delete/5
+        public ActionResult InventoryDelete(int id)
+        {
+            return View();
+        }
+
+        // POST: itemtable/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult InventoryDelete(int id, IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Inventory));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+
+
+
         public ActionResult Recomendations()
         {
             return View();
