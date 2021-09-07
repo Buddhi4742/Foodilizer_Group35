@@ -1,0 +1,34 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+.main_container {
+    background: #DEF2F1; 
+    border-radius: 10px;
+}
+
+.secondary_container {
+    background: #FFFFFF;
+    border-radius: 0px;
+}
+
+.profile_picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid #000000;
+    border-radius: 50%;
+    box-sizing: border-box;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.profile_font {
+    font-family: ABeeZee;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 18px;
+}
+
+.review_card {
+
+}
