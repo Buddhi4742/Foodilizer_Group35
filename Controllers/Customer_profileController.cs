@@ -27,7 +27,11 @@ namespace Foodilizer_Group35.Controllers
 
         public ActionResult customer_profile()
         {
-            return View();
+            int id = 1;
+            using (foodilizerContext context = new foodilizerContext())
+            {
+                return View(_context.Customers.Where(x => x.CustomerId == id).FirstOrDefault());
+            }
         }
 
         // GET: Customer_ProfileController/Details/5

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Foodilizer_Group35.Models.Customer
+@{
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_home_Layout.cshtml";
 }
@@ -48,7 +49,7 @@
                                             <div class="col-sm-8">
                                                 <div class="row">
                                                     <div class="col-sm-24">
-                                                        <div class="profile_font">Chris Robinson</div>
+                                                        <div class="profile_font"> @Html.DisplayFor(model => model.Name)</div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -76,8 +77,8 @@
                                 <div class="col-sm-6">
                                     <div class="card secondary_container">
                                         <p class="mx-auto pt-2">Information</p>
-                                        <p class="float-left pl-4"><i class="fas fa-compass"></i>&ensp;&ensp;Location</p>
-                                        <p class="float-left pl-4"><i class="fas fa-at"></i>&ensp;&ensp;Email here</p>
+                                        <p class="float-left pl-4"><i class="fas fa-compass"></i>&ensp;&ensp;@Html.DisplayFor(model => model.Address)</p>
+                                        <p class="float-left pl-4"><i class="fas fa-at"></i>&ensp;&ensp; @Html.DisplayFor(model => model.Cemail)</p>
                                         <p class="float-left pl-4"><i class="fa fa-trello"></i>&ensp;&ensp;Joined on<br />&ensp;&ensp;&ensp;2021/07/17 </p>
                                     </div>
                                 </div>
