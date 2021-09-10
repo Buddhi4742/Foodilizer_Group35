@@ -28,9 +28,11 @@ namespace Foodilizer_Group35.Controllers
         public ActionResult customer_profile()
         {
             int id = 1;
+            var query = _context.Customers.Where(e => e.CustomerId == id).Include(e => e.Reviews).ThenInclude(e => e.Rest).ToList();
+            ViewBag.customerReviews = query;
             using (foodilizerContext context = new foodilizerContext())
             {
-                return View(_context.Customers.Where(x => x.CustomerId == id).FirstOrDefault());
+                return View(_context.Customers.Where(x => x.CustomerId == id).Include(e => e.Reviews).FirstOrDefault());
             }
         }
 

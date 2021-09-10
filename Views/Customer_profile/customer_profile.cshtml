@@ -21,7 +21,7 @@
 
 
 
-
+    @{ List<Customer> customerReviews = ViewBag.customerReviews;}
     <!-- section-1 top-banner -->
     <section id="home">
         <div class="container-fluid">
@@ -88,27 +88,15 @@
                                     <div class="card secondary_container">
                                         <p class="mx-auto pt-2">Your Reviews</p>
                                     </div>
-                                    <div class="card">
-                                        <h5 class="card-title pl-4">Nature with hospitality</h5>
-                                        <p class="card-text pl-4">
-                                            a formal assessment of something with the intention of instituting change if necessary.
-                                            "a comprehensive review of UK defence policy"
-                                        </p>
-                                    </div>
-                                    <div class="card">
-                                        <h5 class="card-title pl-4">Nature with hospitality</h5>
-                                        <p class="card-text pl-4">
-                                            a formal assessment of something with the intention of instituting change if necessary.
-                                            "a comprehensive review of UK defence policy"
-                                        </p>
-                                    </div>
-                                    <div class="card">
-                                        <h5 class="card-title pl-4">Nature with hospitality</h5>
-                                        <p class="card-text pl-4">
-                                            a formal assessment of something with the intention of instituting change if necessary.
-                                            "a comprehensive review of UK defence policy"
-                                        </p>
-                                    </div>
+                                    @foreach (var review in customerReviews.First().Reviews)
+                                    {
+                                        <div class="card">
+                                            <h5 class="card-title pl-4">@review.Rating</h5>
+                                            <p class="card-text pl-4">
+                                                @review.Feedback
+                                            </p>
+                                        </div>
+                                    }
                                 </div>
 
                             </div>
