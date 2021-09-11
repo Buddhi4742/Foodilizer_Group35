@@ -1,0 +1,196 @@
+﻿@model Foodilizer_Group35.Models.Customer
+@{ ViewData["Title"] = "Home Page";
+   Layout = "~/Views/Shared/_home_Layout.cshtml"; }
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <title>Foodies</title>
+    <!-- OWN CSS -->
+    <link rel="stylesheet" href="~/css/customer_profile.css">
+    <link rel="stylesheet" href="~/css/custom-bootstrap.css">
+    <script src="https://kit.fontawesome.com/abb6d122c4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+    <!-- section-1 top-banner -->
+    <section id="home">
+        <div class="container-fluid">
+            <br /><br /><br />
+            <div class="row">
+                <div class="col-sm-24 main_container">
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-10">
+
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            Edit Profile
+                        </div>
+                        <div class="col-sm-10">
+
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-10">
+
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <img src="https://i.pinimg.com/474x/dc/e6/c0/dce6c0923a316554572841bb6f857c31.jpg" class="profile_picture" />
+                        </div>
+                        <div class="col-sm-10">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-7">
+
+                        </div>
+                        <div class="col-sm-10">
+                            <form asp-action="Edit">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group">
+                                    <label asp-for="Name" class="control-label"></label>
+                                    <input asp-for="Name" class="form-control" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Username" class="control-label"></label>
+                                    <input asp-for="Username" class="form-control" />
+                                    <span asp-validation-for="Username" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Password" class="control-label"></label>
+                                    <input asp-for="Password" class="form-control" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="District" class="control-label"></label>
+                                    <input asp-for="District" class="form-control" />
+                                    <span asp-validation-for="District" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Province" class="control-label"></label>
+                                    <input asp-for="Province" class="form-control" />
+                                    <span asp-validation-for="Province" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Address" class="control-label"></label>
+                                    <input asp-for="Address" class="form-control" />
+                                    <span asp-validation-for="Address" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="PrefFoodType" class="control-label"></label>
+                                    <input asp-for="PrefFoodType" class="form-control" />
+                                    <span asp-validation-for="PrefFoodType" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="DietryRestriction" class="control-label"></label>
+                                    <input asp-for="DietryRestriction" class="form-control" />
+                                    <span asp-validation-for="DietryRestriction" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Cemail" class="control-label"></label>
+                                    <select asp-for="Cemail" class="form-control" asp-items="ViewBag.Cemail"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="LocationLink" class="control-label"></label>
+                                    <input asp-for="LocationLink" class="form-control" />
+                                    <span asp-validation-for="LocationLink" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="ProfileImage" class="control-label"></label>
+                                    <input asp-for="ProfileImage" class="form-control" />
+                                    <span asp-validation-for="ProfileImage" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                   <a asp-action="customer_profile_orders"><input type="submit" value=" Save " class="btn btn-dark" /></a>&ensp;&ensp;
+                                    <a asp-action="customer_profile_orders"><input type="reset" value="Cancel" class="btn btn-dark" /></a>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-7">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- section-2 about-->
+    <!--   <section id="about">
+           <div class="about-section wrapper">
+               <div class="container">
+                   <div class="row align-items-center">
+                       <div class="col-lg-7 col-md-12 mb-lg-0 mb-5">
+                           <div class="card border-0">
+                               <img src="~/lib/owner_img/omenu.png" class="img-fluid">
+                           </div>
+                       </div>
+                       <div class="col-lg-5 col-md-12 text-sec">
+                           <h2>Standard Food menu & Featured food items.</h2>
+                           <p>
+                               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et purus a odio finibus bibendum in sit
+                               amet leo. Mauris feugiat erat tellus.
+                           </p>
+
+                       </div>
+                   </div>
+               </div>
+               <div class="container food-type">
+                   <div class="row align-items-center">
+                       <div class="col-lg-5 col-md-12 text-sec mb-lg-0 mb-5">
+                           <h2>Online ordering & rating </h2>
+                           <p>
+                               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et purus a odio finibus bibendum in sit
+                               amet leo. Mauris feugiat erat tellus.Far far away, behind the word mountains, far from the countries
+                               Vokalia and Consonantia, there live the blind texts.
+                           </p>
+
+
+                       </div>
+                       <div class="col-lg-7 col-md-12">
+                           <div class="card border-0">
+                               <img src="~/lib/owner_img/oorder.png" class="img-fluid">
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <div class="container">
+                   <div class="row align-items-center">
+                       <div class="col-lg-7 col-md-12 mb-lg-0 mb-5">
+                           <div class="card border-0">
+                               <img src="~/lib/owner_img/oinven.png" class="img-fluid">
+                           </div>
+                       </div>
+                       <div class="col-lg-5 col-md-12 text-sec">
+                           <h2>Inventory and recommodation </h2>
+                           <p>
+                               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et purus a odio finibus bibendum in sit
+                               amet leo. Mauris feugiat erat tellus.
+                           </p>
+
+                       </div>
+                   </div>
+               </div>
+
+
+
+           </div>
+       </section> -->
+</body>
+<div>
+    <a asp-action="customer_profile_orders">Back to List</a>
+</div>
+
+ @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+ }

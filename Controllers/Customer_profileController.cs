@@ -25,7 +25,16 @@ namespace Foodilizer_Group35.Controllers
             return View();
         }
 
-        public ActionResult customer_profile()
+        public ActionResult customer_profile_orders()
+        {
+            int id = 1;
+            using (foodilizerContext context = new foodilizerContext())
+            {
+                return View(_context.Customers.Where(x => x.CustomerId == id).FirstOrDefault());
+            }
+        }
+
+        public ActionResult customer_profile_reviews()
         {
             int id = 1;
             var query = _context.Customers.Where(e => e.CustomerId == id).Include(e => e.Reviews).ThenInclude(e => e.Rest).ToList();
@@ -35,6 +44,16 @@ namespace Foodilizer_Group35.Controllers
                 return View(_context.Customers.Where(x => x.CustomerId == id).Include(e => e.Reviews).FirstOrDefault());
             }
         }
+
+        public ActionResult customer_profile_edit()
+        {
+            int id = 1;
+            using (foodilizerContext context = new foodilizerContext())
+            {
+                return View(_context.Customers.Where(x => x.CustomerId == id).FirstOrDefault());
+            }
+        }
+
 
         // GET: Customer_ProfileController/Details/5
         public ActionResult Details()
