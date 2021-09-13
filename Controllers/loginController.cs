@@ -93,7 +93,7 @@ namespace Foodilizer_Group35.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Password,Cemail,Address")] Customer customer)
+        public async Task<IActionResult> Create([Bind("Name,Password,Cemail,District")] Customer customer)
         {
             if (ModelState.IsValid)
             {
