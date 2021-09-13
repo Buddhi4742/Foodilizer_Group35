@@ -52,7 +52,7 @@ namespace Foodilizer_Group35.Controllers
                     HttpContext.Session.SetString("user_email", userDetails.Email);
                     HttpContext.Session.SetInt32("user_id", userDetails.UserId);
                     HttpContext.Session.SetString("user_type", userDetails.UserType);
-
+                    
                     if (userDetails.UserType == "CUST")
                     {
                         return RedirectToAction("Index", "Home");
@@ -93,7 +93,7 @@ namespace Foodilizer_Group35.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Password,Cemail,District")] Customer customer)
+        public async Task<IActionResult> Create([Bind("Name,Password,Cemail,Address")] Customer customer)
         {
             if (ModelState.IsValid)
             {
