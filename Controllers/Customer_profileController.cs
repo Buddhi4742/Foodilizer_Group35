@@ -28,6 +28,8 @@ namespace Foodilizer_Group35.Controllers
         public ActionResult customer_profile_orders()
         {
             int id = 1;
+            var query = _context.Customers.Where(e => e.CustomerId == id).Include(e => e.RestaurantOrders).ThenInclude(e => e.Rest).ToList();
+            ViewBag.customerOrders = query;
             using (foodilizerContext context = new foodilizerContext())
             {
                 return View(_context.Customers.Where(x => x.CustomerId == id).FirstOrDefault());

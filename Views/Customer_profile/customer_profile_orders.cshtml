@@ -19,7 +19,7 @@
 </head>
 <body>
 
-
+     @{ List<Customer> customerOrders = ViewBag.customerOrders;}
     <!-- section-1 top-banner -->
     <section id="home">
         <div class="container-fluid">
@@ -57,7 +57,7 @@
                                                     </div>
                                                     <div class="col-sm-12">
                                                         <br />
-                                                        Reviews <br> 0
+                                                        Orders <br> 0
                                                     </div>
                                                 </div>
                                             </div>
@@ -86,6 +86,15 @@
                                     <div class="card secondary_container">
                                         <p class="mx-auto pt-2">Your Reviews</p>
                                     </div>
+                                    @foreach (var order in customerOrders.First().RestaurantOrders)
+                                    {
+                                    <div class="card">
+                                        <h5 class="card-title pl-4">@order.Date</h5>
+                                        <p class="card-text pl-4">
+                                            @order.TotalAmount
+                                        </p>
+                                    </div>
+                                    }
                                 </div>
 
                             </div>
