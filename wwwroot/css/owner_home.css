@@ -294,7 +294,7 @@ footer section Design
     font-size: 14px;
     text-align: center;
     padding: 30px 0;
-    line-height:1px;
+    line-height:inherit;
 }
 
     .footer h3 {
