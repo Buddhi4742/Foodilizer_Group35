@@ -519,15 +519,24 @@ footer section Design
     margin-bottom: 500px;
     background-color:#DEF2F1;
    border-radius:10px;
+   align-content:center;
+  
 
   
 }
-
+.register h2{
+   margin-left:20px;
+}
     .register .form-control {
     
-       margin-left:2px;
+       margin-left:10px;
+       margin-right:10px;
     }
 
+    .register .form-group {
+        margin-left: 20px;
+        margin-right: 10px;
+    }
 
     .price-list{
         margin-top:200px;
