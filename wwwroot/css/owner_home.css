@@ -560,10 +560,7 @@ label {
     font-size: 18px;
     cursor: pointer;
 }
-label:hover {
-    background-color: #2B7A78;
-    cursor:pointer;
-}
+
 
 
 input[type="radio"]:checked + label {
