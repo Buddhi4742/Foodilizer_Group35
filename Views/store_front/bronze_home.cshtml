@@ -19,7 +19,11 @@
 <div class="br_home">
     @{ List<Menu> temp = ViewBag.fooddet;}
     @{ List<Restaurant> temp2 = ViewBag.review;}
-    @{ List<Restaurant> temp3 = ViewBag.maxlike.Take(4);}
+    @{ List<Restaurant> temp3 = ViewBag.rating1;}
+    @{ List<Restaurant> temp4 = ViewBag.rating2;}
+    @{ List<Restaurant> temp5 = ViewBag.rating3;}
+    @{ List<Restaurant> temp6 = ViewBag.rating4;}
+
     <div class="row">
         <div class="col-8">
             <div class="rest_name col-12">@Html.DisplayFor(model => model.Rname)</div>
@@ -591,47 +595,76 @@
             <main class="grid">
                 @if (temp3 != null)
                 {
-                    
+
 
                     foreach (var item in temp3)
                     {
                         <article>
                             <img src="https://www.lankayp.com/img/cats/restaurants.jpg" alt="Sample photo">
                             <div class="text">
-                                <h4>@item.RestId</h4>
+
+                                <h4>@item.Rname</h4>
                                 <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
                                 <p>Sea Food, International, Sri Lankan</p>
                             </div>
                         </article>
                     }
                 }
-                        @*<article>
-                    <img src="https://www.manchesterrestaurants.com/photos/indian/zouk-balcony.jpg" alt="Sample photo">
-                    <div class="text">
-                        <h4>The Fine Restaurant</h4>
-                        <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
-                        <p>Sea Food, International, Sri Lankan</p>
-                    </div>
-                </article>
-                <article>
-                    <img src="https://media.timeout.com/images/105757491/image.jpg" alt="Sample photo">
-                    <div class="text">
-                        <h4>The Royal</h4>
-                        <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
-                        <p>Sea Food, International, Sri Lankan</p>
-                    </div>
-                </article>
-                <article>
-                    <img src="https://img.traveltriangle.com/blog/wp-content/uploads/2018/04/the-rice-boat.jpg" alt="Sample photo">
-                    <div class="text">
-                        <h4>The Sea Eagle</h4>
-                        <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
-                        <p>Sea Food, International, Sri Lankan</p>
-                    </div>
-                </article>*@
+                @if (temp4 != null)
+                {
 
 
-                    </main>
+                    foreach (var item in temp4)
+                    {
+                        <article>
+                            <img src="https://www.lankayp.com/img/cats/restaurants.jpg" alt="Sample photo">
+                            <div class="text">
+                                
+                                <h4>@item.Rname</h4>
+                                <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
+                                <p>Sea Food, International, Sri Lankan</p>
+                            </div>
+                        </article>
+                    }
+                }
+                @if (temp5 != null)
+                {
+
+
+                    foreach (var item in temp5)
+                    {
+                        <article>
+                            <img src="https://www.lankayp.com/img/cats/restaurants.jpg" alt="Sample photo">
+                            <div class="text">
+                                
+                                <h4>@item.Rname</h4>
+                                <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
+                                <p>Sea Food, International, Sri Lankan</p>
+                            </div>
+                        </article>
+                    }
+                }
+                @if (temp6 != null)
+                {
+
+
+                    foreach (var item in temp6)
+                    {
+                        <article>
+                            <img src="https://www.lankayp.com/img/cats/restaurants.jpg" alt="Sample photo">
+                            <div class="text">
+                                
+                                <h4>@item.Rname</h4>
+                                <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
+                                <p>Sea Food, International, Sri Lankan</p>
+                            </div>
+                        </article>
+                    }
+                }
+              
+
+
+            </main>
         </div>
 
 
