@@ -17,9 +17,8 @@ namespace Foodilizer_Group35.Models
         public int ReportId { get; set; }
         [Column("rest_id")]
         public int RestId { get; set; }
-        [Column("date")]
-        [StringLength(10)]
-        public string Date { get; set; }
+        [Column("date", TypeName = "datetime")]
+        public DateTime? Date { get; set; }
         [Column("content")]
         public string Content { get; set; }
 

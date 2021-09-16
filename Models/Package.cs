@@ -16,11 +16,10 @@ namespace Foodilizer_Group35.Models
         [Column("package_id")]
         public int PackageId { get; set; }
         [Column("package_type")]
-        [StringLength(50)]
+        [StringLength(100)]
         public string PackageType { get; set; }
-        [Column("registered_date")]
-        [StringLength(10)]
-        public string RegisteredDate { get; set; }
+        [Column("registered_date", TypeName = "datetime")]
+        public DateTime? RegisteredDate { get; set; }
         [Column("rest_id")]
         public int? RestId { get; set; }
 

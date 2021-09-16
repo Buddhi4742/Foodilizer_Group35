@@ -13,25 +13,24 @@ namespace Foodilizer_Group35.Models
     [Index(nameof(RestId), Name = "fk_restau")]
     public partial class RestaurantOrder
     {
+        public RestaurantOrder()
+        {
+            OrderIncludesFoods = new HashSet<OrderIncludesFood>();
+        }
+
         [Key]
         [Column("order_id")]
         public int OrderId { get; set; }
         [Column("customer_id")]
         public int? CustomerId { get; set; }
         [Column("delivery_address")]
-        [StringLength(200)]
         public string DeliveryAddress { get; set; }
         [Column("content")]
-        [StringLength(50)]
         public string Content { get; set; }
         [Column("total_amount")]
-        public decimal? TotalAmount { get; set; }
-        [Column("time")]
-        [StringLength(16)]
-        public string Time { get; set; }
-        [Column("date")]
-        [StringLength(10)]
-        public string Date { get; set; }
+        public int? TotalAmount { get; set; }
+        [Column("date", TypeName = "datetime")]
+        public DateTime? Date { get; set; }
         [Column("rest_id")]
         public int RestId { get; set; }
 
@@ -43,5 +42,7 @@ namespace Foodilizer_Group35.Models
         public virtual Restaurant Rest { get; set; }
         [InverseProperty("Order")]
         public virtual OrderWithPayment OrderWithPayment { get; set; }
+        [InverseProperty(nameof(OrderIncludesFood.Order))]
+        public virtual ICollection<OrderIncludesFood> OrderIncludesFoods { get; set; }
     }
 }
