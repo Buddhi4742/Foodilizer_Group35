@@ -22,13 +22,13 @@
     <section class="section pt-5">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-6 text-center mb-5">
-                    <h2 class="heading-section">Foodilizer</h2>
+                <div class="col-md-6 text-center mb-3">
+                    <h2 class="heading-section"><a href="@Url.Action("Index", "Home")"><img class="title-logo img-fluid d-inline" src="~/resources/images/logo.png" width="160" /></a></h2>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-7 col-lg-5">
-                    <div class="login-wrap p-4 p-md-5">
+                    <div class="login-wrap p-3 p-md-5">
                         <div class="d-flex">
                             <div class="w-100">
                                 <h3 class="mb-4"><b>Registration</b></h3>
@@ -55,12 +55,49 @@
                                 <input asp-for="Cemail" class="form-control rounded-left" placeholder="Email" type="email" required />
                             </div>
                             <div class="form-group">
-                                <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-home"></span></div>
-                                <input asp-for="Address" class="form-control rounded-left" placeholder="Address" required />
+                                <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-home"></span></div> @*<input asp-for="District" class="form-control rounded-left" placeholder="District" required />*@
+                                <select class="form-control rounded-left" id="district" placeholder="District" required name="district">
+                                    <option>Kalutara</option>
+                                    <option>Colombo</option>
+                                    <option>Gampaha</option>
+                                    <option>Anuradhapura</option>
+                                    <option>Polonnaruwa</option>
+                                    <option>Matale</option>
+                                    <option>Kandy</option>
+                                    <option>Nuwara Eliya</option>
+                                    <option>Kegalle</option>
+                                    <option>Ratnapura</option>
+                                    <option>Trincomalee</option>
+                                    <option>Batticaloa</option>
+                                    <option>Ampara</option>
+                                    <option>Badulla</option>
+                                    <option>Monaragala</option>
+                                    <option>Hambantota</option>
+                                    <option>Matara</option>
+                                    <option>Galle</option>
+                                    <option>Jaffna</option>
+                                    <option>Kilinochchi</option>
+                                    <option>Mannar</option>
+                                    <option>Mullaitivu</option>
+                                    <option>Vavuniya</option>
+                                    <option>Puttalam</option>
+                                    <option>Kurunegala</option>
+                                </select>
                             </div>
+                            
                             <div class="form-group d-flex align-items-center">
                                 <div class="w-100 d-flex justify-content-end">
                                     <button onclick="event.preventDefault();formSubmit();" type="submit" class="btn btn-primary rounded submit">Register</button>
+                                </div>
+                            </div>
+                            <div class="form-group mt-4">
+                                <div class="w-100 text-center">
+                                    <p class="mb-1">Already have an account? <a href="@Url.Action("index", "Login")">Sign in </a> here</p>
+                                </div>
+                            </div>
+                            <div class="form-group mt-4">
+                                <div class="w-100 text-center">
+                                    <p class="mb-1">Return to <a href="@Url.Action("Index", "Home")">Home</a></p>
                                 </div>
                             </div>
                         </form>

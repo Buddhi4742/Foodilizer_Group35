@@ -7,12 +7,15 @@ using System.Threading.Tasks;
 using Foodilizer_Group35.Models;
 using Microsoft.EntityFrameworkCore;
 namespace Foodilizer_Group35.Controllers
-
 {
 
     public class HomeController : Controller
     {
+        public IActionResult RestRegister()
+        {
 
+            return RedirectToAction("Owner_home", "Owner");
+        }
 
         public IActionResult Index()
         {

@@ -6,6 +6,7 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="~/css/store_front/gold_home.css">
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
 @section scripts
@@ -13,12 +14,19 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 }
 
 <div class="br_home">
     @{ List<Menu> temp = ViewBag.fooddet;}
     @{ List<Restaurant> temp2 = ViewBag.review;}
+    @{ List<Restaurant> temp3 = ViewBag.rating1;}
+    @{ List<Restaurant> temp4 = ViewBag.rating2;}
+    @{ List<Restaurant> temp5 = ViewBag.rating3;}
+    @{ List<Restaurant> temp6 = ViewBag.rating4;}
+    @{ List<Food> temp7 = ViewBag.recommendation;}
     <div class="row">
         <div class="col-8">
             <div class="rest_name col-12">@Html.DisplayFor(model => model.Rname)</div>
@@ -61,91 +69,30 @@
                 Recommended for you
                 <div id="rcarouselcards" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="cards-wrapper">
-                                <div class="card d-none d-md-block">
-                                    <img src="~/lib/images/store_front_images/fc1.jfif" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><a href="#popup1">Burgers</a></h5>
+                        <div class="swiper-container favSwiper">
+                            <div class="swiper-wrapper">
+                                @if (temp7 != null)
+                                {
+                                    @foreach (var item in temp7.Take(6))
+                                    {
 
-                                    </div>
-                                </div>
-                                <div class="card d-none d-md-block">
-                                    <img src="~/lib/images/store_front_images/fc2.jfif" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><a href="#popup1">Milk Shake</a></h5>
+                                        <div class="swiper-slide">
+                                            <div class="swiper-block">
+                                                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                                                <div class="swiper-card-data">
+                                                    <h4 class="card-name">@item.FoodName</h4>
 
-                                    </div>
-                                </div>
-                                <div class="card d-none d-md-block">
-                                    <img src="~/lib/images/store_front_images/fc3.jfif" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><a href="#popup1">Pizza</a></h5>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="cards-wrapper">
-                                <div class="card">
-                                    <img src="~/lib/images/store_front_images/fc4.webp" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><a href="#popup1">French Fries</a></h5>
 
-                                    </div>
-                                </div>
-                                <div class="card d-none d-md-block">
-                                    <img src="~/lib/images/store_front_images/fc5.webp" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><a href="#popup1">Fried Rice</a></h5>
+                                    }
+                                }
 
-                                    </div>
-                                </div>
-                                <div class="card d-none d-md-block">
-                                    <img src="~/lib/images/store_front_images/fc6.jfif" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><a href="#popup1">Kottu</a></h5>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="cards-wrapper">
-                                <div class="card">
-                                    <img src="~/lib/images/store_front_images/fc7.jfif" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><a href="#popup1">Cake</a></h5>
-
-                                    </div>
-                                </div>
-                                <div class="card d-none d-md-block">
-                                    <img src="~/lib/images/store_front_images/fc8.jfif" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><a href="#popup1">Ice Cream</a></h5>
-
-                                    </div>
-                                </div>
-                                <div class="card d-none d-md-block">
-                                    <img src="~/lib/images/store_front_images/fc9.webp" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><a href="#popup1">Pasta</a></h5>
-
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
-                    <a class="carousel-control-prev" href="#rcarouselcards" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-
-                    <a class="carousel-control-next" href="#rcarouselcards" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
                 </div>
 
                 <div class="recommendation" id="bsdiv">Our Best Selections</div>
@@ -637,9 +584,9 @@
                         i++;
                     }
 
-                        <h3>Reviews (@i)</h3><button class="revb">Write a Review</button>
+                    <h3>Reviews (@i)</h3><button class="revb">Write a Review</button>
                 }
-                    </div>
+            </div>
             <div id="carouselcardrev" class="carousel slide " data-interval="false">
                 <div class="carousel-inner">
 
@@ -647,11 +594,11 @@
                         <div class="swiper-wrapper">
                             @if (temp2 != null)
                             {
-                                 var i = 0;
+                                var i = 0;
 
-                                    foreach (var item in temp2.First().Reviews)
-                                    {
-                                        i++;
+                                foreach (var item in temp2.First().Reviews)
+                                {
+                                    i++;
 
                                     <div class="swiper-slide">
                                         @*<div class="swiper-block">*@
@@ -672,7 +619,7 @@
                                                             <img src="https://media-cdn.tripadvisor.com/media/photo-s/1b/67/cc/f8/chestnut-restaurant.jpg" />
                                                             <img src="https://media-cdn.tripadvisor.com/media/photo-s/1b/67/cc/f8/chestnut-restaurant.jpg" />
                                                             <img src="https://media-cdn.tripadvisor.com/media/photo-s/1b/67/cc/f8/chestnut-restaurant.jpg" />
-                                                            
+
                                                         </div>
 
 
@@ -689,9 +636,9 @@
 
                         </div>
                     </div>
-                    
+
                 </div>
-                
+
             </div>
         </div>
 
@@ -699,38 +646,75 @@
 
             <h3 class="like">People also like</h3>
             <main class="grid">
-                <article>
-                    <img src="~/lib/images/store_front_images/lr1.jpg" alt="Sample photo">
-                    <div class="text">
-                        <h4>The Beach Coach</h4>
-                        <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
-                        <p>Sea Food, International, Sri Lankan</p>
-                    </div>
-                </article>
-                <article>
-                    <img src="~/lib/images/store_front_images/lr2.jpg" alt="Sample photo">
-                    <div class="text">
-                        <h4>The Fine Restaurant</h4>
-                        <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
-                        <p>Sea Food, International, Sri Lankan</p>
-                    </div>
-                </article>
-                <article>
-                    <img src="~/lib/images/store_front_images/lr3.jpg" alt="Sample photo">
-                    <div class="text">
-                        <h4>The Royal House</h4>
-                        <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
-                        <p>Sea Food, International, Sri Lankan</p>
-                    </div>
-                </article>
-                <article>
-                    <img src="~/lib/images/store_front_images/lr4.jpg" alt="Sample photo">
-                    <div class="text">
-                        <h4>The Sea Eagle</h4>
-                        <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
-                        <p>Sea Food, International, Sri Lankan</p>
-                    </div>
-                </article>
+                @if (temp3 != null)
+                {
+
+
+                    foreach (var item in temp3)
+                    {
+                        <article>
+                            <img src="https://www.lankayp.com/img/cats/restaurants.jpg" alt="Sample photo">
+                            <div class="text">
+
+                                <h4>@item.Rname</h4>
+                                <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
+                                <p>Sea Food, International, Sri Lankan</p>
+                            </div>
+                        </article>
+                    }
+                }
+                @if (temp4 != null)
+                {
+
+
+                    foreach (var item in temp4)
+                    {
+                        <article>
+                            <img src="https://www.lankayp.com/img/cats/restaurants.jpg" alt="Sample photo">
+                            <div class="text">
+
+                                <h4>@item.Rname</h4>
+                                <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
+                                <p>Sea Food, International, Sri Lankan</p>
+                            </div>
+                        </article>
+                    }
+                }
+                @if (temp5 != null)
+                {
+
+
+                    foreach (var item in temp5)
+                    {
+                        <article>
+                            <img src="https://www.lankayp.com/img/cats/restaurants.jpg" alt="Sample photo">
+                            <div class="text">
+
+                                <h4>@item.Rname</h4>
+                                <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
+                                <p>Sea Food, International, Sri Lankan</p>
+                            </div>
+                        </article>
+                    }
+                }
+                @if (temp6 != null)
+                {
+
+
+                    foreach (var item in temp6)
+                    {
+                        <article>
+                            <img src="https://www.lankayp.com/img/cats/restaurants.jpg" alt="Sample photo">
+                            <div class="text">
+
+                                <h4>@item.Rname</h4>
+                                <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
+                                <p>Sea Food, International, Sri Lankan</p>
+                            </div>
+                        </article>
+                    }
+                }
+
 
 
             </main>
@@ -810,5 +794,22 @@
             prevEl: ".swiper-button-prev",
         },
     });
+
+
+
+
+    function validation() {
+
+
+
+
+        swal({
+            title: "Registration Failed!",
+            text: "Please fill the required fields",
+
+            icon: "error",
+
+        });
+    }
 </script>
 
