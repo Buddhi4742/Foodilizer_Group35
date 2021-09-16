@@ -28,8 +28,10 @@ namespace Foodilizer_Group35.Controllers
         public ActionResult customer_profile_orders()
         {
             int id = 1;
-            var query = _context.Customers.Where(e => e.CustomerId == id).Include(e => e.RestaurantOrders).ThenInclude(e => e.Rest).ToList();
-            ViewBag.customerOrders = query;
+            var queryOrder = _context.Customers.Where(e => e.CustomerId == id).Include(e => e.RestaurantOrders).ThenInclude(e => e.Rest).ToList();
+            ViewBag.customerOrders = queryOrder;
+            var queryReview = _context.Customers.Where(e => e.CustomerId == id).Include(e => e.Reviews).ThenInclude(e => e.Rest).ToList();
+            ViewBag.customerReviews = queryReview;
             using (foodilizerContext context = new foodilizerContext())
             {
                 return View(_context.Customers.Where(x => x.CustomerId == id).FirstOrDefault());
@@ -39,8 +41,10 @@ namespace Foodilizer_Group35.Controllers
         public ActionResult customer_profile_reviews()
         {
             int id = 1;
-            var query = _context.Customers.Where(e => e.CustomerId == id).Include(e => e.Reviews).ThenInclude(e => e.Rest).ToList();
-            ViewBag.customerReviews = query;
+            var queryReview = _context.Customers.Where(e => e.CustomerId == id).Include(e => e.Reviews).ThenInclude(e => e.Rest).ToList();
+            ViewBag.customerReviews = queryReview;
+            var queryOrder = _context.Customers.Where(e => e.CustomerId == id).Include(e => e.RestaurantOrders).ThenInclude(e => e.Rest).ToList();
+            ViewBag.customerOrders = queryOrder;
             using (foodilizerContext context = new foodilizerContext())
             {
                 return View(_context.Customers.Where(x => x.CustomerId == id).Include(e => e.Reviews).FirstOrDefault());
