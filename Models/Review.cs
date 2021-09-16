@@ -31,6 +31,7 @@ namespace Foodilizer_Group35.Models
         public string ReviewImage2 { get; set; }
         [Column("review_image3")]
         public string ReviewImage3 { get; set; }
+        [Column("date", TypeName = "date")]
         public DateTime Date { get; set; }
 
         [ForeignKey(nameof(CustomerId))]
