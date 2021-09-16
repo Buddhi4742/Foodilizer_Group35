@@ -31,6 +31,8 @@ namespace Foodilizer_Group35.Controllers
             var query2 = _context.Restaurants.Where(e => e.RestId == id).Include(e => e.Reviews).ThenInclude(e=>e.Customer).ToList();
             ViewBag.review = query2;
             var query3 = _context.Restaurants.Include(e => e.Reviews).ToList();
+            
+            
             int c = query3.Count();
             int count = 0;
             double[,] array = new double[c, 2];
@@ -101,6 +103,15 @@ namespace Foodilizer_Group35.Controllers
             ViewBag.count = 0;
             var query2 = _context.Restaurants.Where(e => e.RestId == id).Include(e => e.Reviews).ThenInclude(e => e.Customer).ToList();
             ViewBag.review = query2;
+            foreach (var item in query)
+            {
+
+                var recommend = _context.Foods.Where(e => e.MenuId == item.MenuId).ToList();
+                var prefscore = recommend.OrderByDescending(c => c.PrefScore).ToList();
+                ViewBag.recommendation = prefscore;
+            }
+            
+            
             var query3 = _context.Restaurants.Include(e => e.Reviews).ToList();
             int c = query3.Count();
             int count = 0;
@@ -165,6 +176,13 @@ namespace Foodilizer_Group35.Controllers
             var query2 = _context.Restaurants.Where(e => e.RestId == id).Include(e => e.Reviews).ThenInclude(e => e.Customer).ToList();
             ViewBag.review = query2;
             ViewBag.count = 0;
+            foreach (var item in query)
+            {
+
+                var recommend = _context.Foods.Where(e => e.MenuId == item.MenuId).ToList();
+                var prefscore = recommend.OrderByDescending(c => c.PrefScore).ToList();
+                ViewBag.recommendation = prefscore;
+            }
             var query3 = _context.Restaurants.Include(e => e.Reviews).ToList();
             int c = query3.Count();
             int count = 0;
