@@ -442,11 +442,17 @@ h1 {
     }
 
     .menu-det h4 {
-        flex: 3;
+        flex: 2;
         margin-top: 2px;
     }
-
-    .menu-det .mcard-text {
+    .menu-det i {
+        margin-top: 4px;
+    }
+    .menu-det i:hover {
+        cursor:pointer;
+        color:aqua;
+    }
+        .menu-det .mcard-text {
         font-size: 15px;
         line-height: 18px;
         justify-content: normal;
@@ -748,23 +754,21 @@ h1 {
     }
 }
 
-.addcartbutton{
-    width:100px;
-    height:30px;
-    color:black;
-    border-radius:5px;
-    font-weight:600;
-    background-color:aqua;
-    margin-left:100px;
-    margin-top:10px;
+.addcartbutton {
+    width: 90px;
+    height: 30px;
+    color: navy;
+    border-radius: 5px;
+    font-weight: 200;
+    font-size: 10px;
+    background-color: #e96315;
+    margin-left: 10px;
+    text-align: center;
+    position: absolute;
+
+
 }
 
-.popup img{
-    width:120px;
-    height:120px;
-    border-radius:100%;
-    margin-left:120px;
-}
 
 .swiper-slide {
     text-align: center;
@@ -798,7 +802,7 @@ h1 {
 }
 
 .swiper-block {
-    margin: 0 1em;
+    margin: 2em 1em;
     box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
     border: none;
     border-radius: 0;
@@ -813,4 +817,67 @@ h1 {
     font-weight: 600;
     margin-left: 0px;
     text-align: center;
+}
+
+.flipcard {
+    height: 220px;
+    width: 190px;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: all 1s ease-in-out;
+}
+
+    .flipcard img {
+        border-radius: 0px;
+        min-width: 183px;
+        max-width: 183px;
+        margin-left: -10px;
+        min-height: 150px;
+        max-height: 150px;
+    }
+
+    .flipcard:hover {
+        transform: rotateY(180deg);
+    }
+
+    .flipcard .side {
+        backface-visibility: hidden;
+        border-radius: 6px;
+        position: absolute;
+        overflow: hidden;
+        height: 220px;
+        width: 190px;
+    }
+
+    .flipcard .back {
+        background: url("https://i.pinimg.com/736x/7c/b1/86/7cb18679659f791b1191bea97b74dfc0.jpg");
+        background-position: right;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #FFFFFF;
+        line-height: 150px;
+        text-align: left;
+        transform: rotateY(180deg);
+    }
+
+        .flipcard .back h6, h5 {
+            max-width: 100px;
+            margin-left: 10px;
+        }
+
+        .flipcard .back h4 {
+            margin-left: 10px;
+        }
+
+        .flipcard .back .prcitem {
+            margin-left: 40px;
+            margin-top: -10px;
+        }
+
+.ing {
+    margin-top: 20px;
+}
+
+.prc {
+    margin-top: 30px;
 }

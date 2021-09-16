@@ -167,9 +167,9 @@ namespace Foodilizer_Group35.Controllers
                 return View(_context.Restaurants.Where(x => x.RestId == id).Include(e => e.Menus).ThenInclude(e => e.Foods).FirstOrDefault());
             }
         }
-        public IActionResult gold_home(int id)
+        public IActionResult gold_home()
         {
-            //int id = 5;
+            int id = 5;
 
             var query = _context.Menus.Where(e => e.RestId == id).Include(e => e.Foods).ToList();
             ViewBag.fooddet = query;

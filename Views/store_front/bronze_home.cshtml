@@ -165,13 +165,24 @@
                                         {
                                             <div class="swiper-slide">
                                                 <div class="swiper-block">
-                                                    <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                                                    <div class="swiper-card-data">
-                                                        <h4 class="card-name">@item.FoodName</h4>
+                                                    <div class="flipcard">
+                                                        <div class="side">
+                                                            <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                                                            <div class="swiper-card-data">
+                                                                <h4 class="card-name">@item.FoodName</h4>
 
+                                                            </div>
+                                                        </div>
+                                                        <div class="side back">
+                                                            <div class="content">
+                                                                <h5 class="ing">INGREDIENTS:</h5> <h6 class="ingitem">@item.Ingredient</h6>
+                                                                <h5 class="prc">Price: Rs. @item.Price</h5>
+
+                                                            </div>
+                                                        </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
                                         }
                                     }
