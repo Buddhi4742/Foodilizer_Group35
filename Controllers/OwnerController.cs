@@ -146,7 +146,7 @@ namespace Foodilizer_Group35.Controllers
         public void UploadFile(string email)
         {
 
-            string folderPath = "wwwroot/resources/Restaurants/"+ email+ "/";
+            string folderPath = "wwwroot/resources/Restaurants/"+email+"/";
 
             //Check whether Directory (Folder) exists.
             if (!Directory.Exists(folderPath))
