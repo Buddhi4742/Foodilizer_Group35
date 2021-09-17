@@ -4,21 +4,9 @@
 // Write your JavaScript code.
 var swiper = new Swiper(".mySwiper", {
 	slidesPerView: 5,
-	spaceBetween: 10,
-	freeMode: true,
+	spaceBetween: 12,
+	freeMode: false,
 	loop: false,
-	autoplay: {
-		delay: 5000,
-		disableOnInteraction: false,
-		pauseOnMouseEnter: true,
-	},
-	pagination: {
-		el: ".swiper-pagination",
-		clickable: true,
-	}, navigation: {
-		nextEl: ".swiper-button-next",
-		prevEl: ".swiper-button-prev",
-	},
 });
 
 $(document).ready(function () {

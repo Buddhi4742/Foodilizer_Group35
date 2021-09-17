@@ -173,6 +173,7 @@ button.accept-policy {
 .hero-image {
 	background-image: url("../resources/images/cover.jpg");
 	height: 500px;
+	
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -180,12 +181,25 @@ button.accept-policy {
 }
 
 .hero-text {
+	padding-bottom: 20rem;
+	font-family: 'PT Sans', sans-serif;
+	font-weight: 500;
 	text-align: center;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	color: Black;
+	text-shadow: 32px 12px 18px #BDBDBD;
+}
+.hero-text h1{
+	font-size:70px;
+	font-weight:800;
+}
+.hero-text h3{
+	font-size:30px;
+	font-weight:400;
+
 }
 
 .search-form {
