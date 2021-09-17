@@ -574,6 +574,16 @@ h1 {
 .likerow .row{
     margin-bottom:150px;
 }
+.likerow .circles {
+    font-size: 15px;
+}
+
+    .likerow .circles .glyphicon {
+        font-size: 18px;
+    }
+.likerow .cusineitem {
+    line-height: 20px;
+}
 .grid {
     margin-top:20px;
     display: grid;

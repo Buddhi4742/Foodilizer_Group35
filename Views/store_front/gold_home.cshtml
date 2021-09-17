@@ -710,8 +710,59 @@
                             <div class="text">
 
                                 <h4>@item.Rname</h4>
-                                <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
-                                <p>Sea Food, International, Sri Lankan</p>
+                                <p>
+                                    <div class="circles" style="font-size:13px;">
+
+
+
+
+
+                                        @if (temp3 != null)
+                                        {
+                                            double sum = 0.0;
+                                            double avg = 0.0;
+                                            int count = 0;
+                                            @foreach (var item2 in temp3.First().Reviews)
+                                            {
+
+                                                var rate = @item2.Rating;
+                                                sum = sum + System.Convert.ToDouble(rate);
+                                                count++;
+
+
+                                            }
+                                            avg = (sum / count);
+                                            float a = System.Convert.ToSingle(avg);
+                                            String val = a.ToString("0.0");
+                                            float minus = System.Convert.ToSingle(1);
+                                            c = avg - 1.0;
+                                            <div class="circles">
+
+                                                <ul style="list-style:none">
+
+                                                    <li>
+                                                        @for (int i = 0; i < System.Convert.ToInt32(a); i++)
+                                                        {
+                                                            <span class="glyphicon glyphicon-star"></span>
+
+                                                        }
+                                                        @for (int i = System.Convert.ToInt32(a); i < 5; i++)
+                                                        {
+                                                            <span class="glyphicon glyphicon-star-empty"></span>
+                                                        }
+                                                        &nbsp; &nbsp;@count&nbsp; Reviews
+                                                    </li>
+
+                                                </ul>
+
+                                            </div>
+
+                                        }
+
+
+                                    </div>
+                                </p>
+                                <p class="cusineitem">@item.Cuisine</p>
                             </div>
                         </article>
                     }
@@ -727,8 +778,56 @@
                             <div class="text">
 
                                 <h4>@item.Rname</h4>
-                                <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
-                                <p>Sea Food, International, Sri Lankan</p>
+                                <p>
+                                    <div class="circles" style="font-size:13px;">
+
+
+                                        @if (temp4 != null)
+                                        {
+                                            double sum = 0.0;
+                                            double avg = 0.0;
+                                            int count = 0;
+                                            @foreach (var item2 in temp4.First().Reviews)
+                                            {
+
+                                                var rate = @item2.Rating;
+                                                sum = sum + System.Convert.ToDouble(rate);
+                                                count++;
+
+
+                                            }
+                                            avg = (sum / count);
+                                            float a = System.Convert.ToSingle(avg);
+                                            String val = a.ToString("0.0");
+                                            float minus = System.Convert.ToSingle(1);
+                                            c = avg - 1.0;
+                                            <div class="circles">
+
+                                                <ul style="list-style:none">
+
+                                                    <li>
+                                                        @for (int i = 0; i < System.Convert.ToInt32(a); i++)
+                                                        {
+                                                            <span class="glyphicon glyphicon-star"></span>
+
+                                                        }
+                                                        @for (int i = System.Convert.ToInt32(a); i < 5; i++)
+                                                        {
+                                                            <span class="glyphicon glyphicon-star-empty"></span>
+                                                        }
+                                                        &nbsp;&nbsp; @count&nbsp; Reviews
+                                                    </li>
+
+
+                                                </ul>
+
+                                            </div>
+
+                                        }
+
+                                    </div>
+                                </p>
+                                <p class="cusineitem">@item.Cuisine</p>
                             </div>
                         </article>
                     }
@@ -744,8 +843,53 @@
                             <div class="text">
 
                                 <h4>@item.Rname</h4>
-                                <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
-                                <p>Sea Food, International, Sri Lankan</p>
+                                <p>
+                                    <div class="circles" style="font-size:13px;">
+                                        @if (temp5 != null)
+                                        {
+                                            double sum = 0.0;
+                                            double avg = 0.0;
+                                            int count = 0;
+                                            @foreach (var item2 in temp5.First().Reviews)
+                                            {
+
+                                                var rate = @item2.Rating;
+                                                sum = sum + System.Convert.ToDouble(rate);
+                                                count++;
+
+
+                                            }
+                                            avg = (sum / count);
+                                            float a = System.Convert.ToSingle(avg);
+                                            String val = a.ToString("0.0");
+                                            float minus = System.Convert.ToSingle(1);
+                                            c = avg - 1.0;
+                                            <div class="circles">
+
+                                                <ul style="list-style:none">
+
+                                                    <li>
+                                                        @for (int i = 0; i < System.Convert.ToInt32(a); i++)
+                                                        {
+                                                            <span class="glyphicon glyphicon-star"></span>
+
+                                                        }
+                                                        @for (int i = System.Convert.ToInt32(a); i < 5; i++)
+                                                        {
+                                                            <span class="glyphicon glyphicon-star-empty"></span>
+                                                        }
+                                                        &nbsp;&nbsp; @count&nbsp; Reviews
+                                                    </li>
+
+
+                                                </ul>
+
+                                            </div>
+
+                                        }
+                                    </div>
+                                </p>
+                                <p class="cusineitem">@item.Cuisine</p>
                             </div>
                         </article>
                     }
@@ -761,8 +905,63 @@
                             <div class="text">
 
                                 <h4>@item.Rname</h4>
-                                <p><div class="circles" style="font-size:13px;"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;349 Reviews</div></p>
-                                <p>Sea Food, International, Sri Lankan</p>
+                                <p>
+                                    <div class="circles" style="font-size:13px;">
+                                        @if (temp6 != null)
+                                        {
+                                            double sum = 0.0;
+                                            double avg = 0.0;
+                                            int count = 0;
+                                            @foreach (var item2 in temp6.First().Reviews)
+                                            {
+
+                                                var rate = @item2.Rating;
+                                                sum = sum + System.Convert.ToDouble(rate);
+                                                count++;
+
+
+                                            }
+                                            if (count > 0)
+                                            {
+                                                avg = (sum / count);
+                                            }
+                                            else
+                                            {
+                                                count = 1;
+                                                avg = (sum / count);
+                                                count = 0;
+                                            }
+                                            float a = System.Convert.ToSingle(avg);
+                                            String val = a.ToString("0.0");
+                                            float minus = System.Convert.ToSingle(1);
+                                            c = avg - 1.0;
+                                            <div class="circles">
+
+                                                <ul style="list-style:none">
+
+                                                    <li>
+                                                        @for (int i = 0; i < System.Convert.ToInt32(a); i++)
+                                                        {
+                                                            <span class="glyphicon glyphicon-star"></span>
+
+                                                        }
+                                                        @for (int i = System.Convert.ToInt32(a); i < 5; i++)
+                                                        {
+                                                            <span class="glyphicon glyphicon-star-empty"></span>
+
+                                                        }
+                                                        &nbsp; &nbsp;@count&nbsp; Reviews
+                                                    </li>
+
+
+                                                </ul>
+
+                                            </div>
+
+                                        }
+                                    </div>
+                                </p>
+                                <p class="cusineitem">@item.Cuisine</p>
                             </div>
                         </article>
                     }
