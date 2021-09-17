@@ -49,10 +49,13 @@ namespace Foodilizer_Group35.Controllers
             return View(_context.Items.Where(x => x.ItemId == id).FirstOrDefault());
             
         }
-        public ActionResult Create()
+
+        public ActionResult InventoryCreate()
         {
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult InventoryCreate(Item item)
         {
 
