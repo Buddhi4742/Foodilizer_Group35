@@ -489,7 +489,8 @@ h1 {
     }
 
 .revnum {
-    margin-left: 70px;
+    margin-left: 50px;
+    margin-top: -3px;
 }
 
 .rev .carousel-inner {
@@ -834,7 +835,7 @@ h1 {
         transform: rotateY(180deg);
     }
 
-        .flipcard .back h6, h5 {
+        .flipcard .back .ing, .prc, .ingitem {
             max-width: 100px;
             margin-left: 10px;
         }
@@ -855,3 +856,28 @@ h1 {
 .prc {
     margin-top: 30px;
 }
+
+.menu-det .circles .glyphicon {
+    margin-left: 3px;
+    font-size: 18px;
+    color: #0cb021;
+    margin-top: 0px;
+    letter-spacing: -4px;
+}
+
+.menu-det .revdate {
+    font-size: 13px;
+    margin-left: 20px;
+    margin-top: 2px;
+}
+
+.content i {
+    font-size: x-large;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+    .content i:hover {
+        cursor: pointer;
+        color: aqua;
+    }

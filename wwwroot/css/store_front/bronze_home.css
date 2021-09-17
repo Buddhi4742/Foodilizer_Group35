@@ -466,7 +466,8 @@ h1 {
     border-left: ridge;
     border-top: ridge;
     border-bottom: ridge;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    padding-top:10px;
     width: 500px;
     color: black;
     display:flex;
@@ -476,9 +477,13 @@ h1 {
     overflow-y:auto;
    
 }
-    .rcard::-webkit-scrollbar {
-        width: 0.3em;
-    }
+.rcard-text{
+    font-size:medium;
+    min-height:100px;
+}
+.rcard::-webkit-scrollbar {
+    width: 0.3em;
+}
 
     .rcard::-webkit-scrollbar-track {
         box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -489,7 +494,8 @@ h1 {
         outline: 1px solid slategrey;
     }
 .revnum{
-    margin-left:70px;
+    margin-left:50px;
+    margin-top:-3px;
 }
 .rev .carousel-inner {
     padding:0em;
@@ -703,7 +709,7 @@ h1 {
         text-align: left;
         transform: rotateY(180deg);
     }
-        .flipcard .back h6,h5{
+        .flipcard .back .ing,.prc,.ingitem{
             max-width:100px;
             
             margin-left:10px;
@@ -721,4 +727,18 @@ h1 {
         }
 .prc {
     margin-top: 30px;
+}
+
+.menu-det .circles .glyphicon {
+    margin-left: 3px;
+    font-size: 18px;
+    color: #0cb021;
+    margin-top: 0px;
+    letter-spacing: -4px;
+}
+
+.menu-det .revdate {
+    font-size: 13px;
+    margin-left:20px;
+    margin-top:2px;
 }

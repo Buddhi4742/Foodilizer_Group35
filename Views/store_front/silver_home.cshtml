@@ -176,7 +176,7 @@
                                             <div class="side back">
                                                 <div class="content">
                                                     <h5 class="ing">INGREDIENTS:</h5> <h6 class="ingitem">@item.Ingredient</h6>
-                                                    <h5 class="prc">Price: Rs. @item.Price</h5>
+                                                    <h5 class="prc">Price: Rs. @item.Price <i class="fa fa-cart-plus" aria-hidden="true" onclick="addtocart()"></i></h5>
 
                                                 </div>
                                             </div>
@@ -217,7 +217,7 @@
                                             <div class="side back">
                                                 <div class="content">
                                                     <h5 class="ing">INGREDIENTS:</h5> <h6 class="ingitem">@item.Ingredient</h6>
-                                                    <h5 class="prc">Price: Rs. @item.Price</h5>
+                                                    <h5 class="prc">Price: Rs. @item.Price <i class="fa fa-cart-plus" aria-hidden="true" onclick="addtocart()"></i></h5>
 
                                                 </div>
                                             </div>
@@ -619,7 +619,37 @@
                                                         <div class="rev-name">@item.Customer.Name</div>
                                                     </div>
                                                     <div class="menu-det">
-                                                        <div class="card-title"><div class="circles"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;Reviewed in @item.Date.ToString("dd/MM/yyyy") </div><p class="revnum">@i</p></div>
+                                                        <div class="card-title">
+
+                                                            @{
+                                                                var a = @item.Rating;
+
+                                                                <div class="circles">
+
+                                                                    <ul style="list-style:none">
+
+                                                                        <li>
+                                                                            @for (int j = 0; j < System.Convert.ToInt32(a); j++)
+                                                                            {
+                                                                                <span class="glyphicon glyphicon-star"></span>
+
+                                                                            }
+                                                                            @for (int j = System.Convert.ToInt32(a); j < 5; j++)
+                                                                            {
+                                                                                <span class="glyphicon glyphicon-star-empty"></span>
+                                                                            }
+                                                                        </li>
+
+
+                                                                    </ul>
+
+                                                                </div>
+
+                                                            }
+
+
+                                                            <div class="revdate">&nbsp;Reviewed in @item.Date.ToString("dd/MM/yyyy") </div><p class="revnum">@i</p>
+                                                        </div>
                                                         <h5>"Never forget the place!"</h5>
                                                         <p class="rcard-text">
                                                             @item.Feedback
@@ -732,36 +762,7 @@
 
     </div>
 
-    <div id="popup1" class="overlay">
-        <div class="popup">
-            <img src="~/lib/images/store_front_images/fc1.jfif" />
-
-
-            <a class="close" href="#menudiv">&times;</a>
-            <div class="content">
-                <h4 style="margin-left:50px;margin-bottom:20px;">Special Chicken Burger</h4>
-                <h5>Coco Palm Beach Hotel</h5>
-                <h5>INGREDIENTS: Rolls, beef steak mince, olive oil, ketchup, egg, Dill pickle, Cheese, tomato, red onion</h5>
-                <h4>Price: Rs. 400.00</h4>
-                <button class="addcartbutton">Add to cart</button>
-            </div>
-        </div>
-    </div>
-    <div id="popup2" class="overlay">
-        <div class="popup">
-            <img src="~/lib/images/store_front_images/fc1.jfif" />
-
-
-            <a class="close" href="#bsdiv">&times;</a>
-            <div class="content">
-                <h4 style="margin-left:50px;margin-bottom:20px;">Special Chicken Burger</h4>
-                <h5>Coco Palm Beach Hotel</h5>
-                <h5>INGREDIENTS: Rolls, beef steak mince, olive oil, ketchup, egg, Dill pickle, Cheese, tomato, red onion</h5>
-                <h4>Price: Rs. 400.00</h4>
-                <button class="addcartbutton">Add to cart</button>
-            </div>
-        </div>
-    </div>
+ 
 </div>
 
 

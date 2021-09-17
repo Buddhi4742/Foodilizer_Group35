@@ -569,7 +569,37 @@
                                                         <div class="rev-name">@item.Customer.Name</div>
                                                     </div>
                                                     <div class="menu-det">
-                                                        <div class="card-title"><div class="circles"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> &nbsp;Reviewed in @item.Date.ToString("dd/MM/yyyy") </div><p class="revnum">@i</p></div>
+                                                        <div class="card-title">
+                                                           
+                                                             @{    
+                                                                 var a = @item.Rating;
+
+                                                                <div class="circles">
+
+                                                                    <ul style="list-style:none">
+
+                                                                        <li>
+                                                                            @for (int j = 0; j < System.Convert.ToInt32(a); j++)
+                                                                            {
+                                                                                <span class="glyphicon glyphicon-star"></span>
+
+                                                                            }
+                                                                            @for (int j = System.Convert.ToInt32(a); j < 5; j++)
+                                                                            {
+                                                                                <span class="glyphicon glyphicon-star-empty"></span>
+                                                                            }
+                                                                        </li>
+                                                                     
+
+                                                                    </ul>
+
+                                                                </div>
+
+                                                                 }
+
+
+                                                            <div class="revdate">&nbsp;Reviewed in @item.Date.ToString("dd/MM/yyyy") </div><p class="revnum">@i</p>
+                                                        </div>
                                                         <h5>"Never forget the place!"</h5>
                                                         <p class="rcard-text">
                                                             @item.Feedback
