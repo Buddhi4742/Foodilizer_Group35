@@ -67,6 +67,8 @@ namespace Foodilizer_Group35.Controllers
                     //await Response.WriteAsync(collection["logo"]);
                     var updateuser = new User();
                     var createrestaurant = new Restaurant();
+                    var createmenu = new Menu();
+                    
                     //updateuser.UserStatus = 1;
                     //customer.ShaEnc();
                     string encpass = ShaEnc(collection["Rpassword"].ToString());
@@ -94,6 +96,7 @@ namespace Foodilizer_Group35.Controllers
                     createrestaurant.Rdistrict = collection["Rdistrict"];
                     //createrestaurant.Rprovince = "Dummy";
                     createrestaurant.OpenHour = collection["OpenHour"];
+                    createrestaurant.RestContact = collection["RestContact"];
                     createrestaurant.OpenStatus = 1;
                     createrestaurant.WebsiteLink = collection["WebsiteLink"];
                     createrestaurant.MapLink = collection["MapLink"];
@@ -103,6 +106,12 @@ namespace Foodilizer_Group35.Controllers
                     createrestaurant.SpecialDiet = collection["SpecialDiet"]; //this is food options on UI
                     _context.Add(createrestaurant);
                     //_context.Add(customer);
+                    await _context.SaveChangesAsync();
+                    var restid= await _context.Restaurants.FirstOrDefaultAsync(e => e.Remail == collection["Remail"].ToString() /*&& e.User_status == 1*/);
+
+                    createmenu.RestId = restid.RestId;
+                    _context.Add(createmenu);
+
                     await _context.SaveChangesAsync();
                     UploadFile(collection["Remail"]);
 
