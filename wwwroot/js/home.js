@@ -3,10 +3,10 @@
 
 // Write your JavaScript code.
 var swiper = new Swiper(".mySwiper", {
-	slidesPerView: 4,
+	slidesPerView: 5,
 	spaceBetween: 10,
 	freeMode: true,
-	loop: true,
+	loop: false,
 	autoplay: {
 		delay: 5000,
 		disableOnInteraction: false,
