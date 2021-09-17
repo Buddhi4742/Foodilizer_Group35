@@ -38,29 +38,25 @@
             <h4>Enter Owner Details</h4>
         </center>
         <div class="form-row">
-            <div class="form-group col-md-7">
+            <div class="form-group col-md-8">
                 <label for="inputownFirstname">Owner Name</label>
                 <input asp-for="OwnerName" class="form-control" id="inputownFirstName" placeholder="Owner Firstname and Last name" required>
                 <span asp-validation-for="OwnerName" class="text-danger"></span>
             </div>
 
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label for="inputrestLogo">Restaurant Logo</label>
-                <input type="file" class="form-control" id="inputrestLogo" onchange="getImagePreview(event)" name="logo">
+                <input type="file" class="form-control" id="inputrestLogo" @*onchange="getImagePreview(event)"*@ name="logo">
             </div>
         </div>
 
         <div class="form-row">
-            <div class="form-group col-md-7">
+            <div class="form-group col-md-6">
                 <label for="inputownmobile">Mobile No</label>
                 <input asp-for="OwnerContact" class="form-control" id="inputownmobile" placeholder="Mobile No" required>
                 <span asp-validation-for="OwnerContact" class="text-danger"></span>
             </div>
-            <div class="form-group col-md-4">
-                <div id="preview"> </div>
-            </div>
-
-            <div class="form-group col-md-11">
+            <div class="form-group col-md-5 pb-2">
                 <label for="inputownemail">Email</label>
                 <input asp-for="OwnerEmail" type="email" class="form-control" id="inputownEmail" placeholder="Email" required>
                 <span asp-validation-for="OwnerEmail" class="text-danger"></span>
@@ -86,12 +82,12 @@
 
 
         <div class="form-row">
-            <div class="form-group col-md-11">
+            <div class="form-group col-md-6">
                 <label for="inputRestEmail">Restaurant Email</label>
                 <input asp-for="Remail" type="email" class="form-control" id="inputRestEmail" placeholder="Email" required>
                 <span asp-validation-for="Remail" class="text-danger"></span>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-5">
                 <label for="inputRestPhone">Restaurant Phone No</label>
                 <input type="tel" class="form-control" id="inputRestPhone" placeholder="Phone No" required>
             </div>

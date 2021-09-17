@@ -32,6 +32,7 @@ function getImagePreview(event) {
     imagediv.innerHTML = '';
     newimg.src = image;
     newimg.width = "300";
+    newimg.height = "300";
     imagediv.appendChild(newimg);
 }
 
