@@ -11,6 +11,11 @@ namespace Foodilizer_Group35.Controllers
 
     public class HomeController : Controller
     {
+        private readonly foodilizerContext _context;
+        public HomeController(foodilizerContext context)
+        {
+            _context = context;
+        }
         public IActionResult RestRegister()
         {
 
@@ -19,8 +24,10 @@ namespace Foodilizer_Group35.Controllers
 
         public IActionResult Index()
         {
-           
-                return View();
+
+            var location = _context.Restaurants.Select(x => x.Rdistrict).Distinct().ToList();
+            ViewBag.restlocation = location;
+            return View();
         }
         public IActionResult Login()
         {

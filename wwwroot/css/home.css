@@ -188,43 +188,43 @@ button.accept-policy {
 	color: Black;
 }
 
-
-.hero .search {
-	
-	vertical-align: middle;
-	z-index: 2;
-	margin-top: 5rem;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+.search-form {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  padding-bottom:20px;
 }
 
-.hero .search input {
+.search-form input {
+  height: 100%;
+  border: 2px solid;
+  display: block;
   width: 100%;
-  height: 76px;
-  line-height: 76px;
-  border: 1px solid #111;
-  background: rgba(0, 0, 0, 0.8);
-  font-size: 27px;
-  padding: 5px 5px 5px 47px;
-  color: #fff;
-  position: relative;
-  border-radius: 0;
+  padding: 1rem;
+  height: 100%;
+  font-size: 1rem;
 }
 
-.hero .search button {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  color: #fff;
-  background: #88687b;
-  font-size: 27px;
-  height: 65px;
-  line-height: 65px;
-  width: 68px;
-  padding: 0;
+.search-form select {
+  background: transparent;
   border: 0;
+  border: 2px solid;
+  margin-left:5px;
+  margin-right:5px;
+  padding: 1rem;
+  height: 100%;
+  font-size: 1rem;
+}
+
+.search-form select:focus {
+  border: 0;
+}
+
+.search-form button {
+  height: 100%;
+  width: 100%;
+  margin-left: 1rem;
+  border: 2px solid;
 }
 
 
