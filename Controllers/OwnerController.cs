@@ -32,9 +32,22 @@ namespace Foodilizer_Group35.Controllers
         {
             return View();
         }
-        public IActionResult Owner_price()
+        public IActionResult Owner_price(int id)
         {
+            id = 5;
+          
+            var restdetails = _context.Restaurants.FirstOrDefault(e => e.RestId == id);
+            ViewBag.Restname = restdetails.Rname;
+            ViewBag.Ownername = restdetails.OwnerName;
+            TempData["ID"] = restdetails.RestId;
             return View();
+        }
+        public  IActionResult Owner_package_set(int id)
+        {
+            //Response.WriteAsync("this is debug" + "@" + id);
+            var restdetails = _context.Restaurants.FirstOrDefault(e => e.RestId ==id);
+            var package = new Package();
+            return RedirectToAction("Owner_redirect");
         }
         public IActionResult Owner_redirect()
         {
@@ -108,7 +121,7 @@ namespace Foodilizer_Group35.Controllers
                     //_context.Add(customer);
                     await _context.SaveChangesAsync();
                     var restid= await _context.Restaurants.FirstOrDefaultAsync(e => e.Remail == collection["Remail"].ToString() /*&& e.User_status == 1*/);
-
+                    TempData["Rest_id"] = restid.RestId;
                     createmenu.RestId = restid.RestId;
                     _context.Add(createmenu);
 
@@ -116,7 +129,8 @@ namespace Foodilizer_Group35.Controllers
                     UploadFile(collection["Remail"]);
 
                     TempData["Message"] = "User registered.";
-                    return RedirectToAction(nameof(Owner_home));
+                    //return RedirectToAction(nameof(Owner_price));
+                    return RedirectToAction("Owner_price", "Owner", new {restid.RestId});
                 }
                 catch (Exception ex)
                 {

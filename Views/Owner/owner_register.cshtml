@@ -165,18 +165,12 @@
                 <span asp-validation-for="Cuisine" class="text-danger"></span>
             </div>
         </div>
-
-        <button onclick="event.preventDefault();formSubmit();" type="submit" class="main-btn"> Next</button>
-        <button type="reset" class="main-btn">
-            Reset
-        </button>
-      
-
         <button class="main-btn ms-lg-4 mt-lg-0 mt-4" style="align-items:flex-end">
-            <a asp-area="" asp-controller="Owner" asp-action="owner_redirect">
+            <a asp-area="" asp-controller="Owner" asp-action="owner_home">
                 <i class="fas fa-angle-left ps-3"> </i>     Back
             </a>
         </button>
+        <button onclick="event.preventDefault();formSubmit();" type="submit" class="main-btn"> Next</button>
 
 
     </form>

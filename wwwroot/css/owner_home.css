@@ -548,11 +548,6 @@ footer section Design
 
 
 
-
-input[type="radio"] {
-    display:none;
-}
-
 label {
     display: inline-block;
     padding: 4px 11px;
