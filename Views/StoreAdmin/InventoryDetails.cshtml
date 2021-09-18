@@ -5,51 +5,65 @@
     Layout = "~/Views/Shared/_store_admin_layout.cshtml";
 }
 
-<h1>Details</h1>
+<main>
+    <div class="container-fluid px-4">
+        <div class="row">
+            <div class="col-8">
+                <h1 class="mt-4">Inventory</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item active">Store Admin/Inventory/Details</li>
+                </ol>
+            </div>
+        </div>
 
-<div>
-    <h4>Item</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.RestId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.RestId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ItemName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ItemName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ItemQuantity)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ItemQuantity)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Measurement)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Measurement)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.QuantityLimit)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.QuantityLimit)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Alert)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Alert)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.ItemId">Edit</a> |
-    <a asp-action="Inventory">Back to List</a>
-</div>
+
+        <dl class="row">
+            <dt class="col-2">
+                @Html.DisplayNameFor(model => model.RestId)
+            </dt>
+            <dd class="col-10">
+                @Html.DisplayFor(model => model.RestId)
+            </dd>
+            <dt class="col-2">
+                @Html.DisplayNameFor(model => model.ItemName)
+            </dt>
+            <dd class="col-10">
+                @Html.DisplayFor(model => model.ItemName)
+            </dd>
+            <dt class="col-2">
+                @Html.DisplayNameFor(model => model.ItemQuantity)
+            </dt>
+            <dd class="col-10">
+                @Html.DisplayFor(model => model.ItemQuantity)
+            </dd>
+            <dt class="col-2">
+                @Html.DisplayNameFor(model => model.Measurement)
+            </dt>
+            <dd class="col-10">
+                @Html.DisplayFor(model => model.Measurement)
+            </dd>
+            <dt class="col-2">
+                @Html.DisplayNameFor(model => model.QuantityLimit)
+            </dt>
+            <dd class="col-10">
+                @Html.DisplayFor(model => model.QuantityLimit)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Alert)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Alert)
+            </dd>
+        </dl>
+    </div>
+    <div class="form-row row p-2">
+        <div class="form-group col-2">
+            <a asp-action="InventoryEdit" class="btn btn-primary w-75 "  asp-route-id="@Model.ItemId">Edit</a>
+            
+        </div>
+        <div class="form-group col-2">
+            <a asp-action="Inventory" class="btn btn-secondary w-75 ">Back</a>
+        </div>
+    </div>
+    
+</main>

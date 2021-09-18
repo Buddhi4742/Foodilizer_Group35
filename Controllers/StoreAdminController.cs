@@ -91,7 +91,8 @@ namespace Foodilizer_Group35.Controllers
         // GET: itemtable/Delete/5
         public ActionResult InventoryDelete(int id)
         {
-            return View();
+            //Response.WriteAsync(id.ToString());
+            return View(_context.Items.Where(x => x.ItemId == id).FirstOrDefault());
         }
 
         // POST: itemtable/Delete/5
@@ -101,6 +102,10 @@ namespace Foodilizer_Group35.Controllers
         {
             try
             {
+                //Response.WriteAsync(id.ToString());
+                Item item = _context.Items.Where(x => x.ItemId == id).FirstOrDefault();
+                _context.Items.Remove(item);
+                _context.SaveChanges();
                 return RedirectToAction(nameof(Inventory));
             }
             catch
