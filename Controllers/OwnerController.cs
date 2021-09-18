@@ -32,22 +32,54 @@ namespace Foodilizer_Group35.Controllers
         {
             return View();
         }
-        public IActionResult Owner_price(int id)
+        public IActionResult Owner_price(int restaurantid)
         {
-            id = 5;
-          
-            var restdetails = _context.Restaurants.FirstOrDefault(e => e.RestId == id);
+              var restdetails = _context.Restaurants.FirstOrDefault(e => e.RestId == restaurantid);
             ViewBag.Restname = restdetails.Rname;
             ViewBag.Ownername = restdetails.OwnerName;
             TempData["ID"] = restdetails.RestId;
             return View();
         }
-        public  IActionResult Owner_package_set(int id)
+        public  async Task<IActionResult> Owner_package_set(int id)
         {
             //Response.WriteAsync("this is debug" + "@" + id);
-            var restdetails = _context.Restaurants.FirstOrDefault(e => e.RestId ==id);
+            var restdetails = await _context.Restaurants.FirstOrDefaultAsync(e => e.RestId == id);
             var package = new Package();
-            return RedirectToAction("Owner_redirect");
+            DateTime today = DateTime.UtcNow.Date;
+
+            if (Request.Form["package"] == "bronze")
+            {
+                //await Response.WriteAsync("this is B" + "@" + id);
+                package.PackageType = "bronze";
+                package.RestId = id;
+                package.RegisteredDate = today;
+                 _context.Add(package);
+                //_context.Add(customer);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Owner_redirect"); //add payment gateway
+            }
+            else if (Request.Form["package"] == "silver")
+            {
+                //Response.WriteAsync("this is S" + "@" + id);
+                package.PackageType = "silver";
+                package.RestId = id;
+                package.RegisteredDate = today;
+                 _context.Add(package);
+                //_context.Add(customer);
+               await _context.SaveChangesAsync();
+                return RedirectToAction("Owner_redirect"); //add payment gateway
+            }
+            else
+            {
+                //Response.WriteAsync("this is G" + "@" + id);
+                package.PackageType = "gold";
+                package.RestId = id;
+                package.RegisteredDate = today;
+                 _context.Add(package);
+                //_context.Add(customer);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Owner_redirect"); //add payment gateway
+            }
         }
         public IActionResult Owner_redirect()
         {
@@ -57,9 +89,6 @@ namespace Foodilizer_Group35.Controllers
         {
             return View();
         }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> RegisterDetails(IFormCollection collection)
         {
 
@@ -120,17 +149,17 @@ namespace Foodilizer_Group35.Controllers
                     _context.Add(createrestaurant);
                     //_context.Add(customer);
                     await _context.SaveChangesAsync();
+
                     var restid= await _context.Restaurants.FirstOrDefaultAsync(e => e.Remail == collection["Remail"].ToString() /*&& e.User_status == 1*/);
-                    TempData["Rest_id"] = restid.RestId;
                     createmenu.RestId = restid.RestId;
                     _context.Add(createmenu);
-
+                    int restaurantid = restid.RestId;
                     await _context.SaveChangesAsync();
                     UploadFile(collection["Remail"]);
 
                     TempData["Message"] = "User registered.";
                     //return RedirectToAction(nameof(Owner_price));
-                    return RedirectToAction("Owner_price", "Owner", new {restid.RestId});
+                    return RedirectToAction("Owner_price", "Owner", new {restaurantid});
                 }
                 catch (Exception ex)
                 {

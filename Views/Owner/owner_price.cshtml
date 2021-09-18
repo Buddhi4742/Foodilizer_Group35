@@ -34,15 +34,14 @@
                         <h3 style="text-align:center">Welcome! @ViewBag.Ownername, Your Restaurant @ViewBag.Restname needs Some Features!</h3>
                         <h4> Select your prefered package</h4>
                         <div class="col-md-6 col-lg-4">
-                            @*<input type="radio" id="bronze" name="package" value="bronze">*@
-                            <asp:RadioButton ID="bronze" runat="server" GroupName="package" />
+                            <input type="radio" id="bronze" name="package" value="bronze" checked="checked">
                             <label for="bronze">
                                 <div class="card">
                                     <div class="card-image" style="background-color:springgreen">
                                         <h1> Bronze</h1>
                                     </div>
                                     <div class="content">
-                                        <h1 class="text-info">$Free</h1>
+                                        <h1 class="text-info">Free Tier</h1>
                                         <h4 class="card-caption">
                                         </h4>
                                         <p class="card-description">
@@ -60,8 +59,7 @@
 
                         </div>
                         <div class="col-md-6 col-lg-4">
-                            @*<input type="radio" id="silver" name="package" value="silver">*@
-                            <asp:RadioButton ID="silver" runat="server" GroupName="package" />
+                            <input type="radio" id="silver" name="package" value="silver">
                             <label for="silver">
                                 <div class="card">
 
@@ -69,7 +67,7 @@
                                         <h1> Silver </h1>
                                     </div>
                                     <div class="content">
-                                        <h1 class="text-danger">$1.99</h1>
+                                        <h1 class="text-danger">$1.99/Month</h1>
                                         <h4 class="card-caption">
                                         </h4>
                                         <p class="card-description">
@@ -88,15 +86,14 @@
                             </label>
                         </div>
                         <div class="col-md-6 col-lg-4">
-                            @*<input type="radio" id="gold" name="package" value="gold">*@
-                            <asp:RadioButton ID="gold" runat="server" GroupName="package" />
+                            <input type="radio" id="gold" name="package" value="gold">
                             <label for="gold">
                                 <div class="card">
                                     <div class="card-image" style="background-color:darkorange">
                                         <h1> Gold </h1>
                                     </div>
                                     <div class="content">
-                                        <h1 class="text-success">$3.99</h1>
+                                        <h1 class="text-success">$3.99/Month</h1>
                                         <h4 class="card-caption">
                                         </h4>
                                         <p class="card-description">

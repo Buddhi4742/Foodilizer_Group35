@@ -15,6 +15,10 @@ body {
     padding: 0;
 }
 
+input[type="radio"] {
+    display: none;
+}
+
 :active,
 :hover,
 :focus {
