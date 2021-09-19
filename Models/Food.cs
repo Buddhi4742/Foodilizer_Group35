@@ -25,7 +25,7 @@ namespace Foodilizer_Group35.Models
         public int MenuId { get; set; }
         [Column("name")]
         [StringLength(100)]
-        public string Name { get; set; }
+        public string FoodName { get; set; }
         [Column("type")]
         [StringLength(100)]
         public string Type { get; set; }
