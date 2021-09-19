@@ -68,7 +68,7 @@ namespace Foodilizer_Group35.Controllers
 
                     TempData["Message"] = "Updated.";
                     
-                    return RedirectToAction("Banner");
+                    return RedirectToAction("Profile");
         }
         public ActionResult Menu()
         {
