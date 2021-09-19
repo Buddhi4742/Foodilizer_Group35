@@ -94,10 +94,6 @@
                                     <span asp-validation-for="DietryRestriction" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="Cemail" class="control-label"></label>
-                                    <select asp-for="Cemail" class="form-control" asp-items="ViewBag.Cemail"></select>
-                                </div>
-                                <div class="form-group">
                                     <label asp-for="LocationLink" class="control-label"></label>
                                     <input asp-for="LocationLink" class="form-control" />
                                     <span asp-validation-for="LocationLink" class="text-danger"></span>
@@ -108,8 +104,8 @@
                                     <span asp-validation-for="ProfileImage" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                   <a asp-action="customer_profile_orders"><input type="submit" value=" Save " class="btn btn-dark" /></a>&ensp;&ensp;
-                                    <a asp-action="customer_profile_orders"><input type="reset" value="Cancel" class="btn btn-dark" /></a>
+                                   <input type="submit" value=" Save " class="btn btn-dark" />&ensp;&ensp;
+                                    <input type="reset" value="Cancel" class="btn btn-dark" />
                                 </div>
                             </form>
                         </div>

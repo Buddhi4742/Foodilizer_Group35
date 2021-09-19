@@ -60,7 +60,6 @@ namespace Foodilizer_Group35.Controllers
             }
         }
 
-
         // GET: Customer_ProfileController/Details/5
         public ActionResult Details()
         {
