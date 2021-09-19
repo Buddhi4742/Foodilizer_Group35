@@ -27,38 +27,22 @@ namespace Foodilizer_Group35.Controllers
         public ActionResult Profile()
         {
             int id = 2;
+            TempData["ID"] = id;
             //var q = ;
             return View(_context.Restaurants.Where(x => x.RestId == id).FirstOrDefault());
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> UpdateRestaurant(IFormCollection collection)
+        public async Task<IActionResult> UpdateRestaurant(IFormCollection collection,int id)
         {
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
                     //await Response.WriteAsync(collection["Remail"].ToString());
-                    var restdetails = await _context.Restaurants.FirstOrDefaultAsync(e => e.Remail == collection["Remail"].ToString() /*&& e.User_status == 1*/);
-
-                    if (restdetails != null)
-                    {
-                        //await Response.WriteAsync(collection["Remail"].ToString() + "Already have");
-
-                        TempData["Error"] = "A User with the email already exists. Did you meant to Sign in?";
-                        return RedirectToAction("Index");
-                    }
+                    //var restdetails = await _context.Restaurants.FirstOrDefaultAsync(e => e.Remail == collection["Remail"].ToString() /*&& e.User_status == 1*/);
                     //await Response.WriteAsync(collection["logo"]);
                     
                     var UpdateRestaurant = new Restaurant();
-
-
+                    UpdateRestaurant.RestId = id;
                     UpdateRestaurant.Rname = collection["Rname"];
                     UpdateRestaurant.OwnerName = collection["OwnerName"];
                     UpdateRestaurant.OwnerContact = collection["OwnerContact"];
-                    UpdateRestaurant.OwnerEmail = collection["OwnerEmail"];
                     UpdateRestaurant.Rabout = collection["Rabout"];
                     UpdateRestaurant.RestType = collection["RestType"];
                     UpdateRestaurant.Raddress = collection["Raddress"];
@@ -74,26 +58,17 @@ namespace Foodilizer_Group35.Controllers
                     UpdateRestaurant.Cuisine = collection["Cuisine"];
                     UpdateRestaurant.Feature = collection["Feature"];
                     UpdateRestaurant.SpecialDiet = collection["SpecialDiet"]; //this is food options on UI
-                    _context.Update(UpdateRestaurant);
-                    //_context.Add(customer);
-                    await _context.SaveChangesAsync();
+                    _context.Entry(UpdateRestaurant).State = EntityState.Modified;
+                    _context.Entry(UpdateRestaurant).Property(x => x.Remail).IsModified = false;
+                    _context.Entry(UpdateRestaurant).Property(x => x.RestId).IsModified = false;
+                    _context.Entry(UpdateRestaurant).Property(x => x.Rpassword).IsModified = false;
+                    _context.Entry(UpdateRestaurant).Property(x => x.Rusername).IsModified = false;
+            //_context.Add(customer);
+            await _context.SaveChangesAsync();
 
                     TempData["Message"] = "Updated.";
                     
-                    return RedirectToAction("Profile");
-                }
-                catch (Exception ex)
-                {
-                    if (ex.InnerException.ToString().Contains("Violation of UNIQUE KEY constraint")) ViewBag.Error = "This email is already used. Please use another email address";
-                    else ViewBag.Error = "Unable to register this user. Please try agian";
-                    return View(/*customer*/);
-
-                }
-
-            }
-            ViewBag.Error = "Unable to SAVE data. Please try agian";
-            return View(/*customer*/);
-
+                    return RedirectToAction("Banner");
         }
         public ActionResult Menu()
         {
