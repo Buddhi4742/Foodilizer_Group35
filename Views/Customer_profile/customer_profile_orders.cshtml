@@ -41,7 +41,7 @@
 
                                             </div>
                                             <div class="col-sm-4">
-                                                <img src="https://i.pinimg.com/474x/dc/e6/c0/dce6c0923a316554572841bb6f857c31.jpg" class="profile_picture" />
+                                                <img src="@Html.DisplayFor(model => model.ProfileImage)" class="profile_picture" />
                                             </div>
                                             <div class="col-sm-1">
                                             </div>
@@ -54,11 +54,11 @@
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <br />
-                                                        Reviews <br> 0
+                                                        <text class="normal_text">Reviews</text><br> @customerReviews.First().Reviews.Count
                                                     </div>
                                                     <div class="col-sm-12">
                                                         <br />
-                                                        Orders <br> 0
+                                                        <text class="normal_text">Orders</text><br>@customerOrders.First().RestaurantOrders.Count
                                                     </div>
                                                 </div>
                                             </div>
@@ -76,25 +76,36 @@
                                 <div class="col-sm-6">
                                     <div class="card secondary_container">
                                         <p class="mx-auto pt-2">Information</p>
-                                        <p class="float-left pl-4"><i class="fas fa-compass"></i>&ensp;&ensp;@Html.DisplayFor(model => model.Address)</p>
-                                        <p class="float-left pl-4"><i class="fas fa-at"></i>&ensp;&ensp; @Html.DisplayFor(model => model.Cemail)</p>
-                                        <p class="float-left pl-4"><i class="fa fa-trello"></i>&ensp;&ensp;Joined on<br />&ensp;&ensp;&ensp;2021/07/17 </p>
+                                        <p class="float-left pl-4"><i class="fas fa-user"></i>&ensp;&ensp;@Html.DisplayFor(model => model.Username)</p>
+                                        <p class="float-left pl-4"><i class="fas fa-at"></i>&ensp;&ensp;@Html.DisplayFor(model => model.Cemail)</p>
+                                        <p class="float-left pl-4"><i class="fa fa-compass"></i>&ensp;&ensp;@Html.DisplayFor(model => model.Address)</p>
                                     </div>
                                 </div>
                                 <div class="col-sm-1">
                                 </div>
                                 <div class="col-sm-17">
                                     <div class="card secondary_container">
-                                        <p class="mx-auto pt-2">Your Reviews</p>
+                                        <h3 class="mx-auto pt-2">Order History</h3>
                                     </div>
-                                    @foreach (var order in customerOrders.First().RestaurantOrders)
-                                    {
-                        <div class="card">
-                            <h5 class="card-title pl-4">@order.Date</h5>
-                            <p class="card-text pl-4">
-                                @order.TotalAmount
-                            </p>
-                        </div>}
+                                    <div class="orders">
+                                        @foreach (var order in customerOrders.First().RestaurantOrders)
+                                        {
+                                            <div class="card" style="background-color: #17252A; color: #FFEFFF ">
+                                                <h4 class="card-text pl-4">@order.Rest.Rname</h4>
+                                                <h6 class="card-text pl-4">Date:@order.Date&ensp;&ensp;&ensp;&ensp;Total:@order.TotalAmount LKR</h6>
+                                                <span class="card-text pl-4">Order:</span>
+                                                <ul style="padding-left:70px">
+                                                    <li >Chicken fried rice  X2 : 700LKR</li>
+                                                    <li>Chicken fried rice  X2 : 700LKR</li>
+                                                    <li>Chicken fried rice  X2 : 700LKR</li>
+                                                </ul>
+                                                @foreach(var food in order.OrderIncludesFoods) 
+                                                { 
+
+                                                }
+                                            </div>      
+                                        }
+                                    </div>
                                 </div>
 
                             </div>
@@ -102,73 +113,10 @@
                         <div class="col-sm-1">
                         </div>
                     </div>
+                    <br /><br />
                 </div>
             </div>
         </div>
     </section>
-
-
-    <!-- section-2 about-->
-    <!--   <section id="about">
-           <div class="about-section wrapper">
-               <div class="container">
-                   <div class="row align-items-center">
-                       <div class="col-lg-7 col-md-12 mb-lg-0 mb-5">
-                           <div class="card border-0">
-                               <img src="~/lib/owner_img/omenu.png" class="img-fluid">
-                           </div>
-                       </div>
-                       <div class="col-lg-5 col-md-12 text-sec">
-                           <h2>Standard Food menu & Featured food items.</h2>
-                           <p>
-                               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et purus a odio finibus bibendum in sit
-                               amet leo. Mauris feugiat erat tellus.
-                           </p>
-
-                       </div>
-                   </div>
-               </div>
-               <div class="container food-type">
-                   <div class="row align-items-center">
-                       <div class="col-lg-5 col-md-12 text-sec mb-lg-0 mb-5">
-                           <h2>Online ordering & rating </h2>
-                           <p>
-                               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et purus a odio finibus bibendum in sit
-                               amet leo. Mauris feugiat erat tellus.Far far away, behind the word mountains, far from the countries
-                               Vokalia and Consonantia, there live the blind texts.
-                           </p>
-
-
-                       </div>
-                       <div class="col-lg-7 col-md-12">
-                           <div class="card border-0">
-                               <img src="~/lib/owner_img/oorder.png" class="img-fluid">
-                           </div>
-                       </div>
-                   </div>
-               </div>
-               <div class="container">
-                   <div class="row align-items-center">
-                       <div class="col-lg-7 col-md-12 mb-lg-0 mb-5">
-                           <div class="card border-0">
-                               <img src="~/lib/owner_img/oinven.png" class="img-fluid">
-                           </div>
-                       </div>
-                       <div class="col-lg-5 col-md-12 text-sec">
-                           <h2>Inventory and recommodation </h2>
-                           <p>
-                               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et purus a odio finibus bibendum in sit
-                               amet leo. Mauris feugiat erat tellus.
-                           </p>
-
-                       </div>
-                   </div>
-               </div>
-
-
-
-           </div>
-       </section> -->
 </body>
-
 </html>

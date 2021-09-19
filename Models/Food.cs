@@ -13,6 +13,11 @@ namespace Foodilizer_Group35.Models
     [Index(nameof(ImagePath), Name = "image_path", IsUnique = true)]
     public partial class Food
     {
+        public Food()
+        {
+            OrderIncludesFoods = new HashSet<OrderIncludesFood>();
+        }
+
         [Key]
         [Column("food_id")]
         public int FoodId { get; set; }
@@ -64,5 +69,7 @@ namespace Foodilizer_Group35.Models
         [ForeignKey(nameof(MenuId))]
         [InverseProperty("Foods")]
         public virtual Menu Menu { get; set; }
+        [InverseProperty(nameof(OrderIncludesFood.Food))]
+        public virtual ICollection<OrderIncludesFood> OrderIncludesFoods { get; set; }
     }
 }

@@ -17,6 +17,7 @@ namespace Foodilizer_Group35.Models
         {
             OrderIncludesFoods = new HashSet<OrderIncludesFood>();
         }
+
         [Key]
         [Column("order_id")]
         public int OrderId { get; set; }

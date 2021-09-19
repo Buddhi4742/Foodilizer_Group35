@@ -128,6 +128,12 @@ namespace Foodilizer_Group35.Models
                 entity.HasCharSet("utf8")
                     .UseCollation("utf8_general_ci");
 
+                entity.HasOne(d => d.Food)
+                    .WithMany(p => p.OrderIncludesFoods)
+                    .HasForeignKey(d => d.FoodId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_foodorder");
+
                 entity.HasOne(d => d.Order)
                     .WithMany(p => p.OrderIncludesFoods)
                     .HasForeignKey(d => d.OrderId)

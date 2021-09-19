@@ -39,6 +39,11 @@ div.reviews {
     overflow: auto;
 }
 
+div.orders {
+    height: 600px;
+    overflow: auto;
+}
+
 .rate-circles {
     color: #3AAFA9;
 }
