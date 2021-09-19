@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
-
 #nullable disable
 
 namespace Foodilizer_Group35.Models
