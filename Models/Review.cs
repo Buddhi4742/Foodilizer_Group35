@@ -32,7 +32,7 @@ namespace Foodilizer_Group35.Models
         [Column("review_image3")]
         public string ReviewImage3 { get; set; }
         [Column("date", TypeName = "date")]
-        public DateTime? Date { get; set; }
+        public DateTime Date { get; set; }
 
         [ForeignKey(nameof(CustomerId))]
         [InverseProperty("Reviews")]
