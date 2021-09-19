@@ -26,7 +26,9 @@ namespace Foodilizer_Group35.Controllers
         }
         public ActionResult Profile()
         {
-            return View();
+            int id = 2;
+            //var q = ;
+            return View(_context.Restaurants.Where(x => x.RestId == id).FirstOrDefault());
         }
         public ActionResult Menu()
         {
