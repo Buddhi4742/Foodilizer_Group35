@@ -532,8 +532,8 @@
     </div>
     <div class="rev row">
 
-        <div class="col-8">
-            <div class="rev-topic">
+        <div class="col-8" id="#rev">
+            <div class="rev-topic" >
                 @if (temp2 != null)
                 {
                     var i = 0;
@@ -543,8 +543,76 @@
                         i++;
                     }
 
-                    <h3>Reviews (@i)</h3><button class="revb">Write a Review</button>
+                    <h3 >Reviews (@i)</h3>@*<button class="revb">Write a Review</button>*@
+                    <div align="center">
+                        <br />
+                        <a href="#loginScreen" class="revb">Write a Review</a>
+                    </div>
+                    <div id="loginScreen">
+                        <a href="#rev" class="cancel">×</a>
+                        <div id="contact-form">
+                            <div>
+                                <h1>WE APPRECIATE YOUR REVIEW!</h1>
+                                
+                            </div>
+                            <p id="failure">Oopsie...message not sent.</p>
+                            <p id="success">Your message was sent successfully. Thank you!</p>
+
+                            <form method="post" action="#">
+                                <div>
+                                    <label for="name">
+                                        <span class="required">Your Name: *</span>
+                                        <input type="text" id="name" name="name" value="" placeholder="John Doe" required="required" tabindex="1" autofocus="autofocus" />
+                                    </label>
+                                </div>
+                                <div>
+                                    <label for="topic">
+                                        <span class="required">Your Overall Experience: *</span>
+                                        <input type="text" id="experience" name="experience" value="" placeholder="Fantastic!" tabindex="2" required="required" />
+                                    </label>
+                                </div>
+                                <div>
+                                    <label for="subject">
+                                        <span class="required">Rate our Overall Service: </span>
+                                        <select id="subject" name="subject" tabindex="4">
+                                            <option value="1">1</option>
+                                            <option value="2">2 </option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+
+                                        </select>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label for="message">
+                                        <span class="required">Write Your Feedback: *</span>
+                                        <textarea id="message" name="message" placeholder="Please write your feedback here." tabindex="5" required="required"></textarea>
+                                    </label>
+                                </div>
+                                <div>
+                                    <button name="submit" type="submit" id="submit">Submit</button>
+                                </div>
+                            </form>
+
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                    <div id="cover">
+                    </div>
                 }
+
             </div>
             <div id="carouselcardrev" class="carousel slide " data-interval="false">
                 <div class="carousel-inner">
@@ -942,4 +1010,8 @@
              prevEl: ".swiper-button-prev",
          },
      });
+
+
+
+
  </script>
