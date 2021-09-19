@@ -32,7 +32,11 @@
                                 <td>@item.FoodName</td>
                                 <td>Rs.@item.Price</td>
                                 <td>@item.Ingredient</td>
-                                <td>61</td>
+                                <td>
+                                    <a asp-action="MenuEdit" asp-route-id="@item.FoodId">Edit</a> |
+                                    <a asp-action="MenuDetails" asp-route-id="@item.FoodId">Details</a> |
+                                    <a asp-action="MenuDelete" asp-route-id="@item.FoodId">Delete</a>
+                                </td>
                                 <td>2011/04/25</td>
                                 <td>$320,800</td>
                             </tr>

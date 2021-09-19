@@ -78,6 +78,81 @@ namespace Foodilizer_Group35.Controllers
             return View(_context.Restaurants.Where(x => x.RestId == id).Include(e => e.Menus).ThenInclude(e => e.Foods).FirstOrDefault());
 
         }
+
+        public ActionResult MenuDetails(int id)
+        {
+
+            return View(_context.Foods.Where(x => x.FoodId == id).FirstOrDefault());
+
+        }
+
+        public ActionResult MenuCreate()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult MenuCreate(Food food)
+        {
+
+            _context.Foods.Add(food);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Menu));
+        }
+        public ActionResult MenuEdit(int id)
+        {
+
+            return View(_context.Foods.Where(x => x.FoodId == id).FirstOrDefault());
+
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult MenuEdit(int id, Food food)
+        {
+            try
+            {
+
+                _context.Entry(food).State = EntityState.Modified;
+                _context.SaveChanges();
+
+
+                return RedirectToAction(nameof(Menu));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        // GET: itemtable/Delete/5
+        public ActionResult MenuDelete(int id)
+        {
+            //Response.WriteAsync(id.ToString());
+            return View(_context.Foods.Where(x => x.FoodId == id).FirstOrDefault());
+        }
+
+        // POST: itemtable/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult MenuDelete(int id, IFormCollection collection)
+        {
+            try
+            {
+                //Response.WriteAsync(id.ToString());
+                Food food = _context.Foods.Where(x => x.FoodId == id).FirstOrDefault();
+                _context.Foods.Remove(food);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Menu));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+
+
+
         public ActionResult Inventory()
         {
             int id = 2;
