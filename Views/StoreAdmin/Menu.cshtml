@@ -9,7 +9,8 @@
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">Store Admin/Menu</li>
         </ol>
-        <h4>Edit / Update Menu (need to add a popup or another page to edit details individualy)</h4>
+        <h4>Edit / Update Menu</h4>
+        <a class="btn btn-primary" asp-action="MenuCreate" asp-route-id="@TempData["Menu_id"]">Add Items</a>
         <div class="card-body">
             <table id="datatablesSimple">
                 <thead>

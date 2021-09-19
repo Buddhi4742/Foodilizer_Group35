@@ -110,7 +110,8 @@
         </dd>
     </dl>
 
-    <button class="btn-danger" type="submit" asp-action="Deletefooditem" asp-route-id="@TempData["Food_id"]" > Delete </button>
+    @*<button class="btn-danger" type="submit" asp-action="Deletefooditem" asp-route-id="@TempData["Food_id"]">Delete</button>*@
     <a asp-action="Menu">Back to List</a>
+    <a class="main-btn" type="submit" asp-action="Deletefooditem"  asp-controller="StoreAdmin" asp-route-id="@TempData["Food_id"]">Delete</a>
 
 </div>

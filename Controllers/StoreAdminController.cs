@@ -74,6 +74,9 @@ namespace Foodilizer_Group35.Controllers
         {
             int id = 2;
             var query = _context.Menus.Where(e => e.RestId == id).Include(e => e.Foods).ToList();
+            var menuid = _context.Menus.Where(e => e.RestId == id).FirstOrDefault();
+
+            TempData["Menu_id"]=menuid.MenuId;
             ViewBag.fooddet = query;
             return View(_context.Restaurants.Where(x => x.RestId == id).Include(e => e.Menus).ThenInclude(e => e.Foods).FirstOrDefault());
 
@@ -86,16 +89,35 @@ namespace Foodilizer_Group35.Controllers
 
         }
 
-        public ActionResult MenuCreate()
+        public ActionResult MenuCreate(int id)
         {
+            TempData["MenuID"] = id;
             return View();
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult MenuCreate(Food food)
-        {
 
-            _context.Foods.Add(food);
+        public ActionResult MenuNewFooditem(IFormCollection collection, int id)
+        {
+            var updatefooditem = new Food();
+            updatefooditem.MenuId = id;
+            updatefooditem.FoodName = collection["FoodName"];
+            updatefooditem.Type = collection["Type"];
+            updatefooditem.Price = Int64.Parse(collection["Price"]);
+            updatefooditem.Ingredient = collection["Ingredient"];
+            updatefooditem.ImagePath = collection["ImagePath"];
+            updatefooditem.PrefScore = Int32.Parse(collection["PrefScore"]);
+            updatefooditem.Featured = collection["Featured"];
+            updatefooditem.Category = collection["Category"];
+            updatefooditem.SubCategory = collection["SubCategory"];
+            updatefooditem.CategoryRating = collection["CategoryRating"];
+            updatefooditem.Quantity = Int32.Parse(collection["Quantity"]);
+            updatefooditem.Veg = collection["Veg"];
+            updatefooditem.Hot = collection["Hot"];
+            updatefooditem.SpicyLevel = collection["SpicyLevel"];
+            updatefooditem.Organic = collection["Organic"];
+
+            _context.Add(updatefooditem);
+            //food.MenuId = id;
+            //_context.Foods.Add(food);
             _context.SaveChanges();
             return RedirectToAction(nameof(Menu));
         }
@@ -125,28 +147,22 @@ namespace Foodilizer_Group35.Controllers
             }
         }
         // GET: itemtable/Delete/5
-        public IActionResult MenuDelete(int id)
+        public ActionResult MenuDelete(int id)
         {
             //Response.WriteAsync(id.ToString());
             TempData["Food_id"] = id;
+            //Response.WriteAsync(TempData["Food_id"].ToString());
             return View(_context.Foods.Where(x => x.FoodId == id).FirstOrDefault());
         }
 
         // POST: itemtable/Delete/5
-        public async Task<IActionResult> Deletefooditem(int id, IFormCollection collection)
+        public  ActionResult Deletefooditem(int id)
         {
-           
-               await Response.WriteAsync(id.ToString());
                 Food food = _context.Foods.Where(x => x.FoodId == id).FirstOrDefault();
                 _context.Foods.Remove(food);
-                await _context.SaveChangesAsync();
+                _context.SaveChanges();
                 return RedirectToAction(nameof(Menu));
-            
         }
-
-
-
-
         public ActionResult Inventory()
         {
             int id = 2;
