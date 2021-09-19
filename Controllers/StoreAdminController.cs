@@ -125,29 +125,23 @@ namespace Foodilizer_Group35.Controllers
             }
         }
         // GET: itemtable/Delete/5
-        public ActionResult MenuDelete(int id)
+        public IActionResult MenuDelete(int id)
         {
             //Response.WriteAsync(id.ToString());
+            TempData["Food_id"] = id;
             return View(_context.Foods.Where(x => x.FoodId == id).FirstOrDefault());
         }
 
         // POST: itemtable/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult MenuDelete(int id, IFormCollection collection)
+        public async Task<IActionResult> Deletefooditem(int id, IFormCollection collection)
         {
-            try
-            {
-                //Response.WriteAsync(id.ToString());
+           
+               await Response.WriteAsync(id.ToString());
                 Food food = _context.Foods.Where(x => x.FoodId == id).FirstOrDefault();
                 _context.Foods.Remove(food);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Menu));
-            }
-            catch
-            {
-                return View();
-            }
+            
         }
 
 
@@ -206,23 +200,21 @@ namespace Foodilizer_Group35.Controllers
             }
         }
         // GET: itemtable/Delete/5
-        public ActionResult InventoryDelete(int id)
+        public IActionResult InventoryDelete(int id)
         {
             //Response.WriteAsync(id.ToString());
             return View(_context.Items.Where(x => x.ItemId == id).FirstOrDefault());
         }
 
         // POST: itemtable/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult InventoryDelete(int id, IFormCollection collection)
+        public async Task<IActionResult> InventoryDelete(int id, IFormCollection collection)
         {
             try
             {
                 //Response.WriteAsync(id.ToString());
-                Item item = _context.Items.Where(x => x.ItemId == id).FirstOrDefault();
+                Item item =  _context.Items.Where(x => x.ItemId == id).FirstOrDefault();
                 _context.Items.Remove(item);
-                _context.SaveChanges();
+               await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Inventory));
             }
             catch
