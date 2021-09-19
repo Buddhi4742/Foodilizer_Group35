@@ -33,7 +33,7 @@ namespace Foodilizer_Group35.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Profile(IFormCollection collection)
+        public async Task<IActionResult> UpdateRestaurant(IFormCollection collection)
         {
 
             if (ModelState.IsValid)

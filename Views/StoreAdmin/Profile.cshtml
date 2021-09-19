@@ -12,7 +12,7 @@
         </ol>
         <h4>Edit / Update Store Details</h4>
     </div>
-    <form class="register" asp-action="Profile" asp-controller="StoreAdmin" id="form1">
+    <form class="register" asp-action="UpdateRestaurant" asp-controller="StoreAdmin" id="form1">
         <center>
             <h2> Your journey towards a thriving restaurant</h2> <h2> business starts here </h2>
             <h4>Enter Owner Details</h4>
@@ -144,11 +144,11 @@
             </div>
         </div>
         <button class="main-btn ms-lg-4 mt-lg-0 mt-4" style="align-items:flex-end">
-            <a asp-area="" asp-controller="StoreAdmin" asp-action="Profile">
+            <a asp-area="" asp-controller="StoreAdmin" asp-action="Index">
                 <i class="fas fa-angle-left ps-3"> </i>     Back
             </a>
         </button>
-        <button @*onclick="event.preventDefault();formSubmit();"*@ type="submit" class="main-btn" asp-controller="StoreAdmin" asp-action="Profile"> Next</button>
+        <button   asp-action="UpdateRestaurant" type="submit" class="main-btn"> Next</button>
     </form>
 
 </main>
