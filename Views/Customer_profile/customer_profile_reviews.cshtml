@@ -80,9 +80,9 @@
                                 <div class="col-sm-6">
                                     <div class="card secondary_container">
                                         <p class="mx-auto pt-2">Information</p>
-                                        <p class="float-left pl-4"><i class="fas fa-compass"></i>&ensp;&ensp;@Html.DisplayFor(model => model.Address)</p>
+                                        <p class="float-left pl-4"><i class="fas fa-compass"></i>&ensp;&ensp;@Html.DisplayFor(model => model.Username)</p>
                                         <p class="float-left pl-4"><i class="fas fa-at"></i>&ensp;&ensp;@Html.DisplayFor(model => model.Cemail)</p>
-                                        <p class="float-left pl-4"><i class="fa fa-trello"></i>&ensp;&ensp;@Html.DisplayFor(model => model.addr)</p>
+                                        <p class="float-left pl-4"><i class="fa fa-trello"></i>&ensp;&ensp;@Html.DisplayFor(model => model.Address)</p>
                                     </div>
                                 </div>
                                 <div class="col-sm-1">
@@ -120,10 +120,20 @@
                                             <p class="card-text pl-4">
                                                 @review.Feedback
                                             </p>
-                                            @if (review.ReviewImage != null)
+                                            <span>
+                                            @if (review.ReviewImage1 != null)
                                             {
-                                                <img src="@review.ReviewImage" class="review_image card-text pl-4" />
+                                                <img src="@review.ReviewImage1" class="review_image card-text pl-4" />
                                             }
+                                            @if (review.ReviewImage2 != null)
+                                            {
+                                                <img src="@review.ReviewImage2" class="review_image card-text pl-4" />
+                                            }
+                                            @if (review.ReviewImage3 != null)
+                                            {
+                                                <img src="@review.ReviewImage3" class="review_image card-text pl-4" />
+                                            }
+                                            </span>
                                         </div>
                                         }
                                     </div>
