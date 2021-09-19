@@ -30,6 +30,71 @@ namespace Foodilizer_Group35.Controllers
             //var q = ;
             return View(_context.Restaurants.Where(x => x.RestId == id).FirstOrDefault());
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Profile(IFormCollection collection)
+        {
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    //await Response.WriteAsync(collection["Remail"].ToString());
+                    var restdetails = await _context.Restaurants.FirstOrDefaultAsync(e => e.Remail == collection["Remail"].ToString() /*&& e.User_status == 1*/);
+
+                    if (restdetails != null)
+                    {
+                        //await Response.WriteAsync(collection["Remail"].ToString() + "Already have");
+
+                        TempData["Error"] = "A User with the email already exists. Did you meant to Sign in?";
+                        return RedirectToAction("Index");
+                    }
+                    //await Response.WriteAsync(collection["logo"]);
+                    
+                    var UpdateRestaurant = new Restaurant();
+
+
+                    UpdateRestaurant.Rname = collection["Rname"];
+                    UpdateRestaurant.OwnerName = collection["OwnerName"];
+                    UpdateRestaurant.OwnerContact = collection["OwnerContact"];
+                    UpdateRestaurant.OwnerEmail = collection["OwnerEmail"];
+                    UpdateRestaurant.Rabout = collection["Rabout"];
+                    UpdateRestaurant.RestType = collection["RestType"];
+                    UpdateRestaurant.Raddress = collection["Raddress"];
+                    UpdateRestaurant.Rdistrict = collection["Rdistrict"];
+                    UpdateRestaurant.PriceRange = collection["PriceRange"];
+                    UpdateRestaurant.Rdistrict = collection["Rdistrict"];
+                    UpdateRestaurant.OpenHour = collection["OpenHour"];
+                    UpdateRestaurant.RestContact = collection["RestContact"];
+                    UpdateRestaurant.OpenStatus = 1;
+                    UpdateRestaurant.WebsiteLink = collection["WebsiteLink"];
+                    UpdateRestaurant.MapLink = collection["MapLink"];
+                    UpdateRestaurant.MealType = collection["MealType"];
+                    UpdateRestaurant.Cuisine = collection["Cuisine"];
+                    UpdateRestaurant.Feature = collection["Feature"];
+                    UpdateRestaurant.SpecialDiet = collection["SpecialDiet"]; //this is food options on UI
+                    _context.Update(UpdateRestaurant);
+                    //_context.Add(customer);
+                    await _context.SaveChangesAsync();
+
+                    TempData["Message"] = "Updated.";
+                    
+                    return RedirectToAction("Profile");
+                }
+                catch (Exception ex)
+                {
+                    if (ex.InnerException.ToString().Contains("Violation of UNIQUE KEY constraint")) ViewBag.Error = "This email is already used. Please use another email address";
+                    else ViewBag.Error = "Unable to register this user. Please try agian";
+                    return View(/*customer*/);
+
+                }
+
+            }
+            ViewBag.Error = "Unable to SAVE data. Please try agian";
+            return View(/*customer*/);
+
+        }
         public ActionResult Menu()
         {
             int id = 2;
