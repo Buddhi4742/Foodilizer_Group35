@@ -432,9 +432,17 @@ h1 {
 }
 
 .menu-det h4 {
-    flex: 3;
+    flex: 2;
     margin-top: 2px;
 }
+    .menu-det i {
+        margin-top: 4px;
+    }
+        .menu-det i:hover {
+
+        cursor: pointer;
+        color: aqua;
+    }
 .menu-det .mcard-text {
     font-size:15px;
     line-height:18px;
@@ -481,7 +489,8 @@ h1 {
     }
 
 .revnum {
-    margin-left: 70px;
+    margin-left: 50px;
+    margin-top: -3px;
 }
 
 .rev .carousel-inner {
@@ -564,6 +573,16 @@ h1 {
 }
 .likerow .row{
     margin-bottom:150px;
+}
+.likerow .circles {
+    font-size: 15px;
+}
+
+    .likerow .circles .glyphicon {
+        font-size: 18px;
+    }
+.likerow .cusineitem {
+    line-height: 20px;
 }
 .grid {
     margin-top:20px;
@@ -768,7 +787,7 @@ h1 {
 }
 
 .swiper-block {
-    margin: 0 1em;
+    margin: 2em 1em;
     box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
     border: none;
     border-radius: 0;
@@ -784,3 +803,91 @@ h1 {
     margin-left: 0px;
     text-align: center;
 }
+
+.flipcard {
+    height: 220px;
+    width: 190px;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: all 1s ease-in-out;
+}
+
+    .flipcard img {
+        border-radius: 0px;
+        min-width: 183px;
+        max-width: 183px;
+        margin-left: -10px;
+        min-height: 150px;
+        max-height: 150px;
+    }
+
+    .flipcard:hover {
+        transform: rotateY(180deg);
+    }
+
+    .flipcard .side {
+        backface-visibility: hidden;
+        border-radius: 6px;
+        position: absolute;
+        overflow: hidden;
+        height: 220px;
+        width: 190px;
+    }
+
+    .flipcard .back {
+        background: url("https://i.pinimg.com/736x/7c/b1/86/7cb18679659f791b1191bea97b74dfc0.jpg");
+        background-position: right;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #FFFFFF;
+        line-height: 150px;
+        text-align: left;
+        transform: rotateY(180deg);
+    }
+
+        .flipcard .back .ing, .prc, .ingitem {
+            max-width: 100px;
+            margin-left: 10px;
+        }
+
+        .flipcard .back h4 {
+            margin-left: 10px;
+        }
+
+        .flipcard .back .prcitem {
+            margin-left: 40px;
+            margin-top: -10px;
+        }
+
+.ing {
+    margin-top: 20px;
+}
+
+.prc {
+    margin-top: 30px;
+}
+
+.menu-det .circles .glyphicon {
+    margin-left: 3px;
+    font-size: 18px;
+    color: #0cb021;
+    margin-top: 0px;
+    letter-spacing: -4px;
+}
+
+.menu-det .revdate {
+    font-size: 13px;
+    margin-left: 20px;
+    margin-top: 2px;
+}
+
+.content i {
+    font-size: x-large;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+    .content i:hover {
+        cursor: pointer;
+        color: aqua;
+    }

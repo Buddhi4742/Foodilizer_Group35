@@ -26,22 +26,22 @@
 
   
     <!-- section-packages-->
-    <form class="package">
+    <form class="package" asp-action="Owner_package_set">
         <div class="price-list">
             <div class="section-cards">
                 <div class="container">
                     <div class="row">
+                        <h3 style="text-align:center">Welcome! @ViewBag.Ownername, Your Restaurant @ViewBag.Restname needs Some Features!</h3>
                         <h4> Select your prefered package</h4>
                         <div class="col-md-6 col-lg-4">
-                            <input type="radio" id="bronze" name="package" value="bronze" />
+                            <input type="radio" id="bronze" name="package" value="bronze" checked="checked">
                             <label for="bronze">
                                 <div class="card">
-
                                     <div class="card-image" style="background-color:springgreen">
                                         <h1> Bronze</h1>
                                     </div>
                                     <div class="content">
-                                        <h1 class="text-info">$Free</h1>
+                                        <h1 class="text-info">Free Tier</h1>
                                         <h4 class="card-caption">
                                         </h4>
                                         <p class="card-description">
@@ -49,7 +49,6 @@
                                                 <li>  Food Menu (standard)  </li>
                                                 <li>  Featured food items(standard)</li>
                                                 <li>  Food rating system </li>
-
                                             </ul>
                                         </p>
 
@@ -57,11 +56,10 @@
 
                                 </div>
                             </label>
+
                         </div>
-
-
                         <div class="col-md-6 col-lg-4">
-                            <input type="radio" id="silver" name="package" value="silver" />
+                            <input type="radio" id="silver" name="package" value="silver">
                             <label for="silver">
                                 <div class="card">
 
@@ -69,13 +67,12 @@
                                         <h1> Silver </h1>
                                     </div>
                                     <div class="content">
-                                        <h1 class="text-danger">$1.99</h1>
+                                        <h1 class="text-danger">$1.99/Month</h1>
                                         <h4 class="card-caption">
                                         </h4>
                                         <p class="card-description">
                                             <ul style="list-style:none">
                                                 <li>  Food Menu (standard)  </li>
-
                                                 <li>  Featured food items(standard)</li>
                                                 <li>  Food rating system </li>
                                                 <li>  Inventory Module  </li>
@@ -84,24 +81,19 @@
                                                 <li>  Report generation modules (sales)  </li>
                                             </ul>
                                         </p>
-
                                     </div>
                                 </div>
                             </label>
                         </div>
-
-
-
-
                         <div class="col-md-6 col-lg-4">
-                            <input type="radio" id="gold" name="package" value="gold" />
+                            <input type="radio" id="gold" name="package" value="gold">
                             <label for="gold">
                                 <div class="card">
                                     <div class="card-image" style="background-color:darkorange">
                                         <h1> Gold </h1>
                                     </div>
                                     <div class="content">
-                                        <h1 class="text-success">$3.99</h1>
+                                        <h1 class="text-success">$3.99/Month</h1>
                                         <h4 class="card-caption">
                                         </h4>
                                         <p class="card-description">
@@ -115,7 +107,6 @@
                                                 <li>  Online ordering- without payment  </li>
                                                 <li>  Report generation modules (sales)  </li>
                                                 <li>  Custom accounts for restaurant  </li>
-
                                             </ul>
                                         </p>
 
@@ -124,7 +115,7 @@
                             </label>
                         </div>
                     </div>
-                    <button class="main-btn" type="submit"> Submit  </button>
+                    <button class="main-btn" type="submit" asp-action="Owner_package_set" asp-route-id="@TempData["ID"]"> Submit  </button>
                 </div>
             </div>
         </div>

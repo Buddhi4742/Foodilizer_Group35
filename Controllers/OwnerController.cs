@@ -32,9 +32,54 @@ namespace Foodilizer_Group35.Controllers
         {
             return View();
         }
-        public IActionResult Owner_price()
+        public IActionResult Owner_price(int restaurantid)
         {
+              var restdetails = _context.Restaurants.FirstOrDefault(e => e.RestId == restaurantid);
+            ViewBag.Restname = restdetails.Rname;
+            ViewBag.Ownername = restdetails.OwnerName;
+            TempData["ID"] = restdetails.RestId;
             return View();
+        }
+        public  async Task<IActionResult> Owner_package_set(int id)
+        {
+            //Response.WriteAsync("this is debug" + "@" + id);
+            var restdetails = await _context.Restaurants.FirstOrDefaultAsync(e => e.RestId == id);
+            var package = new Package();
+            DateTime today = DateTime.UtcNow.Date;
+
+            if (Request.Form["package"] == "bronze")
+            {
+                //await Response.WriteAsync("this is B" + "@" + id);
+                package.PackageType = "bronze";
+                package.RestId = id;
+                package.RegisteredDate = today;
+                 _context.Add(package);
+                //_context.Add(customer);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Owner_redirect"); //add payment gateway
+            }
+            else if (Request.Form["package"] == "silver")
+            {
+                //Response.WriteAsync("this is S" + "@" + id);
+                package.PackageType = "silver";
+                package.RestId = id;
+                package.RegisteredDate = today;
+                 _context.Add(package);
+                //_context.Add(customer);
+               await _context.SaveChangesAsync();
+                return RedirectToAction("Owner_redirect"); //add payment gateway
+            }
+            else
+            {
+                //Response.WriteAsync("this is G" + "@" + id);
+                package.PackageType = "gold";
+                package.RestId = id;
+                package.RegisteredDate = today;
+                 _context.Add(package);
+                //_context.Add(customer);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Owner_redirect"); //add payment gateway
+            }
         }
         public IActionResult Owner_redirect()
         {
@@ -44,9 +89,6 @@ namespace Foodilizer_Group35.Controllers
         {
             return View();
         }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> RegisterDetails(IFormCollection collection)
         {
 
@@ -67,6 +109,8 @@ namespace Foodilizer_Group35.Controllers
                     //await Response.WriteAsync(collection["logo"]);
                     var updateuser = new User();
                     var createrestaurant = new Restaurant();
+                    var createmenu = new Menu();
+                    
                     //updateuser.UserStatus = 1;
                     //customer.ShaEnc();
                     string encpass = ShaEnc(collection["Rpassword"].ToString());
@@ -94,6 +138,7 @@ namespace Foodilizer_Group35.Controllers
                     createrestaurant.Rdistrict = collection["Rdistrict"];
                     //createrestaurant.Rprovince = "Dummy";
                     createrestaurant.OpenHour = collection["OpenHour"];
+                    createrestaurant.RestContact = collection["RestContact"];
                     createrestaurant.OpenStatus = 1;
                     createrestaurant.WebsiteLink = collection["WebsiteLink"];
                     createrestaurant.MapLink = collection["MapLink"];
@@ -104,10 +149,17 @@ namespace Foodilizer_Group35.Controllers
                     _context.Add(createrestaurant);
                     //_context.Add(customer);
                     await _context.SaveChangesAsync();
+
+                    var restid= await _context.Restaurants.FirstOrDefaultAsync(e => e.Remail == collection["Remail"].ToString() /*&& e.User_status == 1*/);
+                    createmenu.RestId = restid.RestId;
+                    _context.Add(createmenu);
+                    int restaurantid = restid.RestId;
+                    await _context.SaveChangesAsync();
                     UploadFile(collection["Remail"]);
 
                     TempData["Message"] = "User registered.";
-                    return RedirectToAction(nameof(Owner_home));
+                    //return RedirectToAction(nameof(Owner_price));
+                    return RedirectToAction("Owner_price", "Owner", new {restaurantid});
                 }
                 catch (Exception ex)
                 {
@@ -146,7 +198,7 @@ namespace Foodilizer_Group35.Controllers
         public void UploadFile(string email)
         {
 
-            string folderPath = "wwwroot/resources/Restaurants/"+ email+ "/";
+            string folderPath = "wwwroot/resources/Restaurants/"+email+"/";
 
             //Check whether Directory (Folder) exists.
             if (!Directory.Exists(folderPath))

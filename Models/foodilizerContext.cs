@@ -20,14 +20,12 @@ namespace Foodilizer_Group35.Models
         public virtual DbSet<CustomAccount> CustomAccounts { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Food> Foods { get; set; }
-        public virtual DbSet<FoodRecommendation> FoodRecommendations { get; set; }
         public virtual DbSet<Item> Items { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<OrderIncludesFood> OrderIncludesFoods { get; set; }
         public virtual DbSet<OrderWithPayment> OrderWithPayments { get; set; }
         public virtual DbSet<Package> Packages { get; set; }
         public virtual DbSet<Restaurant> Restaurants { get; set; }
-        public virtual DbSet<RestaurantContact> RestaurantContacts { get; set; }
         public virtual DbSet<RestaurantImage> RestaurantImages { get; set; }
         public virtual DbSet<RestaurantOrder> RestaurantOrders { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
@@ -55,8 +53,6 @@ namespace Foodilizer_Group35.Models
 
                 entity.HasCharSet("utf8")
                     .UseCollation("utf8_general_ci");
-
-                entity.Property(e => e.AccountId).ValueGeneratedNever();
 
                 entity.HasOne(d => d.EmailNavigation)
                     .WithOne(p => p.CustomAccount)
@@ -89,8 +85,6 @@ namespace Foodilizer_Group35.Models
                 entity.HasCharSet("utf8")
                     .UseCollation("utf8_general_ci");
 
-                entity.Property(e => e.FoodId).ValueGeneratedNever();
-
                 entity.Property(e => e.Featured).HasComment("If featured = YES and if not NO");
 
                 entity.Property(e => e.Price).HasPrecision(18);
@@ -98,50 +92,8 @@ namespace Foodilizer_Group35.Models
                 entity.HasOne(d => d.Menu)
                     .WithMany(p => p.Foods)
                     .HasForeignKey(d => d.MenuId)
-                    .OnDelete(DeleteBehavior.Cascade)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_menu");
-            });
-
-            modelBuilder.Entity<FoodRecommendation>(entity =>
-            {
-                entity.HasKey(e => e.RecommendationId)
-                    .HasName("PRIMARY");
-
-                entity.HasCharSet("utf8")
-                    .UseCollation("utf8_general_ci");
-
-                entity.Property(e => e.RecommendationId).ValueGeneratedNever();
-
-                entity.HasOne(d => d.Food1)
-                    .WithMany(p => p.FoodRecommendationFood1s)
-                    .HasForeignKey(d => d.Food1Id)
-                    .HasConstraintName("fk_f1");
-
-                entity.HasOne(d => d.Food2)
-                    .WithMany(p => p.FoodRecommendationFood2s)
-                    .HasForeignKey(d => d.Food2Id)
-                    .HasConstraintName("fk_f2");
-
-                entity.HasOne(d => d.Food3)
-                    .WithMany(p => p.FoodRecommendationFood3s)
-                    .HasForeignKey(d => d.Food3Id)
-                    .HasConstraintName("fk_f3");
-
-                entity.HasOne(d => d.Food4)
-                    .WithMany(p => p.FoodRecommendationFood4s)
-                    .HasForeignKey(d => d.Food4Id)
-                    .HasConstraintName("fk_f4");
-
-                entity.HasOne(d => d.Food5)
-                    .WithMany(p => p.FoodRecommendationFood5s)
-                    .HasForeignKey(d => d.Food5Id)
-                    .HasConstraintName("fk_f5");
-
-                entity.HasOne(d => d.Rest)
-                    .WithMany(p => p.FoodRecommendations)
-                    .HasForeignKey(d => d.RestId)
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("fk_foodrecom");
             });
 
             modelBuilder.Entity<Item>(entity =>
@@ -149,16 +101,9 @@ namespace Foodilizer_Group35.Models
                 entity.HasCharSet("utf8")
                     .UseCollation("utf8_general_ci");
 
-                entity.Property(e => e.ItemId).ValueGeneratedNever();
-
-                entity.Property(e => e.ItemQuantity).HasPrecision(18);
-
-                entity.Property(e => e.QuantityLimit).HasPrecision(18);
-
                 entity.HasOne(d => d.Rest)
                     .WithMany(p => p.Items)
                     .HasForeignKey(d => d.RestId)
-                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("fk_restit");
             });
 
@@ -166,8 +111,6 @@ namespace Foodilizer_Group35.Models
             {
                 entity.HasCharSet("utf8")
                     .UseCollation("utf8_general_ci");
-
-                entity.Property(e => e.MenuId).ValueGeneratedNever();
 
                 entity.HasOne(d => d.Rest)
                     .WithMany(p => p.Menus)
@@ -184,6 +127,12 @@ namespace Foodilizer_Group35.Models
 
                 entity.HasCharSet("utf8")
                     .UseCollation("utf8_general_ci");
+
+                entity.HasOne(d => d.Order)
+                    .WithMany(p => p.OrderIncludesFoods)
+                    .HasForeignKey(d => d.OrderId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_order");
             });
 
             modelBuilder.Entity<OrderWithPayment>(entity =>
@@ -202,15 +151,13 @@ namespace Foodilizer_Group35.Models
                     .WithOne(p => p.OrderWithPayment)
                     .HasForeignKey<OrderWithPayment>(d => d.OrderId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_order");
+                    .HasConstraintName("fk_order_paid");
             });
 
             modelBuilder.Entity<Package>(entity =>
             {
                 entity.HasCharSet("utf8")
                     .UseCollation("utf8_general_ci");
-
-                entity.Property(e => e.PackageId).ValueGeneratedNever();
 
                 entity.HasOne(d => d.Rest)
                     .WithMany(p => p.Packages)
@@ -227,13 +174,9 @@ namespace Foodilizer_Group35.Models
                 entity.HasCharSet("utf8")
                     .UseCollation("utf8_general_ci");
 
-                entity.Property(e => e.OpenHour).IsFixedLength(true);
-
                 entity.Property(e => e.OwnerContact).IsFixedLength(true);
 
-                entity.Property(e => e.OwnerEmail).IsFixedLength(true);
-
-                entity.Property(e => e.PriceRange).IsFixedLength(true);
+                entity.Property(e => e.RestContact).IsFixedLength(true);
 
                 entity.HasOne(d => d.RemailNavigation)
                     .WithOne(p => p.Restaurant)
@@ -241,24 +184,6 @@ namespace Foodilizer_Group35.Models
                     .HasForeignKey<Restaurant>(d => d.Remail)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_restemail");
-            });
-
-            modelBuilder.Entity<RestaurantContact>(entity =>
-            {
-                entity.HasKey(e => e.RestId)
-                    .HasName("PRIMARY");
-
-                entity.HasCharSet("utf8")
-                    .UseCollation("utf8_general_ci");
-
-                entity.Property(e => e.RestId).ValueGeneratedNever();
-
-                entity.Property(e => e.ContactNumber).IsFixedLength(true);
-
-                entity.HasOne(d => d.Rest)
-                    .WithOne(p => p.RestaurantContact)
-                    .HasForeignKey<RestaurantContact>(d => d.RestId)
-                    .HasConstraintName("fk_rest");
             });
 
             modelBuilder.Entity<RestaurantImage>(entity =>
@@ -285,10 +210,6 @@ namespace Foodilizer_Group35.Models
                 entity.HasCharSet("utf8")
                     .UseCollation("utf8_general_ci");
 
-                entity.Property(e => e.OrderId).ValueGeneratedNever();
-
-                entity.Property(e => e.TotalAmount).HasPrecision(18);
-
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.RestaurantOrders)
                     .HasForeignKey(d => d.CustomerId)
@@ -305,19 +226,17 @@ namespace Foodilizer_Group35.Models
                 entity.HasCharSet("utf8")
                     .UseCollation("utf8_general_ci");
 
-                entity.Property(e => e.ReviewId).ValueGeneratedNever();
-
                 entity.Property(e => e.Rating).HasComment("rating is saved as  one number");
 
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.Reviews)
                     .HasForeignKey(d => d.CustomerId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_cust1");
 
                 entity.HasOne(d => d.Rest)
                     .WithMany(p => p.Reviews)
                     .HasForeignKey(d => d.RestId)
-                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("fk_rest1");
             });
 
@@ -328,8 +247,6 @@ namespace Foodilizer_Group35.Models
 
                 entity.HasCharSet("utf8")
                     .UseCollation("utf8_general_ci");
-
-                entity.Property(e => e.ReportId).ValueGeneratedNever();
 
                 entity.Property(e => e.Content).HasComment("Insert sales report content and any additional content");
 

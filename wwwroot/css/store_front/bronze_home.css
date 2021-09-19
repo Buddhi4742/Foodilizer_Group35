@@ -466,7 +466,8 @@ h1 {
     border-left: ridge;
     border-top: ridge;
     border-bottom: ridge;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    padding-top:10px;
     width: 500px;
     color: black;
     display:flex;
@@ -476,9 +477,13 @@ h1 {
     overflow-y:auto;
    
 }
-    .rcard::-webkit-scrollbar {
-        width: 0.3em;
-    }
+.rcard-text{
+    font-size:medium;
+    min-height:100px;
+}
+.rcard::-webkit-scrollbar {
+    width: 0.3em;
+}
 
     .rcard::-webkit-scrollbar-track {
         box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -489,7 +494,8 @@ h1 {
         outline: 1px solid slategrey;
     }
 .revnum{
-    margin-left:70px;
+    margin-left:50px;
+    margin-top:-3px;
 }
 .rev .carousel-inner {
     padding:0em;
@@ -572,6 +578,15 @@ h1 {
 }
 .likerow .row{
     margin-bottom:150px;
+}
+.likerow .circles {
+    font-size:15px;
+}
+.likerow .circles .glyphicon{
+    font-size: 18px;
+}
+.likerow .cusineitem {
+    line-height: 20px;
 }
 .grid {
     margin-top:20px;
@@ -662,4 +677,77 @@ h1 {
 
 .fa-circle {
     padding-right: 1px;
+}
+
+
+.flipcard {
+    height: 220px;
+    width: 190px;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: all 1s ease-in-out;
+}
+    .flipcard img {
+        border-radius: 0px;
+        min-width: 183px;
+        max-width: 183px;
+        margin-left: -10px;
+        min-height: 150px;
+        max-height: 150px;
+    }
+    .flipcard:hover {
+        transform: rotateY(180deg);
+    }
+
+    .flipcard .side {
+        backface-visibility: hidden;
+        border-radius: 6px;
+        position: absolute;
+        overflow: hidden;
+        height: 220px;
+        width: 190px;
+    }
+
+    .flipcard .back {
+        background: url("https://i.pinimg.com/736x/7c/b1/86/7cb18679659f791b1191bea97b74dfc0.jpg");
+        background-position: right;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #FFFFFF;
+        line-height: 150px;
+        text-align: left;
+        transform: rotateY(180deg);
+    }
+        .flipcard .back .ing,.prc,.ingitem{
+            max-width:100px;
+            
+            margin-left:10px;
+        }
+        .flipcard .back h4 {
+            
+            margin-left: 10px;
+        }
+        .flipcard .back .prcitem {
+            margin-left: 40px;
+            margin-top:-10px;
+        }
+        .ing {
+            margin-top: 50px;
+        }
+.prc {
+    margin-top: 30px;
+}
+
+.menu-det .circles .glyphicon {
+    margin-left: 3px;
+    font-size: 18px;
+    color: #0cb021;
+    margin-top: 0px;
+    letter-spacing: -4px;
+}
+
+.menu-det .revdate {
+    font-size: 13px;
+    margin-left:20px;
+    margin-top:2px;
 }

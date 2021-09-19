@@ -13,23 +13,22 @@ namespace Foodilizer_Group35.Models
     public partial class Item
     {
         [Column("rest_id")]
-        public int? RestId { get; set; }
+        public int RestId { get; set; }
         [Key]
         [Column("item_id")]
         public int ItemId { get; set; }
         [Column("item_name")]
-        [StringLength(50)]
+        [StringLength(100)]
         public string ItemName { get; set; }
         [Column("item_quantity")]
-        public decimal? ItemQuantity { get; set; }
-        [Required]
+        public int? ItemQuantity { get; set; }
         [Column("measurement")]
         [StringLength(50)]
         public string Measurement { get; set; }
         [Column("quantity_limit")]
-        public decimal? QuantityLimit { get; set; }
+        public int? QuantityLimit { get; set; }
         [Column("alert")]
-        [StringLength(50)]
+        [StringLength(500)]
         public string Alert { get; set; }
 
         [ForeignKey(nameof(RestId))]

@@ -3,22 +3,10 @@
 
 // Write your JavaScript code.
 var swiper = new Swiper(".mySwiper", {
-	slidesPerView: 4,
-	spaceBetween: 10,
-	freeMode: true,
-	loop: true,
-	autoplay: {
-		delay: 5000,
-		disableOnInteraction: false,
-		pauseOnMouseEnter: true,
-	},
-	pagination: {
-		el: ".swiper-pagination",
-		clickable: true,
-	}, navigation: {
-		nextEl: ".swiper-button-next",
-		prevEl: ".swiper-button-prev",
-	},
+	slidesPerView: 5,
+	spaceBetween: 12,
+	freeMode: false,
+	loop: false,
 });
 
 $(document).ready(function () {

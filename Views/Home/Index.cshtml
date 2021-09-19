@@ -1,4 +1,4 @@
-﻿  @{
+﻿@{
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_home_Layout.cshtml";
 }
@@ -14,47 +14,62 @@
 <section class="hero-section">
     <div class="container">
         <div class="hero-image">
-            <div class="hero search-bar">
-                <div class="container search">
-                    <div class="col-12">
-                        <div class="search">
-                            <form>
-                                <input class="input" type="text" name="s" placeholder="Search!!">
-                                <button type="submit"><i class="fa fa-search"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+            
             </div>
             <div class="hero-text">
-                <h1 style="font-size:50px">Welcome to Foodilizer</h1>
+                <h1>Welcome to Foodilizer</h1>
                 <h3>Find best places to visit</h3>
             </div>
 
         </div>
+    <div class="container search">
+        <div class="row">
+            <div class="col-lg-12 search-form">
+                <form id="search-form" asp-controller="Search" asp-action="RestaurantSearchResults">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row no-gutters">
+                                <div class="col-lg-6 p-0">
+                                    <input type="text" placeholder="Search..." class="form-control" id="search" name="searchString">
+                                </div>
+                                <div class="col-lg-2  p-0 ml-2">
+                                    <select class="form-control" id="district" name="district">
+                                        <option>All Locations</option>
+                                        @foreach (var locations in ViewBag.restlocation)
+                                        {
+                                            <option>@locations</option>
+                                        }
+                                    </select>
+                                </div>
+                                <div class="col-lg-2 p-0 ml-2">
+                                    <select class="form-control" id="searchtype" name="searchtype">
+                                        <option>Restaurant</option>
+                                        <option>Food</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-1 p-0">
+                                    <button type="submit" asp-controller="Search" asp-action="RestaurantSearchResults" class="btn btn-base">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </section>
-<section id="top-res" class="top-res sec-swiper">
+  @*enter session data here*@
+<section id="top-res" class="top-res sec-swiper ">
     <div class="container">
         <div class="section-title">
             <h2>Top rated Restaurants</h2>
             <p>Select best resestaurants</p>
         </div>
-        <div class="swiper-container mySwiper">
+        <div class="swiper-container mySwiper ">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="swiper-block">
-                        <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                        <div class="swiper-card-data">
-                            <h4 class="card-name">Hoppa Galle Fort</h4>
-                            <span class="card-info">Resturant</span>
-                            <div class="rating-card">
-                                <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                                <div> <span>&nbsp;49 reviews</span> </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="swiper-slide">
                     <div class="swiper-block">
                         <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
@@ -132,7 +147,7 @@
             <h2>You Might Like these</h2>
             <p>Select best Food</p>
         </div>
-        <div class="swiper-container mySwiper">
+        <div class="swiper-container mySwiper ">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="swiper-block">
@@ -199,21 +214,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="swiper-block">
-                        <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                        <div class="swiper-card-data">
-                            <h4 class="card-name">Hoppa Galle Fort</h4>
-                            <span class="card-info">Resturant</span>
-                            <div class="rating-card">
-                                <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                                <div> <span>&nbsp;49 reviews</span> </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
                 <br /><br />
             </div>
             <div class="swiper-pagination position-relative pt-2"></div>
@@ -227,7 +227,7 @@
             <h2>Cool places near you</h2>
             <p>Check out these places</p>
         </div>
-        <div class="swiper-container mySwiper">
+        <div class="swiper-container mySwiper ">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="swiper-block">
@@ -294,21 +294,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="swiper-block">
-                        <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                        <div class="swiper-card-data">
-                            <h4 class="card-name">Hoppa Galle Fort</h4>
-                            <span class="card-info">Resturant</span>
-                            <div class="rating-card">
-                                <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                                <div> <span>&nbsp;49 reviews</span> </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
                 <br /><br />
             </div>
             <div class="swiper-pagination position-relative pt-2"></div>
@@ -317,11 +302,5 @@
 </section>
 
 
-<section>
-
-
-  
-
-</section>
 
 

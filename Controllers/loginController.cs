@@ -52,7 +52,9 @@ namespace Foodilizer_Group35.Controllers
                     HttpContext.Session.SetString("user_email", userDetails.Email);
                     HttpContext.Session.SetInt32("user_id", userDetails.UserId);
                     HttpContext.Session.SetString("user_type", userDetails.UserType);
-                    
+                    //HttpContext.Session.Clear();
+
+
                     if (userDetails.UserType == "CUST")
                     {
                         return RedirectToAction("Index", "Home");

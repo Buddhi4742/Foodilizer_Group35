@@ -15,6 +15,10 @@ body {
     padding: 0;
 }
 
+input[type="radio"] {
+    display: none;
+}
+
 :active,
 :hover,
 :focus {
@@ -547,11 +551,6 @@ footer section Design
     }
 
 
-
-
-input[type="radio"] {
-    display:none;
-}
 
 label {
     display: inline-block;

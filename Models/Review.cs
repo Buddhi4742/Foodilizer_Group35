@@ -22,13 +22,15 @@ namespace Foodilizer_Group35.Models
         [StringLength(200)]
         public string Feedback { get; set; }
         [Column("customer_id")]
-        public int? CustomerId { get; set; }
+        public int CustomerId { get; set; }
         [Column("rest_id")]
-        public int? RestId { get; set; }
-        [Required]
-        [Column("review_image")]
-        [StringLength(200)]
-        public string ReviewImage { get; set; }
+        public int RestId { get; set; }
+        [Column("review_image1")]
+        public string ReviewImage1 { get; set; }
+        [Column("review_image2")]
+        public string ReviewImage2 { get; set; }
+        [Column("review_image3")]
+        public string ReviewImage3 { get; set; }
         [Column("date", TypeName = "date")]
         public DateTime Date { get; set; }
 

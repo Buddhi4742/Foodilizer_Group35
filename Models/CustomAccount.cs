@@ -18,17 +18,17 @@ namespace Foodilizer_Group35.Models
         [Column("account_id")]
         public int AccountId { get; set; }
         [Column("account_title")]
-        [StringLength(50)]
+        [StringLength(100)]
         public string AccountTitle { get; set; }
         [Column("account_status")]
         [StringLength(50)]
         public string AccountStatus { get; set; }
         [Required]
         [Column("email")]
-        [StringLength(50)]
+        [StringLength(100)]
         public string Email { get; set; }
         [Column("username")]
-        [StringLength(50)]
+        [StringLength(100)]
         public string Username { get; set; }
         [Column("password")]
         [StringLength(100)]

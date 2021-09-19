@@ -17,5 +17,9 @@ namespace Foodilizer_Group35.Models
         [Key]
         [Column("food_id")]
         public int FoodId { get; set; }
+
+        [ForeignKey(nameof(OrderId))]
+        [InverseProperty(nameof(RestaurantOrder.OrderIncludesFoods))]
+        public virtual RestaurantOrder Order { get; set; }
     }
 }
