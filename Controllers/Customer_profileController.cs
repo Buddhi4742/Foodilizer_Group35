@@ -8,6 +8,11 @@ using Foodilizer_Group35.Models;
 using Microsoft.EntityFrameworkCore;
 //using Microsoft.AspNetCore.Mvc.Filters;
 //using Microsoft.Graph;
+using System.Security.Cryptography;
+using System.Text;
+using System.IO;
+//using Microsoft.AspNetCore.Mvc.Filters;
+//using Microsoft.Graph;
 
 namespace Foodilizer_Group35.Controllers
 {
@@ -51,10 +56,33 @@ namespace Foodilizer_Group35.Controllers
             }
         }
 
-        public ActionResult customer_profile_edit()
+        public ActionResult customer_profile_edit(int id)
         {
-            int id = 1;
             using (foodilizerContext context = new foodilizerContext())
+            {
+                return View(_context.Customers.Where(x => x.CustomerId == id).FirstOrDefault());
+            }
+        }
+
+       
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult customer_profile_edit(int id,Customer customer)
+        {
+            try
+            {
+                _context.Customers.Where(x => x.CustomerId == id).FirstOrDefault().Name = customer.Name;
+                _context.Customers.Where(x => x.CustomerId == id).FirstOrDefault().Name = customer.Name;
+                _context.Customers.Where(x => x.CustomerId == id).FirstOrDefault().Address = customer.Address;
+                _context.Customers.Where(x => x.CustomerId == id).FirstOrDefault().Province = customer.Province;
+                _context.Customers.Where(x => x.CustomerId == id).FirstOrDefault().District = customer.District;
+                _context.Customers.Where(x => x.CustomerId == id).FirstOrDefault().DietryRestriction = customer.DietryRestriction;
+                _context.SaveChanges();
+
+
+                return RedirectToAction(nameof(customer_profile_reviews));
+            }
+            catch
             {
                 return View(_context.Customers.Where(x => x.CustomerId == id).FirstOrDefault());
             }
@@ -131,6 +159,25 @@ namespace Foodilizer_Group35.Controllers
             {
                 return View();
             }
+        }
+
+        public void UploadFile(string email)
+        {
+
+            string folderPath = "wwwroot/resources/Customers/" + email + "/";
+
+            //Check whether Directory (Folder) exists.
+            if (!Directory.Exists(folderPath))
+            {
+                //If Directory (Folder) does not exists. Create it.
+                Directory.CreateDirectory(folderPath);
+            }
+
+            ////Save the File to the Directory (Folder).
+            //FileUpload1.SaveAs(folderPath + Path.GetFileName(FileUpload1.FileName));
+
+            ////Display the success message.
+            //lblMessage.Text = Path.GetFileName(FileUpload1.FileName) + " has been uploaded.";
         }
     }
 }
