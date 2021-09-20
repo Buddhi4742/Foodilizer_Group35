@@ -7,12 +7,11 @@
     <div class="container-fluid px-4">
         <div class="row">
             <div class="col-8">
-                <h1 class="mt-4">Restaurants</h1>
+                <h1 class="mt-4">Resturants</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active">Foodilizer Admin/Restaurants</li>
                 </ol>
             </div>
-           
         </div>
         <div class="card-body">
             <table id="datatablesSimple">
@@ -60,7 +59,7 @@
                                 
                                 <td>
                                     <a  class="btn btn-outline-success" asp-controller="Foodilizer_admin" asp-action="ResturantsDetails" asp-route-id="@item.RestId">More</a> 
-                                    <a class="btn btn-danger" asp-controller="Foodilizer_admin" asp-action="RestaurantsDelete" asp-route-id="@item.RestId">Delete</a>
+                                    <a class="btn btn-danger" asp-controller="Foodilizer_admin" asp-action="ResturantsDelete" asp-route-id="@item.RestId">Delete</a>
                                 </td>
                             </tr>
 
