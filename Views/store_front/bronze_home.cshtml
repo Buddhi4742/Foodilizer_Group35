@@ -23,6 +23,8 @@
     @{ List<Restaurant> temp4 = ViewBag.rating2;}
     @{ List<Restaurant> temp5 = ViewBag.rating3;}
     @{ List<Restaurant> temp6 = ViewBag.rating4;}
+    @{ Nullable<int> sessionid = ViewBag.sessionid;}
+    @{ String sessionuser = ViewBag.sessionuser;}
 
     <div class="row">
         <div class="col-8">
@@ -180,9 +182,9 @@
 
                                                             </div>
                                                         </div>
-                                                        </div>
                                                     </div>
                                                 </div>
+                                            </div>
 
                                         }
                                     }
@@ -533,7 +535,7 @@
     <div class="rev row">
 
         <div class="col-8" id="#rev">
-            <div class="rev-topic" >
+            <div class="rev-topic">
                 @if (temp2 != null)
                 {
                     var i = 0;
@@ -543,74 +545,105 @@
                         i++;
                     }
 
-                    <h3 >Reviews (@i)</h3>@*<button class="revb">Write a Review</button>*@
-                    <div align="center">
-                        <br />
-                        <a href="#loginScreen" class="revb">Write a Review</a>
-                    </div>
-                    <div id="loginScreen">
-                        <a href="#rev" class="cancel">×</a>
-                        <div id="contact-form">
-                            <div>
-                                <h1>WE APPRECIATE YOUR REVIEW!</h1>
-                                
+                    <h3>Reviews (@i)</h3>@*<button class="revb">Write a Review</button>*@
+
+
+                    @if (sessionid != null)
+                    {
+                        <div align="center">
+                            <br />
+                            <a href="#loginScreen" class="revb">Write a Review</a>
+                        </div>
+
+                        <div id="loginScreen">
+                            <a href="#rev" class="cancel">×</a>
+                            <div id="contact-form">
+                                <div>
+                                    <h1>WE APPRECIATE YOUR REVIEW!</h1>
+
+                                </div>
+
+
+                                <form method="post" action="#">
+                                    <div>
+                                        <label for="name">
+                                            <span class="required">Your Name: *</span>
+                                            <input type="text" id="name" name="name" value="" placeholder="John Doe" required="required" tabindex="1" autofocus="autofocus" />
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label for="topic">
+                                            <span class="required">Your Overall Experience: *</span>
+                                            <input type="text" id="experience" name="experience" value="" placeholder="Fantastic!" tabindex="2" required="required" />
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label for="subject">
+                                            <span class="required">Rate our Overall Service: </span>
+                                            <select id="subject" name="subject" tabindex="4">
+                                                <option value="1">1</option>
+                                                <option value="2">2 </option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+
+                                            </select>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label for="message">
+                                            <span class="required">Write Your Feedback: *</span>
+                                            <textarea id="message" name="message" placeholder="Please write your feedback here." tabindex="5" required="required"></textarea>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <button name="submit" type="submit" id="submit">Submit</button>
+                                    </div>
+                                </form>
+
                             </div>
-                            <p id="failure">Oopsie...message not sent.</p>
-                            <p id="success">Your message was sent successfully. Thank you!</p>
 
-                            <form method="post" action="#">
-                                <div>
-                                    <label for="name">
-                                        <span class="required">Your Name: *</span>
-                                        <input type="text" id="name" name="name" value="" placeholder="John Doe" required="required" tabindex="1" autofocus="autofocus" />
-                                    </label>
-                                </div>
-                                <div>
-                                    <label for="topic">
-                                        <span class="required">Your Overall Experience: *</span>
-                                        <input type="text" id="experience" name="experience" value="" placeholder="Fantastic!" tabindex="2" required="required" />
-                                    </label>
-                                </div>
-                                <div>
-                                    <label for="subject">
-                                        <span class="required">Rate our Overall Service: </span>
-                                        <select id="subject" name="subject" tabindex="4">
-                                            <option value="1">1</option>
-                                            <option value="2">2 </option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
 
-                                        </select>
-                                    </label>
-                                </div>
-                                <div>
-                                    <label for="message">
-                                        <span class="required">Write Your Feedback: *</span>
-                                        <textarea id="message" name="message" placeholder="Please write your feedback here." tabindex="5" required="required"></textarea>
-                                    </label>
-                                </div>
-                                <div>
-                                    <button name="submit" type="submit" id="submit">Submit</button>
-                                </div>
-                            </form>
 
+                        </div>
+                        <div id="cover">
+                        </div>
+                    }
+                    @*else if (sessionuser == "REST")
+                {
+            <div id="loginScreen">
+                <a href="#rev" class="cancel">×</a>
+                <p>u can't'</p>
+            </div>
+                }*@
+
+
+                    else
+                    {
+                        <div align="center">
+                            <br />
+                            <a href="#eloginScreen" class="revb">Write a Review</a>
+                        </div>
+                        <div id="eloginScreen">
+                            <a href="#rev" class="ecancel">×</a>
+                            <div class="page-wrapper">
+                                <div class="custom-modal">
+                                    <div class="danger danger-animation icon-top"><i class="fa fa-times"></i></div>
+                                    <div class="danger border-bottom"></div>
+                                    <div class="content">
+                                        <p class="type">Warning!</p>
+                                        <p class="message-type">You must be logged in first to write a review! </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
 
 
+                        <div id="ecover">
+                        </div>
+                    }
 
-
-
-
-
-
-
-
-
-                    </div>
-                    <div id="cover">
-                    </div>
                 }
 
             </div>
@@ -638,9 +671,9 @@
                                                     </div>
                                                     <div class="menu-det">
                                                         <div class="card-title">
-                                                           
-                                                             @{    
-                                                                 var a = @item.Rating;
+
+                                                            @{
+                                                                var a = @item.Rating;
 
                                                                 <div class="circles">
 
@@ -657,13 +690,13 @@
                                                                                 <span class="glyphicon glyphicon-star-empty"></span>
                                                                             }
                                                                         </li>
-                                                                     
+
 
                                                                     </ul>
 
                                                                 </div>
 
-                                                                 }
+                                                            }
 
 
                                                             <div class="revdate">&nbsp;Reviewed in @item.Date.ToString("dd/MM/yyyy") </div><p class="revnum">@i</p>
@@ -713,56 +746,58 @@
                             <div class="text">
 
                                 <h4>@item.Rname</h4>
-                                <p><div class="circles" style="font-size:13px;">
+                                <p>
+                                    <div class="circles" style="font-size:13px;">
 
 
 
 
 
-                                @if (temp3 != null)
-                                {
-                                    double sum = 0.0;
-                                    double avg = 0.0;
-                                    int count = 0;
-                                    @foreach (var item2 in temp3.First().Reviews)
-                                    {
+                                        @if (temp3 != null)
+                                        {
+                                            double sum = 0.0;
+                                            double avg = 0.0;
+                                            int count = 0;
+                                            @foreach (var item2 in temp3.First().Reviews)
+                                            {
 
-                                        var rate = @item2.Rating;
-                                        sum = sum + System.Convert.ToDouble(rate);
-                                        count++;
+                                                var rate = @item2.Rating;
+                                                sum = sum + System.Convert.ToDouble(rate);
+                                                count++;
 
 
-                                    }
-                                    avg = (sum / count);
-                                    float a = System.Convert.ToSingle(avg);
-                                    String val = a.ToString("0.0");
-                                    float minus = System.Convert.ToSingle(1);
-                                    c = avg - 1.0;
-                                    <div class="circles">
+                                            }
+                                            avg = (sum / count);
+                                            float a = System.Convert.ToSingle(avg);
+                                            String val = a.ToString("0.0");
+                                            float minus = System.Convert.ToSingle(1);
+                                            c = avg - 1.0;
+                                            <div class="circles">
 
-                                        <ul style="list-style:none">
+                                                <ul style="list-style:none">
 
-                                            <li>
-                                                @for (int i = 0; i < System.Convert.ToInt32(a); i++)
-                                                {
-                                                    <span class="glyphicon glyphicon-star"></span>
+                                                    <li>
+                                                        @for (int i = 0; i < System.Convert.ToInt32(a); i++)
+                                                        {
+                                                            <span class="glyphicon glyphicon-star"></span>
 
-                                                }
-                                                @for (int i = System.Convert.ToInt32(a); i < 5; i++)
-                                                {
-                                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                                }
-                                                &nbsp; &nbsp;@count&nbsp; Reviews
-                                            </li>
-                                            
-                                        </ul>
+                                                        }
+                                                        @for (int i = System.Convert.ToInt32(a); i < 5; i++)
+                                                        {
+                                                            <span class="glyphicon glyphicon-star-empty"></span>
+                                                        }
+                                                        &nbsp; &nbsp;@count&nbsp; Reviews
+                                                    </li>
+
+                                                </ul>
+
+                                            </div>
+
+                                        }
+
 
                                     </div>
-
-                                }
-
-    
-</div></p>
+                                </p>
                                 <p class="cusineitem">@item.Cuisine</p>
                             </div>
                         </article>
@@ -777,55 +812,57 @@
                         <article>
                             <img src="https://www.lankayp.com/img/cats/restaurants.jpg" alt="Sample photo">
                             <div class="text">
-                                
+
                                 <h4>@item.Rname</h4>
-                                <p><div class="circles" style="font-size:13px;">
+                                <p>
+                                    <div class="circles" style="font-size:13px;">
 
 
-    @if (temp4 != null)
-    {
-        double sum = 0.0;
-        double avg = 0.0;
-        int count = 0;
-        @foreach (var item2 in temp4.First().Reviews)
-        {
+                                        @if (temp4 != null)
+                                        {
+                                            double sum = 0.0;
+                                            double avg = 0.0;
+                                            int count = 0;
+                                            @foreach (var item2 in temp4.First().Reviews)
+                                            {
 
-            var rate = @item2.Rating;
-            sum = sum + System.Convert.ToDouble(rate);
-            count++;
+                                                var rate = @item2.Rating;
+                                                sum = sum + System.Convert.ToDouble(rate);
+                                                count++;
 
 
-        }
-        avg = (sum / count);
-        float a = System.Convert.ToSingle(avg);
-        String val = a.ToString("0.0");
-        float minus = System.Convert.ToSingle(1);
-        c = avg - 1.0;
-        <div class="circles">
+                                            }
+                                            avg = (sum / count);
+                                            float a = System.Convert.ToSingle(avg);
+                                            String val = a.ToString("0.0");
+                                            float minus = System.Convert.ToSingle(1);
+                                            c = avg - 1.0;
+                                            <div class="circles">
 
-            <ul style="list-style:none">
+                                                <ul style="list-style:none">
 
-                <li>
-                    @for (int i = 0; i < System.Convert.ToInt32(a); i++)
-                    {
-                        <span class="glyphicon glyphicon-star"></span>
+                                                    <li>
+                                                        @for (int i = 0; i < System.Convert.ToInt32(a); i++)
+                                                        {
+                                                            <span class="glyphicon glyphicon-star"></span>
 
-                    }
-                    @for (int i = System.Convert.ToInt32(a); i < 5; i++)
-                    {
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    }
-                    &nbsp;&nbsp; @count&nbsp; Reviews
-                </li>
-               
+                                                        }
+                                                        @for (int i = System.Convert.ToInt32(a); i < 5; i++)
+                                                        {
+                                                            <span class="glyphicon glyphicon-star-empty"></span>
+                                                        }
+                                                        &nbsp;&nbsp; @count&nbsp; Reviews
+                                                    </li>
 
-            </ul>
 
-        </div>
+                                                </ul>
 
-    }
+                                            </div>
 
-</div></p>
+                                        }
+
+                                    </div>
+                                </p>
                                 <p class="cusineitem">@item.Cuisine</p>
                             </div>
                         </article>
@@ -840,52 +877,54 @@
                         <article>
                             <img src="https://www.lankayp.com/img/cats/restaurants.jpg" alt="Sample photo">
                             <div class="text">
-                                
+
                                 <h4>@item.Rname</h4>
-                                <p><div class="circles" style="font-size:13px;">
-    @if (temp5 != null)
-    {
-        double sum = 0.0;
-        double avg = 0.0;
-        int count = 0;
-        @foreach (var item2 in temp5.First().Reviews)
-        {
+                                <p>
+                                    <div class="circles" style="font-size:13px;">
+                                        @if (temp5 != null)
+                                        {
+                                            double sum = 0.0;
+                                            double avg = 0.0;
+                                            int count = 0;
+                                            @foreach (var item2 in temp5.First().Reviews)
+                                            {
 
-            var rate = @item2.Rating;
-            sum = sum + System.Convert.ToDouble(rate);
-            count++;
+                                                var rate = @item2.Rating;
+                                                sum = sum + System.Convert.ToDouble(rate);
+                                                count++;
 
 
-        }
-        avg = (sum / count);
-        float a = System.Convert.ToSingle(avg);
-        String val = a.ToString("0.0");
-        float minus = System.Convert.ToSingle(1);
-        c = avg - 1.0;
-        <div class="circles">
+                                            }
+                                            avg = (sum / count);
+                                            float a = System.Convert.ToSingle(avg);
+                                            String val = a.ToString("0.0");
+                                            float minus = System.Convert.ToSingle(1);
+                                            c = avg - 1.0;
+                                            <div class="circles">
 
-            <ul style="list-style:none">
+                                                <ul style="list-style:none">
 
-                <li>
-                    @for (int i = 0; i < System.Convert.ToInt32(a); i++)
-                    {
-                        <span class="glyphicon glyphicon-star"></span>
+                                                    <li>
+                                                        @for (int i = 0; i < System.Convert.ToInt32(a); i++)
+                                                        {
+                                                            <span class="glyphicon glyphicon-star"></span>
 
-                    }
-                    @for (int i = System.Convert.ToInt32(a); i < 5; i++)
-                    {
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    }
-                    &nbsp;&nbsp; @count&nbsp; Reviews
-                </li>
-                
+                                                        }
+                                                        @for (int i = System.Convert.ToInt32(a); i < 5; i++)
+                                                        {
+                                                            <span class="glyphicon glyphicon-star-empty"></span>
+                                                        }
+                                                        &nbsp;&nbsp; @count&nbsp; Reviews
+                                                    </li>
 
-            </ul>
 
-        </div>
+                                                </ul>
 
-    }
-</div></p>
+                                            </div>
+
+                                        }
+                                    </div>
+                                </p>
                                 <p class="cusineitem">@item.Cuisine</p>
                             </div>
                         </article>
@@ -900,68 +939,70 @@
                         <article>
                             <img src="https://www.lankayp.com/img/cats/restaurants.jpg" alt="Sample photo">
                             <div class="text">
-                                
+
                                 <h4>@item.Rname</h4>
-                                <p><div class="circles" style="font-size:13px;">
-    @if (temp6 != null)
-    {
-        double sum = 0.0;
-        double avg = 0.0;
-        int count = 0;
-        @foreach (var item2 in temp6.First().Reviews)
-        {
+                                <p>
+                                    <div class="circles" style="font-size:13px;">
+                                        @if (temp6 != null)
+                                        {
+                                            double sum = 0.0;
+                                            double avg = 0.0;
+                                            int count = 0;
+                                            @foreach (var item2 in temp6.First().Reviews)
+                                            {
 
-            var rate = @item2.Rating;
-            sum = sum + System.Convert.ToDouble(rate);
-            count++;
+                                                var rate = @item2.Rating;
+                                                sum = sum + System.Convert.ToDouble(rate);
+                                                count++;
 
 
-        }          
-        if (count > 0)
-        {
-            avg = (sum / count);
-        }
-        else
-        {
-            count = 1;
-            avg = (sum / count);
-            count = 0;
-        }
-        float a = System.Convert.ToSingle(avg);
-        String val = a.ToString("0.0");
-        float minus = System.Convert.ToSingle(1);
-        c = avg - 1.0;
-        <div class="circles">
+                                            }
+                                            if (count > 0)
+                                            {
+                                                avg = (sum / count);
+                                            }
+                                            else
+                                            {
+                                                count = 1;
+                                                avg = (sum / count);
+                                                count = 0;
+                                            }
+                                            float a = System.Convert.ToSingle(avg);
+                                            String val = a.ToString("0.0");
+                                            float minus = System.Convert.ToSingle(1);
+                                            c = avg - 1.0;
+                                            <div class="circles">
 
-            <ul style="list-style:none">
+                                                <ul style="list-style:none">
 
-                <li>
-                    @for (int i = 0; i < System.Convert.ToInt32(a); i++)
-                    {
-                        <span class="glyphicon glyphicon-star"></span>
+                                                    <li>
+                                                        @for (int i = 0; i < System.Convert.ToInt32(a); i++)
+                                                        {
+                                                            <span class="glyphicon glyphicon-star"></span>
 
-                    }
-                    @for (int i = System.Convert.ToInt32(a); i < 5; i++)
-                    {
-                        <span class="glyphicon glyphicon-star-empty"></span>
+                                                        }
+                                                        @for (int i = System.Convert.ToInt32(a); i < 5; i++)
+                                                        {
+                                                            <span class="glyphicon glyphicon-star-empty"></span>
 
-                    }
-                    &nbsp; &nbsp;@count&nbsp; Reviews
-                </li>
-                
+                                                        }
+                                                        &nbsp; &nbsp;@count&nbsp; Reviews
+                                                    </li>
 
-            </ul>
 
-        </div>
+                                                </ul>
 
-    }
-</div></p>
+                                            </div>
+
+                                        }
+                                    </div>
+                                </p>
                                 <p class="cusineitem">@item.Cuisine</p>
                             </div>
                         </article>
                     }
                 }
-              
+
 
 
             </main>

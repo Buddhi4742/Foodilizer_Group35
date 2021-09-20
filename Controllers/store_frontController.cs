@@ -22,7 +22,11 @@ namespace Foodilizer_Group35.Controllers
 
         public IActionResult bronze_home()
         {
-           
+            
+            var sessionid=HttpContext.Session.GetInt32("user_id");
+            ViewBag.sessionid = sessionid;
+            var sessionuser = HttpContext.Session.GetString("user_type");
+            ViewBag.sessionuser = sessionuser;
             int id = 2;
 
 
