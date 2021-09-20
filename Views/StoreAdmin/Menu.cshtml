@@ -17,10 +17,14 @@
                     <tr>
                         <th>Name</th>
                         <th>Price</th>
-                        <th>INGREDIENTS</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>edit buttons</th>
+                        <th>Type</th>
+                        <th>Category</th>
+                        <th>SubCategory</th>
+                        <th>Veg</th>
+                        <th>SpicyLevel</th>
+                        <th>Hot</th>
+                        <th>Organic</th>
+                        <th>Edit Item</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,14 +36,19 @@
                             <tr>
                                 <td>@item.FoodName</td>
                                 <td>Rs.@item.Price</td>
-                                <td>@item.Ingredient</td>
-                                <td>
-                                    <a asp-action="MenuEdit" asp-route-id="@item.FoodId">Edit</a> |
-                                    <a asp-action="MenuDetails" asp-route-id="@item.FoodId">Details</a> |
-                                    <a asp-action="MenuDelete" asp-route-id="@item.FoodId">Delete</a>
+                                <td>@item.Type</td>
+                                <td>@item.Category</td>
+                                <td>@item.SubCategory</td>
+                                <td>@item.Veg</td>
+                                <td>@item.SpicyLevel</td>
+                                <td>@item.Hot</td>
+                                <td>@item.Organic</td>
+                                <td class="">
+                                    <a class="btn btn-secondary" asp-action="MenuEdit" asp-route-id="@item.FoodId">Edit</a> 
+                                    <a class="btn btn-outline-success" asp-action="MenuDetails" asp-route-id="@item.FoodId">More</a>
+                                    <a class="btn btn-danger" asp-action="MenuDelete" asp-route-id="@item.FoodId">Delete</a>
                                 </td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
+                                
                             </tr>
 
 
@@ -50,10 +59,14 @@
                     <tr>
                         <th>Name</th>
                         <th>Price</th>
-                        <th>INGREDIENTS</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
+                        <th>Type</th>
+                        <th>Category</th>
+                        <th>SubCategory</th>
+                        <th>Veg</th>
+                        <th>SpicyLevel</th>
+                        <th>Hot</th>
+                        <th>Organic</th>
+                        <th>Edit Item</th>
                     </tr>
                 </tfoot>
 

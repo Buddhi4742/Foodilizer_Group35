@@ -60,9 +60,9 @@
                                     @Html.DisplayFor(modelItem => item.QuantityLimit)
                                 </td>
                                 <td>
-                                    <a asp-action="InventoryEdit" asp-route-id="@item.ItemId">Edit</a> |
-                                    <a asp-action="InventoryDetails" asp-route-id="@item.ItemId">Details</a> |
-                                    <a asp-action="InventoryDelete" asp-route-id="@item.ItemId">Delete</a>
+                                    <a class="btn btn-secondary" asp-action="InventoryEdit" asp-route-id="@item.ItemId">Edit</a> 
+                                    <a  class="btn btn-outline-success" asp-action="InventoryDetails" asp-route-id="@item.ItemId">More</a> 
+                                    <a class="btn btn-danger" asp-action="InventoryDelete" asp-route-id="@item.ItemId">Delete</a>
                                 </td>
                             </tr>
 
