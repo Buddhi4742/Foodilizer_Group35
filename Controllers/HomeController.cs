@@ -32,6 +32,13 @@ namespace Foodilizer_Group35.Controllers
             }
             var location = _context.Restaurants.Select(x => x.Rdistrict).Distinct().ToList();
             ViewBag.restlocation = location;
+
+            //var bestRes = _context.Restaurants.SelectOrderByDescending.toList();
+            //var results = _context.Restaurants.Select(x => x.RestId).OrderBy(x => x.rateing);
+
+
+            //var bestFood = _context.Foods.Select(x => x.FoodId).OrderBy(x => x.PrefScore);
+
             return View();
         }
         public IActionResult Login()

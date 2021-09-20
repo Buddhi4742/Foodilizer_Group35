@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Foodilizer_Group35.Models.Restaurant>
+@{
+    Layout = "~/Views/Shared/_Foodilizer_admin_layout.cshtml";
+}
+@{ List<Menu> temp = ViewBag.itemdet;}
+<main>
+    <div class="container-fluid px-4">
+        <div class="row">
+            <div class="col-8">
+                <h1 class="mt-4">Restaurants</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item active">Foodilizer Admin/Restaurants</li>
+                </ol>
+            </div>
+           
+        </div>
+        <div class="card-body">
+            <table id="datatablesSimple">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Resturant Name</th>
+                        <th>Owner Name</th>
+                        <th>Owner Contact</th>
+                        <th>Owner Email</th>
+                        <th>Type</th>
+                        <th>Price Range</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @*@if (temp != null)
+                    {*@
+
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RestId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Rname)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.OwnerName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.OwnerContact)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.OwnerEmail)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RestType)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PriceRange)
+                                </td>
+                                
+                                <td>
+                                    <a  class="btn btn-outline-success" asp-controller="Foodilizer_admin" asp-action="ResturantsDetails" asp-route-id="@item.RestId">More</a> 
+                                    <a class="btn btn-danger" asp-controller="Foodilizer_admin" asp-action="RestaurantsDelete" asp-route-id="@item.RestId">Delete</a>
+                                </td>
+                            </tr>
+
+
+                        }
+                    @*}*@
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Resturant Name</th>
+                        <th>Owner Name</th>
+                        <th>Owner Contact</th>
+                        <th>Owner Email</th>
+                        <th>Type</th>
+                        <th>Price Range</th>
+                        <th>Edit</th>
+                    </tr>
+                </tfoot>
+
+            </table>
+        </div>
+    </div>
+</main>

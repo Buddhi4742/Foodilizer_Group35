@@ -1,41 +1,54 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
+//using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Foodilizer_Group35.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Foodilizer_Group35.Controllers
 {
     public class Foodilizer_adminController : Controller
     {
+        private readonly foodilizerContext _context;
+
+        public Foodilizer_adminController(foodilizerContext context)
+        {
+            _context = context;
+        }
         // GET: Foodilizer_adminController
         public ActionResult Index()
         {
             return View();
         }
-
-        // GET: Foodilizer_adminController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Resturants()
         {
-            return View();
+            return View(_context.Restaurants.ToList());
         }
 
-        // GET: Foodilizer_adminController/Create
-        public ActionResult Create()
+        public ActionResult ResturantsDetails(int id)
         {
-            
-            return View();
-        }
 
-        // POST: Foodilizer_adminController/Create
+            return View(_context.Restaurants.Where(x => x.RestId == id).FirstOrDefault());
+
+        }
+        public IActionResult ResturantsDelete(int id)
+        {
+            //Response.WriteAsync(id.ToString());
+            return View(_context.Restaurants.Where(x => x.RestId == id).FirstOrDefault());
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> ResturantsDelete(int id, IFormCollection collection)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                //Response.WriteAsync(id.ToString());
+                Restaurant rest = _context.Restaurants.Where(x => x.RestId == id).FirstOrDefault();
+                _context.Restaurants.Remove(rest);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Resturants));
             }
             catch
             {
@@ -43,20 +56,36 @@ namespace Foodilizer_Group35.Controllers
             }
         }
 
-        // GET: Foodilizer_adminController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
 
-        // POST: Foodilizer_adminController/Edit/5
+
+
+
+        public ActionResult Users()
+        {
+            return View(_context.Customers.ToList());
+        }
+        public ActionResult UsersDetails(int id)
+        {
+
+            return View(_context.Customers.Where(x => x.CustomerId == id).FirstOrDefault());
+
+        }
+        public IActionResult UsersDelete(int id)
+        {
+            //Response.WriteAsync(id.ToString());
+            return View(_context.Customers.Where(x => x.CustomerId == id).FirstOrDefault());
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> UsersDelete(int id, IFormCollection collection)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                //Response.WriteAsync(id.ToString());
+                Customer Cust = _context.Customers.Where(x => x.CustomerId == id).FirstOrDefault();
+                _context.Customers.Remove(Cust);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Users));
             }
             catch
             {
@@ -64,25 +93,5 @@ namespace Foodilizer_Group35.Controllers
             }
         }
 
-        // GET: Foodilizer_adminController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Foodilizer_adminController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }
