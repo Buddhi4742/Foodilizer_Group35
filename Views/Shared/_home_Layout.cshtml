@@ -23,7 +23,16 @@
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                     <img class="title-logo img-fluid d-inline" src="~/resources/images/logo.png" width="160" />
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                @{if (TempData["Id"] != null)
+                    {
+                        if ((int)TempData["Id"] != -1)
+                        {   @*<label>your Id @id </label>*@
+                        <label> Hi, <b>@TempData["Name"]</b>, How is your day? </label>
+                            }
+
+                        }
+                    }
+                <button class="navbar-toggler" type="button" data-togglne="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -33,16 +42,16 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         @*<li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Restaurants</a>
-                        </li>*@
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Restaurants</a>
+                </li>*@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="RestRegister">Have a Business to register?</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Login</a>
                             @*<button type="button" class="login-btn" data-toggle="modal" data-target="#loginModal">
-                            Login
-                            </button>*@
+                    Login
+                    </button>*@
                         </li>
 
                     </ul>
