@@ -244,6 +244,17 @@ namespace Foodilizer_Group35.Controllers
 
         public ActionResult Recomendations()
         {
+
+            int id = 2;
+            var query = _context.Menus.Where(e => e.RestId == id).Include(e => e.Foods).ToList();
+            ViewBag.fooddet = query;
+            foreach (var item in query)
+            {
+
+                var recommend = _context.Foods.Where(e => e.MenuId == item.MenuId).ToList();
+                var prefscore = recommend.OrderByDescending(c => c.PrefScore).ToList();
+                ViewBag.recommendation = prefscore;
+            }
             return View();
         }
         public ActionResult Banner()
