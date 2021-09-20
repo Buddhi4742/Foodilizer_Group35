@@ -179,8 +179,14 @@ namespace Foodilizer_Group35.Controllers
         }
         public IActionResult gold_home()
         {
+            var sessionid = HttpContext.Session.GetInt32("user_id");
+            ViewBag.sessionid = sessionid;
+            var sessionuser = HttpContext.Session.GetString("user_type");
+            ViewBag.sessionuser = sessionuser;
             int id = 5;
+            HttpContext.Session.SetInt32("rest_id", id);
 
+            ViewBag.currentrestid = id;
             var query = _context.Menus.Where(e => e.RestId == id).Include(e => e.Foods).ToList();
             ViewBag.fooddet = query;
             var query2 = _context.Restaurants.Where(e => e.RestId == id).Include(e => e.Reviews).ThenInclude(e => e.Customer).ToList();
@@ -287,7 +293,20 @@ namespace Foodilizer_Group35.Controllers
 
                     TempData["Message"] = "Review Submitted Successfully";
                     //return RedirectToAction(nameof(Owner_price));
-                    return RedirectToAction("bronze_home");
+                    string urlAnterior = Request.Headers["Referer"].ToString();
+
+                    if (urlAnterior.Contains("bronze"))
+                    {
+                        return RedirectToAction("bronze_home");
+                    }
+                    else if (urlAnterior.Contains("silver"))
+                    {
+                        return RedirectToAction("silver_home");
+                    }
+                    else if (urlAnterior.Contains("gold"))
+                    {
+                        return RedirectToAction("gold_home");
+                    }
                 }
                 catch (Exception ex)
                 {

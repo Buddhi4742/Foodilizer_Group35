@@ -558,7 +558,10 @@ h1 {
     background-color: black;
     color: white;
     margin-left: 500px;
-    height: 40px;
+    height: 60px;
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
 }
 
 .rev-img {
