@@ -55,8 +55,15 @@ namespace Foodilizer_Group35.Controllers
 
                     if (userDetails.UserType == "CUST")
                     {
-                        var id = HttpContext.Session.GetInt32("user_id");
-                        await Response.WriteAsync("The login is cust and id" + id.ToString());
+                        //var id = HttpContext.Session.GetInt32("user_id");
+                        //await Response.WriteAsync("The login is cust and id" + id.ToString());
+                        if (HttpContext.Session.GetInt32("user_email") != null)
+                        {
+                            var name = await _context.Customers.FirstOrDefaultAsync(x => x.Cemail == HttpContext.Session.GetString("user_email"));
+                            TempData["Name"] = name.Name;
+                            TempData["Id"] = HttpContext.Session.GetInt32("user_id");
+                        }
+                   
                         return RedirectToAction("Index", "Home");
                         //return Print;
                     }
