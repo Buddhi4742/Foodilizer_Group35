@@ -22,8 +22,6 @@ namespace Foodilizer_Group35.Controllers
         // GET: Login
         public IActionResult Index()
         {
-            
-
             HttpContext.Session.SetInt32("user_id", -1);
             HttpContext.Session.SetString("user_type", "");
             HttpContext.Session.SetString("user_email", "");
@@ -57,6 +55,8 @@ namespace Foodilizer_Group35.Controllers
 
                     if (userDetails.UserType == "CUST")
                     {
+                        var id = HttpContext.Session.GetInt32("user_id");
+                        await Response.WriteAsync("The login is cust and id" + id.ToString());
                         return RedirectToAction("Index", "Home");
                         //return Print;
                     }

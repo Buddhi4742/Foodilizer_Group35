@@ -28,8 +28,9 @@ namespace Foodilizer_Group35.Controllers
             var sessionuser = HttpContext.Session.GetString("user_type");
             ViewBag.sessionuser = sessionuser;
             int id = 2;
-
-
+            HttpContext.Session.SetInt32("rest_id", id);
+            
+            ViewBag.currentrestid = id;
             var query = _context.Menus.Where(e => e.RestId == id).Include(e => e.Foods).ToList();
             ViewBag.fooddet = query;
             var query2 = _context.Restaurants.Where(e => e.RestId == id).Include(e => e.Reviews).ThenInclude(e=>e.Customer).ToList();
@@ -100,13 +101,18 @@ namespace Foodilizer_Group35.Controllers
 
         public IActionResult silver_home()
         {
+            var sessionid = HttpContext.Session.GetInt32("user_id");
+            ViewBag.sessionid = sessionid;
+            var sessionuser = HttpContext.Session.GetString("user_type");
+            ViewBag.sessionuser = sessionuser;
             int id = 3;
-
+            HttpContext.Session.SetInt32("rest_id", id);
             var query = _context.Menus.Where(e => e.RestId == id).Include(e => e.Foods).ToList();
             ViewBag.fooddet = query;
             ViewBag.count = 0;
             var query2 = _context.Restaurants.Where(e => e.RestId == id).Include(e => e.Reviews).ThenInclude(e => e.Customer).ToList();
             ViewBag.review = query2;
+
             foreach (var item in query)
             {
 
@@ -243,6 +249,59 @@ namespace Foodilizer_Group35.Controllers
                 return View(_context.Restaurants.Where(x => x.RestId == id).Include(e => e.Menus).ThenInclude(e => e.Foods).FirstOrDefault());
             }
         }
+
+
+        public async Task<IActionResult> create_review(IFormCollection collection)
+        {
+
+            if (ModelState.IsValid)
+            {
+
+                try
+                {
+
+                    var email = HttpContext.Session.GetString("user_email");
+                    var query = _context.Customers.Where(e => e.Cemail == email).ToList();
+                    //Customerid should be removed from here
+                    int customerid=-1;
+                    foreach (var item2 in query)
+                    {
+                        if (item2.CustomerId != 0)
+                        {
+                            customerid = item2.CustomerId;
+
+                        }
+                    }
+                    var newrev = new Review();
+                    var restid= HttpContext.Session.GetInt32("rest_id");
+                    newrev.RestId = System.Convert.ToInt32(restid);
+                    newrev.CustomerId = customerid;
+                    newrev.Feedback = collection["message"];
+                    newrev.Title = collection["experience"];
+                    newrev.Rating = System.Convert.ToInt32(collection["subject"]);
+                    DateTime dateTime = DateTime.UtcNow.Date;
+                    newrev.Date = dateTime;
+                    _context.Add(newrev);
+                    await _context.SaveChangesAsync();
+                        
+
+                    TempData["Message"] = "Review Submitted Successfully";
+                    //return RedirectToAction(nameof(Owner_price));
+                    return RedirectToAction("bronze_home");
+                }
+                catch (Exception ex)
+                {
+                    if (ex.InnerException.ToString().Contains("Violation of UNIQUE KEY constraint")) ViewBag.Error = "This email is already used. Please use another email address";
+                    else ViewBag.Error = "Unable to register this user. Please try agian";
+                    return View(/*customer*/);
+
+                }
+
+            }
+            ViewBag.Error = "Unable to register this user. Please try agian";
+            return View(/*customer*/);
+
+        }
         public IActionResult silver_cart()
         {
             return View();
@@ -261,4 +320,7 @@ namespace Foodilizer_Group35.Controllers
         }
 
     }
+
+
+
 }

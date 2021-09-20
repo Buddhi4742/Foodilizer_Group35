@@ -21,6 +21,9 @@ namespace Foodilizer_Group35.Models
         [Column("feedback")]
         [StringLength(200)]
         public string Feedback { get; set; }
+        [Column("title")]
+        [StringLength(200)]
+        public string Title { get; set; }
         [Column("customer_id")]
         public int CustomerId { get; set; }
         [Column("rest_id")]

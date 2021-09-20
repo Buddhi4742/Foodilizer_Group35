@@ -546,7 +546,7 @@
                     }
 
                     <h3>Reviews (@i)</h3>@*<button class="revb">Write a Review</button>*@
-
+                    //sessionid= 1; // for the form to be displayed. remove this to see the error message.
 
                     @if (sessionid != null)
                     {
@@ -564,13 +564,8 @@
                                 </div>
 
 
-                                <form method="post" action="#">
-                                    <div>
-                                        <label for="name">
-                                            <span class="required">Your Name: *</span>
-                                            <input type="text" id="name" name="name" value="" placeholder="John Doe" required="required" tabindex="1" autofocus="autofocus" />
-                                        </label>
-                                    </div>
+                                <form method="post" enctype="multipart/form-data" asp-controller="store_front" asp-action="create_review">
+
                                     <div>
                                         <label for="topic">
                                             <span class="required">Your Overall Experience: *</span>
@@ -593,12 +588,18 @@
                                     <div>
                                         <label for="message">
                                             <span class="required">Write Your Feedback: *</span>
-                                            <textarea id="message" name="message" placeholder="Please write your feedback here." tabindex="5" required="required"></textarea>
+                                            <input type="text" id="message" name="message" placeholder="Please write your feedback here." tabindex="5" required="required"></input="Cemail">
                                         </label>
                                     </div>
                                     <div>
-                                        <button name="submit" type="submit" id="submit">Submit</button>
+                                        <label for="photos">
+                                            @*for this part backend has to be done*@
+                                            <input type="file" name="photos[]" multiple>
+                                            
+                                        </label>
                                     </div>
+                                    <button name="submit" type="submit" id="submit">Submit</button>
+                                    
                                 </form>
 
                             </div>
@@ -609,6 +610,7 @@
                         <div id="cover">
                         </div>
                     }
+                    //restaurants cannot write reviews
                     @*else if (sessionuser == "REST")
                 {
             <div id="loginScreen">
@@ -701,7 +703,7 @@
 
                                                             <div class="revdate">&nbsp;Reviewed in @item.Date.ToString("dd/MM/yyyy") </div><p class="revnum">@i</p>
                                                         </div>
-                                                        <h5>"Never forget the place!"</h5>
+                                                        <h5>"@item.Title"</h5>
                                                         <p class="rcard-text">
                                                             @item.Feedback
                                                         </p>
