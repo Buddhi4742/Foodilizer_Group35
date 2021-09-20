@@ -564,7 +564,7 @@
                                 </div>
 
 
-                                <form method="post" enctype="multipart/form-data" asp-controller="store_front" asp-action="create_review">
+                                <form method="post" enctype="multipart/form-data" asp-controller="store_front" asp-action="create_review" runat="server">
 
                                     <div>
                                         <label for="topic">
@@ -594,11 +594,11 @@
                                     <div>
                                         <label for="photos">
                                             @*for this part backend has to be done*@
-                                            <input type="file" name="photos[]" multiple>
-                                            
+                                            <input type="file" name="postedFiles" multiple />
+
                                         </label>
                                     </div>
-                                    <button name="submit" type="submit" id="submit">Submit</button>
+                                    <button name="submit" type="submit" id="submit" runat="server">Submit</button>
                                     
                                 </form>
 
