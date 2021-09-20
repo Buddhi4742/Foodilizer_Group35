@@ -63,19 +63,18 @@ namespace Foodilizer_Group35.Controllers
                             TempData["Name"] = name.Name;
                             TempData["Id"] = HttpContext.Session.GetInt32("user_id");
                         }
-                   
                         return RedirectToAction("Index", "Home");
                         //return Print;
                     }
                     else if (userDetails.UserType == "ADMIN")
                     {
                         //buddhi
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Foodilizer_admin");
                     }
                     else if (userDetails.UserType == "REST")
                     {
                         //viganis
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "StoreAdmin");
                     }
                     else
                     {
