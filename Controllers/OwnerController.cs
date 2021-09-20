@@ -34,13 +34,13 @@ namespace Foodilizer_Group35.Controllers
         }
         public IActionResult Owner_price(int restaurantid)
         {
-              var restdetails = _context.Restaurants.FirstOrDefault(e => e.RestId == restaurantid);
+            var restdetails = _context.Restaurants.FirstOrDefault(e => e.RestId == restaurantid);
             ViewBag.Restname = restdetails.Rname;
             ViewBag.Ownername = restdetails.OwnerName;
             TempData["ID"] = restdetails.RestId;
             return View();
         }
-        public  async Task<IActionResult> Owner_package_set(int id)
+        public async Task<IActionResult> Owner_package_set(int id)
         {
             //Response.WriteAsync("this is debug" + "@" + id);
             var restdetails = await _context.Restaurants.FirstOrDefaultAsync(e => e.RestId == id);
@@ -53,7 +53,7 @@ namespace Foodilizer_Group35.Controllers
                 package.PackageType = "bronze";
                 package.RestId = id;
                 package.RegisteredDate = today;
-                 _context.Add(package);
+                _context.Add(package);
                 //_context.Add(customer);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Owner_redirect"); //add payment gateway
@@ -64,9 +64,9 @@ namespace Foodilizer_Group35.Controllers
                 package.PackageType = "silver";
                 package.RestId = id;
                 package.RegisteredDate = today;
-                 _context.Add(package);
+                _context.Add(package);
                 //_context.Add(customer);
-               await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
                 return RedirectToAction("Owner_redirect"); //add payment gateway
             }
             else
@@ -75,7 +75,7 @@ namespace Foodilizer_Group35.Controllers
                 package.PackageType = "gold";
                 package.RestId = id;
                 package.RegisteredDate = today;
-                 _context.Add(package);
+                _context.Add(package);
                 //_context.Add(customer);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Owner_redirect"); //add payment gateway
@@ -94,6 +94,7 @@ namespace Foodilizer_Group35.Controllers
 
             if (ModelState.IsValid)
             {
+
                 try
                 {
                     //await Response.WriteAsync(collection["Remail"].ToString());
@@ -110,7 +111,7 @@ namespace Foodilizer_Group35.Controllers
                     var updateuser = new User();
                     var createrestaurant = new Restaurant();
                     var createmenu = new Menu();
-                    
+
                     //updateuser.UserStatus = 1;
                     //customer.ShaEnc();
                     string encpass = ShaEnc(collection["Rpassword"].ToString());
@@ -150,7 +151,7 @@ namespace Foodilizer_Group35.Controllers
                     //_context.Add(customer);
                     await _context.SaveChangesAsync();
 
-                    var restid= await _context.Restaurants.FirstOrDefaultAsync(e => e.Remail == collection["Remail"].ToString() /*&& e.User_status == 1*/);
+                    var restid = await _context.Restaurants.FirstOrDefaultAsync(e => e.Remail == collection["Remail"].ToString() /*&& e.User_status == 1*/);
                     createmenu.RestId = restid.RestId;
                     _context.Add(createmenu);
                     int restaurantid = restid.RestId;
@@ -159,7 +160,7 @@ namespace Foodilizer_Group35.Controllers
 
                     TempData["Message"] = "User registered.";
                     //return RedirectToAction(nameof(Owner_price));
-                    return RedirectToAction("Owner_price", "Owner", new {restaurantid});
+                    return RedirectToAction("Owner_price", "Owner", new { restaurantid });
                 }
                 catch (Exception ex)
                 {
@@ -198,7 +199,7 @@ namespace Foodilizer_Group35.Controllers
         public void UploadFile(string email)
         {
 
-            string folderPath = "wwwroot/resources/Restaurants/"+email+"/";
+            string folderPath = "wwwroot/resources/Restaurants/" + email + "/";
 
             //Check whether Directory (Folder) exists.
             if (!Directory.Exists(folderPath))

@@ -108,5 +108,6 @@ namespace Foodilizer_Group35.Models
         public virtual ICollection<Review> Reviews { get; set; }
         [InverseProperty(nameof(SalesReport.Rest))]
         public virtual ICollection<SalesReport> SalesReports { get; set; }
+
     }
 }
