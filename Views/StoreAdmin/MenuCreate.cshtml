@@ -36,13 +36,19 @@
 
                     <div class="form-row row p-2">
                         <div class="form-group col-4">
-                            <label asp-for="FoodName" class="control-label"></label>
+                            <label asp-for="FoodName" class="control-label">Food name</label>
                             <input asp-for="FoodName" class="form-control" />
                             <span asp-validation-for="FoodName" class="text-danger"></span>
                         </div>
                         <div class="form-group col-4">
                             <label asp-for="Type" class="control-label"></label>
-                            <input asp-for="Type" class="form-control" />
+                            <select asp-for="Type" class="form-control">
+                                <option value="Main">Main</option>
+                                <option value="Appetrizer">Appetizer</option>
+                                <option value="Side">Side</option>
+                                <option value="Dessert">Dessert</option>
+                                <option value="Beverage">Beverage</option>
+                            </select>
                             <span asp-validation-for="Type" class="text-danger"></span>
                         </div>
                     </div>
@@ -56,7 +62,7 @@
                             <span asp-validation-for="Price" class="text-danger"></span>
                         </div>
                         <div class="form-group col-4">
-                            <label asp-for="Ingredient" class="control-label"></label>
+                            <label asp-for="Ingredient" class="control-label">Ingredients</label>
                             <input asp-for="Ingredient" class="form-control" />
                             <span asp-validation-for="Ingredient" class="text-danger"></span>
                         </div>
@@ -68,63 +74,105 @@
                             <span asp-validation-for="ImagePath" class="text-danger"></span>
                         </div>
                         <div class="form-group col-4">
-                            <label asp-for="PrefScore" class="control-label"></label>
-                            <input asp-for="PrefScore" class="form-control" />
-                            <span asp-validation-for="PrefScore" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="form-row row p-2">
-                        <div class="form-group col-4">
-                            <label asp-for="Featured" class="control-label"></label>
-                            <input asp-for="Featured" class="form-control" />
+                            <label asp-for="Featured" class="control-label">Do you want this as a featured item?</label>
+                            <select asp-for="Featured" class="form-control">
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
                             <span asp-validation-for="Featured" class="text-danger"></span>
                         </div>
-                        <div class="form-group col-4">
-                            <label asp-for="Category" class="control-label"></label>
-                            <input asp-for="Category" class="form-control" />
-                            <span asp-validation-for="Category" class="text-danger"></span>
-                        </div>
                     </div>
                     <div class="form-row row p-2">
                         <div class="form-group col-4">
-                            <label asp-for="SubCategory" class="control-label"></label>
+                            <label asp-for="Category" class="control-label"></label>
+                            <select asp-for="Category" class="form-control">
+                                <option value="10|Pizza">Pizza</option>
+                                <option value="8|Burger">Burger</option>
+                                <option value="8|Submarine">Submarine</option>
+                                <option value="7|Shawarma">Shawarma</option>
+                                <option value="6|Tacos">Tacos</option>
+                                <option value="10|Lasagna">Lasagna</option>
+                                <option value="5|Kottu">Kottu</option>
+                                <option value="5|Rice">Rice</option>
+                                <option value="6|Noodles">Noodles</option>
+                                <option value="4|Uttapam">Uttapam</option>
+                                <option value="3|Dosa">Dosa</option>
+                                <option value="3|Soup">Soup</option>
+                                <option value="7|Sandwich">Sandwich</option>
+                                <option value="1|Bun">Bun</option>
+                                <option value="2|Pastry">Pastry</option>
+                                <option value="9|Cake">Cake</option>
+                                <option value="4|Garlic bread">Garlic bread</option>
+                                <option value="2|Cookies">Cookies</option>
+                                <option value="3|Egg">Egg</option>
+                                <option value="6|Chicken">Chicken</option>
+                                <option value="7|Cuttlefish">Cuttlefish</option>
+                                <option value="8|Prawn">Prawn</option>
+                                <option value="7|Fish">Fish</option>
+                                <option value="10|Kebab">Kebab</option>
+                                <option value="10|Tikka">Tikka</option>
+                                <option value="5|Coffee">Coffee</option>
+                                <option value="5|Iced tea">Iced tea</option>
+                                <option value="3|Tea">Tea</option>
+                                <option value="4|Milkshake">Milkshake</option>
+                                <option value="3|Fruit juice">Fruit juice</option>
+                                <option value="4|Other">Other</option>
+                            </select>
+                            <span asp-validation-for="Category" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-4">
+                            <label asp-for="SubCategory" class="control-label">Subcategory</label>
                             <input asp-for="SubCategory" class="form-control" />
                             <span asp-validation-for="SubCategory" class="text-danger"></span>
                         </div>
-                        <div class="form-group col-4">
-                            <label asp-for="CategoryRating" class="control-label"></label>
-                            <input asp-for="CategoryRating" class="form-control" />
-                            <span asp-validation-for="CategoryRating" class="text-danger"></span>
-                        </div>
                     </div>
                     <div class="form-row row p-2">
                         <div class="form-group col-4">
-                            <label asp-for="Quantity" class="control-label"></label>
-                            <input asp-for="Quantity" class="form-control" />
+                            <label asp-for="Quantity" class="control-label">Portion size</label>
+                            <select asp-for="Quantity" class="form-control">
+                                <option value="2">Small</option>
+                                <option value="3">Medium</option>
+                                <option value="4">Large</option>
+                                <option value="5">Extra-Large</option>
+                            </select>
                             <span asp-validation-for="Quantity" class="text-danger"></span>
                         </div>
                         <div class="form-group col-4">
-                            <label asp-for="Veg" class="control-label"></label>
-                            <input asp-for="Veg" class="form-control" />
+                            <label asp-for="Veg" class="control-label">Vegan or not?</label>
+                            <select asp-for="Veg" class="form-control">
+                                <option value="0">Vegan</option>
+                                <option value="1">Non-vegan</option>
+                            </select>
                             <span asp-validation-for="Veg" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="form-row row p-2">
                         <div class="form-group col-4">
                             <label asp-for="SpicyLevel" class="control-label"></label>
-                            <input asp-for="SpicyLevel" class="form-control" />
+                            <select asp-for="SpicyLevel" class="form-control">
+                                <option value="0">Sweet</option>
+                                <option value="1">Mild</option>
+                                <option value="2">Spicy</option>
+                                <option value="3">Extra-Spicy</option>
+                            </select>
                             <span asp-validation-for="SpicyLevel" class="text-danger"></span>
                         </div>
                         <div class="form-group col-4">
-                            <label asp-for="Hot" class="control-label"></label>
-                            <input asp-for="Hot" class="form-control" />
+                            <label asp-for="Hot" class="control-label">Hot or Cold?</label>
+                            <select asp-for="Hot" class="form-control">
+                                <option value="1">Hot</option>
+                                <option value="0">Cold</option>
+                            </select>
                             <span asp-validation-for="Hot" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="form-row row p-2">
                         <div class="form-group col-4">
-                            <label asp-for="Organic" class="control-label"></label>
-                            <input asp-for="Organic" class="form-control" />
+                            <label asp-for="Organic" class="control-label">Organic or not?</label>
+                            <select asp-for="Organic" class="form-control">
+                                <option value="1">Organic</option>
+                                <option value="0">Non-Organic</option>
+                            </select>
                             <span asp-validation-for="Organic" class="text-danger"></span>
                         </div>
                     </div>

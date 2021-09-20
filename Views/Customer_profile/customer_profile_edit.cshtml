@@ -1,7 +1,7 @@
 ﻿@model Foodilizer_Group35.Models.Customer
 @{
     ViewData["Title"] = "Owner Register Page";
-    Layout = "~/Views/Shared/_owner_Layout.cshtml";
+    Layout = "~/Views/Shared/_home_Layout.cshtml";
 }
 
 
@@ -51,31 +51,15 @@
         <div class="form-group col-md-8">
             <label for="inputProvince">District</label>
             <select asp-for="Province" class="custom-select my-1 mr-sm-2" style="margin-left:10px" id="inputProvince">
-                <option>Kalutara</option>
-                <option>Colombo</option>
-                <option>Gampaha</option>
-                <option>Anuradhapura</option>
-                <option>Polonnaruwa</option>
-                <option>Matale</option>
-                <option>Kandy</option>
-                <option>Nuwara Eliya</option>
-                <option>Kegalle</option>
-                <option>Ratnapura</option>
-                <option>Trincomalee</option>
-                <option>Batticaloa</option>
-                <option>Ampara</option>
-                <option>Badulla</option>
-                <option>Monaragala</option>
-                <option>Hambantota</option>
-                <option>Matara</option>
-                <option>Galle</option>
-                <option>Jaffna</option>
-                <option>Kilinochchi</option>
-                <option>Mannar</option>
-                <option>Mullaitivu</option>
-                <option>Vavuniya</option>
-                <option>Puttalam</option>
-                <option>Kurunegala</option>
+                <option>Central</option>
+                <option>Eastern</option>
+                <option>Northern</option>
+                <option>Southern</option>
+                <option>Western</option>
+                <option>North Western</option>
+                <option>North Central</option>
+                <option>Uva</option>
+                <option>Sabaragamuwa</option>
             </select>
         </div>
         <div class="form-group col-md-8">

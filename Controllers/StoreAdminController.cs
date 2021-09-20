@@ -97,6 +97,25 @@ namespace Foodilizer_Group35.Controllers
 
         public ActionResult MenuNewFooditem(IFormCollection collection, int id)
         {
+            int restid = (int)_context.Menus.Where(x => x.MenuId == id).FirstOrDefault().RestId;
+            Restaurant[] temp2 = _context.Restaurants.Where(e => e.RestId == restid).Include(e => e.Reviews).ThenInclude(e => e.Customer).ToArray();
+            float a = 0;
+            if (temp2 != null)
+            {
+                double sum = 0.0;
+                double avg = 0.0;
+                int count = 0;
+                foreach (var item in temp2.First().Reviews)
+                {
+
+                    var rate = item.Rating;
+                    sum = sum + System.Convert.ToDouble(rate);
+                    count++;
+                }
+                avg = (sum / count);
+                a = System.Convert.ToSingle(avg);
+            }
+            
             var updatefooditem = new Food();
             updatefooditem.MenuId = id;
             updatefooditem.FoodName = collection["FoodName"];
@@ -104,16 +123,45 @@ namespace Foodilizer_Group35.Controllers
             updatefooditem.Price = Int64.Parse(collection["Price"]);
             updatefooditem.Ingredient = collection["Ingredient"];
             updatefooditem.ImagePath = collection["ImagePath"];
-            updatefooditem.PrefScore = Int32.Parse(collection["PrefScore"]);
             updatefooditem.Featured = collection["Featured"];
-            updatefooditem.Category = collection["Category"];
             updatefooditem.SubCategory = collection["SubCategory"];
-            updatefooditem.CategoryRating = collection["CategoryRating"];
+            String s = collection["Category"];
+            String[] subs = s.Split('|');
+            updatefooditem.Category = subs[1];
+            updatefooditem.CategoryRating = subs[0];
             updatefooditem.Quantity = Int32.Parse(collection["Quantity"]);
             updatefooditem.Veg = collection["Veg"];
             updatefooditem.Hot = collection["Hot"];
             updatefooditem.SpicyLevel = collection["SpicyLevel"];
             updatefooditem.Organic = collection["Organic"];
+
+            var sampleData = new MLModel.ModelInput()
+            {
+                Category_rating = Int32.Parse(subs[0]),
+                Price = Int64.Parse(collection["Price"]),
+                Quantity = Int32.Parse(collection["Quantity"]),
+                Restaurant_rating = a,
+                Veg = Int32.Parse(collection["Veg"]),
+                Spicy_level = Int32.Parse(collection["SpicyLevel"]),
+                Hot_or_cold = Int32.Parse(collection["Hot"]),
+                Organic = Int32.Parse(collection["Organic"]),
+            };
+
+            //Load model and predict output
+            var result = MLModel.Predict(sampleData);
+            float pref = result.Score*10;
+            int preff = (int)pref;
+            if (preff > 100)
+            {
+                preff = 100;
+            }
+            else if (preff < 0)
+            {
+                preff = 0;
+            }
+            updatefooditem.PrefScore = preff;
+
+
 
             _context.Add(updatefooditem);
             //food.MenuId = id;
