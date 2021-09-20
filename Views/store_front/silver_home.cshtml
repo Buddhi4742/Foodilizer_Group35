@@ -24,6 +24,8 @@
     @{ List<Restaurant> temp5 = ViewBag.rating3;}
     @{ List<Restaurant> temp6 = ViewBag.rating4;}
     @{ List<Food> temp7 = ViewBag.recommendation;}
+    @{ Nullable<int> sessionid = ViewBag.sessionid;}
+    @{ String sessionuser = ViewBag.sessionuser;}
 
     <div class="row">
         <div class="col-8">
@@ -162,29 +164,29 @@
                                 {
                                     @foreach (var item in temp7.Take(6))
                                     {
-                                        
-                                <div class="swiper-slide">
-                                    <div class="swiper-block">
-                                        <div class="flipcard">
-                                            <div class="side">
-                                                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                                                <div class="swiper-card-data">
-                                                    <h4 class="card-name">@item.FoodName</h4>
 
-                                                </div>
-                                            </div>
-                                            <div class="side back">
-                                                <div class="content">
-                                                    <h5 class="ing">INGREDIENTS:</h5> <h6 class="ingitem">@item.Ingredient</h6>
-                                                    <h5 class="prc">Price: Rs. @item.Price <i class="fa fa-cart-plus" aria-hidden="true" onclick="addtocart()"></i></h5>
+                                        <div class="swiper-slide">
+                                            <div class="swiper-block">
+                                                <div class="flipcard">
+                                                    <div class="side">
+                                                        <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                                                        <div class="swiper-card-data">
+                                                            <h4 class="card-name">@item.FoodName</h4>
 
+                                                        </div>
+                                                    </div>
+                                                    <div class="side back">
+                                                        <div class="content">
+                                                            <h5 class="ing">INGREDIENTS:</h5> <h6 class="ingitem">@item.Ingredient</h6>
+                                                            <h5 class="prc">Price: Rs. @item.Price <i class="fa fa-cart-plus" aria-hidden="true" onclick="addtocart()"></i></h5>
+
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
 
-                                        
+
                                     }
                                 }
 
@@ -204,26 +206,26 @@
                                     {
                                         @if (item.Featured == "1")
                                         {
-                                <div class="swiper-slide">
-                                    <div class="swiper-block">
-                                        <div class="flipcard">
-                                            <div class="side">
-                                                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                                                <div class="swiper-card-data">
-                                                    <h4 class="card-name">@item.FoodName</h4>
+                                            <div class="swiper-slide">
+                                                <div class="swiper-block">
+                                                    <div class="flipcard">
+                                                        <div class="side">
+                                                            <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                                                            <div class="swiper-card-data">
+                                                                <h4 class="card-name">@item.FoodName</h4>
 
+                                                            </div>
+                                                        </div>
+                                                        <div class="side back">
+                                                            <div class="content">
+                                                                <h5 class="ing">INGREDIENTS:</h5> <h6 class="ingitem">@item.Ingredient</h6>
+                                                                <h5 class="prc">Price: Rs. @item.Price <i class="fa fa-cart-plus" aria-hidden="true" onclick="addtocart()"></i></h5>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="side back">
-                                                <div class="content">
-                                                    <h5 class="ing">INGREDIENTS:</h5> <h6 class="ingitem">@item.Ingredient</h6>
-                                                    <h5 class="prc">Price: Rs. @item.Price <i class="fa fa-cart-plus" aria-hidden="true" onclick="addtocart()"></i></h5>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
                                         }
                                     }
@@ -593,8 +595,109 @@
                         i++;
                     }
 
-                    <h3>Reviews (@i)</h3><button class="revb">Write a Review</button>
+                    <h3>Reviews (@i)</h3>@*<button class="revb">Write a Review</button>*@
+                    //sessionid= 1; // for the form to be displayed. remove this to see the error message.
+
+                    @if (sessionid != null)
+                    {
+                        <div align="center">
+                            <br />
+                            <a href="#loginScreen" class="revb">Write a Review</a>
+                        </div>
+
+                        <div id="loginScreen">
+                            <a href="#rev" class="cancel">×</a>
+                            <div id="contact-form">
+                                <div>
+                                    <h1>WE APPRECIATE YOUR REVIEW!</h1>
+
+                                </div>
+
+
+                                <form method="post" enctype="multipart/form-data" asp-controller="store_front" asp-action="create_review">
+
+                                    <div>
+                                        <label for="topic">
+                                            <span class="required">Your Overall Experience: *</span>
+                                            <input type="text" id="experience" name="experience" value="" placeholder="Fantastic!" tabindex="2" required="required" />
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label for="subject">
+                                            <span class="required">Rate our Overall Service: </span>
+                                            <select id="subject" name="subject" tabindex="4">
+                                                <option value="1">1</option>
+                                                <option value="2">2 </option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+
+                                            </select>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label for="message">
+                                            <span class="required">Write Your Feedback: *</span>
+                                            <input type="text" id="message" name="message" placeholder="Please write your feedback here." tabindex="5" required="required"></input="Cemail">
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label for="photos">
+                                            @*for this part backend has to be done*@
+                                            <input type="file" name="photos[]" multiple>
+
+                                        </label>
+                                    </div>
+                                    <button name="submit" type="submit" id="submit">Submit</button>
+
+                                </form>
+
+                            </div>
+
+
+
+                        </div>
+                        <div id="cover">
+                        </div>
+                    }
+                    //restaurants cannot write reviews
+                    @*else if (sessionuser == "REST")
+                            {
+                        <div id="loginScreen">
+                            <a href="#rev" class="cancel">×</a>
+                            <p>u can't'</p>
+                        </div>
+                            }*@
+
+
+                    else
+                    {
+                        <div align="center">
+                            <br />
+                            <a href="#eloginScreen" class="revb">Write a Review</a>
+                        </div>
+                        <div id="eloginScreen">
+                            <a href="#rev" class="ecancel">×</a>
+                            <div class="page-wrapper">
+                                <div class="custom-modal">
+                                    <div class="danger danger-animation icon-top"><i class="fa fa-times"></i></div>
+                                    <div class="danger border-bottom"></div>
+                                    <div class="content">
+                                        <p class="type">Warning!</p>
+                                        <p class="message-type">You must be logged in first to write a review! </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div id="ecover">
+                        </div>
+                    }
+
                 }
+
             </div>
             <div id="carouselcardrev" class="carousel slide " data-interval="false">
                 <div class="carousel-inner">
@@ -650,7 +753,7 @@
 
                                                             <div class="revdate">&nbsp;Reviewed in @item.Date.ToString("dd/MM/yyyy") </div><p class="revnum">@i</p>
                                                         </div>
-                                                        <h5>"Never forget the place!"</h5>
+                                                        <h5>"@item.Title"</h5>
                                                         <p class="rcard-text">
                                                             @item.Feedback
                                                         </p>
@@ -961,7 +1064,7 @@
 
     </div>
 
- 
+
 </div>
 
 
