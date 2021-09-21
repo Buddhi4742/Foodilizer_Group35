@@ -254,7 +254,6 @@ namespace Foodilizer_Group35.Controllers
         }
         public ActionResult InventoryEdit(int id)
         {
-            
             return View(_context.Items.Where(x => x.ItemId == id).FirstOrDefault());
             
     

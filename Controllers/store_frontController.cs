@@ -26,6 +26,7 @@ namespace Foodilizer_Group35.Controllers
             
             var sessionid=HttpContext.Session.GetInt32("user_id");
             ViewBag.sessionid = sessionid;
+            TempData["Id"] = sessionid;
             var sessionuser = HttpContext.Session.GetString("user_type");
             ViewBag.sessionuser = sessionuser;
             HttpContext.Session.SetInt32("rest_id", id);
@@ -103,6 +104,7 @@ namespace Foodilizer_Group35.Controllers
         {
             var sessionid = HttpContext.Session.GetInt32("user_id");
             ViewBag.sessionid = sessionid;
+            TempData["Id"] = sessionid;
             var sessionuser = HttpContext.Session.GetString("user_type");
             ViewBag.sessionuser = sessionuser;
 
@@ -181,6 +183,7 @@ namespace Foodilizer_Group35.Controllers
         {
             var sessionid = HttpContext.Session.GetInt32("user_id");
             ViewBag.sessionid = sessionid;
+            TempData["Id"] = sessionid;
             var sessionuser = HttpContext.Session.GetString("user_type");
             ViewBag.sessionuser = sessionuser;
             //int id = 5;

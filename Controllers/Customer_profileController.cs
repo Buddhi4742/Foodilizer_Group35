@@ -57,7 +57,8 @@ namespace Foodilizer_Group35.Controllers
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var customerid = _context.Customers.Where(x => x.Cemail == userdetails.Email).FirstOrDefault();
             id = customerid.CustomerId;
-            
+            TempData["Name"] = customerid.Name;
+
             //int id = 1;
             var queryReview = _context.Customers.Where(e => e.CustomerId == id).Include(e => e.Reviews).ThenInclude(e => e.Rest).ToList();
             ViewBag.customerReviews = queryReview;
