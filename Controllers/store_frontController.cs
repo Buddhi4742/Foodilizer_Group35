@@ -367,6 +367,10 @@ namespace Foodilizer_Group35.Controllers
         {
             return View();
         }
+        public IActionResult order_details() 
+        { 
+            return View();
+        }
 
     }
 
