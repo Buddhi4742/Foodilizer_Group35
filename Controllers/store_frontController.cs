@@ -291,7 +291,7 @@ namespace Foodilizer_Group35.Controllers
                     newrev.Date = dateTime;
 
 
-
+                    // image uploading to the folder
                     string path = "wwwroot/images";
 
                     if (!Directory.Exists(path))
@@ -313,9 +313,23 @@ namespace Foodilizer_Group35.Controllers
                         }
                     }
 
-                    newrev.ReviewImage1 = Path.Combine(path, paths[0]);
-                    newrev.ReviewImage2 = Path.Combine(path, paths[1]);
-                    newrev.ReviewImage3 = Path.Combine(path, paths[2]);
+                    //link uploading to the database
+                    string path2 = "~/images";
+                    if (pcount >= 3)
+                    {
+                        newrev.ReviewImage1 = Path.Combine(path2, paths[0]);
+                        newrev.ReviewImage2 = Path.Combine(path2, paths[1]);
+                        newrev.ReviewImage3 = Path.Combine(path2, paths[2]);
+                    }
+                    else if (pcount == 2)
+                    {
+                        newrev.ReviewImage1 = Path.Combine(path2, paths[0]);
+                        newrev.ReviewImage2 = Path.Combine(path2, paths[1]);
+                    }
+                    else if(pcount == 1)
+                    {
+                        newrev.ReviewImage1 = Path.Combine(path2, paths[0]);
+                    }
 
                     _context.Add(newrev);
                     await _context.SaveChangesAsync();

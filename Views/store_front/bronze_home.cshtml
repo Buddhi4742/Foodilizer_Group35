@@ -73,11 +73,20 @@
 
 
                                 }
-                                avg = (sum / count);
+                                if (count > 0)
+                                {
+                                    avg = (sum / count);
+                                }
+                                else
+                                {
+                                    count = 1;
+                                    avg = (sum / count);
+                                    count = 0;
+                                }
                                 float a = System.Convert.ToSingle(avg);
                                 String val = a.ToString("0.0");
                                 float minus = System.Convert.ToSingle(1);
-                                c = avg - 1.0;
+                                c = avg;
                                 <div class="circles">
 
                                     <ul style="list-style:none">
@@ -120,11 +129,15 @@
                                     </li>
                                     <li>
                                         <i class="fa fa-concierge-bell"></i>&nbsp; Service
-                                        @for (int i = System.Convert.ToInt32(c); i < 5; i++)
+                                        @if (c == 5.0)
+                                        {
+                                            c = 4.0;
+                                        }
+                                        @for (int i = System.Convert.ToInt32(c+1.0); i < 5; i++)
                                         {
                                             <span class="ratecircles glyphicon glyphicon-star-empty"></span>
                                         }
-                                        @for (int i = 0; i < System.Convert.ToInt32(c); i++)
+                                        @for (int i = 0; i < System.Convert.ToInt32(c+1.0); i++)
                                         {
                                             <span class="ratecircles glyphicon glyphicon-star "></span>
 
@@ -133,11 +146,15 @@
                                     </li>
                                     <li>
                                         <i class="fa fa-money-check-alt"></i>&nbsp; Value
-                                        @for (int i = System.Convert.ToInt32(c); i < 5; i++)
+                                        @if (c == 0.0)
+                                        {
+                                            c = 1.0;
+                                        }
+                                        @for (int i = System.Convert.ToInt32(c-1.0); i < 5; i++)
                                         {
                                             <span class="ratecircles glyphicon glyphicon-star-empty"></span>
                                         }
-                                        @for (int i = 0; i < System.Convert.ToInt32(c); i++)
+                                        @for (int i = 0; i < System.Convert.ToInt32(c-1.0); i++)
                                         {
                                             <span class="ratecircles glyphicon glyphicon-star "></span>
 
@@ -239,7 +256,7 @@
                             <ul class="nav nav-tabs" role="tablist">
                                 <li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab" data-toggle="tab">All</a></li>
                                 <li role="presentation"><a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab">Main</a></li>
-                                <li role="presentation"><a href="#Section3" aria-controls="profile" role="tab" data-toggle="tab">Appatizers</a></li>
+                                <li role="presentation"><a href="#Section3" aria-controls="profile" role="tab" data-toggle="tab">Appetizers</a></li>
                                 <li role="presentation"><a href="#Section4" aria-controls="messages" role="tab" data-toggle="tab">Sides</a></li>
 
                                 <li role="presentation"><a href="#Section5" aria-controls="messages" role="tab" data-toggle="tab">Desserts</a></li>
@@ -593,12 +610,13 @@
                                     </div>
                                     <div>
                                         <label for="photos">
-                                            @*for this part backend has to be done*@
-                                            <input type="file" name="postedFiles" multiple />
+                                            @*image upload*@
+                                            <input type="file" id="fileupload" name="postedFiles" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" multiple />
+                                            
 
                                         </label>
                                     </div>
-                                    <button name="submit" type="submit" id="submit" runat="server">Submit</button>
+                                    <button name="submit" type="submit" id="submit" onclick="return Validateimages()">Submit</button>
                                     
                                 </form>
 
@@ -700,19 +718,30 @@
 
                                                             }
 
-
+                                                           
                                                             <div class="revdate">&nbsp;Reviewed in @item.Date.ToString("dd/MM/yyyy") </div><p class="revnum">@i</p>
                                                         </div>
                                                         <h5>"@item.Title"</h5>
                                                         <p class="rcard-text">
                                                             @item.Feedback
                                                         </p>
-                                                        <div class="rev-img">
-                                                            <img src="wwwroot/images/rev1.jfif" />
-                                                            <img src="https://media-cdn.tripadvisor.com/media/photo-s/1b/67/cc/f8/chestnut-restaurant.jpg" />
-                                                            <img src="https://media-cdn.tripadvisor.com/media/photo-s/1b/67/cc/f8/chestnut-restaurant.jpg" />
+                                                       
 
-                                                        </div>
+                                                    <div class="rev-img">
+                                                        @if (@item.ReviewImage1 != null)
+                                                        {
+                                                            <img src="@Url.Content(item.ReviewImage1)" />
+                                                        }
+                                                        @if (@item.ReviewImage2 != null)
+                                                        {
+                                                            <img src="@Url.Content(item.ReviewImage2)" />
+                                                        }
+                                                        @if (@item.ReviewImage3 != null)
+                                                        {
+                                                            <img src="@Url.Content(item.ReviewImage3)" />
+                                                        }
+
+                                                    </div>
 
 
                                                     </div>
@@ -769,7 +798,16 @@
 
 
                                             }
-                                            avg = (sum / count);
+                                            if (count > 0)
+                                            {
+                                                avg = (sum / count);
+                                            }
+                                            else
+                                            {
+                                                count = 1;
+                                                avg = (sum / count);
+                                                count = 0;
+                                            }
                                             float a = System.Convert.ToSingle(avg);
                                             String val = a.ToString("0.0");
                                             float minus = System.Convert.ToSingle(1);
@@ -834,7 +872,16 @@
 
 
                                             }
-                                            avg = (sum / count);
+                                            if (count > 0)
+                                            {
+                                                avg = (sum / count);
+                                            }
+                                            else
+                                            {
+                                                count = 1;
+                                                avg = (sum / count);
+                                                count = 0;
+                                            }
                                             float a = System.Convert.ToSingle(avg);
                                             String val = a.ToString("0.0");
                                             float minus = System.Convert.ToSingle(1);
@@ -897,7 +944,17 @@
 
 
                                             }
-                                            avg = (sum / count);
+                                            if (count > 0)
+                                            {
+                                                avg = (sum / count);
+                                            }
+                                            else
+                                            {
+                                                count = 1;
+                                                avg = (sum / count);
+                                                count = 0;
+                                            }
+                                            
                                             float a = System.Convert.ToSingle(avg);
                                             String val = a.ToString("0.0");
                                             float minus = System.Convert.ToSingle(1);
@@ -1054,6 +1111,25 @@
          },
      });
 
+
+     function Validateimages() {
+         var fileCount = document.getElementById('fileupload').files.length;
+         if (fileCount > 3) // Selected images with in 10 count
+         {
+             alert("Please select only 3 images..!!!");
+             return false;
+         }
+         else if (fileCount <= 0) // Selected atleast 1 image check
+         {
+             alert("Please select atleat 1 image..!!!");
+             return false;
+         }
+         else {
+             return true;
+         }
+
+         
+     }
 
 
 

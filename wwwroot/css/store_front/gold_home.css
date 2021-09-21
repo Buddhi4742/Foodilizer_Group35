@@ -483,7 +483,10 @@ h1 {
     justify-content: right;
     overflow-y: auto;
 }
-
+.rcard-text {
+    font-size: medium;
+    min-height: 100px;
+}
     .rcard::-webkit-scrollbar {
         width: 0.3em;
     }
