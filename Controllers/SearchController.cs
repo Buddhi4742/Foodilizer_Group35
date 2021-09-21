@@ -119,6 +119,27 @@ namespace Foodilizer_Group35.Controllers
                 return RedirectToAction("RestaurantSearchResults", "Search", new { searchString, district, searchtype });
             }
         }
+        public IActionResult redirectstore(int id)
+        {
+            //Response.WriteAsync(id.ToString());
+            var resttype = _context.Restaurants.Where(x => x.RestId==id).FirstOrDefault();
+            if (resttype.RestType == "bronze")
+            {
+                return RedirectToAction("bronze_home", "store_front",new {id});
+            }
+            else if (resttype.RestType == "silver")
+            {
+                return RedirectToAction("silver_home", "store_front", new {id});
+            }
+            else if (resttype.RestType == "gold")
+            {
+                return RedirectToAction("gold_home", "store_front", new {id});
+            }
+            else
+            {
+                return RedirectToAction("Index","Home");
+            }
+        }
 
         //// GET: SearchController/Details/5
         //public IActionResult FoodDetails(int id)

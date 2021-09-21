@@ -56,7 +56,7 @@
                     <div class="search-result-item-body">
                         <div class="row">
                             <div class="col-sm-9">
-                                <h4 class="search-result-item-heading"><a asp-controller="store_front" asp-action="gold_home" asp-route-id="@item.RestId">@Html.DisplayFor(modelItem => item.Rname)</a></h4>
+                                <h4 class="search-result-item-heading"><a asp-controller="Search" asp-action="redirectstore" asp-route-id="@item.RestId">@Html.DisplayFor(modelItem => item.Rname)</a></h4>
                                 <span class="info">@Html.DisplayFor(modelItem => item.Raddress)</span>
                                 <br />
                                 <span class="description">@Html.DisplayFor(modelItem => item.MealType)</span>
