@@ -24,7 +24,13 @@ namespace Foodilizer_Group35.Controllers
 
         public IActionResult Index()
         {
-            if(HttpContext.Session.GetInt32("user_email") != null)
+            if (HttpContext.Session.GetInt32("user_email") == null)
+            {
+                TempData["Name"] = null;
+                TempData["Id"] = null;
+            }
+      
+            if (HttpContext.Session.GetInt32("user_email") != null)
             {
                 var name = _context.Customers.FirstOrDefault(x => x.Cemail == HttpContext.Session.GetString("user_email"));
                 TempData["Name"] = name.Name;

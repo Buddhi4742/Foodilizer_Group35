@@ -30,9 +30,12 @@ namespace Foodilizer_Group35.Controllers
             return View();
         }
 
-        public ActionResult customer_profile_orders()
+        public ActionResult customer_profile_orders(int id)
         {
-            int id = 1;
+            int userid = id;
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var customerid = _context.Customers.Where(x => x.Cemail == userdetails.Email).FirstOrDefault();
+            id = customerid.CustomerId;
             var queryOrder = _context.Customers.Where(e => e.CustomerId == id).Include(e => e.RestaurantOrders).ThenInclude(e => e.Rest).Include(e => e.RestaurantOrders).ThenInclude(e => e.OrderIncludesFoods).ThenInclude(e => e.Food).ToList();
             ViewBag.customerOrders = queryOrder;
             var queryReview = _context.Customers.Where(e => e.CustomerId == id).Include(e => e.Reviews).ThenInclude(e => e.Rest).ToList();
@@ -43,9 +46,14 @@ namespace Foodilizer_Group35.Controllers
             }
         }
 
-        public ActionResult customer_profile_reviews()
+        public ActionResult customer_profile_reviews(int id)
         {
-            int id = 1;
+            //Response.WriteAsync(id.ToString());
+            int userid = id;
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var customerid = _context.Customers.Where(x => x.Cemail == userdetails.Email).FirstOrDefault();
+            id = customerid.CustomerId;
+            //int id = 1;
             var queryReview = _context.Customers.Where(e => e.CustomerId == id).Include(e => e.Reviews).ThenInclude(e => e.Rest).ToList();
             ViewBag.customerReviews = queryReview;
             var queryOrder = _context.Customers.Where(e => e.CustomerId == id).Include(e => e.RestaurantOrders).ThenInclude(e => e.Rest).ToList();
@@ -89,9 +97,13 @@ namespace Foodilizer_Group35.Controllers
         }
 
         // GET: Customer_ProfileController/Details/5
-        public ActionResult Details()
+        public ActionResult Details(int id)
         {
-            int id = 1;
+            int userid = id;
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var customerid = _context.Customers.Where(x => x.Cemail == userdetails.Email).FirstOrDefault();
+            id = customerid.CustomerId;
+            //int id = 1;
             using (foodilizerContext context = new foodilizerContext())
             {
                 return View(_context.Customers.Where(x => x.CustomerId == id).FirstOrDefault());
