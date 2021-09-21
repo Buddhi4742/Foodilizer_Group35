@@ -21,14 +21,13 @@ namespace Foodilizer_Group35.Controllers
             _context = context;
         }
 
-        public IActionResult bronze_home()
+        public IActionResult bronze_home(int id)
         {
             
             var sessionid=HttpContext.Session.GetInt32("user_id");
             ViewBag.sessionid = sessionid;
             var sessionuser = HttpContext.Session.GetString("user_type");
             ViewBag.sessionuser = sessionuser;
-            int id = 2;
             HttpContext.Session.SetInt32("rest_id", id);
             
             ViewBag.currentrestid = id;
@@ -100,13 +99,13 @@ namespace Foodilizer_Group35.Controllers
 
         }
 
-        public IActionResult silver_home()
+        public IActionResult silver_home(int id)
         {
             var sessionid = HttpContext.Session.GetInt32("user_id");
             ViewBag.sessionid = sessionid;
             var sessionuser = HttpContext.Session.GetString("user_type");
             ViewBag.sessionuser = sessionuser;
-            int id = 3;
+
             HttpContext.Session.SetInt32("rest_id", id);
             var query = _context.Menus.Where(e => e.RestId == id).Include(e => e.Foods).ToList();
             ViewBag.fooddet = query;
@@ -178,13 +177,13 @@ namespace Foodilizer_Group35.Controllers
                 return View(_context.Restaurants.Where(x => x.RestId == id).Include(e => e.Menus).ThenInclude(e => e.Foods).FirstOrDefault());
             }
         }
-        public IActionResult gold_home()
+        public IActionResult gold_home(int id)
         {
             var sessionid = HttpContext.Session.GetInt32("user_id");
             ViewBag.sessionid = sessionid;
             var sessionuser = HttpContext.Session.GetString("user_type");
             ViewBag.sessionuser = sessionuser;
-            int id = 5;
+            //int id = 5;
             HttpContext.Session.SetInt32("rest_id", id);
 
             ViewBag.currentrestid = id;
@@ -380,6 +379,10 @@ namespace Foodilizer_Group35.Controllers
         }
         public IActionResult gold_checkout()
         {
+            return View();
+        }
+        public IActionResult order_details() 
+        { 
             return View();
         }
 
