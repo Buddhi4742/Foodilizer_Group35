@@ -25,19 +25,44 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="store_front" asp-action="gold_home">Restaurants</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link profile text-light" style="padding-top:5px;padding-bottom:25px;" asp-area="" asp-controller="store_front" asp-action="gold_home">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link logout text-light" style="padding-top:5px;padding-bottom:25px;" asp-area="" asp-controller="store_front" asp-action="gold_home"><i class="fa fa-shopping-cart"></i> Cart
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link logout text-light" style="padding-top:5px;padding-bottom:25px;" asp-area="" asp-controller="store_front" asp-action="gold_home">Logout</a>
-                        </li>
+                        @{if (TempData["Id"] != null)
+                            {
+                                if ((int)TempData["Id"] != -1)
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link text-light" asp-area="" asp-controller="Customer_profile" asp-action="customer_profile_reviews" asp-route-id="@TempData["Id"]">Profile</a>
+                                    </li>
+                                }
+                            }
+                        }
+                        @{if (TempData["Id"] != null)
+                            {
+
+                                <li class="nav-item">
+                                    <a class="nav-link logout text-light" style="padding-top:5px;padding-bottom:25px;" asp-area="" asp-controller="store_front" asp-action="silver_cart">
+                                        <i class="fa fa-shopping-cart"></i> Cart
+                                    </a>
+                                </li>
+                            }
+                        }
+                        @{if (TempData["Id"] == null)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link logout text-light" style="padding-top:5px;padding-bottom:25px;" asp-area="" asp-controller="Login" asp-action="Index">Login</a>
+                                </li>
+
+                            }
+                        }
+
+                        @{if (TempData["Id"] != null)
+                            {
+
+                                <li class="nav-item">
+                                    <a class="nav-link logout text-light" style="padding-top:5px;padding-bottom:25px;" asp-area="" asp-controller="Login" asp-action="Index">Logout</a>
+                                </li>
+
+                            }
+                        }
                     </ul>
                 </div>
             </div>
