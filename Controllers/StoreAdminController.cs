@@ -225,7 +225,10 @@ namespace Foodilizer_Group35.Controllers
         }
         public ActionResult Inventory()
         {
-            int id = 2;
+            var userid = HttpContext.Session.GetInt32("user_id");
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
+            int id = restid.RestId;
             var q = _context.Items.Where(x => x.RestId == id).ToList();
             return View(q);
 
@@ -245,14 +248,18 @@ namespace Foodilizer_Group35.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult InventoryCreate(Item item)
         {
-
+            var userid = HttpContext.Session.GetInt32("user_id");
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
+            int id = restid.RestId;
+            item.RestId = id;
+            item.Alert = "GREEN";
             _context.Items.Add(item);
             _context.SaveChanges();
             return RedirectToAction(nameof(Inventory));
         }
         public ActionResult InventoryEdit(int id)
         {
-            
             return View(_context.Items.Where(x => x.ItemId == id).FirstOrDefault());
             
     
@@ -305,12 +312,16 @@ namespace Foodilizer_Group35.Controllers
         public ActionResult Recomendations()
         {
 
-            int id = 2;
+            var userid = HttpContext.Session.GetInt32("user_id");
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
+            int id = restid.RestId;
+
+            //int id = 2;
             var query = _context.Menus.Where(e => e.RestId == id).Include(e => e.Foods).ToList();
             ViewBag.fooddet = query;
             foreach (var item in query)
             {
-
                 var recommend = _context.Foods.Where(e => e.MenuId == item.MenuId).ToList();
                 var prefscore = recommend.OrderByDescending(c => c.PrefScore).ToList();
                 ViewBag.recommendation = prefscore;

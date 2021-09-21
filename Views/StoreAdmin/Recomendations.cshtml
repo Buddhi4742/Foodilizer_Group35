@@ -10,7 +10,7 @@
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">Store Admin/Recomendations</li>
         </ol>
-        <h4>Edit / Update Recomendations (need to add a popup or another page to edit details individualy)</h4>
+        <h4>Edit / Update Recomendations</h4>
         <div class="col-md-12 row d-flex justify-content-center">
             @{ List<Menu> temp = ViewBag.fooddet;}
             @if (temp != null)
@@ -27,86 +27,59 @@
 
                             </div>
                         </div>
-                        @*<div class="col-2 align-items-stretch mb-3 d-flex">
-                            <div class="card recomm-box text-dark mb-4">
-                                <div class="card-title card-title-recomm ">Food Name</div>
-                                <img src="https://i.postimg.cc/28PqLLQC/dotonburi-canal-osaka-japan-700.jpg" class="card-img-top card-img-top-recomm" alt="Card Image">
-                                <div class="card-body card-body-recomm">Pref Score : <b>99%</b></div>
-
-                            </div>
-                        </div>
-                        <div class="col-2 align-items-stretch mb-3 d-flex">
-                            <div class="card recomm-box text-dark mb-4">
-                                <div class="card-title card-title-recomm ">Food Name</div>
-                                <img src="https://i.postimg.cc/28PqLLQC/dotonburi-canal-osaka-japan-700.jpg" class="card-img-top card-img-top-recomm" alt="Card Image">
-                                <div class="card-body card-body-recomm">Pref Score : <b>99%</b></div>
-
-                            </div>
-                        </div>
-                        <div class="col-2 align-items-stretch mb-3 d-flex">
-                            <div class="card recomm-box text-dark mb-4">
-                                <div class="card-title card-title-recomm ">Food Name</div>
-                                <img src="https://i.postimg.cc/28PqLLQC/dotonburi-canal-osaka-japan-700.jpg" class="card-img-top card-img-top-recomm" alt="Card Image">
-                                <div class="card-body card-body-recomm">Pref Score : <b>99%</b></div>
-
-                            </div>
-                        </div>
-                        <div class="col-2 align-items-stretch mb-3 d-flex">
-                            <div class="card recomm-box text-dark mb-4">
-                                <div class="card-title card-title-recomm ">Food Name</div>
-                                <img src="https://i.postimg.cc/28PqLLQC/dotonburi-canal-osaka-japan-700.jpg" class="card-img-top card-img-top-recomm" alt="Card Image">
-                                <div class="card-body card-body-recomm">Pref Score : <b>99%</b></div>
-
-                            </div>
-                        </div>*@
 
                     }
                 }
             }
         </div>
-            <div class="card-body">
-                <table id="datatablesSimple">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>edit buttons</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                        </tr>
-                        <tr>
-                            <td>Garrett Winters</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>63</td>
-                            <td>2011/07/25</td>
-                            <td>$170,750</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+       
+        
+        <div class="card-body">
+            <table id="datatablesSimple">
+                <thead>
+                    <tr>
+                        <th>Food Name</th>
+                        <th>Category</th>
+                        <th>Prefernce Score</th>
+                        <th>Price</th>
+                        <th> SpicyLevel</th>
+                        <th>Food Type</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Office</th>
+                        <th>Age</th>
+                        <th>Start date</th>
+                        <th>Salary</th>
+                    </tr>
+                </tfoot>
+                @if (temp != null)
+                {
+                    @foreach (var item in temp.First().Foods)
+                    {
+
+                       <tbody>
+                            <tr>
+                                <td>@item.FoodName</td>
+                                <td>@item.Category</td>
+                                <td>@item.PrefScore</td>
+                                <td>@item.Price</td>
+                                <td>@item.SpicyLevel</td>
+                                <td>@item.Type</td>
+                            </tr>
+
+                        </tbody>
+
+
+                    }
+                }
+                
+            </table>
         </div>
+    </div>
 </main>
 
 

@@ -616,214 +616,334 @@
     </div>
     <div class="rev row">
 
-        <div class="col-8">
-            <div class="rev-topic">
-                @if (temp2 != null)
-                {
-                    var i = 0;
+        @if (temp2 != null)
+        {
+            var k = 0;
 
-                    foreach (var item in temp2.First().Reviews)
-                    {
-                        i++;
-                    }
+            foreach (var item in temp2.First().Reviews)
+            {
+                k++;
+            }
+            if (k != 0)
+            {
+                <div class="col-8" id="#rev">
+                    <div class="rev-topic">
+                        @if (temp2 != null)
+                        {
+                            var i = 0;
 
-                    <h3>Reviews (@i)</h3>@*<button class="revb">Write a Review</button>*@
-                    //sessionid= 1; // for the form to be displayed. remove this to see the error message.
+                            foreach (var item in temp2.First().Reviews)
+                            {
+                                i++;
+                            }
 
-                    @if (sessionid != null)
-                    {
-                        <div align="center">
-                            <br />
-                            <a href="#loginScreen" class="revb">Write a Review</a>
-                        </div>
+                            <h3>Reviews (@i)</h3>@*<button class="revb">Write a Review</button>*@
+                            //sessionid= 1; // for the form to be displayed. remove this to see the error message.
 
-                        <div id="loginScreen">
-                            <a href="#rev" class="cancel">×</a>
-                            <div id="contact-form">
-                                <div>
-                                    <h1>WE APPRECIATE YOUR REVIEW!</h1>
-
+                            @if (sessionid != null)
+                            {
+                                <div align="center">
+                                    <br />
+                                    <a href="#loginScreen" class="revb">Write a Review</a>
                                 </div>
 
+                                <div id="loginScreen">
+                                    <a href="#rev" class="cancel">×</a>
+                                    <div id="contact-form">
+                                        <div>
+                                            <h1>WE APPRECIATE YOUR REVIEW!</h1>
 
-                                <form method="post" enctype="multipart/form-data" asp-controller="store_front" asp-action="create_review">
+                                        </div>
 
-                                    <div>
-                                        <label for="topic">
-                                            <span class="required">Your Overall Experience: *</span>
-                                            <input type="text" id="experience" name="experience" value="" placeholder="Fantastic!" tabindex="2" required="required" />
-                                        </label>
+
+                                        <form method="post" enctype="multipart/form-data" asp-controller="store_front" asp-action="create_review" runat="server">
+
+                                            <div>
+                                                <label for="topic">
+                                                    <span class="required">Your Overall Experience: *</span>
+                                                    <input type="text" id="experience" name="experience" value="" placeholder="Fantastic!" tabindex="2" required="required" />
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label for="subject">
+                                                    <span class="required">Rate our Overall Service: </span>
+                                                    <select id="subject" name="subject" tabindex="4">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2 </option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+
+                                                    </select>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label for="message">
+                                                    <span class="required">Write Your Feedback: *</span>
+                                                    <input type="text" id="message" name="message" placeholder="Please write your feedback here." tabindex="5" required="required"></input="Cemail">
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label for="photos">
+                                                    @*image upload*@
+                                                    <input type="file" id="fileupload" name="postedFiles" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" multiple />
+
+
+                                                </label>
+                                            </div>
+                                            <button name="submit" type="submit" id="submit" onclick="return Validateimages()">Submit</button>
+
+                                        </form>
+
                                     </div>
-                                    <div>
-                                        <label for="subject">
-                                            <span class="required">Rate our Overall Service: </span>
-                                            <select id="subject" name="subject" tabindex="4">
-                                                <option value="1">1</option>
-                                                <option value="2">2 </option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-
-                                            </select>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label for="message">
-                                            <span class="required">Write Your Feedback: *</span>
-                                            <input type="text" id="message" name="message" placeholder="Please write your feedback here." tabindex="5" required="required">
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label for="photos">
-                                            @*image upload*@
-                                            <input type="file" id="fileupload" name="postedFiles" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" multiple />
-
-                                        </label>
-                                    </div>
-                                    <button name="submit" type="submit" id="submit">Submit</button>
-
-                                </form>
-
-                            </div>
 
 
 
-                        </div>
-                        <div id="cover">
-                        </div>
-                    }
-                    //restaurants cannot write reviews
-                    @*else if (sessionuser == "REST")
-                            {
-                        <div id="loginScreen">
-                            <a href="#rev" class="cancel">×</a>
-                            <p>u can't'</p>
-                        </div>
-                            }*@
-
-
-                    else
-                    {
-                        <div align="center">
-                            <br />
-                            <a href="#eloginScreen" class="revb">Write a Review</a>
-                        </div>
-                        <div id="eloginScreen">
-                            <a href="#rev" class="ecancel">×</a>
-                            <div class="page-wrapper">
-                                <div class="custom-modal">
-                                    <div class="danger danger-animation icon-top"><i class="fa fa-times"></i></div>
-                                    <div class="danger border-bottom"></div>
-                                    <div class="content">
-                                        <p class="type">Warning!</p>
-                                        <p class="message-type">You must be logged in first to write a review! </p>
-                                    </div>
                                 </div>
-                            </div>
-                        </div>
-
-
-
-                        <div id="ecover">
-                        </div>
-                    }
-
-                }
-
-            </div>
-            <div id="carouselcardrev" class="carousel slide " data-interval="false">
-                <div class="carousel-inner">
-
-                    <div class="swiper-container favSwiper2">
-                        <div class="swiper-wrapper">
-                            @if (temp2 != null)
-                            {
-                                var i = 0;
-
-                                foreach (var item in temp2.First().Reviews)
+                                <div id="cover">
+                                </div>
+                            }
+                            //restaurants cannot write reviews
+                            @*else if (sessionuser == "REST")
                                 {
-                                    i++;
-
-                                    <div class="swiper-slide">
-                                        @*<div class="swiper-block">*@
-                                        <div class="cards-wrapper">
-                                            <div class="card rcard mt-2">
-                                                <div class="card-body">
-                                                    <div class="menu-image">
-                                                        <img src="https://cdn.pixabay.com/photo/2016/03/03/09/21/travel-1233762_960_720.jpg">
-                                                        <div class="rev-name">@item.Customer.Name</div>
-                                                    </div>
-                                                    <div class="menu-det">
-                                                        <div class="card-title">
-
-                                                            @{
-                                                                var a = @item.Rating;
-
-                                                                <div class="circles">
-
-                                                                    <ul style="list-style:none">
-
-                                                                        <li>
-                                                                            @for (int j = 0; j < System.Convert.ToInt32(a); j++)
-                                                                            {
-                                                                                <span class="glyphicon glyphicon-star"></span>
-
-                                                                            }
-                                                                            @for (int j = System.Convert.ToInt32(a); j < 5; j++)
-                                                                            {
-                                                                                <span class="glyphicon glyphicon-star-empty"></span>
-                                                                            }
-                                                                        </li>
+                            <div id="loginScreen">
+                                <a href="#rev" class="cancel">×</a>
+                                <p>u can't'</p>
+                            </div>
+                                }*@
 
 
-                                                                    </ul>
+                            else
+                            {
+                                <div align="center">
+                                    <br />
+                                    <a href="#eloginScreen" class="revb">Write a Review</a>
+                                </div>
+                                <div id="eloginScreen">
+                                    <a href="#rev" class="ecancel">×</a>
+                                    <div class="page-wrapper">
+                                        <div class="custom-modal">
+                                            <div class="danger danger-animation icon-top"><i class="fa fa-times"></i></div>
+                                            <div class="danger border-bottom"></div>
+                                            <div class="content">
+                                                <p class="type">Warning!</p>
+                                                <p class="message-type">You must be logged in first to write a review! </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div id="ecover">
+                                </div>
+                            }
+
+                        }
+
+                    </div>
+                    <div id="carouselcardrev" class="carousel slide " data-interval="false">
+                        <div class="carousel-inner">
+
+                            <div class="swiper-container favSwiper2">
+                                <div class="swiper-wrapper">
+                                    @if (temp2 != null)
+                                    {
+                                        var i = 0;
+
+                                        foreach (var item in temp2.First().Reviews)
+                                        {
+                                            i++;
+
+                                            <div class="swiper-slide">
+                                                @*<div class="swiper-block">*@
+                                                <div class="cards-wrapper">
+                                                    <div class="card rcard mt-2">
+                                                        <div class="card-body">
+                                                            <div class="menu-image">
+                                                                <img src="https://cdn.pixabay.com/photo/2016/03/03/09/21/travel-1233762_960_720.jpg">
+                                                                <div class="rev-name">@item.Customer.Name</div>
+                                                            </div>
+                                                            <div class="menu-det">
+                                                                <div class="card-title">
+
+                                                                    @{
+                                                                        var a = @item.Rating;
+
+                                                                        <div class="circles">
+
+                                                                            <ul style="list-style:none">
+
+                                                                                <li>
+                                                                                    @for (int j = 0; j < System.Convert.ToInt32(a); j++)
+                                                                                    {
+                                                                                        <span class="glyphicon glyphicon-star"></span>
+
+                                                                                    }
+                                                                                    @for (int j = System.Convert.ToInt32(a); j < 5; j++)
+                                                                                    {
+                                                                                        <span class="glyphicon glyphicon-star-empty"></span>
+                                                                                    }
+                                                                                </li>
+
+
+                                                                            </ul>
+
+                                                                        </div>
+
+                                                                    }
+
+
+                                                                    <div class="revdate">&nbsp;Reviewed in @item.Date.ToString("dd/MM/yyyy") </div><p class="revnum">@i</p>
+                                                                </div>
+                                                                <h5>"@item.Title"</h5>
+                                                                <p class="rcard-text">
+                                                                    @item.Feedback
+                                                                </p>
+
+
+                                                                <div class="rev-img">
+                                                                    @if (@item.ReviewImage1 != null)
+                                                                    {
+                                                                        <img src="@Url.Content(item.ReviewImage1)" />
+                                                                    }
+                                                                    @if (@item.ReviewImage2 != null)
+                                                                    {
+                                                                        <img src="@Url.Content(item.ReviewImage2)" />
+                                                                    }
+                                                                    @if (@item.ReviewImage3 != null)
+                                                                    {
+                                                                        <img src="@Url.Content(item.ReviewImage3)" />
+                                                                    }
 
                                                                 </div>
 
-                                                            }
 
-
-                                                            <div class="revdate">&nbsp;Reviewed in @item.Date.ToString("dd/MM/yyyy") </div><p class="revnum">@i</p>
-                                                        </div>
-                                                        <h5>"Never forget the place!"</h5>
-                                                        <p class="rcard-text">
-                                                            @item.Feedback
-                                                        </p>
-                                                        <div class="rev-img">
-                                                            @if (@item.ReviewImage1 != null)
-                                                            {
-                                                                <img src="@Url.Content(item.ReviewImage1)" />
-                                                            }
-                                                            @if (@item.ReviewImage2 != null)
-                                                            {
-                                                                <img src="@Url.Content(item.ReviewImage2)" />
-                                                            }
-                                                            @if (@item.ReviewImage3 != null)
-                                                            {
-                                                                <img src="@Url.Content(item.ReviewImage3)" />
-                                                            }
+                                                            </div>
 
                                                         </div>
-
-
                                                     </div>
 
                                                 </div>
                                             </div>
 
-                                        </div>
-                                    </div>
+                                        }
+                                    }
 
-                                }
-                            }
+                                </div>
+                            </div>
 
+                        </div>
+
+                    </div>
+                </div>
+            }
+            else
+            {
+                <h3>Reviews (0)</h3>@*<button class="revb">Write a Review</button>*@
+                //sessionid= 1; // for the form to be displayed. remove this to see the error message.
+
+
+                @if (sessionid != null)
+                {
+                    <div align="center">
+                        <br />
+                        <a href="#loginScreen" class="revb">Write a Review</a>
+                    </div>
+
+                    <div id="loginScreen">
+                        <a href="#rev" class="cancel">×</a>
+                        <div id="contact-form">
+                            <div>
+                                <h1>WE APPRECIATE YOUR REVIEW!</h1>
+
+                            </div>
+
+
+                            <form method="post" enctype="multipart/form-data" asp-controller="store_front" asp-action="create_review" runat="server">
+
+                                <div>
+                                    <label for="topic">
+                                        <span class="required">Your Overall Experience: *</span>
+                                        <input type="text" id="experience" name="experience" value="" placeholder="Fantastic!" tabindex="2" required="required" />
+                                    </label>
+                                </div>
+                                <div>
+                                    <label for="subject">
+                                        <span class="required">Rate our Overall Service: </span>
+                                        <select id="subject" name="subject" tabindex="4">
+                                            <option value="1">1</option>
+                                            <option value="2">2 </option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+
+                                        </select>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label for="message">
+                                        <span class="required">Write Your Feedback: *</span>
+                                        <input type="text" id="message" name="message" placeholder="Please write your feedback here." tabindex="5" required="required"></input="Cemail">
+                                    </label>
+                                </div>
+                                <div>
+                                    <label for="photos">
+                                        @*image upload*@
+                                        <input type="file" id="fileupload" name="postedFiles" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" multiple />
+
+
+                                    </label>
+                                </div>
+                                <button name="submit" type="submit" id="submit" onclick="return Validateimages()">Submit</button>
+
+                            </form>
+
+                        </div>
+
+
+
+                    </div>
+                    <div id="cover">
+                    </div>
+                }
+                //restaurants cannot write reviews
+                @*else if (sessionuser == "REST")
+                    {
+                <div id="loginScreen">
+                    <a href="#rev" class="cancel">×</a>
+                    <p>u can't'</p>
+                </div>
+                    }*@
+
+
+                else
+                {
+                    <div align="center">
+                        <br />
+                        <a href="#eloginScreen" class="revb">Write a Review</a>
+                    </div>
+                    <div id="eloginScreen">
+                        <a href="#rev" class="ecancel">×</a>
+                        <div class="page-wrapper">
+                            <div class="custom-modal">
+                                <div class="danger danger-animation icon-top"><i class="fa fa-times"></i></div>
+                                <div class="danger border-bottom"></div>
+                                <div class="content">
+                                    <p class="type">Warning!</p>
+                                    <p class="message-type">You must be logged in first to write a review! </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                </div>
 
-            </div>
-        </div>
+
+                    <div id="ecover">
+                    </div>
+                }
+            }
+        }
 
         <div class="likerow row ">
 

@@ -1,11 +1,12 @@
-﻿body{
-background-color:#F2F2F2;
+﻿body {
+    background-color: #F2F2F2;
+    font-family: 'PT Sans', sans-serif;
 }
 .br_home .carousel-inner {
     width: 730px;
     height: 290px;
     top: 30px;
-    background-color: #FFFFFF;
+    
     
 }
 
@@ -45,37 +46,34 @@ background-color:#F2F2F2;
     }
     .br_home .rank {
         margin-top: 20px;
-        margin-bottom:20px;
-        font-family:Arial;
+        margin-bottom: 20px;
+        font-family: 'PT Sans', sans-serif;
     }
 .br_home .card-body, .card-header {
     margin-left: 10px;
+
     margin-right: 10px;
 }
-@font-face {
-    font-family: 'tripfont';
-    src: url(https://fonts.google.com/specimen/PT+Sans);
-}
+
 .br_home .rating-topic {
     margin-top: 10px;
-    
     margin-left: 0px;
-    font-family: 'tripfont';
+    font-family: 'PT Sans', sans-serif;
     font-style: normal;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 16px;
     color: #000000;
 }
-.br_home .rating-topic-det {
-    margin-bottom: -10px;
-    margin-top: 10px;
-    margin-left: 0px;
-    font-family: 'tripfont';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 22px;
-    color: #000000;
-}
+    .br_home .rating-topic-det {
+        margin-bottom: -10px;
+        margin-top: 10px;
+        margin-left: 0px;
+        font-family: 'PT Sans', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        color: #000000;
+    }
     .br_home .circles ul{
     font-weight:700;
     line-height:30px;
@@ -115,8 +113,7 @@ background-color:#F2F2F2;
 
 .br_home .card-header {
     background-color: white;
-    font-family: 'tripfont';
-
+    font-family: 'PT Sans', sans-serif;
 }
 .br_home .carousel-control-next-icon, .carousel-control-prev-icon {
     margin-top: 50px;
@@ -124,13 +121,14 @@ background-color:#F2F2F2;
 .br_home .row {
     margin-bottom: 30px;
 }
-.menu .col-8,.menu .col-4{
-    margin-top: 60px;
+.menu .col-8{
+    margin-top: 50px;
 }
+
 .br_home .rest_name {
     position: absolute;
     left: 0px;
-    font-family: 'tripfont';
+    font-family: 'PT Sans', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 35px;
@@ -139,14 +137,21 @@ background-color:#F2F2F2;
 .br_home .best_selection {
     position: absolute;
     left: 0px;
-    margin-top: 100px;
-    font-family: 'tripfont';
+    margin-top: 80px;
+    font-family: 'PT Sans', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 28px;
     color: #000000;
 }
-    .br_home .rest_details {
+.br_home .col-4 {
+    margin-top: 65px;
+    margin-bottom:-100px;
+}
+.menu .col-4 {
+    margin-top: 170px;
+}
+  .br_home .rest_details {
         width: 950px;
         height: 34px;
         left: 0px;
@@ -259,10 +264,10 @@ background-color:#F2F2F2;
 }
 
 .tab {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'PT Sans', sans-serif;
     padding: 15px;
     margin-left: 0px;
-    margin-bottom:0px;
+    margin-bottom: 0px;
 }
 
     .tab .nav-tabs {
@@ -277,13 +282,11 @@ background-color:#F2F2F2;
 
             .tab .nav-tabs li a {
                 color: black;
-                font-family:'tripfont';
-                font-size: 16px;
-                font-weight: 900;
+                font-family: 'PT Sans', sans-serif;
+                font-size: 14px;
+                font-weight: 600;
                 text-align: center;
-                
-                padding: 8px 5px 10px ;
-                
+                padding: 8px 5px 10px;
                 margin: 0 12px 3px 0;
                 border: none;
                 border-radius: 0;
@@ -316,11 +319,10 @@ background-color:#F2F2F2;
 
     .tab .tab-content {
         color: #555;
-        background: linear-gradient(#fcfcfc,#f5f5f5,#fcfcfc);
-        font-size: 16px;
+        background-color: #F2F2F2;
+        font-size: 14px;
         letter-spacing: 1px;
         line-height: 25px;
-        
         height: 500px;
         width: 700px;
         padding: 20px;
@@ -376,7 +378,7 @@ background-color:#F2F2F2;
 
 
 h1 {
-    font-family:'tripfont';
+    font-family: 'PT Sans', sans-serif;
 }
 
 .menu-image {
@@ -438,7 +440,7 @@ h1 {
     margin-top: 2px;
 }
 .menu-det .mcard-text {
-    font-size: 15px;
+    font-size: 12px;
     line-height: 18px;
     margin-left: 0px;
     min-width: 10px;
@@ -629,8 +631,7 @@ h1 {
 
 .swiper-slide {
     text-align: center;
-    max-width:500px;
-    background: #fff;
+    max-width: 500px;
     /* Center slide text vertically */
     display: -webkit-box;
     display: -ms-flexbox;
@@ -644,6 +645,8 @@ h1 {
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
+    background-color: #F2F2F2;
+
 }
     .swiper-slide .card-name {
         font-size: 19px;
@@ -658,15 +661,14 @@ h1 {
 }
 .swiper-block {
     margin: 2em 1em;
- 
-    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);
+
     border: none;
     border-radius: 0;
-    height: 220px;
+    height: 210px;
     width: 300px;
-    margin-left:40px;
-    margin-right:20px;
-    
+    margin-left: 40px;
+    margin-right: 20px;
 }
 .swiper-card-data {
     margin-top: 20px;
@@ -893,7 +895,7 @@ h1 {
     #contact-form label {
         font-size: 15px;
         margin-bottom: 2px;
-        font-family: Arial, san-serif;
+        font-family: 'PT Sans', sans-serif;
     }
 
     #contact-form input,

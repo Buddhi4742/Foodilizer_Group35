@@ -26,6 +26,13 @@ namespace Foodilizer_Group35.Controllers
             
             var sessionid=HttpContext.Session.GetInt32("user_id");
             ViewBag.sessionid = sessionid;
+            TempData["Id"] = sessionid;
+            if (HttpContext.Session.GetInt32("user_email") == null)
+            {
+                TempData["Name"] = null;
+                TempData["Id"] = null;
+            }
+
             var sessionuser = HttpContext.Session.GetString("user_type");
             ViewBag.sessionuser = sessionuser;
             HttpContext.Session.SetInt32("rest_id", id);
@@ -103,6 +110,13 @@ namespace Foodilizer_Group35.Controllers
         {
             var sessionid = HttpContext.Session.GetInt32("user_id");
             ViewBag.sessionid = sessionid;
+            TempData["Id"] = sessionid;
+            if (HttpContext.Session.GetInt32("user_email") == null)
+            {
+                TempData["Name"] = null;
+                TempData["Id"] = null;
+            }
+
             var sessionuser = HttpContext.Session.GetString("user_type");
             ViewBag.sessionuser = sessionuser;
 
@@ -179,8 +193,15 @@ namespace Foodilizer_Group35.Controllers
         }
         public IActionResult gold_home(int id)
         {
+
             var sessionid = HttpContext.Session.GetInt32("user_id");
             ViewBag.sessionid = sessionid;
+            TempData["Id"] = sessionid;
+            if (HttpContext.Session.GetInt32("user_email") == null)
+            {
+                TempData["Name"] = null;
+                TempData["Id"] = null;
+            }
             var sessionuser = HttpContext.Session.GetString("user_type");
             ViewBag.sessionuser = sessionuser;
             //int id = 5;
@@ -289,7 +310,7 @@ namespace Foodilizer_Group35.Controllers
                     newrev.Rating = System.Convert.ToInt32(collection["subject"]);
                     DateTime dateTime = DateTime.UtcNow.Date;
                     newrev.Date = dateTime;
-
+                    
 
                     // image uploading to the folder
                     string path = "wwwroot/images";
@@ -333,23 +354,23 @@ namespace Foodilizer_Group35.Controllers
 
                     _context.Add(newrev);
                     await _context.SaveChangesAsync();
-                        
 
+                    int id = System.Convert.ToInt32(restid);
                     TempData["Message"] = "Review Submitted Successfully";
                     //return RedirectToAction(nameof(Owner_price));
                     string urlAnterior = Request.Headers["Referer"].ToString();
 
                     if (urlAnterior.Contains("bronze"))
                     {
-                        return RedirectToAction("bronze_home");
+                        return RedirectToAction("bronze_home", "store_front", new { id });
                     }
                     else if (urlAnterior.Contains("silver"))
                     {
-                        return RedirectToAction("silver_home");
+                        return RedirectToAction("silver_home", "store_front", new { id });
                     }
                     else if (urlAnterior.Contains("gold"))
                     {
-                        return RedirectToAction("gold_home");
+                        return RedirectToAction("gold_home", "store_front", new { id });
                     }
                 }
                 catch (Exception ex)

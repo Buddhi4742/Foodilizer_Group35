@@ -28,12 +28,11 @@
             <table id="datatablesSimple">
                 <thead>
                     <tr>
-                        <th>Rest id</th>
                         <th>Item Name</th>
-                        <th>ItemQuantity</th>
-                        <th>Measurement</th>
-                        <th>Quantity Limit</th>
-                        <th>Edit buttons</th>
+                        <th>Item Quantity</th>
+                        <th>Measurement of the Item</th>
+                        <th>Daily Quantity Used</th>
+                        <th>Edit</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,9 +43,6 @@
                         {
 
                             <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.RestId)
-                                </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.ItemName)
                                 </td>
