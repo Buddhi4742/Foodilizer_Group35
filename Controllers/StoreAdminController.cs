@@ -299,12 +299,16 @@ namespace Foodilizer_Group35.Controllers
         public ActionResult Recomendations()
         {
 
-            int id = 2;
+            var userid = HttpContext.Session.GetInt32("user_id");
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
+            int id = restid.RestId;
+
+            //int id = 2;
             var query = _context.Menus.Where(e => e.RestId == id).Include(e => e.Foods).ToList();
             ViewBag.fooddet = query;
             foreach (var item in query)
             {
-
                 var recommend = _context.Foods.Where(e => e.MenuId == item.MenuId).ToList();
                 var prefscore = recommend.OrderByDescending(c => c.PrefScore).ToList();
                 ViewBag.recommendation = prefscore;
