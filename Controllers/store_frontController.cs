@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-//using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Foodilizer_Group35.Models;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
 //using Microsoft.AspNetCore.Mvc.Filters;
 //using Microsoft.Graph;
 
@@ -257,7 +258,7 @@ namespace Foodilizer_Group35.Controllers
         }
 
 
-        public async Task<IActionResult> create_review(IFormCollection collection)
+        public async Task<IActionResult> create_review(IFormCollection collection, List<IFormFile> postedFiles)
         {
 
             if (ModelState.IsValid)
@@ -268,6 +269,8 @@ namespace Foodilizer_Group35.Controllers
 
                     var email = HttpContext.Session.GetString("user_email");
                     var query = _context.Customers.Where(e => e.Cemail == email).ToList();
+                    string[] paths = new string[3];
+                    int pcount = 0;
                     //Customerid should be removed from here
                     int customerid=-1;
                     foreach (var item2 in query)
@@ -287,6 +290,34 @@ namespace Foodilizer_Group35.Controllers
                     newrev.Rating = System.Convert.ToInt32(collection["subject"]);
                     DateTime dateTime = DateTime.UtcNow.Date;
                     newrev.Date = dateTime;
+
+
+
+                    string path = "wwwroot/images";
+
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+
+                    List<string> uploadedFiles = new List<string>();
+                    foreach (IFormFile postedFile in postedFiles)
+                    {
+                        string fileName = Path.GetFileName(postedFile.FileName);
+                        paths[pcount] = fileName;
+                        pcount++;
+                        using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
+                        {
+                            postedFile.CopyTo(stream);
+                            uploadedFiles.Add(fileName);
+                            ViewBag.Message += string.Format("<b>{0}</b> uploaded.<br />", fileName);
+                        }
+                    }
+
+                    newrev.ReviewImage1 = Path.Combine(path, paths[0]);
+                    newrev.ReviewImage2 = Path.Combine(path, paths[1]);
+                    newrev.ReviewImage3 = Path.Combine(path, paths[2]);
+
                     _context.Add(newrev);
                     await _context.SaveChangesAsync();
                         
