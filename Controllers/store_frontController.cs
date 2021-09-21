@@ -289,7 +289,7 @@ namespace Foodilizer_Group35.Controllers
                     newrev.Rating = System.Convert.ToInt32(collection["subject"]);
                     DateTime dateTime = DateTime.UtcNow.Date;
                     newrev.Date = dateTime;
-
+                    
 
                     // image uploading to the folder
                     string path = "wwwroot/images";
@@ -333,23 +333,23 @@ namespace Foodilizer_Group35.Controllers
 
                     _context.Add(newrev);
                     await _context.SaveChangesAsync();
-                        
 
+                    int id = System.Convert.ToInt32(restid);
                     TempData["Message"] = "Review Submitted Successfully";
                     //return RedirectToAction(nameof(Owner_price));
                     string urlAnterior = Request.Headers["Referer"].ToString();
 
                     if (urlAnterior.Contains("bronze"))
                     {
-                        return RedirectToAction("bronze_home");
+                        return RedirectToAction("bronze_home", "store_front", new { id });
                     }
                     else if (urlAnterior.Contains("silver"))
                     {
-                        return RedirectToAction("silver_home");
+                        return RedirectToAction("silver_home", "store_front", new { id });
                     }
                     else if (urlAnterior.Contains("gold"))
                     {
-                        return RedirectToAction("gold_home");
+                        return RedirectToAction("gold_home", "store_front", new { id });
                     }
                 }
                 catch (Exception ex)
