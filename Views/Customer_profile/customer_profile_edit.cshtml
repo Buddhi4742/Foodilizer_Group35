@@ -32,7 +32,7 @@
 
 <body>
 
-    <form class="register" asp-action="customer_profile_edit" asp-route-id="@TempData["Id"]" id="form1">
+    <form class="register" asp-action="customer_profile_edit" asp-route-id="@TempData["Id"]" id="form1" enctype="multipart/form-data" runat="server">
         <div class="form-group col-md-8">
             <label for="inputownFirstname">Name</label>
             <input asp-for="Name" class="form-control" id="inputName" placeholder="Name" required>
@@ -40,8 +40,8 @@
         </div>
 
         <div class="form-group col-md-8">
-            <label for="inputrestLogo">Profile Image</label>
-            <input type="file" class="form-control" id="inputProfileImage" @*onchange="getImagePreview(event)"*@ name="ProfileImage">
+            <label for="fileupload">Profile Image</label>
+            <input type="file" class="form-control" id="fileupload" name="postedFile" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG">
         </div>
         <div class="form-group col-md-8">
             <label for="inputAddress">Address</label>

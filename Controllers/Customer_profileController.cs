@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
 using System.IO;
+using System.Collections.Generic;
 //using Microsoft.AspNetCore.Mvc.Filters;
 //using Microsoft.Graph;
 
@@ -84,7 +85,7 @@ namespace Foodilizer_Group35.Controllers
        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult customer_profile_edit(int id,Customer customer)
+        public ActionResult customer_profile_edit(int id,Customer customer, IFormFile postedFile)
         {
             int userid = id;
             TempData["Id"] = id;
@@ -93,12 +94,31 @@ namespace Foodilizer_Group35.Controllers
             id = customerid.CustomerId;
             try
             {
+                string path = "wwwroot/images";
+
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                string uploadedFile = "";
+                
+                    string fileName = Path.GetFileName(postedFile.FileName);
+                    using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
+                    {
+                        postedFile.CopyTo(stream);
+                        uploadedFile=fileName;
+                        ViewBag.Message += string.Format("<b>{0}</b> uploaded.<br />", fileName);
+                    }
+                string path2 = "~/images";
+                Path.Combine(path2, fileName);
                 _context.Customers.Where(x => x.CustomerId == id).FirstOrDefault().Name = customer.Name;
                 _context.Customers.Where(x => x.CustomerId == id).FirstOrDefault().Name = customer.Name;
                 _context.Customers.Where(x => x.CustomerId == id).FirstOrDefault().Address = customer.Address;
                 _context.Customers.Where(x => x.CustomerId == id).FirstOrDefault().Province = customer.Province;
                 _context.Customers.Where(x => x.CustomerId == id).FirstOrDefault().District = customer.District;
                 _context.Customers.Where(x => x.CustomerId == id).FirstOrDefault().DietryRestriction = customer.DietryRestriction;
+                _context.Customers.Where(x => x.CustomerId == id).FirstOrDefault().ProfileImage = Path.Combine(path2, fileName);
                 _context.SaveChanges();
 
 

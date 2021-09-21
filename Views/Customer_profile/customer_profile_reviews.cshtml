@@ -45,7 +45,7 @@
 
                                             </div>
                                             <div class="col-sm-4">
-                                                <img src="@Html.DisplayFor(model => model.ProfileImage)" class="profile_picture" />
+                                                <img src="@Url.Content(Model.ProfileImage)" class="profile_picture" />
                                             </div>
                                             <div class="col-sm-1">
                                             </div>
@@ -125,15 +125,15 @@
                                             <span>
                                             @if (review.ReviewImage1 != null)
                                             {
-                                                <img src="@review.ReviewImage1" class="review_image card-text pl-4" />
+                                                <img src="@Url.Content(review.ReviewImage1)" class="review_image card-text pl-4" />
                                             }
                                             @if (review.ReviewImage2 != null)
                                             {
-                                                <img src="@review.ReviewImage2" class="review_image card-text pl-4" />
+                                                <img src="@Url.Content(review.ReviewImage2)" class="review_image card-text pl-4" />
                                             }
                                             @if (review.ReviewImage3 != null)
                                             {
-                                                <img src="@review.ReviewImage3" class="review_image card-text pl-4" />
+                                                <img src="@Url.Content(review.ReviewImage3)" class="review_image card-text pl-4" />
                                             }
                                             </span>
                                         </div>
