@@ -58,7 +58,7 @@
         </div>
         <div class="col-4">
             <div class="rounded">
-                <div class="card bg-light mb-3" style="max-width: 38rem;">
+                <div class="card bg-light mb-3" style="max-width: 38rem; ">
 
                     <img src="~/lib/images/store_front_images/proban.jpg" />
 
@@ -69,9 +69,10 @@
 
         <div class="best col-8 " id="menudiv">
             <div class="best_selection col-12">
-                Recommended for you
+                
                 <div id="rcarouselcards" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
+                        Recommended for you
                         <div class="swiper-container favSwiper">
                             <div class="swiper-wrapper">
                                 @if (temp7 != null)
@@ -105,13 +106,15 @@
                                 }
 
                             </div>
+                            <div class="swiper-pagination"></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="recommendation" id="bsdiv">Our Best Selections</div>
+                <div class="recommendation" id="bsdiv"></div>
                 <div id="carouselcards" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
+                        Our Best Selections
                         <div class="swiper-container favSwiper">
                             <div class="swiper-wrapper">
                                 @if (temp != null)
@@ -147,7 +150,9 @@
                                 }
 
                             </div>
+                            <div class="swiper-pagination"></div>
                         </div>
+                        
                     </div>
 
                 </div>
@@ -160,7 +165,7 @@
         <div class="col-4">
 
             <div class="rounded">
-                <div class="card bg-light mb-3" style="max-width: 38rem;">
+                <div class="card bg-light mb-3" style="max-width: 38rem; margin-top:85px">
                     @{ double c = 0.0;
                         <div class="card-header">
 
@@ -285,7 +290,7 @@
     <div class="menu row">
 
         <div class="col-8">
-            <h1 style="margin-left:250px;">Our Menu</h1>
+            <h2 style="margin-left:250px;">Our Menu</h2>
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
@@ -582,8 +587,8 @@
                                 <li class="list_det">@Html.DisplayFor(model => model.Cuisine)</li>
                                 <li class="list_topic"><i class="fa fa-burger-soda"></i>&nbsp; Special Diets</li>
                                 <li class="list_det">@Html.DisplayFor(model => model.SpecialDiet)</li>
-                                <li class="list_topic"><i class="fa fa-info-square"></i>&nbsp; Our Mission</li>
-                                <li class="list_det">@Html.DisplayFor(model => model.Rabout)</li>
+                                @*<li class="list_topic"><i class="fa fa-info-square"></i>&nbsp; Our Mission</li>
+                                <li class="list_det">@Html.DisplayFor(model => model.Rabout)</li>*@
                             </ul>
                         </p>
                     </div>
@@ -591,7 +596,7 @@
                 </div>
             </div>
 
-            <div class="rounded" style="margin-top:100px;">
+            <div class="rounded" style="margin-top:140px;">
                 <div class="lcard bg-light mb-3" style="max-width: 38rem;">
                     <div class="card-body">
                         <div class="rating-topic ">Location and Contact</div>
@@ -831,6 +836,7 @@
                                     }
 
                                 </div>
+                                <div class="swiper-pagination"></div>
                             </div>
 
                         </div>

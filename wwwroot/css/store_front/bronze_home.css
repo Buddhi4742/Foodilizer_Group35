@@ -55,15 +55,15 @@
     margin-right: 10px;
 }
 
-.br_home .rating-topic {
-    margin-top: 10px;
-    margin-left: 0px;
-    font-family: 'PT Sans', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    color: #000000;
-}
+    .br_home .rating-topic {
+        margin-top: 10px;
+        margin-left: 0px;
+        font-family: 'PT Sans', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        color: #000000;
+    }
     .br_home .rating-topic-det {
         margin-bottom: -10px;
         margin-top: 10px;
@@ -71,14 +71,15 @@
         font-family: 'PT Sans', sans-serif;
         font-style: normal;
         font-weight: 600;
-        font-size: 16px;
+        font-size: 18px;
         color: #000000;
     }
-    .br_home .circles ul{
-    font-weight:700;
-    line-height:30px;
-    margin-left:-40px;
-}
+    .br_home .circles ul {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 30px;
+        margin-left: -40px;
+    }
 .br_home .circles .glyphicon {
     margin-left:3px;
     font-size: 20px;
@@ -131,7 +132,7 @@
     font-family: 'PT Sans', sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 35px;
+    font-size: 34px;
     color: #000000;
 }
 .br_home .best_selection {
@@ -141,7 +142,7 @@
     font-family: 'PT Sans', sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 28px;
+    font-size: 26px;
     color: #000000;
 }
 .br_home .col-4 {
@@ -223,7 +224,7 @@
     width: 100%;
 }
 .best_selection  .card-title{
-    font-size:20px;
+    font-size:18px;
     margin-top:10px;
     font-weight:600;
     margin-left:0px;
@@ -431,16 +432,18 @@ h1 {
     flex: 4;
 }
     .menu-det h3 {
+        font-size: 19px;
         margin-top: 0px;
         color: #13dad2;
         flex: 3;
     }
-.menu-det h4 {
-    flex: 2;
-    margin-top: 2px;
-}
+    .menu-det h4 {
+        flex: 2;
+        margin-top: 2px;
+        font-size: 17px;
+    }
 .menu-det .mcard-text {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 18px;
     margin-left: 0px;
     min-width: 10px;
@@ -649,7 +652,7 @@ h1 {
 
 }
     .swiper-slide .card-name {
-        font-size: 19px;
+        font-size: 17px;
         font-weight: 700;
     }
 .swiper-image {
@@ -670,6 +673,12 @@ h1 {
     margin-left: 40px;
     margin-right: 20px;
 }
+
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: black;
+}
 .swiper-card-data {
     margin-top: 20px;
     font-weight: 600;
@@ -686,7 +695,7 @@ h1 {
 
 
 .flipcard {
-    height: 220px;
+    height: 210px;
     width: 190px;
     position: absolute;
     transform-style: preserve-3d;
@@ -709,7 +718,7 @@ h1 {
         border-radius: 6px;
         position: absolute;
         overflow: hidden;
-        height: 220px;
+        height: 210px;
         width: 190px;
     }
 

@@ -1,12 +1,13 @@
 ﻿body {
     background-color: #F2F2F2;
+    font-family: 'PT Sans', sans-serif;
 }
 
 .br_home .carousel-inner {
     width: 730px;
     height: 290px;
     top: 30px;
-    background-color: #FFFFFF;
+    background-color: #F2F2F2;
 }
 
 .br_home {
@@ -14,14 +15,12 @@
     border-color:blue;
 
 }
-.br_home .col-4{
-    padding-left: 30px;
-    padding-right:0px;
-
-
-
- 
-}
+    .br_home .col-4 {
+        padding-left: 30px;
+        padding-right: 0px;
+        margin-top: 60px;
+        margin-bottom:-110px;
+    }
 
 
     .br_home .card {
@@ -48,20 +47,17 @@
     .br_home .rank {
         margin-top: 20px;
         margin-bottom:20px;
-        font-family:Arial;
+        
     }
 .br_home .card-body, .card-header {
     margin-left: 10px;
     margin-right: 10px;
 }
-@font-face {
-    font-family: 'tripfont';
-    src: url(https://fonts.google.com/specimen/PT+Sans);
-}
+
 .br_home .rating-topic {
     margin-top: 10px;
     margin-left: 0px;
-    font-family: 'tripfont';
+   
     font-style: normal;
     font-weight: 600;
     font-size: 22px;
@@ -71,17 +67,18 @@
     margin-bottom: -10px;
     margin-top: 10px;
     margin-left: 0px;
-    font-family: 'tripfont';
+  
     font-style: normal;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 18px;
     color: #000000;
 }
-.br_home .circles ul {
-    font-weight: 700;
-    line-height: 30px;
-    margin-left: -40px;
-}
+    .br_home .circles ul {
+        font-weight: 700;
+        line-height: 30px;
+        margin-left: -40px;
+        font-size:16px;
+    }
 
 .br_home .circles .glyphicon {
     margin-left: 3px;
@@ -117,7 +114,7 @@
 
 .br_home .card-header {
     background-color: white;
-    font-family: 'tripfont';
+   
 
 }
 .br_home .carousel-control-next-icon, .carousel-control-prev-icon {
@@ -126,36 +123,36 @@
 .br_home .row {
     margin-bottom: 30px;
 }
-.menu .col-8,.menu .col-4{
-    margin-top: 360px;
+.menu .col-8{
+    margin-top: 490px;
 }
 .menu .col-4 {
-    margin-top: 30px;
+    margin-top: -95px;
 }
 .br_home .rest_name {
     position: absolute;
     left: 0px;
-    font-family: 'tripfont';
+   
     font-style: normal;
     font-weight: normal;
-    font-size: 35px;
+    font-size: 34px;
     color: #000000;
 }
 .br_home .best_selection {
     position: absolute;
     left: 0px;
-    margin-top: 100px;
-    font-family: 'tripfont';
+    margin-top: 90px;
+   
     font-style: normal;
     font-weight: normal;
-    font-size: 28px;
+    font-size: 26px;
     color: #000000;
 }
     .br_home .rest_details {
         width: 950px;
         height: 34px;
         left: 0px;
-        margin-top: 55px;
+        margin-top: 50px;
     }
 
     .br_home .map-container {
@@ -181,17 +178,18 @@
 .br_home .list_det {
     margin-left: 23px;
     font-size: 13px;
-    margin-top: -2px;
+    margin-top: 2px;
     line-height: 20px;
 }
 .best_selection{
     font-weight:800;
 
 }
-.best_selection .cards-wrapper {
-    display: flex;
-    justify-content: center;
-}
+    .best_selection .cards-wrapper {
+        display: flex;
+        justify-content: center;
+        background-color: #F2F2F2;
+    }
 
 .best_selection .card img {
     max-width: 200px;
@@ -204,7 +202,7 @@
     box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
     border: none;
     border-radius: 0;
-    height: 220px;
+    height: 210px;
     width:300px;
 }
 
@@ -224,7 +222,7 @@
 }
 .best_selection .carousel-inner {
     padding: 0em;
-    height: 300px;
+    height: 310px;
 }
 
 .best_selection .carousel-control-prev,
@@ -256,7 +254,7 @@
 }
 
 .tab {
-    font-family: 'Source Sans Pro', sans-serif;
+    
     padding: 15px;
     margin-left: 0px;
     margin-bottom:0px;
@@ -274,9 +272,9 @@
 
             .tab .nav-tabs li a {
                 color: black;
-                font-family:'tripfont';
-                font-size: 16px;
-                font-weight: 900;
+              
+                font-size: 14px;
+                font-weight: 600;
                 text-align: center;
                 
                 padding: 8px 5px 10px ;
@@ -313,11 +311,10 @@
 
     .tab .tab-content {
         color: #555;
-        background: linear-gradient(#fcfcfc,#f5f5f5,#fcfcfc);
-        font-size: 16px;
+        background-color: #F2F2F2;
+        font-size: 14px;
         letter-spacing: 1px;
         line-height: 25px;
-        
         height: 500px;
         width: 700px;
         padding: 20px;
@@ -372,9 +369,7 @@
 }
 
 
-h1 {
-    font-family:'tripfont';
-}
+
 
 .menu-image {
     height: 100%;
@@ -426,18 +421,20 @@ h1 {
     flex: 4;
 }
 .menu-det h3 {
-    font-size: 20px;
+    font-size: 19px;
     color: #13dad2;
     margin-top: 0px;
     flex: 3;
 }
 
-.menu-det h4 {
-    flex: 2;
-    margin-top: 2px;
-}
+    .menu-det h4 {
+        flex: 2;
+        margin-top: 2px;
+        font-size: 17px;
+    }
     .menu-det i {
         margin-top: 4px;
+        font-size: 18px;
     }
         .menu-det i:hover {
 
@@ -445,7 +442,7 @@ h1 {
         color: aqua;
     }
 .menu-det .mcard-text {
-    font-size:15px;
+    font-size:14px;
     line-height:18px;
     justify-content:normal;
 }
@@ -460,7 +457,9 @@ h1 {
         margin-top: 0px;
         margin-left: 0px;
     }
-
+    .rev .carousel-inner {
+        background-color: #F2F2F2;
+    }
 .rcard {
     border-right: ridge;
     border-left: ridge;
@@ -471,6 +470,7 @@ h1 {
     width: 500px;
     color: black;
     display: flex;
+  
     text-align: left;
     height: 308px;
     justify-content: right;
@@ -629,9 +629,10 @@ h1 {
         width: 100%;
     }
 
-.recommendation{
-    margin-top:50px;
+.recommendation {
     
+    margin-top: 80px;
+    margin-bottom: -20px;
 }
     .recommendation .carousel slide {
         margin-top: 0px;
@@ -708,7 +709,7 @@ h1 {
     .popup h2 {
         margin-top: 0;
         color: #333;
-        font-family: Tahoma, Arial, sans-serif;
+      
     }
 
     .popup .close {
@@ -765,8 +766,8 @@ h1 {
 
 .swiper-slide {
     text-align: center;
- 
-    background: #fff;
+    max-width: 500px;
+    background-color: #F2F2F2;
     /* Center slide text vertically */
     display: -webkit-box;
     display: -ms-flexbox;
@@ -783,7 +784,7 @@ h1 {
 }
 
     .swiper-slide .card-name {
-        font-size: 19px;
+        font-size: 17px;
         font-weight: 700;
     }
 
@@ -797,10 +798,10 @@ h1 {
 
 .swiper-block {
     margin: 2em 1em;
-    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);
     border: none;
     border-radius: 0;
-    height: 220px;
+    height: 210px;
     width: 300px;
     margin-left: 40px;
     margin-right: 20px;
@@ -812,9 +813,12 @@ h1 {
     margin-left: 0px;
     text-align: center;
 }
-
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: black;
+}
 .flipcard {
-    height: 220px;
+    height: 210px;
     width: 190px;
     position: absolute;
     transform-style: preserve-3d;
@@ -839,7 +843,7 @@ h1 {
         border-radius: 6px;
         position: absolute;
         overflow: hidden;
-        height: 220px;
+        height: 210px;
         width: 190px;
     }
 
@@ -1022,7 +1026,6 @@ h1 {
 
     #contact-form h4 {
         padding: 2px 0px;
-        color: #4d0er;
         text-align: center;
         font-weight: normal;
         font-size: 15px;
@@ -1034,7 +1037,7 @@ h1 {
     #contact-form label {
         font-size: 15px;
         margin-bottom: 2px;
-        font-family: Arial, san-serif;
+        
     }
 
     #contact-form input,
