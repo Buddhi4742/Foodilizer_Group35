@@ -1,0 +1,137 @@
+﻿@{
+    ViewData["Title"] = "Shopping Cart";
+    Layout = "~/Views/Shared/_bronze_store_layout.cshtml";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="~/css/store_front/order_details.css">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+@section scripts
+{
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="~/js/store_front/order_details.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+}
+
+<div class="shopping-cart">
+    <!-- Title -->
+    <div class="title">
+        Order Details
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <!-- Product #1 -->
+            <div class="item row">
+                @*<div class="buttons">
+                <span class="delete-btn">
+                    <i class="fa fa-times-circle fa-2x" aria-hidden="true" style="color:black;" ></i>
+                </span>
+
+            </div>*@
+
+                <div class="image">
+                    <img src="~/lib/images/store_front_images/fc1.jfif" alt="" />
+                </div>
+
+                <div class="description">
+                    <span>Crispy Chicken Burger</span>
+
+                </div>
+
+                <div class="quantity">
+                    1
+                </div>
+
+                <div class="total-price">400 LKR</div>
+            </div>
+
+            <!-- Product #2 -->
+            <div class="item row">
+                @*<div class="buttons">
+                <span class="delete-btn">
+                    <i class="fa fa-times-circle fa-2x" aria-hidden="true" style="color:black;"></i>
+                </span>
+
+            </div>*@
+
+                <div class="image">
+                    <img src="~/lib/images/store_front_images/fc2.jfif" alt="" />
+                </div>
+
+                <div class="description">
+                    <span>Chocolate Milk Shake</span>
+
+                </div>
+
+                <div class="quantity">
+                    1
+                </div>
+
+                <div class="total-price">400 LKR</div>
+            </div>
+
+            <!-- Product #3 -->
+            <div class="item row">
+                @*<div class="buttons">
+                <span class="delete-btn">
+                    <i class="fa fa-times-circle fa-2x" aria-hidden="true" style="color:black;"></i>
+                </span>
+
+            </div>*@
+
+                <div class="image">
+                    <img src="~/lib/images/store_front_images/fc3.jfif" alt="" />
+                </div>
+
+                <div class="description">
+                    <span>Chicken Pizza</span>
+
+                </div>
+
+                <div class="quantity">
+                    1
+                </div>
+
+                <div class="total-price">400 LKR</div>
+
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="p-3">
+                <form>
+                    <!--div class="form-group col-12">
+                        <h4><label--> @*asp-for="FoodName"*@ <!--class="control-label pb-3">Enter Adress</label></h4>
+                        <input-->  @*asp-for="FoodName"*@ <!--class="form-control" />
+                        <textarea name="Address" >Enter Address</textarea>
+                        <span--> @*asp-validation-for="FoodName"*@ <!--class="text-danger"></span>
+                    </div>-->
+                    <div class=" col-md-12">
+                        <h4><label class="pb-2" for="inputRestDesc">Enter Delivery Address</label></h4>
+                        <textarea @*asp-for="Rabout"*@ class="form-control" id="inputRestDesc" cols="10" rows="6" placeholder="Address" required> Enter Address</textarea>
+                        <span @*asp-validation-for="Rabout"*@ class="text-danger"></span>
+                    </div>
+
+
+
+                    <!--<div class="form-group col-4">
+                        <label--> @*asp-for="Type"*@ <!--class="control-label"></label>
+                        <input--> @*asp-for="Type"*@ <!--class="form-control" />
+                        <span--> @*asp-validation-for="Type"*@ <!--class="text-danger"></span>
+                    </div>-->
+                </form>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="total">
+        <h4 class="totali">Total Items : </h4><h4 class="totnum">3</h4>
+        <h4 class="totalam">Total Amount : </h4><h4 class="totamnum">1200 LKR</h4>
+    </div>
+    <div class="cartbuttons">
+        <a class="shbutton" asp-area="" asp-controller="store_front" asp-action="gold_home">Back to Cart</a>
+        <a class="shbutton" asp-area="" asp-controller="store_front" asp-action="gold_checkout">Pay Now</a>
+    </div>
+</div>
