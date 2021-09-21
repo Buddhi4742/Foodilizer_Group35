@@ -68,12 +68,16 @@ namespace Foodilizer_Group35.Controllers
                     }
                     else if (userDetails.UserType == "ADMIN")
                     {
+                        TempData["Id"] = HttpContext.Session.GetInt32("user_id");
                         //buddhi
                         return RedirectToAction("Index", "Foodilizer_admin");
                     }
                     else if (userDetails.UserType == "REST")
                     {
-                        //viganis
+                        var name = await _context.Restaurants.FirstOrDefaultAsync(x => x.Remail == HttpContext.Session.GetString("user_email"));
+                        TempData["Name"] = name.OwnerName;
+                        TempData["Rest_Id"] = name.RestId;
+
                         return RedirectToAction("Index", "StoreAdmin");
                     }
                     else
