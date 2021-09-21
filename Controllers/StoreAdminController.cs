@@ -26,9 +26,11 @@ namespace Foodilizer_Group35.Controllers
         }
         public ActionResult Profile()
         {
-            int id = 2;
+            var userid = HttpContext.Session.GetInt32("user_id");
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
+            int id = restid.RestId;
             TempData["ID"] = id;
-            //var q = ;
             return View(_context.Restaurants.Where(x => x.RestId == id).FirstOrDefault());
         }
 
@@ -72,7 +74,11 @@ namespace Foodilizer_Group35.Controllers
         }
         public ActionResult Menu()
         {
-            int id = 2;
+            var userid = HttpContext.Session.GetInt32("user_id");
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
+            int id = restid.RestId;
+
             var query = _context.Menus.Where(e => e.RestId == id).Include(e => e.Foods).ToList();
             var menuid = _context.Menus.Where(e => e.RestId == id).FirstOrDefault();
 
