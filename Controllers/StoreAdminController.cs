@@ -219,7 +219,10 @@ namespace Foodilizer_Group35.Controllers
         }
         public ActionResult Inventory()
         {
-            int id = 2;
+            var userid = HttpContext.Session.GetInt32("user_id");
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
+            int id = restid.RestId;
             var q = _context.Items.Where(x => x.RestId == id).ToList();
             return View(q);
 
@@ -239,7 +242,12 @@ namespace Foodilizer_Group35.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult InventoryCreate(Item item)
         {
-
+            var userid = HttpContext.Session.GetInt32("user_id");
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
+            int id = restid.RestId;
+            item.RestId = id;
+            item.Alert = "GREEN";
             _context.Items.Add(item);
             _context.SaveChanges();
             return RedirectToAction(nameof(Inventory));
