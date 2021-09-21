@@ -13,6 +13,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Graph" Version="4.4.0" />
     <PackageReference Include="Microsoft.ML" Version="1.6.0" />
+    <PackageReference Include="Microsoft.ML.FastTree" Version="1.6.0" />
     <PackageReference Include="Microsoft.ML.LightGbm" Version="1.6.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="5.0.1" />

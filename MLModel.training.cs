@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.ML.Data;
-using Microsoft.ML.Trainers.LightGbm;
 using Microsoft.ML.Trainers;
 using Microsoft.ML;
 
@@ -29,9 +28,10 @@ namespace Foodilizer_Group35
         public static IEstimator<ITransformer> BuildPipeline(MLContext mlContext)
         {
             // Data process configuration with pipeline data transformations
-            var pipeline = mlContext.Transforms.ReplaceMissingValues(new []{new InputOutputColumnPair(@"Category rating", @"Category rating"),new InputOutputColumnPair(@"Price", @"Price"),new InputOutputColumnPair(@"Quantity", @"Quantity"),new InputOutputColumnPair(@"Restaurant rating", @"Restaurant rating"),new InputOutputColumnPair(@"Veg", @"Veg"),new InputOutputColumnPair(@"Spicy level", @"Spicy level"),new InputOutputColumnPair(@"Hot or cold", @"Hot or cold"),new InputOutputColumnPair(@"Organic", @"Organic")})      
-                                    .Append(mlContext.Transforms.Concatenate(@"Features", new []{@"Category rating",@"Price",@"Quantity",@"Restaurant rating",@"Veg",@"Spicy level",@"Hot or cold",@"Organic"}))      
-                                    .Append(mlContext.Regression.Trainers.LightGbm(new LightGbmRegressionTrainer.Options(){NumberOfLeaves=33,MinimumExampleCountPerLeaf=2,NumberOfIterations=7,MaximumBinCountPerFeature=233,LearningRate=0.263518083903526F,LabelColumnName=@"Preference score",FeatureColumnName=@"Features",Booster=new GradientBooster.Options(){SubsampleFraction=0.552099535905926F,FeatureFraction=0.76363136369957F,L1Regularization=0.215430537590396F,L2Regularization=1.44803918936309F}}));
+            var pipeline = mlContext.Transforms.ReplaceMissingValues(new []{new InputOutputColumnPair(@"Category rating", @"Category rating"),new InputOutputColumnPair(@"Price", @"Price"),new InputOutputColumnPair(@"Quantity", @"Quantity"),new InputOutputColumnPair(@"Restaurant rating", @"Restaurant rating"),new InputOutputColumnPair(@"Veg", @"Veg"),new InputOutputColumnPair(@"Organic", @"Organic")})      
+                                    .Append(mlContext.Transforms.Concatenate(@"Features", new []{@"Category rating",@"Price",@"Quantity",@"Restaurant rating",@"Veg",@"Organic"}))      
+                                    .Append(mlContext.Transforms.NormalizeMinMax(@"Features", @"Features"))      
+                                    .Append(mlContext.Regression.Trainers.LbfgsPoissonRegression(l1Regularization:20.6884225417265F,l2Regularization:0.110371741418149F,labelColumnName:@"Preference score",featureColumnName:@"Features"));
 
             return pipeline;
         }

@@ -118,8 +118,16 @@ namespace Foodilizer_Group35.Controllers
                     sum = sum + System.Convert.ToDouble(rate);
                     count++;
                 }
-                avg = (sum / count);
-                a = System.Convert.ToSingle(avg);
+                if (count == 0)
+                {
+                    a = 3.5F;
+                }
+                else
+                {
+                    avg = (sum / count);
+                    a = System.Convert.ToSingle(avg);
+                }
+                
             }
             
             var updatefooditem = new Food();
@@ -148,8 +156,6 @@ namespace Foodilizer_Group35.Controllers
                 Quantity = Int32.Parse(collection["Quantity"]),
                 Restaurant_rating = a,
                 Veg = Int32.Parse(collection["Veg"]),
-                Spicy_level = Int32.Parse(collection["SpicyLevel"]),
-                Hot_or_cold = Int32.Parse(collection["Hot"]),
                 Organic = Int32.Parse(collection["Organic"]),
             };
 
