@@ -66,7 +66,7 @@
 
                                             </div>
                                             <div class="col-sm-6">
-                                                <span><a class="btn btn-dark" asp-action="customer_profile_reviews">Your Reviews</a> <a class="btn btn-dark" asp-action="customer_profile_edit">Edit profile</a></span>
+                                                <span><a class="btn btn-dark" asp-action="customer_profile_reviews" asp-route-id="@TempData["Id"]">Your Reviews</a> <a class="btn btn-dark" asp-action="customer_profile_edit" asp-route-id="@TempData["Id"]">Edit profile</a></span>
                                             </div>
 
                                         </div>

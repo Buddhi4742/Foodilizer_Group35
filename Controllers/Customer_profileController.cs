@@ -33,9 +33,11 @@ namespace Foodilizer_Group35.Controllers
         public ActionResult customer_profile_orders(int id)
         {
             int userid = id;
+            TempData["Id"] = id;
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var customerid = _context.Customers.Where(x => x.Cemail == userdetails.Email).FirstOrDefault();
             id = customerid.CustomerId;
+            
             var queryOrder = _context.Customers.Where(e => e.CustomerId == id).Include(e => e.RestaurantOrders).ThenInclude(e => e.Rest).Include(e => e.RestaurantOrders).ThenInclude(e => e.OrderIncludesFoods).ThenInclude(e => e.Food).ToList();
             ViewBag.customerOrders = queryOrder;
             var queryReview = _context.Customers.Where(e => e.CustomerId == id).Include(e => e.Reviews).ThenInclude(e => e.Rest).ToList();
@@ -50,9 +52,11 @@ namespace Foodilizer_Group35.Controllers
         {
             //Response.WriteAsync(id.ToString());
             int userid = id;
+            TempData["Id"] = id;
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var customerid = _context.Customers.Where(x => x.Cemail == userdetails.Email).FirstOrDefault();
             id = customerid.CustomerId;
+            
             //int id = 1;
             var queryReview = _context.Customers.Where(e => e.CustomerId == id).Include(e => e.Reviews).ThenInclude(e => e.Rest).ToList();
             ViewBag.customerReviews = queryReview;
@@ -66,6 +70,11 @@ namespace Foodilizer_Group35.Controllers
 
         public ActionResult customer_profile_edit(int id)
         {
+            int userid = id;
+            TempData["Id"] = id;
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var customerid = _context.Customers.Where(x => x.Cemail == userdetails.Email).FirstOrDefault();
+            id = customerid.CustomerId;
             using (foodilizerContext context = new foodilizerContext())
             {
                 return View(_context.Customers.Where(x => x.CustomerId == id).FirstOrDefault());
@@ -77,6 +86,11 @@ namespace Foodilizer_Group35.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult customer_profile_edit(int id,Customer customer)
         {
+            int userid = id;
+            TempData["Id"] = id;
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var customerid = _context.Customers.Where(x => x.Cemail == userdetails.Email).FirstOrDefault();
+            id = customerid.CustomerId;
             try
             {
                 _context.Customers.Where(x => x.CustomerId == id).FirstOrDefault().Name = customer.Name;
@@ -88,7 +102,7 @@ namespace Foodilizer_Group35.Controllers
                 _context.SaveChanges();
 
 
-                return RedirectToAction(nameof(customer_profile_reviews));
+                return RedirectToAction("customer_profile_reviews","Customer_profile",new {id=userid});
             }
             catch
             {

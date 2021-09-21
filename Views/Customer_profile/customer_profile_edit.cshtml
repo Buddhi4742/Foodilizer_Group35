@@ -32,7 +32,7 @@
 
 <body>
 
-    <form class="register" asp-action="customerEdit" id="form1">
+    <form class="register" asp-action="customer_profile_edit" asp-route-id="@TempData["Id"]" id="form1">
         <div class="form-group col-md-8">
             <label for="inputownFirstname">Name</label>
             <input asp-for="Name" class="form-control" id="inputName" placeholder="Name" required>
@@ -100,7 +100,7 @@
             <span asp-validation-for="DietryRestriction" class="text-danger"></span>
         </div>
         <button class="main-btn ms-lg-4 mt-lg-0 mt-4" type="reset" style="align-items:flex-end">
-            <a asp-area="" asp-controller="Customer_profile" asp-action="customer_profile_reviews">
+            <a asp-area="" asp-controller="Customer_profile" asp-action="customer_profile_reviews" asp-route-id="@TempData["Id"]">
                 <i class="fas fa-angle-left"> </i>  Back
             </a>
         </button>
