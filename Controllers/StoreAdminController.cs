@@ -103,7 +103,7 @@ namespace Foodilizer_Group35.Controllers
             return View();
         }
 
-        public ActionResult MenuNewFooditem(int id,IFormCollection collection)
+        public ActionResult MenuNewFooditem(int id,IFormCollection collection, IFormFile postedFile)
         {
             int restid = (int)_context.Menus.Where(x => x.MenuId == id).FirstOrDefault().RestId;
             Restaurant[] temp2 = _context.Restaurants.Where(e => e.RestId == restid).Include(e => e.Reviews).ThenInclude(e => e.Customer).ToArray();
@@ -136,9 +136,8 @@ namespace Foodilizer_Group35.Controllers
             updatefooditem.MenuId = id;
             updatefooditem.FoodName = collection["FoodName"];
             updatefooditem.Type = collection["Type"];
-            updatefooditem.Price = Int64.Parse(collection["Price"]);
+            updatefooditem.Price = decimal.Parse(collection["Price"]);
             updatefooditem.Ingredient = collection["Ingredient"];
-            updatefooditem.ImagePath = collection["ImagePath"];
             updatefooditem.Featured = collection["Featured"];
             updatefooditem.SubCategory = collection["SubCategory"];
             String s = collection["Category"];
@@ -154,7 +153,7 @@ namespace Foodilizer_Group35.Controllers
             var sampleData = new MLModel.ModelInput()
             {
                 Category_rating = Int32.Parse(subs[0]),
-                Price = Int64.Parse(collection["Price"]),
+                Price = float.Parse(collection["Price"]),
                 Quantity = Int32.Parse(collection["Quantity"]),
                 Restaurant_rating = a,
                 Veg = Int32.Parse(collection["Veg"]),
@@ -174,6 +173,33 @@ namespace Foodilizer_Group35.Controllers
                 preff = 0;
             }
             updatefooditem.PrefScore = preff;
+
+            if (postedFile == null)
+            {
+            }
+            else
+            {
+                string path = "wwwroot/images/Food/" + restid + "/" + collection["FoodName"];
+
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                string fileName = Path.GetFileName(postedFile.FileName);
+                using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
+                {
+                    postedFile.CopyTo(stream);
+                    string uploadedFile = fileName;
+                    ViewBag.Message += string.Format("<b>{0}</b> uploaded.<br />", fileName);
+                }
+                string path2 = "~/images/Food/" + restid + "/" + collection["FoodName"];
+                updatefooditem.ImagePath = Path.Combine(path2, fileName);
+            }
+
+
+
+
+            
             _context.Add(updatefooditem);
             //food.MenuId = id;
             //_context.Foods.Add(food);
