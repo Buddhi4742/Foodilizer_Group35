@@ -39,4 +39,6 @@
 .container .register label {
     padding-bottom:8px;
 }
-
+.dont{
+    display:none;
+}

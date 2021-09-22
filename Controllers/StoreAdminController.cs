@@ -227,24 +227,62 @@ namespace Foodilizer_Group35.Controllers
 
 
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult MenuEdit(int id, Food food)
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        public  ActionResult MenuUpdate(IFormCollection collection, int id)
         {
+            //TempData["RestType"] = HttpContext.Session.GetString("rest_type");
+            //try
+            //{
+
+            //_context.Entry(food).State = EntityState.Modified;
+            //_context.SaveChanges();
+
+
+            //return RedirectToAction(nameof(Menu));
+            //}
+            //catch
+            //{
+            //    return View();
+            //}
+
+
             TempData["RestType"] = HttpContext.Session.GetString("rest_type");
-            try
-            {
+            var userid = HttpContext.Session.GetInt32("user_id");
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            TempData["ID"] = id;
+            //await Response.WriteAsync(collection["Remail"].ToString());
+            //var restdetails = await _context.Restaurants.FirstOrDefaultAsync(e => e.Remail == collection["Remail"].ToString() /*&& e.User_status == 1*/);
+            //await Response.WriteAsync(collection["logo"]);
 
-                _context.Entry(food).State = EntityState.Modified;
-                _context.SaveChanges();
+            var UpdateFood = new Food();
 
+            UpdateFood.Price = decimal.Parse(collection["Price"]);
+            UpdateFood.FoodId = id;
 
-                return RedirectToAction(nameof(Menu));
-            }
-            catch
-            {
-                return View();
-            }
+            _context.Entry(UpdateFood).State = EntityState.Modified;
+            _context.Entry(UpdateFood).Property(x => x.FoodId).IsModified = false;
+            _context.Entry(UpdateFood).Property(x => x.Organic).IsModified = false;
+            _context.Entry(UpdateFood).Property(x => x.Hot).IsModified = false;
+            _context.Entry(UpdateFood).Property(x => x.SpicyLevel).IsModified = false;
+            _context.Entry(UpdateFood).Property(x => x.Veg).IsModified = false;
+            _context.Entry(UpdateFood).Property(x => x.Quantity).IsModified = false;
+            _context.Entry(UpdateFood).Property(x => x.Category).IsModified = false;
+            _context.Entry(UpdateFood).Property(x => x.CategoryRating).IsModified = false;
+            _context.Entry(UpdateFood).Property(x => x.SubCategory).IsModified = false;
+            _context.Entry(UpdateFood).Property(x => x.Featured).IsModified = false;
+            _context.Entry(UpdateFood).Property(x => x.PrefScore).IsModified = false;
+            _context.Entry(UpdateFood).Property(x => x.ImagePath).IsModified = false;
+            _context.Entry(UpdateFood).Property(x => x.Ingredient).IsModified = false;
+            _context.Entry(UpdateFood).Property(x => x.Type).IsModified = false;
+            _context.Entry(UpdateFood).Property(x => x.FoodName).IsModified = false;
+            
+            //_context.Add(customer);
+            _context.SaveChanges();
+
+            TempData["Message"] = "Updated.";
+
+            return RedirectToAction("Menu");
         }
         // GET: itemtable/Delete/5
         public ActionResult MenuDelete(int id)
