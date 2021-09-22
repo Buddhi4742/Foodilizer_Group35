@@ -174,9 +174,6 @@ namespace Foodilizer_Group35.Controllers
                 preff = 0;
             }
             updatefooditem.PrefScore = preff;
-
-
-
             _context.Add(updatefooditem);
             //food.MenuId = id;
             //_context.Foods.Add(food);

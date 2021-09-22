@@ -14,14 +14,14 @@
 <section class="hero-section">
     <div class="container">
         <div class="hero-image">
-            
-            </div>
-            <div class="hero-text">
-                <h1>Welcome to Foodilizer</h1>
-                <h3>Find best places to visit</h3>
-            </div>
 
         </div>
+        <div class="hero-text">
+            <h1>Welcome to Foodilizer</h1>
+            <h3>Find best places to visit</h3>
+        </div>
+
+    </div>
     <div class="container search">
         <div class="row">
             <div class="col-lg-12 search-form">
@@ -61,80 +61,643 @@
         </div>
     </div>
 </section>
-  @*enter session data here*@
+@*enter session data here*@
+@{ List<Restaurant> temp3 = ViewBag.rating1;}
+@{ List<Restaurant> temp4 = ViewBag.rating2;}
+@{ List<Restaurant> temp5 = ViewBag.rating3;}
+@{ List<Restaurant> temp6 = ViewBag.rating4;}
+@{ List<Restaurant> temp7 = ViewBag.rating5;}
+@{ double c = 0.0; }
 <section id="top-res" class="top-res sec-swiper ">
     <div class="container">
+
+
+        @*<main class="grid">
+                @if (temp3 != null)
+                {
+                    foreach (var item in temp3)
+                    {
+                        <article>
+                            <img src="https://www.lankayp.com/img/cats/restaurants.jpg" alt="Sample photo">
+                            <div class="text">
+
+                                <h4>@item.Rname</h4>
+                                <p>
+                                    <div class="circles" style="font-size:13px;">
+
+                                        @if (temp3 != null)
+                                        {
+                                            double sum = 0.0;
+                                            double avg = 0.0;
+                                            int count = 0;
+                                            @foreach (var item2 in temp3.First().Reviews)
+                                            {
+
+                                                var rate = @item2.Rating;
+                                                sum = sum + System.Convert.ToDouble(rate);
+                                                count++;
+
+
+                                            }
+                                            if (count > 0)
+                                            {
+                                                avg = (sum / count);
+                                            }
+                                            else
+                                            {
+                                                count = 1;
+                                                avg = (sum / count);
+                                                count = 0;
+                                            }
+                                            float a = System.Convert.ToSingle(avg);
+                                            String val = a.ToString("0.0");
+                                            float minus = System.Convert.ToSingle(1);
+                                            c = avg - 1.0;
+                                            <div class="circles">
+
+                                                <ul style="list-style:none">
+
+                                                    <li>
+                                                        @for (int i = 0; i < System.Convert.ToInt32(a); i++)
+                                                        {
+                                                            <span class="fa fa-star"></span>
+
+                                                        }
+                                                        @for (int i = System.Convert.ToInt32(a); i < 5; i++)
+                                                        {
+                                                            <span class="fa fa-star-empty"></span>
+                                                        }
+                                                        &nbsp; &nbsp;@count&nbsp; Reviews
+                                                    </li>
+
+                                                </ul>
+
+                                            </div>
+
+                                        }
+
+
+                                    </div>
+                                </p>
+                                <p class="cusineitem">@item.Cuisine</p>
+                            </div>
+                        </article>
+                    }
+                }
+                @if (temp4 != null)
+                {
+
+
+                    foreach (var item in temp4)
+                    {
+                        <article>
+                            <img src="https://www.lankayp.com/img/cats/restaurants.jpg" alt="Sample photo">
+                            <div class="text">
+
+                                <h4>@item.Rname</h4>
+                                <p>
+                                    <div class="circles" style="font-size:13px;">
+
+
+                                        @if (temp4 != null)
+                                        {
+                                            double sum = 0.0;
+                                            double avg = 0.0;
+                                            int count = 0;
+                                            @foreach (var item2 in temp4.First().Reviews)
+                                            {
+
+                                                var rate = @item2.Rating;
+                                                sum = sum + System.Convert.ToDouble(rate);
+                                                count++;
+
+
+                                            }
+                                            if (count > 0)
+                                            {
+                                                avg = (sum / count);
+                                            }
+                                            else
+                                            {
+                                                count = 1;
+                                                avg = (sum / count);
+                                                count = 0;
+                                            }
+                                            float a = System.Convert.ToSingle(avg);
+                                            String val = a.ToString("0.0");
+                                            float minus = System.Convert.ToSingle(1);
+                                            c = avg - 1.0;
+                                            <div class="circles">
+
+                                                <ul style="list-style:none">
+
+                                                    <li>
+                                                        @for (int i = 0; i < System.Convert.ToInt32(a); i++)
+                                                        {
+                                                            <span class="fa fa-star"></span>
+
+                                                        }
+                                                        @for (int i = System.Convert.ToInt32(a); i < 5; i++)
+                                                        {
+                                                            <span class="fa fa-star-empty"></span>
+                                                        }
+                                                        &nbsp;&nbsp; @count&nbsp; Reviews
+                                                    </li>
+
+
+                                                </ul>
+
+                                            </div>
+
+                                        }
+
+                                    </div>
+                                </p>
+                                <p class="cusineitem">@item.Cuisine</p>
+                            </div>
+                        </article>
+                    }
+                }
+                @if (temp5 != null)
+                {
+
+
+                    foreach (var item in temp5)
+                    {
+                        <article>
+                            <img src="https://www.lankayp.com/img/cats/restaurants.jpg" alt="Sample photo">
+                            <div class="text">
+
+                                <h4>@item.Rname</h4>
+                                <p>
+                                    <div class="circles" style="font-size:13px;">
+                                        @if (temp5 != null)
+                                        {
+                                            double sum = 0.0;
+                                            double avg = 0.0;
+                                            int count = 0;
+                                            @foreach (var item2 in temp5.First().Reviews)
+                                            {
+
+                                                var rate = @item2.Rating;
+                                                sum = sum + System.Convert.ToDouble(rate);
+                                                count++;
+
+
+                                            }
+                                            if (count > 0)
+                                            {
+                                                avg = (sum / count);
+                                            }
+                                            else
+                                            {
+                                                count = 1;
+                                                avg = (sum / count);
+                                                count = 0;
+                                            }
+                                            float a = System.Convert.ToSingle(avg);
+                                            String val = a.ToString("0.0");
+                                            float minus = System.Convert.ToSingle(1);
+                                            c = avg - 1.0;
+                                            <div class="circles">
+
+                                                <ul style="list-style:none">
+
+                                                    <li>
+                                                        @for (int i = 0; i < System.Convert.ToInt32(a); i++)
+                                                        {
+                                                            <span class="fa fa-star"></span>
+
+                                                        }
+                                                        @for (int i = System.Convert.ToInt32(a); i < 5; i++)
+                                                        {
+                                                            <span class="fa fa-star-empty"></span>
+                                                        }
+                                                        &nbsp;&nbsp; @count&nbsp; Reviews
+                                                    </li>
+
+
+                                                </ul>
+
+                                            </div>
+
+                                        }
+                                    </div>
+                                </p>
+                                <p class="cusineitem">@item.Cuisine</p>
+                            </div>
+                        </article>
+                    }
+                }
+                @if (temp6 != null)
+                {
+
+
+                    foreach (var item in temp6)
+                    {
+                        <article>
+                            <img src="https://www.lankayp.com/img/cats/restaurants.jpg" alt="Sample photo">
+                            <div class="text">
+
+                                <h4>@item.Rname</h4>
+                                <p>
+                                    <div class="circles" style="font-size:13px;">
+                                        @if (temp6 != null)
+                                        {
+                                            double sum = 0.0;
+                                            double avg = 0.0;
+                                            int count = 0;
+                                            @foreach (var item2 in temp6.First().Reviews)
+                                            {
+
+                                                var rate = @item2.Rating;
+                                                sum = sum + System.Convert.ToDouble(rate);
+                                                count++;
+
+
+                                            }
+                                            if (count > 0)
+                                            {
+                                                avg = (sum / count);
+                                            }
+                                            else
+                                            {
+                                                count = 1;
+                                                avg = (sum / count);
+                                                count = 0;
+                                            }
+                                            float a = System.Convert.ToSingle(avg);
+                                            String val = a.ToString("0.0");
+                                            float minus = System.Convert.ToSingle(1);
+                                            c = avg - 1.0;
+                                            <div class="circles">
+
+                                                <ul style="list-style:none">
+
+                                                    <li>
+                                                        @for (int i = 0; i < System.Convert.ToInt32(a); i++)
+                                                        {
+                                                            <span class="fa fa-star"></span>
+
+                                                        }
+                                                        @for (int i = System.Convert.ToInt32(a); i < 5; i++)
+                                                        {
+                                                            <span class="fa fa-star-empty"></span>
+
+                                                        }
+                                                        &nbsp; &nbsp;@count&nbsp; Reviews
+                                                    </li>
+
+
+                                                </ul>
+
+                                            </div>
+
+                                        }
+                                    </div>
+                                </p>
+                                <p class="cusineitem">@item.Cuisine</p>
+                            </div>
+                        </article>
+                    }
+                }
+
+
+
+            </main>*@
+
+
+
+
+
+
+
+
         <div class="section-title">
             <h2>Top rated Restaurants</h2>
             <p>Select best resestaurants</p>
         </div>
         <div class="swiper-container mySwiper ">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="swiper-block">
-                        <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                        <div class="swiper-card-data">
-                            <h4 class="card-name">Hoppa Galle Fort</h4>
-                            <span class="card-info">Resturant</span>
-                            <div class="rating-card">
-                                <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                                <div> <span>&nbsp;49 reviews</span> </div>
-                            </div>
+
+                @if (temp3 != null)
+                {
+                    foreach (var item in temp3)
+                    {
+                        <div class="swiper-slide">
+                            @if (temp3 != null)
+                            {
+                                double sum = 0.0;
+                                double avg = 0.0;
+                                int count = 0;
+                                @foreach (var item2 in temp3.First().Reviews)
+                                {
+
+                                    var rate = @item2.Rating;
+                                    sum = sum + System.Convert.ToDouble(rate);
+                                    count++;
+
+
+                                }
+                                if (count > 0)
+                                {
+                                    avg = (sum / count);
+                                }
+                                else
+                                {
+                                    count = 1;
+                                    avg = (sum / count);
+                                    count = 0;
+                                }
+                                float a = System.Convert.ToSingle(avg);
+                                String val = a.ToString("0.0");
+                                float minus = System.Convert.ToSingle(1);
+                                c = avg - 1.0;
+                                <div class="swiper-block">
+                                    <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                                    <div class="swiper-card-data">
+                                        <h4 class="card-name">@item.Rname</h4>
+                                        <span class="card-info">@item.Rdistrict</span>
+                                        <div class="rating-card">
+                                            <div class="rateing">
+                                                @for (int i = 0; i < System.Convert.ToInt32(a); i++)
+                                                {
+                                                    <span class="fa fa-star"></span>
+
+                                                }
+                                                @for (int i = System.Convert.ToInt32(a); i < 5; i++)
+                                                {
+                                                    <span class="far fa-star"></span>
+
+                                                }
+                                                <br />
+                                            </div>
+                                            <div class="review-txt">
+                                                @count&nbsp; Reviews
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
                         </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="swiper-block">
-                        <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                        <div class="swiper-card-data">
-                            <h4 class="card-name">Hoppa Galle Fort</h4>
-                            <span class="card-info">Resturant</span>
-                            <div class="rating-card">
-                                <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                                <div> <span>&nbsp;49 reviews</span> </div>
-                            </div>
+                    }
+                }
+
+
+                @if (temp4 != null)
+                {
+                    foreach (var item in temp4)
+                    {
+                        <div class="swiper-slide">
+                            @if (temp4 != null)
+                            {
+                                double sum = 0.0;
+                                double avg = 0.0;
+                                int count = 0;
+                                @foreach (var item2 in temp4.First().Reviews)
+                                {
+
+                                    var rate = @item2.Rating;
+                                    sum = sum + System.Convert.ToDouble(rate);
+                                    count++;
+
+
+                                }
+                                if (count > 0)
+                                {
+                                    avg = (sum / count);
+                                }
+                                else
+                                {
+                                    count = 1;
+                                    avg = (sum / count);
+                                    count = 0;
+                                }
+                                float a = System.Convert.ToSingle(avg);
+                                String val = a.ToString("0.0");
+                                float minus = System.Convert.ToSingle(1);
+                                c = avg - 1.0;
+                                <div class="swiper-block">
+                                    <img src="~/resources/images/top-res-3.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                                    <div class="swiper-card-data">
+                                        <h4 class="card-name">@item.Rname</h4>
+                                        <span class="card-info">@item.Rdistrict</span>
+                                        <div class="rating-card">
+                                            <div class="rateing">
+                                                @for (int i = 0; i < System.Convert.ToInt32(a); i++)
+                                                {
+                                                    <span class="fa fa-star"></span>
+
+                                                }
+                                                @for (int i = System.Convert.ToInt32(a); i < 5; i++)
+                                                {
+                                                    <span class="far fa-star"></span>
+
+                                                }
+                                                <br />
+                                            </div>
+                                            <div class="review-txt">
+                                                @count&nbsp; Reviews
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
                         </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="swiper-block">
-                        <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                        <div class="swiper-card-data">
-                            <h4 class="card-name">Hoppa Galle Fort</h4>
-                            <span class="card-info">Resturant</span>
-                            <div class="rating-card">
-                                <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                                <div> <span>&nbsp;49 reviews</span> </div>
-                            </div>
+                    }
+                }
+
+
+                @if (temp5 != null)
+                {
+                    foreach (var item in temp5)
+                    {
+                        <div class="swiper-slide">
+                            @if (temp5 != null)
+                            {
+                                double sum = 0.0;
+                                double avg = 0.0;
+                                int count = 0;
+                                @foreach (var item2 in temp5.First().Reviews)
+                                {
+
+                                    var rate = @item2.Rating;
+                                    sum = sum + System.Convert.ToDouble(rate);
+                                    count++;
+
+
+                                }
+                                if (count > 0)
+                                {
+                                    avg = (sum / count);
+                                }
+                                else
+                                {
+                                    count = 1;
+                                    avg = (sum / count);
+                                    count = 0;
+                                }
+                                float a = System.Convert.ToSingle(avg);
+                                String val = a.ToString("0.0");
+                                float minus = System.Convert.ToSingle(1);
+                                c = avg - 1.0;
+                                <div class="swiper-block">
+                                    <img src="~/resources/images/top-res-4.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                                    <div class="swiper-card-data">
+                                        <h4 class="card-name">@item.Rname</h4>
+                                        <span class="card-info">@item.Rdistrict</span>
+                                        <div class="rating-card">
+                                            <div class="rateing">
+                                                @for (int i = 0; i < System.Convert.ToInt32(a); i++)
+                                                {
+                                                    <span class="fa fa-star"></span>
+
+                                                }
+                                                @for (int i = System.Convert.ToInt32(a); i < 5; i++)
+                                                {
+                                                    <span class="far fa-star"></span>
+
+                                                }
+                                                <br />
+                                            </div>
+                                            <div class="review-txt">
+                                                @count&nbsp; Reviews
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
                         </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="swiper-block">
-                        <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                        <div class="swiper-card-data">
-                            <h4 class="card-name">Hoppa Galle Fort</h4>
-                            <span class="card-info">Resturant</span>
-                            <div class="rating-card">
-                                <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                                <div> <span>&nbsp;49 reviews</span> </div>
-                            </div>
+                    }
+                }
+
+
+                @if (temp6 != null)
+                {
+                    foreach (var item in temp6)
+                    {
+                        <div class="swiper-slide">
+                            @if (temp6 != null)
+                            {
+                                double sum = 0.0;
+                                double avg = 0.0;
+                                int count = 0;
+                                @foreach (var item2 in temp6.First().Reviews)
+                                {
+
+                                    var rate = @item2.Rating;
+                                    sum = sum + System.Convert.ToDouble(rate);
+                                    count++;
+
+
+                                }
+                                if (count > 0)
+                                {
+                                    avg = (sum / count);
+                                }
+                                else
+                                {
+                                    count = 1;
+                                    avg = (sum / count);
+                                    count = 0;
+                                }
+                                float a = System.Convert.ToSingle(avg);
+                                String val = a.ToString("0.0");
+                                float minus = System.Convert.ToSingle(1);
+                                c = avg - 1.0;
+                                <div class="swiper-block">
+                                    <img src="~/resources/images/top-res-5.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                                    <div class="swiper-card-data">
+                                        <h4 class="card-name">@item.Rname</h4>
+                                        <span class="card-info">@item.Rdistrict</span>
+                                        <div class="rating-card">
+                                            <div class="rateing">
+                                                @for (int i = 0; i < System.Convert.ToInt32(a); i++)
+                                                {
+                                                    <span class="fa fa-star"></span>
+
+                                                }
+                                                @for (int i = System.Convert.ToInt32(a); i < 5; i++)
+                                                {
+                                                    <span class="far fa-star"></span>
+
+                                                }
+                                                <br />
+                                            </div>
+                                            <div class="review-txt">
+                                                @count&nbsp; Reviews
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
                         </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="swiper-block">
-                        <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                        <div class="swiper-card-data">
-                            <h4 class="card-name">Hoppa Galle Fort</h4>
-                            <span class="card-info">Resturant</span>
-                            <div class="rating-card">
-                                <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                                <div> <span>&nbsp;49 reviews</span> </div>
-                            </div>
+                    }
+                }
+
+
+                @if (temp7 != null)
+                {
+                    foreach (var item in temp7)
+                    {
+                        <div class="swiper-slide">
+                            @if (temp7 != null)
+                            {
+                                double sum = 0.0;
+                                double avg = 0.0;
+                                int count = 0;
+                                @foreach (var item2 in temp7.First().Reviews)
+                                {
+
+                                    var rate = @item2.Rating;
+                                    sum = sum + System.Convert.ToDouble(rate);
+                                    count++;
+
+
+                                }
+                                if (count > 0)
+                                {
+                                    avg = (sum / count);
+                                }
+                                else
+                                {
+                                    count = 1;
+                                    avg = (sum / count);
+                                    count = 0;
+                                }
+                                float a = System.Convert.ToSingle(avg);
+                                String val = a.ToString("0.0");
+                                float minus = System.Convert.ToSingle(1);
+                                c = avg - 1.0;
+                                <div class="swiper-block">
+                                    <img src="~/resources/images/top-res-2.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                                    <div class="swiper-card-data">
+                                        <h4 class="card-name">@item.Rname</h4>
+                                        <span class="card-info">@item.Rdistrict</span>
+                                        <div class="rating-card">
+                                            <div class="rateing">
+                                                @for (int i = 0; i < System.Convert.ToInt32(a); i++)
+                                                {
+                                                    <span class="fa fa-star"></span>
+
+                                                }
+                                                @for (int i = System.Convert.ToInt32(a); i < 5; i++)
+                                                {
+                                                    <span class="far fa-star"></span>
+
+                                                }
+                                                <br />
+                                            </div>
+                                            <div class="review-txt">
+                                                @count&nbsp; Reviews
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
                         </div>
-                    </div>
-                </div>
+                    }
+                }
                 <br /><br />
             </div>
             <div class="swiper-pagination position-relative pt-2"></div>
@@ -149,14 +712,14 @@
         </div>
         <div class="swiper-container mySwiper ">
             <div class="swiper-wrapper">
-                
+
 
                 @{ List<Food> temp = ViewBag.recommendation;}
                 @if (temp != null)
                 {
                     @foreach (var item in temp.Take(5))
                     {
-                    
+
                         <div class="swiper-slide">
                             <div class="swiper-block">
                                 <img src="@Url.Content(item.ImagePath)" class="swiper-image img-fluid w-75" alt="res-image">
@@ -164,14 +727,14 @@
                                     <h4 class="card-name">@item.FoodName</h4>
                                     <span class="card-info">Rs.@item.Price</span>
                                     @*<div class="rating-card">
-                                        <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                                        <div> <span>&nbsp;49 reviews</span> </div>
-                                    </div>*@
+                                            <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                                            <div> <span>&nbsp;49 reviews</span> </div>
+                                        </div>*@
                                 </div>
                             </div>
-                        </div>   
+                        </div>
 
-                        
+
                     }
                 }
 
@@ -183,57 +746,57 @@
 
 
                 @*<div class="swiper-slide">
-            <div class="swiper-block">
-                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                <div class="swiper-card-data">
-                    <h4 class="card-name">Hoppa Galle Fort</h4>
-                    <span class="card-info">Resturant</span>
-                    <div class="rating-card">
-                        <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                        <div> <span>&nbsp;49 reviews</span> </div>
+                        <div class="swiper-block">
+                            <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                            <div class="swiper-card-data">
+                                <h4 class="card-name">Hoppa Galle Fort</h4>
+                                <span class="card-info">Resturant</span>
+                                <div class="rating-card">
+                                    <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                                    <div> <span>&nbsp;49 reviews</span> </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="swiper-block">
-                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                <div class="swiper-card-data">
-                    <h4 class="card-name">Hoppa Galle Fort</h4>
-                    <span class="card-info">Resturant</span>
-                    <div class="rating-card">
-                        <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                        <div> <span>&nbsp;49 reviews</span> </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-block">
+                            <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                            <div class="swiper-card-data">
+                                <h4 class="card-name">Hoppa Galle Fort</h4>
+                                <span class="card-info">Resturant</span>
+                                <div class="rating-card">
+                                    <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                                    <div> <span>&nbsp;49 reviews</span> </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="swiper-block">
-                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                <div class="swiper-card-data">
-                    <h4 class="card-name">Hoppa Galle Fort</h4>
-                    <span class="card-info">Resturant</span>
-                    <div class="rating-card">
-                        <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                        <div> <span>&nbsp;49 reviews</span> </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-block">
+                            <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                            <div class="swiper-card-data">
+                                <h4 class="card-name">Hoppa Galle Fort</h4>
+                                <span class="card-info">Resturant</span>
+                                <div class="rating-card">
+                                    <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                                    <div> <span>&nbsp;49 reviews</span> </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="swiper-block">
-                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                <div class="swiper-card-data">
-                    <h4 class="card-name">Hoppa Galle Fort</h4>
-                    <span class="card-info">Resturant</span>
-                    <div class="rating-card">
-                        <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                        <div> <span>&nbsp;49 reviews</span> </div>
-                    </div>
-                </div>
-            </div>
-        </div>*@
+                    <div class="swiper-slide">
+                        <div class="swiper-block">
+                            <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                            <div class="swiper-card-data">
+                                <h4 class="card-name">Hoppa Galle Fort</h4>
+                                <span class="card-info">Resturant</span>
+                                <div class="rating-card">
+                                    <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                                    <div> <span>&nbsp;49 reviews</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
                 <br /><br />
             </div>
             <div class="swiper-pagination position-relative pt-2"></div>
@@ -263,9 +826,9 @@
                                         <h4 class="card-name">@item.FoodName</h4>
                                         <span class="card-info">RS.@item.Price</span>
                                         @*<div class="rating-card">
-                                    <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                                    <div> <span>&nbsp;49 reviews</span> </div>
-                                </div>*@
+                                                <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                                                <div> <span>&nbsp;49 reviews</span> </div>
+                                            </div>*@
                                     </div>
                                 </div>
                             </div>
@@ -274,70 +837,70 @@
                     }
                 }
                 @*<div class="swiper-slide">
-            <div class="swiper-block">
-                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                <div class="swiper-card-data">
-                    <h4 class="card-name">Hoppa Galle Fort</h4>
-                    <span class="card-info">Resturant</span>
-                    <div class="rating-card">
-                        <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                        <div> <span>&nbsp;49 reviews</span> </div>
+                        <div class="swiper-block">
+                            <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                            <div class="swiper-card-data">
+                                <h4 class="card-name">Hoppa Galle Fort</h4>
+                                <span class="card-info">Resturant</span>
+                                <div class="rating-card">
+                                    <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                                    <div> <span>&nbsp;49 reviews</span> </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="swiper-block">
-                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                <div class="swiper-card-data">
-                    <h4 class="card-name">Hoppa Galle Fort</h4>
-                    <span class="card-info">Resturant</span>
-                    <div class="rating-card">
-                        <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                        <div> <span>&nbsp;49 reviews</span> </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-block">
+                            <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                            <div class="swiper-card-data">
+                                <h4 class="card-name">Hoppa Galle Fort</h4>
+                                <span class="card-info">Resturant</span>
+                                <div class="rating-card">
+                                    <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                                    <div> <span>&nbsp;49 reviews</span> </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="swiper-block">
-                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                <div class="swiper-card-data">
-                    <h4 class="card-name">Hoppa Galle Fort</h4>
-                    <span class="card-info">Resturant</span>
-                    <div class="rating-card">
-                        <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                        <div> <span>&nbsp;49 reviews</span> </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-block">
+                            <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                            <div class="swiper-card-data">
+                                <h4 class="card-name">Hoppa Galle Fort</h4>
+                                <span class="card-info">Resturant</span>
+                                <div class="rating-card">
+                                    <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                                    <div> <span>&nbsp;49 reviews</span> </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="swiper-block">
-                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                <div class="swiper-card-data">
-                    <h4 class="card-name">Hoppa Galle Fort</h4>
-                    <span class="card-info">Resturant</span>
-                    <div class="rating-card">
-                        <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                        <div> <span>&nbsp;49 reviews</span> </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-block">
+                            <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                            <div class="swiper-card-data">
+                                <h4 class="card-name">Hoppa Galle Fort</h4>
+                                <span class="card-info">Resturant</span>
+                                <div class="rating-card">
+                                    <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                                    <div> <span>&nbsp;49 reviews</span> </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="swiper-block">
-                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                <div class="swiper-card-data">
-                    <h4 class="card-name">Hoppa Galle Fort</h4>
-                    <span class="card-info">Resturant</span>
-                    <div class="rating-card">
-                        <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                        <div> <span>&nbsp;49 reviews</span> </div>
-                    </div>
-                </div>
-            </div>
-        </div>*@
+                    <div class="swiper-slide">
+                        <div class="swiper-block">
+                            <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                            <div class="swiper-card-data">
+                                <h4 class="card-name">Hoppa Galle Fort</h4>
+                                <span class="card-info">Resturant</span>
+                                <div class="rating-card">
+                                    <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                                    <div> <span>&nbsp;49 reviews</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
                 <br /><br />
             </div>
             <div class="swiper-pagination position-relative pt-2"></div>
