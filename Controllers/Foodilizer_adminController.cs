@@ -70,7 +70,7 @@ namespace Foodilizer_Group35.Controllers
             return View(_context.Customers.Where(x => x.CustomerId == id).FirstOrDefault());
 
         }
-        public IActionResult UsersDelete(int id)
+        public IActionResult UsersBan(int id)
         {
             //Response.WriteAsync(id.ToString());
             return View(_context.Customers.Where(x => x.CustomerId == id).FirstOrDefault());
