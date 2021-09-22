@@ -605,7 +605,7 @@ namespace Foodilizer_Group35.Controllers
             dbtemp.Date = today;
             dbtemp.RestId = id;
             dbtemp.DeliveryAddress = daddress;
-            dbtemp.Content = "Order";
+            dbtemp.Content = custid.Name;
             _context.Add(dbtemp);
             _context.SaveChanges();
             HttpContext.Session.SetString("cart", "");

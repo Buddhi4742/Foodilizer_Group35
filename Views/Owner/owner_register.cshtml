@@ -172,7 +172,7 @@
             Back
         </button>
     </a>
-    <button type="submit" class="main-btn"> Next</button>
+    <button onclick="formSubmit()" class="main-btn"> Next</button>
     <br />
 </form>
 
@@ -203,7 +203,7 @@
     function formSubmit() {
         validatePass();
         if (confirmPass == true) {
-            document.getElementById("form1").submit();
+            $("#form1").submit();
             /*alert("hi");*/
         }
         else {
