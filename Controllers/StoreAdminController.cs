@@ -338,7 +338,7 @@ namespace Foodilizer_Group35.Controllers
 
             try
             {
-                string path = "wwwroot/images";
+                string path = "wwwroot/images/restaurant/" + id;
 
                 if (!Directory.Exists(path))
                 {
@@ -360,7 +360,7 @@ namespace Foodilizer_Group35.Controllers
                     }
                 }
                 //link uploading to the database
-                string path2 = "~/images";
+                string path2 = "~/images/restaurant/" + id;
                 if (checkforrecord == null)
                 {
                     var image = new RestaurantImage();
@@ -453,7 +453,7 @@ namespace Foodilizer_Group35.Controllers
             
             try
             {
-                string path = "wwwroot/images";
+                string path = "wwwroot/images/restaurant/" + id;
 
                 if (!Directory.Exists(path))
                 {
@@ -469,7 +469,7 @@ namespace Foodilizer_Group35.Controllers
                     uploadedFile = fileName;
                     ViewBag.Message += string.Format("<b>{0}</b> uploaded.<br />", fileName);
                 }
-                string path2 = "~/images";
+                string path2 = "~/images/restaurant/" + id;
                 Path.Combine(path2, fileName);
                 if (checkforrecord == null)
                 {
@@ -505,7 +505,7 @@ namespace Foodilizer_Group35.Controllers
 
             try
             {
-                string path = "wwwroot/images";
+                string path = "wwwroot/images/restaurant/" + id;
 
                 if (!Directory.Exists(path))
                 {
@@ -521,7 +521,7 @@ namespace Foodilizer_Group35.Controllers
                     uploadedFile = fileName;
                     ViewBag.Message += string.Format("<b>{0}</b> uploaded.<br />", fileName);
                 }
-                string path2 = "~/images";
+                string path2 = "~/images/restaurant/" + id;
                 Path.Combine(path2, fileName);
                 if (checkforrecord == null)
                 {
