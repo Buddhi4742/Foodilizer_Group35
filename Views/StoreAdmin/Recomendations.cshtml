@@ -12,7 +12,7 @@
         </ol>
         <h4>Edit / Update Recomendations</h4>
         <div class="col-md-12 row d-flex justify-content-center">
-            @{ List<Food> temp = ViewBag.prefscore;}
+            @{ List<Food> temp = ViewBag.recommendation;}
             @if (temp != null)
             {
                 @foreach (var item in temp.Take(6).ToList())
