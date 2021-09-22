@@ -9,8 +9,12 @@
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">Store Admin/Menu</li>
         </ol>
+           <div class="group" style="display: flex; justify-content: center; position: relative;">
         <h4>Edit / Update Menu</h4>
-        <a class="btn btn-primary" asp-action="MenuCreate" asp-route-id="@TempData["Menu_id"]">Add Items</a>
+     
+            <a class="btn btn-primary" asp-action="MenuCreate" asp-route-id="@TempData["Menu_id"]" 
+               style="float: right;  right: 0; position:absolute;">Add Items</a>
+        </div>
         <div class="card-body">
             <table id="datatablesSimple">
                 <thead>
