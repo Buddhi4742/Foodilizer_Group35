@@ -94,10 +94,6 @@ namespace Foodilizer_Group35.Controllers
         }
         public async Task<IActionResult> RegisterDetails(IFormCollection collection)
         {
-
-            if (ModelState.IsValid)
-            {
-
                 try
                 {
                     //await Response.WriteAsync(collection["Remail"].ToString());
@@ -169,14 +165,8 @@ namespace Foodilizer_Group35.Controllers
                 {
                     if (ex.InnerException.ToString().Contains("Violation of UNIQUE KEY constraint")) ViewBag.Error = "This email is already used. Please use another email address";
                     else ViewBag.Error = "Unable to register this user. Please try agian";
-                    return View(/*customer*/);
-
-                }
-
+                return RedirectToAction(nameof(Owner_register));
             }
-            ViewBag.Error = "Unable to register this user. Please try agian";
-            return View(/*customer*/);
-
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
