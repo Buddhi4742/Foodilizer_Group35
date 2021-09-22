@@ -194,7 +194,11 @@
             document.getElementById("password2").style.backgroundColor = "";
             confirmPass = true;
             /* alert("validation passes");*/
-        } else {
+        }
+        else if (document.getElementById("password").value == "") {
+            confirmPass = false;
+        }
+        else{
             document.getElementById("password").style.backgroundColor = "LightPink";
             document.getElementById("password2").style.backgroundColor = "LightPink";
             /*alert("validation failed false");*/
