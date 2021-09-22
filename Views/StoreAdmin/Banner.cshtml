@@ -2,40 +2,70 @@
     Layout = "~/Views/Shared/_store_admin_layout.cshtml";
 }
 
-<main>
-    <div class="container-fluid px-4">
-        <div class="row">
-            <div class="col-8">
-                <h1 class="mt-4">Images</h1>
-                <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item active">Store Admin/Images</li>
-                </ol>
-                <h4>Update Restaurant Images</h4>
-                <h5>Go to Inspect to see the changes!</h5>
+<main >
+    <div class="row">
+        <div class="container-fluid px-4 col-8">
+            <div class="row">
+                <div class="col-8">
+                    <h1 class="mt-4">Images</h1>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item active">Store Admin/Images</li>
+                    </ol>
+                    <h4>Update Restaurant Images</h4>
+                    <h5>Go to Inspect to see the changes!</h5>
+                </div>
             </div>
+            <form method="post" enctype="multipart/form-data" asp-controller="StoreAdmin" asp-action="uploadimagemain" runat="server">
+                <div class="p-2">
+                    <label class="pb-2" for="inputrestLogo">Restaurant Restaurant Logo</label><br />
+                    <input class="pb-2" type="file" id="fileupload" name="postedFiles1" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" /><br />
+                    <button name="submit" asp-action="uploadimagemain" asp-controller="StoreAdmin" class="btn-dark" type="submit" id="submit" onclick="return Validateimagesbanner()">Submit</button>
+                </div>
+            </form>
+            <form method="post" enctype="multipart/form-data" asp-controller="StoreAdmin" asp-action="uploadimagebanner" runat="server">
+                <div class="p-2">
+                    <label class="pb-2" for="inputrestLogo">Restaurant Banner</label><br />
+                    <input class="pb-2" type="file" id="fileupload" name="postedFiles2" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" /><br />
+                    <button name="submit" asp-action="uploadimagebanner" asp-controller="StoreAdmin" class="btn-dark" type="submit" id="submit" onclick="return Validateimagesbanner()">Submit</button>
+                </div>
+            </form>
+            <form method="post" enctype="multipart/form-data" asp-controller="StoreAdmin" asp-action="Uploadimagesgallery" runat="server">
+                <div class="p-2">
+                    <label class="pb-2" for="inputrestLogo">Restaurant Gallery Images</label><br />
+                    <input class="pb-2"  type="file" id="fileupload3" name="postedFiles3" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" multiple /><br />
+                    <button name="submit" asp-action="Uploadimagesgallery" asp-controller="StoreAdmin" class="btn-dark" type="submit" id="submit" onclick="return Validateimagesgallery()">Submit</button>
+                </div>
+            </form>
         </div>
-        <form method="post" enctype="multipart/form-data" asp-controller="StoreAdmin" asp-action="uploadimagemain" runat="server">
-            <div>
-                <label for="inputrestLogo">Restaurant Restaurant Logo</label>
-                <input type="file" id="fileupload" name="postedFiles1" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG"/>
-                <button name="submit" asp-action="uploadimagemain" asp-controller="StoreAdmin" class="btn-dark" type="submit" id="submit" onclick="return Validateimagesbanner()">Submit</button>
-            </div>
-        </form>
-        <form method="post" enctype="multipart/form-data" asp-controller="StoreAdmin" asp-action="uploadimagebanner" runat="server">
-            <div>
-                <label for="inputrestLogo">Restaurant Banner</label>
-                <input type="file" id="fileupload" name="postedFiles2" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" />
-                <button name="submit" asp-action="uploadimagebanner" asp-controller="StoreAdmin" class="btn-dark" type="submit" id="submit" onclick="return Validateimagesbanner()">Submit</button>
-            </div>
-        </form>
-        <form method="post" enctype="multipart/form-data" asp-controller="StoreAdmin" asp-action="Uploadimagesgallery" runat="server">
-            <div>
-                <label for="inputrestLogo">Restaurant Gallery Images</label>
-                <input type="file" id="fileupload3" name="postedFiles3" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" multiple />
-                <button name="submit" asp-action="Uploadimagesgallery" asp-controller="StoreAdmin" class="btn-dark" type="submit" id="submit" onclick="return Validateimagesgallery()">Submit</button>
-            </div>
-        </form>
+        <div class="img-view col-4">
+            @{ List<RestaurantImage> temp = ViewBag.resimg;}
+            @if (temp != null)
+            {
+                @foreach (var item in temp.ToList())
+                {
+
+                    <div class="col-7 align-items-stretch mb-3 d-flex">
+                        <div class="card recomm-box text-dark mb-4">
+                            Logo Image
+                            <img src="@Url.Content(@item.MainImagePath)" class="card-img-top card-img-top-recomm pb-2">
+                            Banner Image
+                            <img src="@Url.Content(@item.BannerImagePath)" class="card-img-top card-img-top-recomm pb-2">
+                            Gallery Images
+                            <img src="@Url.Content(@item.GalleryImage1Path)" class="card-img-top card-img-top-recomm pb-2">
+                            <img src="@Url.Content(@item.GalleryImage2Path)" class="card-img-top card-img-top-recomm pb-2">
+                            <img src="@Url.Content(@item.GalleryImage3Path)" class="card-img-top card-img-top-recomm pb-2">
+                            <img src="@Url.Content(@item.GalleryImage4Path)" class="card-img-top card-img-top-recomm pb-2">
+                            <img src="@Url.Content(@item.GalleryImage5Path)" class="card-img-top card-img-top-recomm pb-2">
+                        </div>
+                    </div>
+
+
+                }
+            }
+        </div>
     </div>
+    
+
 </main>
 
 <script>

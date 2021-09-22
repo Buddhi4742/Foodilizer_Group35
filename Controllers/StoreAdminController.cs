@@ -546,7 +546,17 @@ namespace Foodilizer_Group35.Controllers
         }
         public ActionResult Banner()
         {
+            var userid = HttpContext.Session.GetInt32("user_id");
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
+            int id = restid.RestId;
+
+            var query = _context.RestaurantImages.Where(e => e.RestId == id).ToList();
+            ViewBag.resimg = query;
+            
             return View();
+
+            
         }
         public ActionResult Orders()
         {
