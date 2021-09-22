@@ -524,7 +524,13 @@ namespace Foodilizer_Group35.Controllers
         }
         public IActionResult gold_cart()
         {
-            int total = 0;
+            int id = (int)HttpContext.Session.GetInt32("rest_id");
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("cart")))
+            {
+                ViewBag.error = "The cart is Empty";
+                return RedirectToAction("gold_home", "store_front", new { id });
+            }
+                int total = 0;
             int i = 0;
             List<cart> cartlist = new();
             List<Food> foodlist = new();
@@ -538,9 +544,11 @@ namespace Foodilizer_Group35.Controllers
             ViewBag.Foodcartlist = foodlist;
             ViewBag.total = total;
             ViewBag.Cartcount = i;
-
+            TempData["Totalprice"] = total;
+            HttpContext.Session.SetInt32("sessiontotalvalue", total);
+            id = (int)HttpContext.Session.GetInt32("rest_id");
             //Response.WriteAsync(total.ToString());
-            return View();
+            return View(foodlist);
         }
 
         public IActionResult silver_checkout()
@@ -549,11 +557,40 @@ namespace Foodilizer_Group35.Controllers
         }
         public IActionResult gold_checkout()
         {
+            var userid = HttpContext.Session.GetInt32("user_id");
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var custid = _context.Customers.Where(x => x.Cemail == userdetails.Email).FirstOrDefault();
+            int id = custid.CustomerId;
+            int restid = (int)HttpContext.Session.GetInt32("rest_id");
+            int total = (int)HttpContext.Session.GetInt32("sessiontotalvalue");
+            int newtotal= total + 100 + (total * 2 / 100);
+
+            ViewBag.custname = custid.Name;
+            ViewBag.totalamount = total;
+            ViewBag.totalwithtax = total+100+(total*2/100);
+            HttpContext.Session.SetInt32("sessiontotalvalue",newtotal);
             return View();
         }
-        public IActionResult order_details() 
-        { 
-            return View();
+        public IActionResult gold_checkout_confrim(string cname, string daddress,string cnumber)
+        {
+            var userid = HttpContext.Session.GetInt32("user_id");
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var custid = _context.Customers.Where(x => x.Cemail == userdetails.Email).FirstOrDefault();
+            int restid = (int)HttpContext.Session.GetInt32("rest_id");
+            int id = restid;
+            int total = (int)HttpContext.Session.GetInt32("sessiontotalvalue");
+            var dbtemp = new RestaurantOrder();
+            DateTime today = DateTime.UtcNow.Date;
+            dbtemp.CustomerId = custid.CustomerId;
+            dbtemp.TotalAmount = total;
+            dbtemp.Date = today;
+            dbtemp.RestId = id;
+            dbtemp.DeliveryAddress = daddress;
+            dbtemp.Content = "Order";
+            _context.Add(dbtemp);
+            _context.SaveChanges();
+            HttpContext.Session.SetString("cart", "");
+            return RedirectToAction("gold_home", "store_front", new { id });
         }
 
     }

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Foodilizer_Group35.Models.RestaurantOrder
+@{
     ViewData["Title"] = "Shopping Cart";
     Layout = "~/Views/Shared/_bronze_store_layout.cshtml";
 }
@@ -20,41 +21,37 @@
     <div class="title">
         Checkout
     </div>
+        <form class="register" asp-action="gold_checkout_confrim" id="form1">
+            <ul>
+                <li class="input-title">Customer Name </li>
+                <li class="input"><input type="text" name="cname" /></li>
+                <li class="input-title">Delivery Address </li>
+                <li class="input"><input type="text" name="daddress" /></li>
+                <li class="input-title">Contact Number </li>
+                <li class="input"><input type="text" name="cnumber" /></li>
+            </ul>
 
-    <div class="item">
-        <ul>
-            <li class="input-title">Customer Name </li>
-            <li class="input"><input type="text" name="cname" /></li>
-            <li class="input-title">Delivery Address </li>
-            <li class="input"><input type="text" name="daddress" /></li>
+            <div class="total">
+                <h4 class="totali">Sub Total : </h4>
+                <h4 class="totalam">Price : </h4><h4 class="totamnum">@ViewBag.totalamount</h4>
+            </div>
+            <div class="total">
+                <h4 class="totali">Shipping&nbsp;&nbsp;:</h4>
+                <h4 class="totalam">Price : </h4><h4 class="totamnum">100 LKR</h4>
+            </div>
+            <div class="total">
+                <h4 class="totali">Total Tax&nbsp;&nbsp;: </h4>
+                <h4 class="totalam">Price : </h4><h4 class="totamnum">2%</h4>
+            </div>
+            <div class="total">
+                <h4 class="totali">Total Bill&nbsp;&nbsp;&nbsp;: </h4>
+                <h4 class="totalam">Price : </h4><h4 class="totamnum">@ViewBag.totalwithtax</h4>
+            </div>
+            <div class="cartbuttons">
+                <input type="submit" value="Confirm & Pay" class="shbutton" asp-controller="store_front" asp-action="gold_checkout_confrim"/>
+                <a class="shbutton" asp-area="" asp-controller="store_front" asp-action="gold_cart">Back to Cart</a>
+                @*<a class="prbutton" asp-area="" asp-controller="store_front" asp-action="gold_checkout_confrim">Confirm & Pay</a>*@
+            </div>
+        </form>
 
-            <li class="input-title">Contact Number </li>
-            <li class="input"><input type="text" name="cnumber" /></li>
-            
-            
-        </ul>
-
-    </div>
-
-
-    <div class="total">
-        <h4 class="totali">Sub Total : </h4>
-        <h4 class="totalam">Price : </h4><h4 class="totamnum">1200 LKR</h4>
-    </div>
-    <div class="total">
-        <h4 class="totali">Shipping&nbsp;&nbsp;:</h4>
-        <h4 class="totalam">Price : </h4><h4 class="totamnum">100 LKR</h4>
-    </div>
-    <div class="total">
-        <h4 class="totali">Total Tax&nbsp;&nbsp;: </h4>
-        <h4 class="totalam">Price : </h4><h4 class="totamnum">0 LKR</h4>
-    </div>
-    <div class="total">
-        <h4 class="totali">Total Bill&nbsp;&nbsp;&nbsp;: </h4>
-        <h4 class="totalam">Price : </h4><h4 class="totamnum">1300 LKR</h4>
-    </div>
-    <div class="cartbuttons">
-        <a class="shbutton" asp-area="" asp-controller="store_front" asp-action="gold_cart">Back to Cart</a>
-        <a class="prbutton" asp-area="" asp-controller="store_front" asp-action="gold_home">Confirm & Pay</a>
-    </div>
 </div>

@@ -23,10 +23,6 @@
     </div>
     @{ foreach(var item in temp)
             {
-
-          
-
-
         <!-- Product #1 -->
         <div class="item">
             <div class="buttons">
@@ -35,22 +31,12 @@
                 </span>
             </div>
             <div class="image">
-                <img src="~/lib/images/store_front_images/fc1.jfif" alt="" />
+                <img src="@Url.Content(item.ImagePath)" alt="" />
             </div>
             <div class="description">
-                <span>Crispy Chicken Burger</span>
+                <span>@item.FoodName</span>
             </div>
-            <div class="quantity">
-                <button class="plus-btn" type="button" name="button">
-                    <i class="fa fa-plus" aria-hidden="true"></i>
-                </button>
-                <input type="text" name="name" value="1">
-                <button class="minus-btn" type="button" name="button">
-                    <i class="fa fa-minus" aria-hidden="true"></i>
-                </button>
-            </div>
-
-            <div class="total-price">400 LKR</div>
+            <div class="total-price">@item.Price</div>
         </div>
         }
     }
