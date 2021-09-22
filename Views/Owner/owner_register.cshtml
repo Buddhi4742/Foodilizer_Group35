@@ -35,7 +35,9 @@
     <form class="register" asp-action="RegisterDetails" id="form1">
         <center>
             <h2> Your journey towards a thriving restaurant</h2> <h2> business starts here </h2>
-            <h4>Enter Owner Details</h4>
+            <br />
+            <br />
+            <h3>Enter Owner Details</h3>
         </center>
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -63,7 +65,8 @@
             </div>
 
         </div>
-        <center> <h4>Enter your Restaurant Details </h4></center>
+        <br />
+        <center> <h3>Enter your Restaurant Details </h3></center>
 
         <p style="color:red">@ViewBag.Error</p>
         <p style="color:red">@TempData["Error"]</p>
@@ -96,7 +99,8 @@
                 <span asp-validation-for="WebsiteLink" class="text-danger"></span>
             </div>
         </div>
-        <center> <h4>Restaurant Location  </h4></center>
+        <center> <h3>Restaurant Location  </h3></center>
+        <br />
 
         <div class="row">
             <div class="form-group col-md-6">
@@ -172,7 +176,7 @@
             </a>
         </button>
         <button onclick="event.preventDefault();formSubmit();" type="submit" class="main-btn" asp-action="RegisterDetails"> Next</button>
-        <br /> 
+        <br />
 
     </form>
 </body>
