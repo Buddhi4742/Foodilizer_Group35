@@ -17,21 +17,21 @@
         <form method="post" enctype="multipart/form-data" asp-controller="StoreAdmin" asp-action="uploadimagemain" runat="server">
             <div>
                 <label for="inputrestLogo">Restaurant Restaurant Logo</label>
-                <input type="file" id="fileupload" name="postedFiles" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" multiple />
+                <input type="file" id="fileupload" name="postedFiles1" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG"/>
                 <button name="submit" asp-action="uploadimagemain" asp-controller="StoreAdmin" class="btn-dark" type="submit" id="submit" onclick="return Validateimagesbanner()">Submit</button>
             </div>
         </form>
         <form method="post" enctype="multipart/form-data" asp-controller="StoreAdmin" asp-action="uploadimagebanner" runat="server">
             <div>
                 <label for="inputrestLogo">Restaurant Banner</label>
-                <input type="file" id="fileupload" name="postedFiles" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" multiple />
+                <input type="file" id="fileupload" name="postedFiles2" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" />
                 <button name="submit" asp-action="uploadimagebanner" asp-controller="StoreAdmin" class="btn-dark" type="submit" id="submit" onclick="return Validateimagesbanner()">Submit</button>
             </div>
         </form>
         <form method="post" enctype="multipart/form-data" asp-controller="StoreAdmin" asp-action="Uploadimagesgallery" runat="server">
             <div>
                 <label for="inputrestLogo">Restaurant Gallery Images</label>
-                <input type="file" id="fileupload" name="postedFiles" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" multiple />
+                <input type="file" id="fileupload3" name="postedFiles3" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" multiple />
                 <button name="submit" asp-action="Uploadimagesgallery" asp-controller="StoreAdmin" class="btn-dark" type="submit" id="submit" onclick="return Validateimagesgallery()">Submit</button>
             </div>
         </form>
@@ -40,10 +40,10 @@
 
 <script>
     function Validateimagesgallery() {
-        var fileCount = document.getElementById('fileupload').files.length;
+        var fileCount = document.getElementById('fileupload3').files.length;
         if (fileCount > 5) // Selected images with in 10 count
         {
-            alert("Please select only 3 images..!!!");
+            alert("Please select only 5 images..!!!");
             return false;
         }
 
@@ -57,7 +57,7 @@
         var fileCount = document.getElementById('fileupload').files.length;
         if (fileCount > 1) // Selected images with in 10 count
         {
-            alert("Please select only 3 images..!!!");
+            alert("Please select only 1 image..!!!");
             return false;
         }
 
@@ -67,4 +67,5 @@
 
 
     }
+
 </script>
