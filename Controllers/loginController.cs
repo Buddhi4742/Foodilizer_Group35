@@ -76,6 +76,9 @@ namespace Foodilizer_Group35.Controllers
                         var name = await _context.Restaurants.FirstOrDefaultAsync(x => x.Remail == HttpContext.Session.GetString("user_email"));
                         TempData["Name"] = name.OwnerName;
                         TempData["Rest_Id"] = name.RestId;
+                        string resttype = name.RestType.ToString();
+                        HttpContext.Session.SetString("rest_type", resttype);
+                        TempData["RestType"]=resttype;
 
                         return RedirectToAction("Index", "StoreAdmin");
                     }
