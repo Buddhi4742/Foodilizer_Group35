@@ -16,110 +16,51 @@
 }
 
 <div class="shopping-cart">
+    @{ List<Food> temp = ViewBag.Foodcartlist;}
     <!-- Title -->
     <div class="title">
         Shopping Cart
     </div>
+    @{ foreach(var item in temp)
+            {
 
-    <!-- Product #1 -->
-    <div class="item">
-        <div class="buttons">
-            <span class="delete-btn">
-                <i class="fa fa-times-circle fa-2x" aria-hidden="true" style="color:black;" ></i>
-            </span> 
-     
+          
+
+
+        <!-- Product #1 -->
+        <div class="item">
+            <div class="buttons">
+                <span class="delete-btn">
+                    <i class="fa fa-times-circle fa-2x" aria-hidden="true" style="color:black;"></i>
+                </span>
+            </div>
+            <div class="image">
+                <img src="~/lib/images/store_front_images/fc1.jfif" alt="" />
+            </div>
+            <div class="description">
+                <span>Crispy Chicken Burger</span>
+            </div>
+            <div class="quantity">
+                <button class="plus-btn" type="button" name="button">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                </button>
+                <input type="text" name="name" value="1">
+                <button class="minus-btn" type="button" name="button">
+                    <i class="fa fa-minus" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <div class="total-price">400 LKR</div>
         </div>
+        }
+    }
 
-        <div class="image">
-            <img src="~/lib/images/store_front_images/fc1.jfif" alt="" />
-        </div>
-
-        <div class="description">
-            <span>Crispy Chicken Burger</span>
-            
-        </div>
-
-        <div class="quantity">
-            <button class="plus-btn" type="button" name="button">
-                <i class="fa fa-plus" aria-hidden="true"></i>
-            </button>
-            <input type="text" name="name" value="1">
-            <button class="minus-btn" type="button" name="button">
-                <i class="fa fa-minus" aria-hidden="true"></i>
-            </button>
-        </div>
-
-        <div class="total-price">400 LKR</div>
-    </div>
-
-    <!-- Product #2 -->
-    <div class="item">
-        <div class="buttons">
-            <span class="delete-btn">
-                <i class="fa fa-times-circle fa-2x" aria-hidden="true" style="color:black;"></i>
-            </span>
-            
-        </div>
-
-        <div class="image">
-            <img src="~/lib/images/store_front_images/fc2.jfif" alt="" />
-        </div>
-
-        <div class="description">
-            <span>Chocolate Milk Shake</span>
-            
-        </div>
-
-        <div class="quantity">
-            <button class="plus-btn" type="button" name="button">
-                <i class="fa fa-plus" aria-hidden="true"></i>
-            </button>
-            <input type="text" name="name" value="1">
-            <button class="minus-btn" type="button" name="button">
-                <i class="fa fa-minus" aria-hidden="true"></i>
-            </button>
-        </div>
-
-        <div class="total-price">400 LKR</div>
-    </div>
-
-    <!-- Product #3 -->
-    <div class="item">
-        <div class="buttons">
-            <span class="delete-btn">
-                <i class="fa fa-times-circle fa-2x" aria-hidden="true" style="color:black;"></i>
-            </span>
-         
-        </div>
-
-        <div class="image">
-            <img src="~/lib/images/store_front_images/fc3.jfif" alt="" />
-        </div>
-
-        <div class="description">
-            <span>Chicken Pizza</span>
-            
-        </div>
-
-        <div class="quantity">
-            <button class="plus-btn" type="button" name="button">
-                <i class="fa fa-plus" aria-hidden="true"></i>
-            </button>
-            <input type="text" name="name" value="1">
-            <button class="minus-btn" type="button" name="button">
-                <i class="fa fa-minus" aria-hidden="true"></i>
-            </button>
-        </div>
-
-        <div class="total-price">400 LKR</div>
-        
-    </div>
     <div class="total">
-        <h4 class="totali">Total Items : </h4><h4 class="totnum">3</h4>
-        <h4 class="totalam">Total Amount : </h4><h4 class="totamnum">1200 LKR</h4>
+        <h4 class="totali">Total Items : </h4><h4 class="totnum">@ViewBag.Cartcount</h4>
+        <h4 class="totalam">Total Amount : </h4><h4 class="totamnum">@ViewBag.total</h4>
     </div>
     <div class="cartbuttons">
-        <a class="shbutton" asp-area="" asp-controller="store_front" asp-action="gold_home">Back to Shopping</a>
+        <a class="shbutton" asp-area="" asp-controller="store_front" asp-action="gold_home" asp-route-id="@TempData["RestID"]">Back to Shopping</a>
         <a class="shbutton" asp-area="" asp-controller="store_front" asp-action="gold_checkout">Confirm & Proceed</a>
-</div>
+    </div>
 </div>

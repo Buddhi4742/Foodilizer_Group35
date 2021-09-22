@@ -94,7 +94,7 @@
                                                     <div class="side back">
                                                         <div class="content">
                                                             <h5 class="ing">INGREDIENTS:</h5> <h6 class="ingitem">@item.Ingredient</h6>
-                                                            <h5 class="prc">Price: Rs. @item.Price <i class="fa fa-cart-plus" aria-hidden="true" onclick="addtocart()"></i></h5>
+                                                            <h5 class="prc">Price: Rs. @item.Price <a asp-action="addtocartgold" asp-controller="store_front" asp-route-id="@item.FoodId"> <i class="fa fa-cart-plus" aria-hidden="true"></i></a></h5>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -136,7 +136,7 @@
                                                         <div class="side back">
                                                             <div class="content">
                                                                 <h5 class="ing">INGREDIENTS:</h5> <h6 class="ingitem">@item.Ingredient</h6>
-                                                                <h5 class="prc">Price: Rs. @item.Price <i class="fa fa-cart-plus" aria-hidden="true" onclick="addtocart()"></i></h5>
+                                                                <h5 class="prc">Price: Rs. @item.Price <a asp-action="addtocartgold" asp-controller="store_front" asp-route-id="@item.FoodId"> <i class="fa fa-cart-plus" aria-hidden="true"></i></a></h5>
 
 
                                                             </div>
@@ -328,7 +328,7 @@
                                                             <img src="@Url.Content(item.ImagePath)" />
                                                         </div>
                                                         <div class="menu-det">
-                                                            <div class="card-title"><h3>@item.FoodName</h3><h4> Price: Rs.@item.Price</h4><i class="fa fa-cart-plus" aria-hidden="true" onclick="addtocart()"></i></div>
+                                                            <div class="card-title"><h3>@item.FoodName</h3><h4> Price: Rs.@item.Price</h4> <a asp-action="addtocartgold" asp-controller="store_front" asp-route-id="@item.FoodId"><i class="fa fa-cart-plus" aria-hidden="true"></i> </a></div>
 
                                                             <div class="mcard-text">
                                                                 INGREDIENTS: @item.Ingredient
