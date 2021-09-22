@@ -311,7 +311,6 @@ namespace Foodilizer_Group35.Controllers
 
         public ActionResult Recomendations()
         {
-
             var userid = HttpContext.Session.GetInt32("user_id");
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
@@ -336,10 +335,10 @@ namespace Foodilizer_Group35.Controllers
         {
             return View();
         }
-        public ActionResult OtherUsers()
-        {
-            return View();
-        }
+        //public ActionResult OtherUsers()
+        //{
+        //    return View();
+        //}
         public ActionResult Reports()
         {
             return View();
