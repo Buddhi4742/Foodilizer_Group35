@@ -24,6 +24,7 @@ namespace Foodilizer_Group35.Controllers
 
         public IActionResult Index()
         {
+
             if (HttpContext.Session.GetInt32("user_email") == null)
             {
                 TempData["Name"] = null;
@@ -33,6 +34,18 @@ namespace Foodilizer_Group35.Controllers
             if (HttpContext.Session.GetInt32("user_email") != null)
             {
                 var name = _context.Customers.FirstOrDefault(x => x.Cemail == HttpContext.Session.GetString("user_email"));
+                if (name == null)
+                {
+                    var rest =  _context.Restaurants.FirstOrDefault(x => x.Remail == HttpContext.Session.GetString("user_email"));
+                    if (rest == null)
+                    {
+                        TempData["Id"] = HttpContext.Session.GetInt32("user_id");
+                        return RedirectToAction("Index", "Foodilizer_admin");
+                    }
+                     TempData["Name"] = rest.OwnerName;
+                    TempData["Rest_Id"] = rest.RestId;
+                    return RedirectToAction("Index", "StoreAdmin");
+                }
                 TempData["Name"] = name.Name;
                 TempData["Id"] = HttpContext.Session.GetInt32("user_id");
             }
