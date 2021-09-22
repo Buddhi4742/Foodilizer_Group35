@@ -45,6 +45,22 @@ namespace Foodilizer_Group35.Controllers
 
             //var bestFood = _context.Foods.Select(x => x.FoodId).OrderBy(x => x.PrefScore);
 
+
+            var resfood = _context.Foods.ToList();
+            foreach (var item in resfood)
+            {
+
+                var prefscore = resfood.OrderByDescending(c => c.PrefScore).ToList();
+                ViewBag.recommendation = prefscore;
+            }
+            foreach (var item in resfood)
+            {
+                var ran = new Random();
+                var rf = resfood.OrderBy(x => ran.Next()).ToList() ;
+                ViewBag.featured = rf;
+            }
+            
+
             return View();
         }
         public IActionResult Login()
