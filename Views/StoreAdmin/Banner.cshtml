@@ -4,7 +4,7 @@
 
 <main >
     <div class="row">
-        <div class="container-fluid px-4 col-8">
+        <div class="container-fluid px-4 col-12">
             <div class="row">
                 <div class="col-8">
                     <h1 class="mt-4">Images</h1>
@@ -15,54 +15,86 @@
                     <h5>Go to Inspect to see the changes!</h5>
                 </div>
             </div>
-            <form method="post" enctype="multipart/form-data" asp-controller="StoreAdmin" asp-action="uploadimagemain" runat="server">
-                <div class="p-2">
-                    <label class="pb-2" for="inputrestLogo">Restaurant Restaurant Logo</label><br />
-                    <input class="pb-2" type="file" id="fileupload" name="postedFiles1" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" /><br />
-                    <button name="submit" asp-action="uploadimagemain" asp-controller="StoreAdmin" class="btn-dark" type="submit" id="submit" onclick="return Validateimagesbanner()">Submit</button>
-                </div>
-            </form>
-            <form method="post" enctype="multipart/form-data" asp-controller="StoreAdmin" asp-action="uploadimagebanner" runat="server">
-                <div class="p-2">
-                    <label class="pb-2" for="inputrestLogo">Restaurant Banner</label><br />
-                    <input class="pb-2" type="file" id="fileupload" name="postedFiles2" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" /><br />
-                    <button name="submit" asp-action="uploadimagebanner" asp-controller="StoreAdmin" class="btn-dark" type="submit" id="submit" onclick="return Validateimagesbanner()">Submit</button>
-                </div>
-            </form>
-            <form method="post" enctype="multipart/form-data" asp-controller="StoreAdmin" asp-action="Uploadimagesgallery" runat="server">
-                <div class="p-2">
-                    <label class="pb-2" for="inputrestLogo">Restaurant Gallery Images</label><br />
-                    <input class="pb-2"  type="file" id="fileupload3" name="postedFiles3" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" multiple /><br />
-                    <button name="submit" asp-action="Uploadimagesgallery" asp-controller="StoreAdmin" class="btn-dark" type="submit" id="submit" onclick="return Validateimagesgallery()">Submit</button>
-                </div>
-            </form>
-        </div>
-        <div class="img-view col-4">
-            @{ List<RestaurantImage> temp = ViewBag.resimg;}
-            @if (temp != null)
-            {
-                @foreach (var item in temp.ToList())
-                {
-
-                    <div class="col-7 align-items-stretch mb-3 d-flex">
-                        <div class="card recomm-box text-dark mb-4">
-                            Logo Image
-                            <img src="@Url.Content(@item.MainImagePath)" class="card-img-top card-img-top-recomm pb-2">
-                            Banner Image
-                            <img src="@Url.Content(@item.BannerImagePath)" class="card-img-top card-img-top-recomm pb-2">
-                            Gallery Images
-                            <img src="@Url.Content(@item.GalleryImage1Path)" class="card-img-top card-img-top-recomm pb-2">
-                            <img src="@Url.Content(@item.GalleryImage2Path)" class="card-img-top card-img-top-recomm pb-2">
-                            <img src="@Url.Content(@item.GalleryImage3Path)" class="card-img-top card-img-top-recomm pb-2">
-                            <img src="@Url.Content(@item.GalleryImage4Path)" class="card-img-top card-img-top-recomm pb-2">
-                            <img src="@Url.Content(@item.GalleryImage5Path)" class="card-img-top card-img-top-recomm pb-2">
+            <div class="col-4">
+                <div class="">
+                    <form method="post" enctype="multipart/form-data" asp-controller="StoreAdmin" asp-action="uploadimagemain" runat="server">
+                        <div class="p-2">
+                            <label class="pb-2" for="inputrestLogo">Restaurant Restaurant Logo</label><br />
+                            <input class="pb-2" type="file" id="fileupload" name="postedFiles1" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" /><br />
+                            <button name="submit" asp-action="uploadimagemain" asp-controller="StoreAdmin" class="btn-dark" type="submit" id="submit" onclick="return Validateimagesbanner()">Submit</button>
                         </div>
-                    </div>
+                    </form>
+                </div>
+                <div class="">
+                    <form method="post" enctype="multipart/form-data" asp-controller="StoreAdmin" asp-action="uploadimagebanner" runat="server">
+                        <div class="p-2">
+                            <label class="pb-2" for="inputrestLogo">Restaurant Banner</label><br />
+                            <input class="pb-2" type="file" id="fileupload" name="postedFiles2" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" /><br />
+                            <button name="submit" asp-action="uploadimagebanner" asp-controller="StoreAdmin" class="btn-dark" type="submit" id="submit" onclick="return Validateimagesbanner()">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="">
+                    <form method="post" enctype="multipart/form-data" asp-controller="StoreAdmin" asp-action="Uploadimagesgallery" runat="server">
+                        <div class="p-2">
+                            <label class="pb-2" for="inputrestLogo">Restaurant Gallery Images</label><br />
+                            <input class="pb-2" type="file" id="fileupload3" name="postedFiles3" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" multiple /><br />
+                            <button name="submit" asp-action="Uploadimagesgallery" asp-controller="StoreAdmin" class="btn-dark" type="submit" id="submit" onclick="return Validateimagesgallery()">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="img-view col-8">
+                @{ List<RestaurantImage> temp = ViewBag.resimg;}
+                @if (temp != null)
+                {
+                    @foreach (var item in temp.ToList())
+                    {
+
+                        <div class="col-12 align-items-stretch mb-3 d-flex">
+                            <div class="d-flex text-dark mb-4">
+                                <div class="col-4 recomm-box">
+                                    <div class="text-banner">
+                                        <h4>Logo Image</h4>
+                                    </div>
+                                    <div class="d-flex flex-wrap ">
+                                        <img src="@Url.Content(@item.MainImagePath)" class="card-img-top card-img-top-recomm pb-2">
+                                    </div>
+                                </div>
+                                <div class="col-4 recomm-box">
+                                    <div class="text-banner">
+                                        <h4>Banner Image</h4>
+                                    </div>
+                                    <div class="d-flex flex-wrap ">
+                                        <img src="@Url.Content(@item.BannerImagePath)" class="card-img-top card-img-top-recomm pb-2">
+                                    </div>
+                                </div>
+                                <div class="col-4 recomm-box">
+                                    <div class=" text-banner">
+                                        <h4>Gallery Images</h4>
+                                    </div>
+                                    <div class="d-flex flex-wrap ">
+                                        <img src="@Url.Content(@item.GalleryImage1Path)" class="card-img-top card-img-top-recomm pb-2">
+                                        <img src="@Url.Content(@item.GalleryImage2Path)" class="card-img-top card-img-top-recomm pb-2">
+                                        <img src="@Url.Content(@item.GalleryImage3Path)" class="card-img-top card-img-top-recomm pb-2">
+                                        <img src="@Url.Content(@item.GalleryImage4Path)" class="card-img-top card-img-top-recomm pb-2">
+                                        <img src="@Url.Content(@item.GalleryImage5Path)" class="card-img-top card-img-top-recomm pb-2">
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
 
 
+                    }
                 }
-            }
+            </div>
         </div>
+        <div class="" >
+
+        </div>
+        
     </div>
     
 
