@@ -13,7 +13,7 @@
         <center><h4>Edit / Update Store Details</h4></center>
 </div>
     <div class="container ">
-        <form class="register" asp-action="UpdateRestaurant" asp-controller="StoreAdmin" id="form1">
+        <form class="register" asp-action="UpdateRestaurant" asp-controller="StoreAdmin" asp-route-id="@TempData["ID"]" id="form1">
 
             <div class="form-row row pb-3">
                 <div class="form-group col-md-6">
@@ -147,7 +147,6 @@
             </div>
         </form>
     </div>
-
 </main>
 @*<script type="text/javascript">
     var confirmPass = false;

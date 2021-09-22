@@ -48,9 +48,7 @@ namespace Foodilizer_Group35.Controllers
             TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             var userid = HttpContext.Session.GetInt32("user_id");
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
-            var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
-            int idx = restid.RestId;
-            TempData["ID"] = idx;
+            TempData["ID"] = id;
             //await Response.WriteAsync(collection["Remail"].ToString());
             //var restdetails = await _context.Restaurants.FirstOrDefaultAsync(e => e.Remail == collection["Remail"].ToString() /*&& e.User_status == 1*/);
             //await Response.WriteAsync(collection["logo"]);
@@ -61,7 +59,6 @@ namespace Foodilizer_Group35.Controllers
                     UpdateRestaurant.OwnerName = collection["OwnerName"];
                     UpdateRestaurant.OwnerContact = collection["OwnerContact"];
                     UpdateRestaurant.Rabout = collection["Rabout"];
-                    UpdateRestaurant.RestType = collection["RestType"];
                     UpdateRestaurant.Raddress = collection["Raddress"];
                     UpdateRestaurant.Rdistrict = collection["Rdistrict"];
                     UpdateRestaurant.PriceRange = collection["PriceRange"];
@@ -80,6 +77,7 @@ namespace Foodilizer_Group35.Controllers
                     _context.Entry(UpdateRestaurant).Property(x => x.RestId).IsModified = false;
                     _context.Entry(UpdateRestaurant).Property(x => x.Rpassword).IsModified = false;
                     _context.Entry(UpdateRestaurant).Property(x => x.Rusername).IsModified = false;
+                    _context.Entry(UpdateRestaurant).Property(x => x.RestType).IsModified = false;
             //_context.Add(customer);
             await _context.SaveChangesAsync();
 
