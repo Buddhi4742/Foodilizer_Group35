@@ -92,15 +92,48 @@ namespace Foodilizer_Group35.Controllers
             }
             var query4 = _context.Restaurants.Where(e => e.RestId == array[0,0]).Include(e => e.Reviews).ToList();
             ViewBag.rating1 = query4;
+            var query4i = _context.RestaurantImages.Where(e => e.RestId == array[0, 0]).ToList();
+            ViewBag.rri1 = query4i;
             var query5 = _context.Restaurants.Where(e => e.RestId == array[1, 0]).Include(e => e.Reviews).ToList();
             ViewBag.rating2 = query5;
+            var query5i = _context.RestaurantImages.Where(e => e.RestId == array[1, 0]).ToList();
+            ViewBag.rri2 = query5i;
             var query6 = _context.Restaurants.Where(e => e.RestId == array[2, 0]).Include(e => e.Reviews).ToList();
             ViewBag.rating3 = query6;
+            var query6i = _context.RestaurantImages.Where(e => e.RestId == array[2, 0]).ToList();
+            ViewBag.rri3 = query6i;
             var query7 = _context.Restaurants.Where(e => e.RestId == array[3, 0]).Include(e => e.Reviews).ToList();
             ViewBag.rating4 = query7;
+            var query7i = _context.RestaurantImages.Where(e => e.RestId == array[3, 0]).ToList();
+            ViewBag.rri4 = query7i;
 
-
-
+            int count1 = 0;
+            var query8 = _context.RestaurantImages.Where(e => e.RestId == id).ToList();
+            foreach (var element in query8)
+            {
+                if(element.GalleryImage1Path != null)
+                {
+                    count1++;
+                }
+                if (element.GalleryImage2Path != null)
+                {
+                    count1++;
+                }
+                if (element.GalleryImage3Path != null)
+                {
+                    count1++;
+                }
+                if (element.GalleryImage4Path != null)
+                {
+                    count1++;
+                }
+                if (element.GalleryImage5Path != null)
+                {
+                    count1++;
+                }
+            }
+            ViewBag.restimages = query8;
+            ViewBag.galleryimagecount = count1;
 
             using (foodilizerContext context = new foodilizerContext())
             {
@@ -187,12 +220,47 @@ namespace Foodilizer_Group35.Controllers
             }
             var query4 = _context.Restaurants.Where(e => e.RestId == array[0, 0]).Include(e => e.Reviews).ToList();
             ViewBag.rating1 = query4;
+            var query4i = _context.RestaurantImages.Where(e => e.RestId == array[0, 0]).ToList();
+            ViewBag.rri1 = query4i;
             var query5 = _context.Restaurants.Where(e => e.RestId == array[1, 0]).Include(e => e.Reviews).ToList();
             ViewBag.rating2 = query5;
+            var query5i = _context.RestaurantImages.Where(e => e.RestId == array[1, 0]).ToList();
+            ViewBag.rri2 = query5i;
             var query6 = _context.Restaurants.Where(e => e.RestId == array[2, 0]).Include(e => e.Reviews).ToList();
             ViewBag.rating3 = query6;
+            var query6i = _context.RestaurantImages.Where(e => e.RestId == array[2, 0]).ToList();
+            ViewBag.rri3 = query6i;
             var query7 = _context.Restaurants.Where(e => e.RestId == array[3, 0]).Include(e => e.Reviews).ToList();
             ViewBag.rating4 = query7;
+            var query7i = _context.RestaurantImages.Where(e => e.RestId == array[3, 0]).ToList();
+            ViewBag.rri4 = query7i;
+            int count1 = 0;
+            var query8 = _context.RestaurantImages.Where(e => e.RestId == id).ToList();
+            foreach (var element in query8)
+            {
+                if (element.GalleryImage1Path != null)
+                {
+                    count1++;
+                }
+                if (element.GalleryImage2Path != null)
+                {
+                    count1++;
+                }
+                if (element.GalleryImage3Path != null)
+                {
+                    count1++;
+                }
+                if (element.GalleryImage4Path != null)
+                {
+                    count1++;
+                }
+                if (element.GalleryImage5Path != null)
+                {
+                    count1++;
+                }
+            }
+            ViewBag.restimages = query8;
+            ViewBag.galleryimagecount = count1;
             using (foodilizerContext context = new foodilizerContext())
             {
                 return View(_context.Restaurants.Where(x => x.RestId == id).Include(e => e.Menus).ThenInclude(e => e.Foods).FirstOrDefault());
@@ -274,13 +342,47 @@ namespace Foodilizer_Group35.Controllers
             }
             var query4 = _context.Restaurants.Where(e => e.RestId == array[0, 0]).Include(e => e.Reviews).ToList();
             ViewBag.rating1 = query4;
+            var query4i = _context.RestaurantImages.Where(e => e.RestId == array[0, 0]).ToList();
+            ViewBag.rri1 = query4i;
             var query5 = _context.Restaurants.Where(e => e.RestId == array[1, 0]).Include(e => e.Reviews).ToList();
             ViewBag.rating2 = query5;
+            var query5i = _context.RestaurantImages.Where(e => e.RestId == array[1, 0]).ToList();
+            ViewBag.rri2 = query5i;
             var query6 = _context.Restaurants.Where(e => e.RestId == array[2, 0]).Include(e => e.Reviews).ToList();
             ViewBag.rating3 = query6;
+            var query6i = _context.RestaurantImages.Where(e => e.RestId == array[2, 0]).ToList();
+            ViewBag.rri3 = query6i;
             var query7 = _context.Restaurants.Where(e => e.RestId == array[3, 0]).Include(e => e.Reviews).ToList();
             ViewBag.rating4 = query7;
-
+            var query7i = _context.RestaurantImages.Where(e => e.RestId == array[3, 0]).ToList();
+            ViewBag.rri4 = query7i;
+            int count1 = 0;
+            var query8 = _context.RestaurantImages.Where(e => e.RestId == id).ToList();
+            foreach (var element in query8)
+            {
+                if (element.GalleryImage1Path != null)
+                {
+                    count1++;
+                }
+                if (element.GalleryImage2Path != null)
+                {
+                    count1++;
+                }
+                if (element.GalleryImage3Path != null)
+                {
+                    count1++;
+                }
+                if (element.GalleryImage4Path != null)
+                {
+                    count1++;
+                }
+                if (element.GalleryImage5Path != null)
+                {
+                    count1++;
+                }
+            }
+            ViewBag.restimages = query8;
+            ViewBag.galleryimagecount = count1;
             using (foodilizerContext context = new foodilizerContext())
             {
                 return View(_context.Restaurants.Where(x => x.RestId == id).Include(e => e.Menus).ThenInclude(e => e.Foods).FirstOrDefault());
