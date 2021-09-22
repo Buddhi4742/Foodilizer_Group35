@@ -54,6 +54,7 @@ namespace Foodilizer_Group35.Controllers
                 package.RestId = id;
                 package.RegisteredDate = today;
                 _context.Add(package);
+                _context.Restaurants.Where(x => x.RestId == id).FirstOrDefault().RestType = "bronze";
                 //_context.Add(customer);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Owner_redirect"); //add payment gateway
@@ -65,6 +66,7 @@ namespace Foodilizer_Group35.Controllers
                 package.RestId = id;
                 package.RegisteredDate = today;
                 _context.Add(package);
+                _context.Restaurants.Where(x => x.RestId == id).FirstOrDefault().RestType ="silver";
                 //_context.Add(customer);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Owner_redirect"); //add payment gateway
@@ -76,6 +78,7 @@ namespace Foodilizer_Group35.Controllers
                 package.RestId = id;
                 package.RegisteredDate = today;
                 _context.Add(package);
+                _context.Restaurants.Where(x => x.RestId == id).FirstOrDefault().RestType = "gold";
                 //_context.Add(customer);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Owner_redirect"); //add payment gateway

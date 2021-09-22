@@ -21,12 +21,6 @@
                     <input asp-for="OwnerName" class="form-control" id="inputownFirstName" placeholder="Owner Firstname and Last name" required>
                     <span asp-validation-for="OwnerName" class="text-danger"></span>
                 </div>
-
-                <div class="form-group col-md-3">
-                    <label class="pb-2" for="inputrestLogo">Restaurant Logo</label>
-                    <input type="file" class="form-control" id="inputrestLogo" @*onchange="getImagePreview(event)"*@ name="logo">
-                </div>
-
                 <div class="form-group col-md-3">
                     <label class="pb-2" for="inputownmobile">Mobile No</label>
                     <input asp-for="OwnerContact" class="form-control" id="inputownmobile" placeholder="Mobile No" required>

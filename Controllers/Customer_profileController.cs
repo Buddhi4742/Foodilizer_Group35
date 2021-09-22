@@ -103,14 +103,14 @@ namespace Foodilizer_Group35.Controllers
                 }
 
                 string uploadedFile = "";
-                
-                    string fileName = Path.GetFileName(postedFile.FileName);
-                    using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
-                    {
-                        postedFile.CopyTo(stream);
-                        uploadedFile=fileName;
-                        ViewBag.Message += string.Format("<b>{0}</b> uploaded.<br />", fileName);
-                    }
+
+                string fileName = Path.GetFileName(postedFile.FileName);
+                using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
+                {
+                    postedFile.CopyTo(stream);
+                    uploadedFile = fileName;
+                    ViewBag.Message += string.Format("<b>{0}</b> uploaded.<br />", fileName);
+                }
                 string path2 = "~/images";
                 Path.Combine(path2, fileName);
                 _context.Customers.Where(x => x.CustomerId == id).FirstOrDefault().Name = customer.Name;
@@ -121,9 +121,7 @@ namespace Foodilizer_Group35.Controllers
                 _context.Customers.Where(x => x.CustomerId == id).FirstOrDefault().DietryRestriction = customer.DietryRestriction;
                 _context.Customers.Where(x => x.CustomerId == id).FirstOrDefault().ProfileImage = Path.Combine(path2, fileName);
                 _context.SaveChanges();
-
-
-                return RedirectToAction("customer_profile_reviews","Customer_profile",new {id=userid});
+                return RedirectToAction("customer_profile_reviews", "Customer_profile", new { id = userid });
             }
             catch
             {
