@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Foodilizer_Group35.Models;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 //using Microsoft.AspNetCore.Mvc.Filters;
 //using Microsoft.Graph;
 
@@ -23,7 +25,9 @@ namespace Foodilizer_Group35.Controllers
 
         public IActionResult bronze_home(int id)
         {
-            
+            TempData["RestID"] = id;
+            HttpContext.Session.SetInt32("rest_id", id);
+            id = (int)HttpContext.Session.GetInt32("rest_id");
             var sessionid=HttpContext.Session.GetInt32("user_id");
             ViewBag.sessionid = sessionid;
             TempData["Id"] = sessionid;
@@ -108,6 +112,9 @@ namespace Foodilizer_Group35.Controllers
 
         public IActionResult silver_home(int id)
         {
+            TempData["RestID"] = id;
+            HttpContext.Session.SetInt32("rest_id", id);
+            id = (int)HttpContext.Session.GetInt32("rest_id");
             var sessionid = HttpContext.Session.GetInt32("user_id");
             ViewBag.sessionid = sessionid;
             TempData["Id"] = sessionid;
@@ -193,6 +200,9 @@ namespace Foodilizer_Group35.Controllers
         }
         public IActionResult gold_home(int id)
         {
+            TempData["RestID"] = id;
+            HttpContext.Session.SetInt32("rest_id", id);
+            id= (int)HttpContext.Session.GetInt32("rest_id");
 
             var sessionid = HttpContext.Session.GetInt32("user_id");
             ViewBag.sessionid = sessionid;
@@ -280,13 +290,10 @@ namespace Foodilizer_Group35.Controllers
 
         public async Task<IActionResult> create_review(IFormCollection collection, List<IFormFile> postedFiles)
         {
-
             if (ModelState.IsValid)
             {
-
                 try
                 {
-
                     var email = HttpContext.Session.GetString("user_email");
                     var query = _context.Customers.Where(e => e.Cemail == email).ToList();
                     string[] paths = new string[3];
@@ -310,8 +317,6 @@ namespace Foodilizer_Group35.Controllers
                     newrev.Rating = System.Convert.ToInt32(collection["subject"]);
                     DateTime dateTime = DateTime.UtcNow.Date;
                     newrev.Date = dateTime;
-                    
-
                     // image uploading to the folder
                     string path = "wwwroot/images";
 
@@ -351,7 +356,6 @@ namespace Foodilizer_Group35.Controllers
                     {
                         newrev.ReviewImage1 = Path.Combine(path2, paths[0]);
                     }
-
                     _context.Add(newrev);
                     await _context.SaveChangesAsync();
 
@@ -359,7 +363,6 @@ namespace Foodilizer_Group35.Controllers
                     TempData["Message"] = "Review Submitted Successfully";
                     //return RedirectToAction(nameof(Owner_price));
                     string urlAnterior = Request.Headers["Referer"].ToString();
-
                     if (urlAnterior.Contains("bronze"))
                     {
                         return RedirectToAction("bronze_home", "store_front", new { id });
@@ -378,20 +381,22 @@ namespace Foodilizer_Group35.Controllers
                     if (ex.InnerException.ToString().Contains("Violation of UNIQUE KEY constraint")) ViewBag.Error = "This email is already used. Please use another email address";
                     else ViewBag.Error = "Unable to register this user. Please try agian";
                     return View(/*customer*/);
-
                 }
-
             }
             ViewBag.Error = "Unable to register this user. Please try agian";
             return View(/*customer*/);
-
         }
         public IActionResult silver_cart()
         {
             return View();
         }
-        public IActionResult gold_cart()
+        public IActionResult gold_cart(int id)
         {
+            string jsonString = JsonSerializer.Serialize(id);
+            //string listold = HttpContext.Session.GetString("cart");
+
+            //HttpContext.Session.SetString("cart", jsonString);
+            //string list= HttpContext.Session.GetString("cart");
             return View();
         }
         public IActionResult silver_checkout()
@@ -408,7 +413,4 @@ namespace Foodilizer_Group35.Controllers
         }
 
     }
-
-
-
 }
