@@ -95,7 +95,7 @@ namespace Foodilizer_Group35.Controllers
             id = customerid.CustomerId;
             try
             {
-                string path = "wwwroot/images";
+                string path = "wwwroot/images/customer/"+userid;
 
                 if (!Directory.Exists(path))
                 {
@@ -111,7 +111,7 @@ namespace Foodilizer_Group35.Controllers
                     uploadedFile = fileName;
                     ViewBag.Message += string.Format("<b>{0}</b> uploaded.<br />", fileName);
                 }
-                string path2 = "~/images";
+                string path2 = "~/images/customer/"+userid;
                 Path.Combine(path2, fileName);
                 _context.Customers.Where(x => x.CustomerId == id).FirstOrDefault().Name = customer.Name;
                 _context.Customers.Where(x => x.CustomerId == id).FirstOrDefault().Name = customer.Name;

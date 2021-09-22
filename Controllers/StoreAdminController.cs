@@ -103,7 +103,7 @@ namespace Foodilizer_Group35.Controllers
             return View();
         }
 
-        public ActionResult MenuNewFooditem(IFormCollection collection, int id)
+        public ActionResult MenuNewFooditem(int id,IFormCollection collection)
         {
             int restid = (int)_context.Menus.Where(x => x.MenuId == id).FirstOrDefault().RestId;
             Restaurant[] temp2 = _context.Restaurants.Where(e => e.RestId == restid).Include(e => e.Reviews).ThenInclude(e => e.Customer).ToArray();
