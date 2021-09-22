@@ -1,6 +1,7 @@
 ﻿using Foodilizer_Group35.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,8 +26,7 @@ namespace Foodilizer_Group35.Controllers
                 //searchString = "Palm";
                 var location = _context.Restaurants.Select(x => x.Rdistrict).Distinct().ToList();
 
-                var rest = from r in _context.Restaurants
-                           select r;
+                var rest = _context.Restaurants.Include(e=>e.RestaurantImage);
                 //DONT DELETE THIS
                 //var location = _context.Restaurants.ToList();
                 //use this to check queries
@@ -41,11 +41,11 @@ namespace Foodilizer_Group35.Controllers
                 {
                     if (district == "All Locations")
                     {
-                        rest = rest.Where(s => s.Rname.Contains(searchString));
+                        rest = _context.Restaurants.Where(s => s.Rname.Contains(searchString)).Include(e=>e.RestaurantImage);
                     }
                     else
                     {
-                        rest = rest.Where(s => s.Rname.Contains(searchString) && s.Rdistrict == district);
+                        rest = rest.Where(s => s.Rname.Contains(searchString) && s.Rdistrict == district).Include(e => e.RestaurantImage);
                     }
 
                 }

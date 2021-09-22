@@ -48,10 +48,20 @@
             </div>
         </div>
         @foreach (var item in Model) {
-            <div class="result-card-body">
+
+
+<div class="result-card-body">
                 <section class="search-result-item align-content-center">
                     <a class="image-link" href="#">
-                        <img class="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                        @if (item.RestaurantImage != null)
+                        {
+                            <img src="@Url.Content(item.RestaurantImage.MainImagePath)" class="image" onerror="this.onerror=null; this.src='https://media.istockphoto.com/vectors/restaurant-icon-vector-isolated-on-white-background-restaurant-sign-vector-id1029059560'" />
+                        }
+                        else
+                        {
+                            <img class="image" src="https://media.istockphoto.com/vectors/restaurant-icon-vector-isolated-on-white-background-restaurant-sign-vector-id1029059560" />
+                        }
+
                     </a>
                     <div class="search-result-item-body">
                         <div class="row">
