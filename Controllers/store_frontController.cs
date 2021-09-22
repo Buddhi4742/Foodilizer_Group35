@@ -420,7 +420,7 @@ namespace Foodilizer_Group35.Controllers
                     DateTime dateTime = DateTime.UtcNow.Date;
                     newrev.Date = dateTime;
                     // image uploading to the folder
-                    string path = "wwwroot/images";
+                    string path = "wwwroot/images/review/" + restid;
 
                     if (!Directory.Exists(path))
                     {
@@ -442,7 +442,7 @@ namespace Foodilizer_Group35.Controllers
                     }
 
                     //link uploading to the database
-                    string path2 = "~/images";
+                    string path2 = "~/images/review/" + restid;
                     if (pcount >= 3)
                     {
                         newrev.ReviewImage1 = Path.Combine(path2, paths[0]);
