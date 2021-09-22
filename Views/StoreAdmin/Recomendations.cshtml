@@ -1,4 +1,4 @@
-﻿@model Foodilizer_Group35.Models.Food
+﻿
 
 @{
     Layout = "~/Views/Shared/_store_admin_layout.cshtml";
@@ -12,10 +12,10 @@
         </ol>
         <h4>Edit / Update Recomendations</h4>
         <div class="col-md-12 row d-flex justify-content-center">
-            @{ List<Food> temp = ViewBag.fooddet;}
+            @{ List<Food> temp = ViewBag.prefscore;}
             @if (temp != null)
             {
-                @foreach (var item in temp.Take(6))
+                @foreach (var item in temp.Take(6).ToList())
                 {
                     @if (item.Featured == "1")
                     {
