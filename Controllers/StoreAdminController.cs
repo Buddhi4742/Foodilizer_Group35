@@ -24,6 +24,11 @@ namespace Foodilizer_Group35.Controllers
         // GET: Store_adminController
         public ActionResult Index()
         {
+            var userid = HttpContext.Session.GetInt32("user_id");
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
+            int id = restid.RestId;
+            TempData["ID"] = id;
             return View();
         }
         public ActionResult Profile()
@@ -38,11 +43,16 @@ namespace Foodilizer_Group35.Controllers
 
         public async Task<IActionResult> UpdateRestaurant(IFormCollection collection,int id)
         {
-                    //await Response.WriteAsync(collection["Remail"].ToString());
-                    //var restdetails = await _context.Restaurants.FirstOrDefaultAsync(e => e.Remail == collection["Remail"].ToString() /*&& e.User_status == 1*/);
-                    //await Response.WriteAsync(collection["logo"]);
-                    
-                    var UpdateRestaurant = new Restaurant();
+            var userid = HttpContext.Session.GetInt32("user_id");
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
+            int idx = restid.RestId;
+            TempData["ID"] = idx;
+            //await Response.WriteAsync(collection["Remail"].ToString());
+            //var restdetails = await _context.Restaurants.FirstOrDefaultAsync(e => e.Remail == collection["Remail"].ToString() /*&& e.User_status == 1*/);
+            //await Response.WriteAsync(collection["logo"]);
+
+            var UpdateRestaurant = new Restaurant();
                     UpdateRestaurant.RestId = id;
                     UpdateRestaurant.Rname = collection["Rname"];
                     UpdateRestaurant.OwnerName = collection["OwnerName"];
@@ -80,7 +90,7 @@ namespace Foodilizer_Group35.Controllers
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
             int id = restid.RestId;
-
+            TempData["ID"] = id;
             var query = _context.Menus.Where(e => e.RestId == id).Include(e => e.Foods).ToList();
             var menuid = _context.Menus.Where(e => e.RestId == id).FirstOrDefault();
 
@@ -254,6 +264,7 @@ namespace Foodilizer_Group35.Controllers
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
             int id = restid.RestId;
+            TempData["ID"] = id;
             var q = _context.Items.Where(x => x.RestId == id).ToList();
             return View(q);
 
@@ -277,6 +288,7 @@ namespace Foodilizer_Group35.Controllers
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
             int id = restid.RestId;
+            TempData["ID"] = id;
             item.RestId = id;
             item.Alert = "GREEN";
             _context.Items.Add(item);
@@ -340,7 +352,7 @@ namespace Foodilizer_Group35.Controllers
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
             int id = restid.RestId;
-
+            TempData["ID"] = id;
             //int id = 2;
             var query = _context.Menus.Where(e => e.RestId == id).Include(e => e.Foods).ToList();
             ViewBag.fooddet = query;
@@ -358,6 +370,7 @@ namespace Foodilizer_Group35.Controllers
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
             int id = restid.RestId;
+            TempData["ID"] = id;
             string[] paths = new string[5];
             int pcount = 0;
             var checkforrecord = _context.RestaurantImages.Where(x => x.RestId == id).FirstOrDefault();
@@ -473,8 +486,8 @@ namespace Foodilizer_Group35.Controllers
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
             int id = restid.RestId;
-            
-            
+            TempData["ID"] = id;
+
             var checkforrecord = _context.RestaurantImages.Where(x => x.RestId == id).FirstOrDefault();
             
             try
@@ -524,7 +537,7 @@ namespace Foodilizer_Group35.Controllers
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
             int id = restid.RestId;
-           
+            TempData["ID"] = id;
 
 
             var checkforrecord = _context.RestaurantImages.Where(x => x.RestId == id).FirstOrDefault();
@@ -576,7 +589,7 @@ namespace Foodilizer_Group35.Controllers
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
             int id = restid.RestId;
-
+            TempData["ID"] = id;
             var query = _context.RestaurantImages.Where(e => e.RestId == id).ToList();
             ViewBag.resimg = query;
             
@@ -586,6 +599,11 @@ namespace Foodilizer_Group35.Controllers
         }
         public ActionResult Orders()
         {
+            var userid = HttpContext.Session.GetInt32("user_id");
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
+            int id = restid.RestId;
+            TempData["ID"] = id;
             return View();
         }
         //public ActionResult OtherUsers()
@@ -594,10 +612,20 @@ namespace Foodilizer_Group35.Controllers
         //}
         public ActionResult Reports()
         {
+            var userid = HttpContext.Session.GetInt32("user_id");
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
+            int id = restid.RestId;
+            TempData["ID"] = id;
             return View();
         }
         public ActionResult Inspect()
         {
+            var userid = HttpContext.Session.GetInt32("user_id");
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
+            int id = restid.RestId;
+            TempData["ID"] = id;
             return View();
         }
 
