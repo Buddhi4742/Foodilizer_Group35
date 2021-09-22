@@ -624,6 +624,8 @@ namespace Foodilizer_Group35.Controllers
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
             int id = restid.RestId;
             TempData["ID"] = id;
+            var query = _context.RestaurantOrders.Where(e => e.RestId == id).ToList();
+            ViewBag.orderlist = query;
             return View();
         }
         //public ActionResult OtherUsers()
