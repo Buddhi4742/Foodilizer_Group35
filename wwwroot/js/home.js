@@ -9,6 +9,19 @@ var swiper = new Swiper(".mySwiper", {
 	loop: false,
 });
 
+var swiper = new Swiper(".mySwiper3", {
+	slidesPerView: 5,
+	spaceBetween: 12,
+	freeMode: false,
+	loop: false,
+	navigation: {
+		nextEl: '.swiper-button-next',
+		prevEl: '.swiper-button-prev',
+	}, autoplay: {
+		delay: 2750,
+		disableOnInteraction: false,
+	},
+});
 $(document).ready(function () {
 	
 
