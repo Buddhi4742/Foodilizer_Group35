@@ -8,6 +8,8 @@ using Foodilizer_Group35.Models;
 using Microsoft.EntityFrameworkCore;
 //using Microsoft.AspNetCore.Mvc.Filters;
 //using Microsoft.Graph;
+using System.Collections.Generic;
+using System.IO;
 namespace Foodilizer_Group35.Controllers
 {
     public class StoreAdminController : Controller
@@ -326,6 +328,154 @@ namespace Foodilizer_Group35.Controllers
                 ViewBag.recommendation = prefscore;
             }
             return View();
+        }
+        public ActionResult Uploadimagesgallery(List<IFormFile> postedFiles)
+        {
+            var userid = HttpContext.Session.GetInt32("user_id");
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
+            int id = restid.RestId;
+            var image = new RestaurantImage();
+            image.RestId = id;
+            string[] paths = new string[5];
+            int pcount = 0;
+            string path = "wwwroot/images";
+
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            List<string> uploadedFiles = new List<string>();
+            foreach (IFormFile postedFile in postedFiles)
+            {
+                string fileName = Path.GetFileName(postedFile.FileName);
+                paths[pcount] = fileName;
+                pcount++;
+                using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
+                {
+                    postedFile.CopyTo(stream);
+                    uploadedFiles.Add(fileName);
+                    ViewBag.Message += string.Format("<b>{0}</b> uploaded.<br />", fileName);
+                }
+            }
+            //link uploading to the database
+            string path2 = "~/images";
+            if (pcount >= 5)
+            {
+                _context.RestaurantImages.Where(x => x.RestId == id).FirstOrDefault().GalleryImage1Path = Path.Combine(path2, paths[0]);
+                _context.RestaurantImages.Where(x => x.RestId == id).FirstOrDefault().GalleryImage2Path = Path.Combine(path2, paths[1]);
+                _context.RestaurantImages.Where(x => x.RestId == id).FirstOrDefault().GalleryImage3Path = Path.Combine(path2, paths[2]);
+                _context.RestaurantImages.Where(x => x.RestId == id).FirstOrDefault().GalleryImage4Path = Path.Combine(path2, paths[3]);
+                _context.RestaurantImages.Where(x => x.RestId == id).FirstOrDefault().GalleryImage5Path = Path.Combine(path2, paths[4]);
+            }
+            else if (pcount == 4)
+            {
+                _context.RestaurantImages.Where(x => x.RestId == id).FirstOrDefault().GalleryImage1Path = Path.Combine(path2, paths[0]);
+                _context.RestaurantImages.Where(x => x.RestId == id).FirstOrDefault().GalleryImage2Path = Path.Combine(path2, paths[1]);
+                _context.RestaurantImages.Where(x => x.RestId == id).FirstOrDefault().GalleryImage3Path = Path.Combine(path2, paths[2]);
+                _context.RestaurantImages.Where(x => x.RestId == id).FirstOrDefault().GalleryImage4Path = Path.Combine(path2, paths[3]);
+            }
+            else if (pcount == 3)
+            {
+                _context.RestaurantImages.Where(x => x.RestId == id).FirstOrDefault().GalleryImage1Path = Path.Combine(path2, paths[0]);
+                _context.RestaurantImages.Where(x => x.RestId == id).FirstOrDefault().GalleryImage2Path = Path.Combine(path2, paths[1]);
+                _context.RestaurantImages.Where(x => x.RestId == id).FirstOrDefault().GalleryImage3Path = Path.Combine(path2, paths[2]);
+            }
+            else if (pcount == 2)
+            {
+                _context.RestaurantImages.Where(x => x.RestId == id).FirstOrDefault().GalleryImage1Path = Path.Combine(path2, paths[0]);
+                _context.RestaurantImages.Where(x => x.RestId == id).FirstOrDefault().GalleryImage2Path = Path.Combine(path2, paths[1]);
+            }
+            else if (pcount == 1)
+            {
+                _context.RestaurantImages.Where(x => x.RestId == id).FirstOrDefault().GalleryImage1Path = Path.Combine(path2, paths[0]);
+            }
+            _context.Add(image);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult uploadimagebanner(List<IFormFile> postedFiles)
+        {
+            var userid = HttpContext.Session.GetInt32("user_id");
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
+            int id = restid.RestId;
+            var image = new RestaurantImage();
+            image.RestId = id;
+            var checkforrecord = _context.RestaurantImages.Where(x => x.RestId == id).FirstOrDefault();
+            string[] paths = new string[1];
+            int pcount = 0;
+            string path = "wwwroot/images";
+
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            List<string> uploadedFiles = new List<string>();
+            foreach (IFormFile postedFile in postedFiles)
+            {
+                string fileName = Path.GetFileName(postedFile.FileName);
+                paths[pcount] = fileName;
+                pcount++;
+                using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
+                {
+                    postedFile.CopyTo(stream);
+                    uploadedFiles.Add(fileName);
+                    ViewBag.Message += string.Format("<b>{0}</b> uploaded.<br />", fileName);
+                }
+            }
+            //link uploading to the database
+            string path2 = "~/images";
+            if (pcount >= 1)
+            {
+                _context.RestaurantImages.Where(x => x.RestId == id).FirstOrDefault().BannerImagePath = Path.Combine(path2, paths[0]);
+            }
+            _context.Add(image);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult uploadimagemain(List<IFormFile> postedFiles)
+        {
+            var userid = HttpContext.Session.GetInt32("user_id");
+            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+            var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
+            int id = restid.RestId;
+            var image = new RestaurantImage();
+            image.RestId = id;
+            string[] paths = new string[1];
+            int pcount = 0;
+            string path = "wwwroot/images";
+
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            List<string> uploadedFiles = new List<string>();
+            foreach (IFormFile postedFile in postedFiles)
+            {
+                string fileName = Path.GetFileName(postedFile.FileName);
+                paths[pcount] = fileName;
+                pcount++;
+                using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
+                {
+                    postedFile.CopyTo(stream);
+                    uploadedFiles.Add(fileName);
+                    ViewBag.Message += string.Format("<b>{0}</b> uploaded.<br />", fileName);
+                }
+            }
+            //link uploading to the database
+            string path2 = "~/images";
+            if (pcount >= 5)
+            {
+                _context.RestaurantImages.Where(x => x.RestId == id).FirstOrDefault().MainImagePath = Path.Combine(path2, paths[0]);
+            }
+            _context.Add(image);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
         public ActionResult Banner()
         {

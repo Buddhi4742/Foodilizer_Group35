@@ -6,21 +6,65 @@
     <div class="container-fluid px-4">
         <div class="row">
             <div class="col-8">
-                <h1 class="mt-4">Banner</h1>
+                <h1 class="mt-4">Images</h1>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item active">Store Admin/Banner</li>
+                    <li class="breadcrumb-item active">Store Admin/Images</li>
                 </ol>
-                <h4>Update Banner</h4>
+                <h4>Update Restaurant Images</h4>
+                <h5>Go to Inspect to see the changes!</h5>
             </div>
         </div>
-        <div class="card-body row">
-            <div class="col-9">
-                <img src="https://i.postimg.cc/28PqLLQC/dotonburi-canal-osaka-japan-700.jpg" class="banner-img img-fluid" alt="Card Image">
+        <form method="post" enctype="multipart/form-data" asp-controller="StoreAdmin" asp-action="uploadimagemain" runat="server">
+            <div>
+                <label for="inputrestLogo">Restaurant Restaurant Logo</label>
+                <input type="file" id="fileupload" name="postedFiles" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" multiple />
+                <button name="submit" asp-action="uploadimagemain" asp-controller="StoreAdmin" class="btn-dark" type="submit" id="submit" onclick="return Validateimagesbanner()">Submit</button>
             </div>
-            <div class="col-3">
+        </form>
+        <form method="post" enctype="multipart/form-data" asp-controller="StoreAdmin" asp-action="uploadimagebanner" runat="server">
+            <div>
                 <label for="inputrestLogo">Restaurant Banner</label>
-                <input type="file" class="form-control" id="inputrestLogo" onchange="getImagePreview(event)">
+                <input type="file" id="fileupload" name="postedFiles" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" multiple />
+                <button name="submit" asp-action="uploadimagebanner" asp-controller="StoreAdmin" class="btn-dark" type="submit" id="submit" onclick="return Validateimagesbanner()">Submit</button>
             </div>
-        </div>
+        </form>
+        <form method="post" enctype="multipart/form-data" asp-controller="StoreAdmin" asp-action="Uploadimagesgallery" runat="server">
+            <div>
+                <label for="inputrestLogo">Restaurant Gallery Images</label>
+                <input type="file" id="fileupload" name="postedFiles" accept=".bmp, .jpg, .png, .gif, .jpeg, .BMP, .JPG, .PNG, .GIF, .JPEG" multiple />
+                <button name="submit" asp-action="Uploadimagesgallery" asp-controller="StoreAdmin" class="btn-dark" type="submit" id="submit" onclick="return Validateimagesgallery()">Submit</button>
+            </div>
+        </form>
     </div>
 </main>
+
+<script>
+    function Validateimagesgallery() {
+        var fileCount = document.getElementById('fileupload').files.length;
+        if (fileCount > 5) // Selected images with in 10 count
+        {
+            alert("Please select only 3 images..!!!");
+            return false;
+        }
+
+        else {
+            return true;
+        }
+
+
+    }
+    function Validateimagesbanner() {
+        var fileCount = document.getElementById('fileupload').files.length;
+        if (fileCount > 1) // Selected images with in 10 count
+        {
+            alert("Please select only 3 images..!!!");
+            return false;
+        }
+
+        else {
+            return true;
+        }
+
+
+    }
+</script>
