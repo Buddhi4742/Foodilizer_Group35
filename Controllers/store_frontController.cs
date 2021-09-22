@@ -390,15 +390,57 @@ namespace Foodilizer_Group35.Controllers
         {
             return View();
         }
-        public IActionResult gold_cart(int id)
+        public IActionResult addtocartgold(int id)
         {
-            string jsonString = JsonSerializer.Serialize(id);
+            List<cart> cartlist = new();
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("cart")))
+            {
+                var temp = new cart();
+                temp.id = id;
+                cartlist.Add(temp);
+                var cartstring = JsonSerializer.Serialize(cartlist);
+                HttpContext.Session.SetString("cart", cartstring);
+            }
+            else
+            {
+                cartlist = JsonSerializer.Deserialize<List<cart>>(HttpContext.Session.GetString("cart"));
+                if (cartlist.Where(x => x.id == id).FirstOrDefault() == null)
+                {
+                    var temp = new cart();
+                    temp.id = id;
+                    cartlist.Add(temp);
+                    var cartstring = JsonSerializer.Serialize(cartlist);
+                    HttpContext.Session.SetString("cart", cartstring);
+                }
+            }
+            id = (int)HttpContext.Session.GetInt32("rest_id");
             //string listold = HttpContext.Session.GetString("cart");
 
             //HttpContext.Session.SetString("cart", jsonString);
             //string list= HttpContext.Session.GetString("cart");
+            return RedirectToAction("gold_home", "store_front", new {id});
+        }
+        public IActionResult gold_cart()
+        {
+            int total = 0;
+            int i = 0;
+            List<cart> cartlist = new();
+            List<Food> foodlist = new();
+            cartlist = JsonSerializer.Deserialize<List<cart>>(HttpContext.Session.GetString("cart"));
+            foreach (var item in cartlist)
+            {
+                foodlist.Add(_context.Foods.Where(x => x.FoodId == item.id).FirstOrDefault());
+                total = total + (int)foodlist.LastOrDefault().Price;
+            }
+            i = foodlist.Count();
+            ViewBag.Foodcartlist = foodlist;
+            ViewBag.total = total;
+            ViewBag.Cartcount = i;
+
+            //Response.WriteAsync(total.ToString());
             return View();
         }
+
         public IActionResult silver_checkout()
         {
             return View();
