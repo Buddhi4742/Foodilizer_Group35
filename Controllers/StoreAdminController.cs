@@ -24,6 +24,7 @@ namespace Foodilizer_Group35.Controllers
         // GET: Store_adminController
         public ActionResult Index()
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             var userid = HttpContext.Session.GetInt32("user_id");
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
@@ -33,6 +34,7 @@ namespace Foodilizer_Group35.Controllers
         }
         public ActionResult Profile()
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             var userid = HttpContext.Session.GetInt32("user_id");
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
@@ -43,6 +45,7 @@ namespace Foodilizer_Group35.Controllers
 
         public async Task<IActionResult> UpdateRestaurant(IFormCollection collection,int id)
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             var userid = HttpContext.Session.GetInt32("user_id");
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
@@ -86,6 +89,7 @@ namespace Foodilizer_Group35.Controllers
         }
         public ActionResult Menu()
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             var userid = HttpContext.Session.GetInt32("user_id");
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
@@ -102,19 +106,21 @@ namespace Foodilizer_Group35.Controllers
 
         public ActionResult MenuDetails(int id)
         {
-
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             return View(_context.Foods.Where(x => x.FoodId == id).FirstOrDefault());
 
         }
 
         public ActionResult MenuCreate(int id)
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             TempData["MenuID"] = id;
             return View();
         }
 
         public ActionResult MenuNewFooditem(int id,IFormCollection collection, IFormFile postedFile)
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             int restid = (int)_context.Menus.Where(x => x.MenuId == id).FirstOrDefault().RestId;
             Restaurant[] temp2 = _context.Restaurants.Where(e => e.RestId == restid).Include(e => e.Reviews).ThenInclude(e => e.Customer).ToArray();
             float a = 0;
@@ -218,7 +224,7 @@ namespace Foodilizer_Group35.Controllers
         }
         public ActionResult MenuEdit(int id)
         {
-
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             return View(_context.Foods.Where(x => x.FoodId == id).FirstOrDefault());
 
 
@@ -227,6 +233,7 @@ namespace Foodilizer_Group35.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult MenuEdit(int id, Food food)
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             try
             {
 
@@ -244,6 +251,7 @@ namespace Foodilizer_Group35.Controllers
         // GET: itemtable/Delete/5
         public ActionResult MenuDelete(int id)
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             //Response.WriteAsync(id.ToString());
             TempData["Food_id"] = id;
             //Response.WriteAsync(TempData["Food_id"].ToString());
@@ -253,13 +261,15 @@ namespace Foodilizer_Group35.Controllers
         // POST: itemtable/Delete/5
         public  ActionResult Deletefooditem(int id)
         {
-                Food food = _context.Foods.Where(x => x.FoodId == id).FirstOrDefault();
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
+            Food food = _context.Foods.Where(x => x.FoodId == id).FirstOrDefault();
                 _context.Foods.Remove(food);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Menu));
         }
         public ActionResult Inventory()
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             var userid = HttpContext.Session.GetInt32("user_id");
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
@@ -271,19 +281,21 @@ namespace Foodilizer_Group35.Controllers
         }
         public ActionResult InventoryDetails(int id)
         {
-            
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             return View(_context.Items.Where(x => x.ItemId == id).FirstOrDefault());
             
         }
 
         public ActionResult InventoryCreate()
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult InventoryCreate(Item item)
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             var userid = HttpContext.Session.GetInt32("user_id");
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
@@ -297,6 +309,7 @@ namespace Foodilizer_Group35.Controllers
         }
         public ActionResult InventoryEdit(int id)
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             return View(_context.Items.Where(x => x.ItemId == id).FirstOrDefault());
             
     
@@ -305,6 +318,7 @@ namespace Foodilizer_Group35.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult InventoryEdit(int id, Item item)
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             try
             {
 
@@ -322,6 +336,7 @@ namespace Foodilizer_Group35.Controllers
         // GET: itemtable/Delete/5
         public IActionResult InventoryDelete(int id)
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             //Response.WriteAsync(id.ToString());
             return View(_context.Items.Where(x => x.ItemId == id).FirstOrDefault());
         }
@@ -329,6 +344,7 @@ namespace Foodilizer_Group35.Controllers
         // POST: itemtable/Delete/5
         public async Task<IActionResult> InventoryDelete(int id, IFormCollection collection)
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             try
             {
                 //Response.WriteAsync(id.ToString());
@@ -348,6 +364,7 @@ namespace Foodilizer_Group35.Controllers
 
         public ActionResult Recomendations()
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             var userid = HttpContext.Session.GetInt32("user_id");
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
@@ -366,6 +383,7 @@ namespace Foodilizer_Group35.Controllers
         }
         public async Task<IActionResult> Uploadimagesgallery(List<IFormFile> postedFiles3)
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             var userid = HttpContext.Session.GetInt32("user_id");
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
@@ -482,6 +500,7 @@ namespace Foodilizer_Group35.Controllers
 
         public async Task<IActionResult> uploadimagebanner(IFormFile postedFiles2)
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             var userid = HttpContext.Session.GetInt32("user_id");
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
@@ -533,6 +552,7 @@ namespace Foodilizer_Group35.Controllers
         }
         public async Task<IActionResult> uploadimagemain(IFormFile postedFiles1)
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             var userid = HttpContext.Session.GetInt32("user_id");
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
@@ -585,6 +605,7 @@ namespace Foodilizer_Group35.Controllers
         }
         public ActionResult Banner()
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             var userid = HttpContext.Session.GetInt32("user_id");
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
@@ -599,6 +620,7 @@ namespace Foodilizer_Group35.Controllers
         }
         public ActionResult Orders()
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             var userid = HttpContext.Session.GetInt32("user_id");
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
@@ -612,6 +634,7 @@ namespace Foodilizer_Group35.Controllers
         //}
         public ActionResult Reports()
         {
+            TempData["RestType"] = HttpContext.Session.GetString("rest_type");
             var userid = HttpContext.Session.GetInt32("user_id");
             var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
@@ -619,15 +642,16 @@ namespace Foodilizer_Group35.Controllers
             TempData["ID"] = id;
             return View();
         }
-        public ActionResult Inspect()
-        {
-            var userid = HttpContext.Session.GetInt32("user_id");
-            var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
-            var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
-            int id = restid.RestId;
-            TempData["ID"] = id;
-            return View();
-        }
+        //public ActionResult Inspect()
+        //{
+        //    TempData["RestType"] = HttpContext.Session.GetString("rest_type");
+        //    var userid = HttpContext.Session.GetInt32("user_id");
+        //    var userdetails = _context.Users.Where(x => x.UserId == userid).FirstOrDefault();
+        //    var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
+        //    int id = restid.RestId;
+        //    TempData["ID"] = id;
+        //    return View();
+        //}
 
     }
 }

@@ -48,46 +48,121 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu overflow-hidden">
                     <div class="nav">
-                        <a class="nav-link" asp-controller="StoreAdmin" asp-action="Index">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                          Our Dashboard
-                        </a>
-                        <a class="nav-link" asp-controller="StoreAdmin" asp-action="Profile"asp-route-id="@TempData["Rest_Id"]">
-                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                           Our  Profile
-                        </a>
-                        <a class="nav-link" asp-controller="StoreAdmin" asp-action="Menu">
-                            <div class="sb-nav-link-icon"><i class="fas fa-hamburger"></i></div>
-                         Our Menu
-                        </a>
-                        <a class="nav-link" asp-controller="StoreAdmin" asp-action="Inventory">
-                            <div class="sb-nav-link-icon"><i class="fas fa-dolly-flatbed"></i></div>
-                            Inventory
-                        </a>
-                        <a class="nav-link"asp-controller="StoreAdmin" asp-action="Recomendations">
-                            <div class="sb-nav-link-icon"><i class="fas fa-thumbs-up"></i></div>
-                            Recomendations
-                        </a>
-                        <a class="nav-link" asp-controller="StoreAdmin" asp-action="Banner">
-                            <div class="sb-nav-link-icon"><i class="fas fa-ad"></i></div>
-                            Our Banner
-                        </a>
-                        <a class="nav-link" asp-controller="StoreAdmin" asp-action="Orders">
-                            <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
-                            Orders to us 
-                        </a>
-                        @*<a class="nav-link" asp-controller="StoreAdmin" asp-action="OtherUsers">
-                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
-                            Other users
-                        </a>*@
-                        <a class="nav-link" asp-controller="StoreAdmin" asp-action="Reports">
-                            <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
-                            Reports
-                        </a>
-                        <a class="nav-link" asp-controller="StoreAdmin" asp-action="Inspect">
-                            <div class="sb-nav-link-icon"><i class="fas fa-lightbulb"></i></div>
-                            Inspect
-                        </a>
+
+                        @{if ((string)TempData["RestType"] == "gold")
+                            {
+                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Index">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                    Our Dashboard
+                                </a>
+                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Profile" asp-route-id="@TempData["Rest_Id"]">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                    Our  Profile
+                                </a>
+                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Menu">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-hamburger"></i></div>
+                                    Our Menu
+                                </a>
+                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Inventory">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-dolly-flatbed"></i></div>
+                                    Inventory
+                                </a>
+                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Recomendations">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-thumbs-up"></i></div>
+                                    Recomendations
+                                </a>
+                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Banner">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-ad"></i></div>
+                                    Our Banner
+                                </a>
+                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Orders">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
+                                    Orders to us
+                                </a>
+                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Reports">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
+                                    Reports
+                                </a>
+                                <a class="nav-link" asp-controller="Search" asp-action="redirectstore" asp-route-id="@TempData["ID"]">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-lightbulb"></i></div>
+                                    Inspect
+                                </a>
+                            }
+                            else if ((string)(TempData["RestType"]) == "silver")
+                            {
+                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Index">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                    Our Dashboard
+                                </a>
+                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Profile" asp-route-id="@TempData["Rest_Id"]">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                    Our  Profile
+                                </a>
+                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Menu">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-hamburger"></i></div>
+                                    Our Menu
+                                </a>
+                                
+                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Recomendations">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-thumbs-up"></i></div>
+                                    Recomendations
+                                </a>
+                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Banner">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-ad"></i></div>
+                                    Our Banner
+                                </a>
+                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Orders">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
+                                    Orders to us
+                                </a>
+                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Reports" >
+                                    <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
+                                    Reports
+                                </a>
+                                <a class="nav-link" asp-controller="Search" asp-action="redirectstore" asp-route-id="@TempData["ID"]">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-lightbulb"></i></div>
+                                    Inspect
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Index">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                    Our Dashboard
+                                </a>
+                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Profile" asp-route-id="@TempData["Rest_Id"]">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                    Our  Profile
+                                </a>
+                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Menu">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-hamburger"></i></div>
+                                    Our Menu
+                                </a>
+                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Banner">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-ad"></i></div>
+                                    Our Banner
+                                </a>
+                                <a class="nav-link" asp-controller="Search" asp-action="redirectstore" asp-route-id="@TempData["ID"]">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-lightbulb"></i></div>
+                                    Inspect
+                                </a>
+                            }
+
+
+                        }
+
+
+
+
+
+
+
+
+
+
+
+
+
                         @*<div class="sb-sidenav-menu-heading">Interface</div>
         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>

@@ -25,6 +25,7 @@ namespace Foodilizer_Group35.Controllers
 
         public IActionResult bronze_home(int id)
         {
+            string restutype = HttpContext.Session.GetString("rest_type");
             TempData["RestID"] = id;
             HttpContext.Session.SetInt32("rest_id", id);
             id = (int)HttpContext.Session.GetInt32("rest_id");
@@ -32,6 +33,11 @@ namespace Foodilizer_Group35.Controllers
             ViewBag.sessionid = sessionid;
             TempData["Id"] = sessionid;
             if (HttpContext.Session.GetInt32("user_email") == null)
+            {
+                TempData["Name"] = null;
+                TempData["Id"] = null;
+            }
+            if (!string.IsNullOrEmpty(restutype))
             {
                 TempData["Name"] = null;
                 TempData["Id"] = null;
@@ -145,6 +151,7 @@ namespace Foodilizer_Group35.Controllers
 
         public IActionResult silver_home(int id)
         {
+            string restutype = HttpContext.Session.GetString("rest_type");
             TempData["RestID"] = id;
             HttpContext.Session.SetInt32("rest_id", id);
             id = (int)HttpContext.Session.GetInt32("rest_id");
@@ -156,7 +163,11 @@ namespace Foodilizer_Group35.Controllers
                 TempData["Name"] = null;
                 TempData["Id"] = null;
             }
-
+            if (!string.IsNullOrEmpty(restutype))
+            {
+                TempData["Name"] = null;
+                TempData["Id"] = null;
+            }
             var sessionuser = HttpContext.Session.GetString("user_type");
             ViewBag.sessionuser = sessionuser;
 
@@ -268,6 +279,7 @@ namespace Foodilizer_Group35.Controllers
         }
         public IActionResult gold_home(int id)
         {
+            string restutype = HttpContext.Session.GetString("rest_type");
             TempData["RestID"] = id;
             HttpContext.Session.SetInt32("rest_id", id);
             id= (int)HttpContext.Session.GetInt32("rest_id");
@@ -280,6 +292,13 @@ namespace Foodilizer_Group35.Controllers
                 TempData["Name"] = null;
                 TempData["Id"] = null;
             }
+
+            if (!string.IsNullOrEmpty(restutype))
+            {
+                TempData["Name"] = null;
+                TempData["Id"] = null;
+            }
+
             var sessionuser = HttpContext.Session.GetString("user_type");
             ViewBag.sessionuser = sessionuser;
             //int id = 5;
