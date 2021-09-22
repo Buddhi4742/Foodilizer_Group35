@@ -590,6 +590,20 @@ namespace Foodilizer_Group35.Controllers
             HttpContext.Session.SetInt32("sessiontotalvalue",newtotal);
             return View();
         }
+        public IActionResult goldcart_delete(int id)
+        {
+            List<cart> cartlist = new();
+            cartlist = JsonSerializer.Deserialize<List<cart>>(HttpContext.Session.GetString("cart"));
+            var temp = cartlist.Where(x => x.id == id).FirstOrDefault();
+            cartlist.Remove(temp);
+            var cartstring = JsonSerializer.Serialize(cartlist);
+            HttpContext.Session.SetString("cart", cartstring);
+            id = (int)HttpContext.Session.GetInt32("rest_id");
+            //string listold = HttpContext.Session.GetString("cart");
+            //HttpContext.Session.SetString("cart", jsonString);
+            //string list= HttpContext.Session.GetString("cart");
+            return RedirectToAction("gold_home", "store_front", new { id });
+        }
         public IActionResult gold_checkout_confrim(string cname, string daddress,string cnumber)
         {
             var userid = HttpContext.Session.GetInt32("user_id");
@@ -599,6 +613,7 @@ namespace Foodilizer_Group35.Controllers
             int id = restid;
             int total = (int)HttpContext.Session.GetInt32("sessiontotalvalue");
             var dbtemp = new RestaurantOrder();
+            var dborder = new OrderIncludesFood();
             DateTime today = DateTime.UtcNow.Date;
             dbtemp.CustomerId = custid.CustomerId;
             dbtemp.TotalAmount = total;
@@ -608,6 +623,18 @@ namespace Foodilizer_Group35.Controllers
             dbtemp.Content = custid.Name;
             _context.Add(dbtemp);
             _context.SaveChanges();
+
+            List<cart> cartlist = new();
+            List<Food> foodlist = new();
+            cartlist = JsonSerializer.Deserialize<List<cart>>(HttpContext.Session.GetString("cart"));
+            foreach (var item in cartlist)
+            {
+                dborder.FoodId = item.id;
+                dborder.OrderId = _context.RestaurantOrders.OrderBy(s => s.OrderId).LastOrDefault().OrderId;
+                dborder.QTY = 1;
+                _context.Add(dborder);
+                _context.SaveChanges();
+            }
             HttpContext.Session.SetString("cart", "");
             return RedirectToAction("gold_home", "store_front", new { id });
         }
