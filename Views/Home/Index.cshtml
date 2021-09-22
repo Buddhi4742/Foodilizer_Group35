@@ -149,71 +149,91 @@
         </div>
         <div class="swiper-container mySwiper ">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="swiper-block">
-                        <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                        <div class="swiper-card-data">
-                            <h4 class="card-name">Hoppa Galle Fort</h4>
-                            <span class="card-info">Resturant</span>
-                            <div class="rating-card">
-                                <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                                <div> <span>&nbsp;49 reviews</span> </div>
+                
+
+                @{ List<Food> temp = ViewBag.recommendation;}
+                @if (temp != null)
+                {
+                    @foreach (var item in temp.Take(5))
+                    {
+                    
+                        <div class="swiper-slide">
+                            <div class="swiper-block">
+                                <img src="@Url.Content(item.ImagePath)" class="swiper-image img-fluid w-75" alt="res-image">
+                                <div class="swiper-card-data">
+                                    <h4 class="card-name">@item.FoodName</h4>
+                                    <span class="card-info">Rs.@item.Price</span>
+                                    @*<div class="rating-card">
+                                        <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                                        <div> <span>&nbsp;49 reviews</span> </div>
+                                    </div>*@
+                                </div>
                             </div>
-                        </div>
+                        </div>   
+
+                        
+                    }
+                }
+
+
+
+
+
+
+
+
+                @*<div class="swiper-slide">
+            <div class="swiper-block">
+                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                <div class="swiper-card-data">
+                    <h4 class="card-name">Hoppa Galle Fort</h4>
+                    <span class="card-info">Resturant</span>
+                    <div class="rating-card">
+                        <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                        <div> <span>&nbsp;49 reviews</span> </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="swiper-block">
-                        <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                        <div class="swiper-card-data">
-                            <h4 class="card-name">Hoppa Galle Fort</h4>
-                            <span class="card-info">Resturant</span>
-                            <div class="rating-card">
-                                <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                                <div> <span>&nbsp;49 reviews</span> </div>
-                            </div>
-                        </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="swiper-block">
+                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                <div class="swiper-card-data">
+                    <h4 class="card-name">Hoppa Galle Fort</h4>
+                    <span class="card-info">Resturant</span>
+                    <div class="rating-card">
+                        <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                        <div> <span>&nbsp;49 reviews</span> </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="swiper-block">
-                        <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                        <div class="swiper-card-data">
-                            <h4 class="card-name">Hoppa Galle Fort</h4>
-                            <span class="card-info">Resturant</span>
-                            <div class="rating-card">
-                                <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                                <div> <span>&nbsp;49 reviews</span> </div>
-                            </div>
-                        </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="swiper-block">
+                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                <div class="swiper-card-data">
+                    <h4 class="card-name">Hoppa Galle Fort</h4>
+                    <span class="card-info">Resturant</span>
+                    <div class="rating-card">
+                        <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                        <div> <span>&nbsp;49 reviews</span> </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="swiper-block">
-                        <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                        <div class="swiper-card-data">
-                            <h4 class="card-name">Hoppa Galle Fort</h4>
-                            <span class="card-info">Resturant</span>
-                            <div class="rating-card">
-                                <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                                <div> <span>&nbsp;49 reviews</span> </div>
-                            </div>
-                        </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="swiper-block">
+                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                <div class="swiper-card-data">
+                    <h4 class="card-name">Hoppa Galle Fort</h4>
+                    <span class="card-info">Resturant</span>
+                    <div class="rating-card">
+                        <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                        <div> <span>&nbsp;49 reviews</span> </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="swiper-block">
-                        <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                        <div class="swiper-card-data">
-                            <h4 class="card-name">Hoppa Galle Fort</h4>
-                            <span class="card-info">Resturant</span>
-                            <div class="rating-card">
-                                <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                                <div> <span>&nbsp;49 reviews</span> </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </div>*@
                 <br /><br />
             </div>
             <div class="swiper-pagination position-relative pt-2"></div>
@@ -224,76 +244,100 @@
 <section id="near-you" class="near-you sec-swiper">
     <div class="container">
         <div class="section-title">
-            <h2>Cool places near you</h2>
-            <p>Check out these places</p>
+            <h2>Restaurants Reccomends These</h2>
+            <p>Check out these Food</p>
         </div>
         <div class="swiper-container mySwiper ">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="swiper-block">
-                        <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                        <div class="swiper-card-data">
-                            <h4 class="card-name">Hoppa Galle Fort</h4>
-                            <span class="card-info">Resturant</span>
-                            <div class="rating-card">
-                                <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                                <div> <span>&nbsp;49 reviews</span> </div>
+                @{ List<Food> temp2 = ViewBag.featured;}
+                @if (temp != null)
+                {
+                    @foreach (var item in temp2.Take(5))
+                    {
+                        @if (item.Featured == "1")
+                        {
+                            <div class="swiper-slide">
+                                <div class="swiper-block">
+                                    <img src="@Url.Content(item.ImagePath)" class="swiper-image img-fluid w-75" alt="res-image">
+                                    <div class="swiper-card-data">
+                                        <h4 class="card-name">@item.FoodName</h4>
+                                        <span class="card-info">RS.@item.Price</span>
+                                        @*<div class="rating-card">
+                                    <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                                    <div> <span>&nbsp;49 reviews</span> </div>
+                                </div>*@
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        }
+
+                    }
+                }
+                @*<div class="swiper-slide">
+            <div class="swiper-block">
+                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                <div class="swiper-card-data">
+                    <h4 class="card-name">Hoppa Galle Fort</h4>
+                    <span class="card-info">Resturant</span>
+                    <div class="rating-card">
+                        <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                        <div> <span>&nbsp;49 reviews</span> </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="swiper-block">
-                        <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                        <div class="swiper-card-data">
-                            <h4 class="card-name">Hoppa Galle Fort</h4>
-                            <span class="card-info">Resturant</span>
-                            <div class="rating-card">
-                                <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                                <div> <span>&nbsp;49 reviews</span> </div>
-                            </div>
-                        </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="swiper-block">
+                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                <div class="swiper-card-data">
+                    <h4 class="card-name">Hoppa Galle Fort</h4>
+                    <span class="card-info">Resturant</span>
+                    <div class="rating-card">
+                        <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                        <div> <span>&nbsp;49 reviews</span> </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="swiper-block">
-                        <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                        <div class="swiper-card-data">
-                            <h4 class="card-name">Hoppa Galle Fort</h4>
-                            <span class="card-info">Resturant</span>
-                            <div class="rating-card">
-                                <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                                <div> <span>&nbsp;49 reviews</span> </div>
-                            </div>
-                        </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="swiper-block">
+                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                <div class="swiper-card-data">
+                    <h4 class="card-name">Hoppa Galle Fort</h4>
+                    <span class="card-info">Resturant</span>
+                    <div class="rating-card">
+                        <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                        <div> <span>&nbsp;49 reviews</span> </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="swiper-block">
-                        <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                        <div class="swiper-card-data">
-                            <h4 class="card-name">Hoppa Galle Fort</h4>
-                            <span class="card-info">Resturant</span>
-                            <div class="rating-card">
-                                <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                                <div> <span>&nbsp;49 reviews</span> </div>
-                            </div>
-                        </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="swiper-block">
+                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                <div class="swiper-card-data">
+                    <h4 class="card-name">Hoppa Galle Fort</h4>
+                    <span class="card-info">Resturant</span>
+                    <div class="rating-card">
+                        <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                        <div> <span>&nbsp;49 reviews</span> </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="swiper-block">
-                        <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
-                        <div class="swiper-card-data">
-                            <h4 class="card-name">Hoppa Galle Fort</h4>
-                            <span class="card-info">Resturant</span>
-                            <div class="rating-card">
-                                <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
-                                <div> <span>&nbsp;49 reviews</span> </div>
-                            </div>
-                        </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="swiper-block">
+                <img src="~/resources/images/top-res-1.jpg" class="swiper-image img-fluid w-75" alt="res-image">
+                <div class="swiper-card-data">
+                    <h4 class="card-name">Hoppa Galle Fort</h4>
+                    <span class="card-info">Resturant</span>
+                    <div class="rating-card">
+                        <span><b> 5.0</b> </span> <span class="rate-circles"> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> </span>
+                        <div> <span>&nbsp;49 reviews</span> </div>
                     </div>
                 </div>
+            </div>
+        </div>*@
                 <br /><br />
             </div>
             <div class="swiper-pagination position-relative pt-2"></div>
