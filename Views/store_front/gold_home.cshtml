@@ -720,7 +720,7 @@
                             <h3>Reviews (@i)</h3>@*<button class="revb">Write a Review</button>*@
                             //sessionid= 1; // for the form to be displayed. remove this to see the error message.
 
-                            @if (sessionid != null)
+                            @if ((sessionid != null) && (sessionid != -1))
                             {
                                 <div align="center">
                                     <br />
@@ -785,12 +785,12 @@
                             }
                             //restaurants cannot write reviews
                             @*else if (sessionuser == "REST")
-                                    {
-                                <div id="loginScreen">
-                                    <a href="#rev" class="cancel">×</a>
-                                    <p>u can't'</p>
-                                </div>
-                                    }*@
+                {
+            <div id="loginScreen">
+                <a href="#rev" class="cancel">×</a>
+                <p>u can't'</p>
+            </div>
+                }*@
 
 
                             else
