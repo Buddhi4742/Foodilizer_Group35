@@ -51,10 +51,10 @@
 
                         @{if ((string)TempData["RestType"] == "gold")
                             {
-                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Index">
+                                @*<a class="nav-link" asp-controller="StoreAdmin" asp-action="Index">
                                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                     Our Dashboard
-                                </a>
+                                </a>*@
                                 <a class="nav-link" asp-controller="StoreAdmin" asp-action="Profile" asp-route-id="@TempData["Rest_Id"]">
                                     <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                     Our  Profile
@@ -79,10 +79,10 @@
                                     <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
                                     Orders 
                                 </a>
-                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Reports">
+                                @*<a class="nav-link" asp-controller="StoreAdmin" asp-action="Reports">
                                     <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                     Reports
-                                </a>
+                                </a>*@
                                 <a class="nav-link" asp-controller="Search" asp-action="redirectstore" asp-route-id="@TempData["ID"]">
                                     <div class="sb-nav-link-icon"><i class="fas fa-lightbulb"></i></div>
                                     Inspect
@@ -90,10 +90,10 @@
                             }
                             else if ((string)(TempData["RestType"]) == "silver")
                             {
-                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Index">
+                                @*<a class="nav-link" asp-controller="StoreAdmin" asp-action="Index">
                                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                     Our Dashboard
-                                </a>
+                                </a>*@
                                 <a class="nav-link" asp-controller="StoreAdmin" asp-action="Profile" asp-route-id="@TempData["Rest_Id"]">
                                     <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                     Our  Profile
@@ -115,10 +115,10 @@
                                     <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
                                     Orders 
                                 </a>
-                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Reports" >
+                                @*<a class="nav-link" asp-controller="StoreAdmin" asp-action="Reports" >
                                     <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                     Reports
-                                </a>
+                                </a>*@
                                 <a class="nav-link" asp-controller="Search" asp-action="redirectstore" asp-route-id="@TempData["ID"]">
                                     <div class="sb-nav-link-icon"><i class="fas fa-lightbulb"></i></div>
                                     Inspect
@@ -126,10 +126,10 @@
                             }
                             else
                             {
-                                <a class="nav-link" asp-controller="StoreAdmin" asp-action="Index">
+                                @*<a class="nav-link" asp-controller="StoreAdmin" asp-action="Index">
                                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                     Our Dashboard
-                                </a>
+                                </a>*@
                                 <a class="nav-link" asp-controller="StoreAdmin" asp-action="Profile" asp-route-id="@TempData["Rest_Id"]">
                                     <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                     Our  Profile

@@ -30,7 +30,7 @@ namespace Foodilizer_Group35.Controllers
             var restid = _context.Restaurants.Where(x => x.Remail == userdetails.Email).FirstOrDefault();
             int id = restid.RestId;
             TempData["ID"] = id;
-            return View();
+            return RedirectToAction("Menu");
         }
         public ActionResult Profile()
         {
