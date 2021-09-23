@@ -69,7 +69,7 @@ namespace Foodilizer_Group35.Controllers
                     else if (userDetails.UserType == "ADMIN")
                     {
                         TempData["Id"] = HttpContext.Session.GetInt32("user_id");
-                        return RedirectToAction("Index", "Foodilizer_admin");
+                        return RedirectToAction("Resturants", "Foodilizer_admin");
                     }
                     else if (userDetails.UserType == "REST")
                     {
@@ -80,7 +80,7 @@ namespace Foodilizer_Group35.Controllers
                         HttpContext.Session.SetString("rest_type", resttype);
                         TempData["RestType"]=resttype;
 
-                        return RedirectToAction("Index", "StoreAdmin");
+                        return RedirectToAction("Menu", "StoreAdmin");
                     }
                     else
                     {
