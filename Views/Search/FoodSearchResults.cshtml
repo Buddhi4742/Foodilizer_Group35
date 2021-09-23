@@ -4,11 +4,6 @@
     ViewData["Title"] = "FoodIndex";
     Layout = "~/Views/Shared/_home_Layout.cshtml";
 }
-
-
-
-
-
 <head>
 
     <link rel="stylesheet" href="~/css/search.css" />
@@ -57,12 +52,12 @@
             <div class="result-card-body">
                 <section class="search-result-item align-content-center">
                     <a class="image-link" href="#">
-                        <img class="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                        <img class="image" src="@Url.Content(item.ImagePath)">
                     </a>
                     <div class="search-result-item-body">
                         <div class="row">
                             <div class="col-sm-6">
-                                <h4 class="search-result-item-heading"><a href="#">@Html.DisplayFor(modelItem => item.FoodName)</a></h4>
+                                <h4 class="search-result-item-heading"><a asp-controller="Search" asp-action="redirectstorewithfoods" asp-route-id="@item.MenuId">@Html.DisplayFor(modelItem => item.FoodName)</a></h4>
                                 <span class="info">@Html.DisplayFor(modelItem => item.FoodName)</span>
                                 <br />
                                 <span class="description">@Html.DisplayFor(modelItem => item.Type)</span>
@@ -73,19 +68,15 @@
                                 <h3 class="Price-tag">RS @Html.DisplayFor(modelItem => item.Price)</h3>
 
                                 <span class="value3 mt-sm">
+                                    @{
+                                        for (int i=0; i<item.Quantity; i++) {
+
                                     <i class="fa fa-circle"></i>
-                                    <i class="fa fa-circle"></i>
-                                    <i class="fa fa-circle"></i>
-                                    <i class="fa fa-circle"></i>
-                                    <i class="fa fa-circle"></i>
+                                        }
+                                      }
                                 </span>
-                                <p class="fs-mini text-muted">100 Reviews</p>
+                                <p class="fs-mini text-muted">Preference Score: @Html.DisplayFor(modelItem => item.PrefScore)</p>
                                 <a class="btn btn-primary btn-info btn-sm" href="#">More</a>
-                            </div>
-                            <div class="col-sm-3 text-align-center">
-                                <a class="image-link" href="#">
-                                    <img class="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
-                                </a>
                             </div>
                         </div>
                     </div>

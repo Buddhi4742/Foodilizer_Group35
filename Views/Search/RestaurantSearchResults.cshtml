@@ -74,11 +74,11 @@
                                 <span class="description">@Html.DisplayFor(modelItem => item.OpenHour)</span>
                             </div>
                             <div class="col-sm-3 text-align-center">
-                                <p class="value3 mt-sm">
+                                @*<p class="value3 mt-sm">
                                     <i class="fa fa-circle"></i>
-                                    5.0
-                                </p>
-                                <p class="fs-mini text-muted">100 Reviews</p>
+                                   
+                                </p>*@
+                                <p class="fs-mini text-muted">@Html.DisplayFor(modelItem => item.Cuisine)</p>
                                 @*<a class="btn btn-primary btn-info btn-sm" href="#">More</a>*@
                                 <a class="btn btn-primary btn-info btn-sm" asp-controller="Search" asp-action="redirectstore" asp-route-id="@item.RestId">More</a>
                             </div>
